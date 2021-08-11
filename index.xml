@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Course materials | Spatial Data in R</title>
-    <link>https://academic-demo.netlify.app/</link>
-      <atom:link href="https://academic-demo.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://isdrfall21.classes.spaseslab.com/</link>
+      <atom:link href="http://isdrfall21.classes.spaseslab.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Course materials</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
+      <url>http://isdrfall21.classes.spaseslab.com/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Course materials</title>
-      <link>https://academic-demo.netlify.app/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/</link>
     </image>
     
     <item>
       <title>Python basics</title>
-      <link>https://academic-demo.netlify.app/courses/example/python/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/courses/example/python/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/courses/example/python/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/courses/example/python/</guid>
       <description>&lt;p&gt;Build a foundation in Python.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
@@ -51,9 +51,9 @@
     
     <item>
       <title>Visualization</title>
-      <link>https://academic-demo.netlify.app/courses/example/visualization/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/courses/example/visualization/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/courses/example/visualization/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/courses/example/visualization/</guid>
       <description>&lt;p&gt;Learn how to visualize data with Plotly.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
@@ -81,9 +81,9 @@ fig.show()
     
     <item>
       <title>Statistics</title>
-      <link>https://academic-demo.netlify.app/courses/example/stats/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/courses/example/stats/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/courses/example/stats/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/courses/example/stats/</guid>
       <description>&lt;p&gt;Introduction to statistics for data science.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
@@ -109,9 +109,9 @@ The variance of the distribution is $\sigma^{2}$.
     
     <item>
       <title>Example Talk</title>
-      <link>https://academic-demo.netlify.app/talk/example-talk/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/talk/example-talk/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/talk/example-talk/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/talk/example-talk/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -129,9 +129,9 @@ The variance of the distribution is $\sigma^{2}$.
     
     <item>
       <title>Welcome to Wowchemy, the website builder for Hugo</title>
-      <link>https://academic-demo.netlify.app/post/getting-started/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/post/getting-started/</link>
       <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/getting-started/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/post/getting-started/</guid>
       <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;The Wowchemy website builder for Hugo, along with its starter templates, is designed for professional creators, educators, and teams/organizations - although it can be used to create any kind of site&lt;/li&gt;
@@ -206,11 +206,11 @@ The variance of the distribution is $\sigma^{2}$.
     
     <item>
       <title>Hello R Markdown</title>
-      <link>https://academic-demo.netlify.app/post/2020-12-01-r-rmarkdown/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/post/2020-12-01-r-rmarkdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <guid>https://academic-demo.netlify.app/post/2020-12-01-r-rmarkdown/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/post/2020-12-01-r-rmarkdown/</guid>
       <description>
-&lt;script src=&#34;https://academic-demo.netlify.app/post/2020-12-01-r-rmarkdown/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://isdrfall21.classes.spaseslab.com/post/2020-12-01-r-rmarkdown/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
@@ -246,7 +246,7 @@ pie(
   init.angle = -50, border = NA
 )&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;https://academic-demo.netlify.app/post/2020-12-01-r-rmarkdown/index.en_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/post/2020-12-01-r-rmarkdown/index.en_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: A fancy pie chart.
 &lt;/p&gt;
@@ -257,9 +257,9 @@ Figure 1: A fancy pie chart.
     
     <item>
       <title>Writing technical content in Academic</title>
-      <link>https://academic-demo.netlify.app/post/writing-technical-content/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/post/writing-technical-content/</link>
       <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/writing-technical-content/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/post/writing-technical-content/</guid>
       <description>&lt;p&gt;Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Academic.&lt;/p&gt;
@@ -283,7 +283,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-645279381&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-256918437&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -293,7 +293,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-645279381&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-256918437&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -521,9 +521,9 @@ You found me!
     
     <item>
       <title>Display Jupyter Notebooks with Academic</title>
-      <link>https://academic-demo.netlify.app/post/jupyter/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/post/jupyter/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/jupyter/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/post/jupyter/</guid>
       <description>&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from IPython.core.display import Image
 Image(&#39;https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png&#39;)
 &lt;/code&gt;&lt;/pre&gt;
@@ -585,9 +585,9 @@ date: 2019-09-01
     
     <item>
       <title>Slides</title>
-      <link>https://academic-demo.netlify.app/slides/example/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/slides/example/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/slides/example/</guid>
       <description>&lt;h1 id=&#34;create-slides-in-markdown-with-wowchemy&#34;&gt;Create slides in Markdown with Wowchemy&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wowchemy&lt;/a&gt; | &lt;a href=&#34;https://owchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -714,17 +714,17 @@ Three
     
     <item>
       <title>External Project</title>
-      <link>https://academic-demo.netlify.app/project/external-project/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/project/external-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/project/external-project/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/project/external-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Internal Project</title>
-      <link>https://academic-demo.netlify.app/project/internal-project/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/project/internal-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/project/internal-project/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/project/internal-project/</guid>
       <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
 &lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
 &lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
@@ -735,10 +735,338 @@ Three
     
     <item>
       <title></title>
-      <link>https://academic-demo.netlify.app/admin/config.yml</link>
+      <link>http://isdrfall21.classes.spaseslab.com/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/admin/config.yml</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/admin/config.yml</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Syllabus</title>
+      <link>http://isdrfall21.classes.spaseslab.com/syllabus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/syllabus/</guid>
+      <description>
+&lt;script src=&#34;http://isdrfall21.classes.spaseslab.com/syllabus/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#course-description&#34;&gt;Course Description&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#course-objectives&#34;&gt;Course Objectives&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#important-pep-talk&#34;&gt;Important pep talk!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#expectations&#34;&gt;Expectations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#course-materials&#34;&gt;Course materials&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#books-articles-and-other-materials&#34;&gt;Books, articles, and other materials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#r-and-rstudio&#34;&gt;R and RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#online-help&#34;&gt;Online help&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#course-schedule&#34;&gt;Course schedule&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#course-policies&#34;&gt;Course policies&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#student-hours&#34;&gt;Student hours&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#learning-during-a-pandemic&#34;&gt;Learning during a pandemic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#late-work&#34;&gt;Late work&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#counseling-and-psychological-services-cps&#34;&gt;Counseling and Psychological Services (CPS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#basic-needs-security&#34;&gt;Basic needs security&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#laurens-promise&#34;&gt;Lauren’s Promise&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#academic-honesty&#34;&gt;Academic honesty&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#special-needs&#34;&gt;Special needs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#assignments-and-grades&#34;&gt;Assignments and grades&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;div class=&#34;row&#34;&gt;
+    &lt;div class=&#34;col-md-4&#34;&gt;
+        &lt;h3&gt;Instructor&lt;/h3&gt;
+        &lt;ul class=&#34;icon-list&#34;&gt;
+            &lt;li&gt;&lt;i class=&#34;fas fa-user&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://www.spaseslab.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Dr. Matt Williamson&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;fas fa-university&#34;&gt;&lt;/i&gt; Environmental Research Building 4125&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;fas fa-envelope&#34;&gt;&lt;/i&gt; &lt;a href=&#34;mailto:mattwilliamson@boisestate.edu&#34;&gt; mattwilliamson@boisestate.edu&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;fab fa-twitter&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://twitter.com/MwilliamsonMatt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; @MwilliamsonMatt&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;fas fa-calendar-check&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://calendly.com/mattwilliamson/30min&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Schedule an appointment&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col-md-4&#34;&gt;
+        &lt;h3&gt;Course details&lt;/h3&gt;
+        &lt;ul class=&#34;icon-list&#34;&gt;
+            &lt;li&gt;&lt;i class=&#34;far fa-calendar&#34;&gt;&lt;/i&gt; T TH&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;far fa-calendar-alt&#34;&gt;&lt;/i&gt; August 23 - December 10, 2021&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;far fa-clock&#34;&gt;&lt;/i&gt; 10:30 - 11:45&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;fas fa-university&#34;&gt;&lt;/i&gt; Albertson&amp;#39;s Library Rm201C&lt;/li&gt;&lt;li&gt;&lt;i class=&#34;fab fa-slack&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://ecostatsbsu.slack.com/archives/CV4DEJ8M7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Slack&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col-md-4 contact-policy&#34;&gt;
+        &lt;h3&gt;Contacting me&lt;/h3&gt;
+        &lt;p&gt;E-mail and Slack are the best ways to get in contact with me. I will try to respond to all course-related e-mails and Slack messages within 48 hours (please allow additional time if you send your message during the weekend).&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;div id=&#34;course-description&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Course Description&lt;/h2&gt;
+&lt;p&gt;Spatial data are ubiquitous and form the basis for many of our inquiries into social, ecological, and evolutionary processes. As such, developing the skills necessary for incorporating spatial data into reproducible statistical workflows is critical. In this course, we will introduce the core components of manipulating spatial data within the R statistical environment including managing vector and raster data, projections, extraction of data values, interpolation, and plotting. Students will also learn to prototype and benchmark different workflows to aid in applying the appropriate tools to their research questions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;course-objectives&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Course Objectives&lt;/h2&gt;
+&lt;p&gt;Students completing this course should be able to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Develop reproducible workflows for manipulating, visualizing, and analyzing spatial data.&lt;/li&gt;
+&lt;li&gt;Understand the unique components of spatial data and how those components fit in R’s data structures.&lt;/li&gt;
+&lt;li&gt;Articulate the different formats of spatial data and identify which R packages are suited to each type.&lt;/li&gt;
+&lt;li&gt;Describe why space matters for many social and ecological questions&lt;/li&gt;
+&lt;li&gt;Implement a variety of descriptive and statistical spatial analyses.&lt;/li&gt;
+&lt;li&gt;Leverage functional programming to automate and expedite spatial data operations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;important-pep-talk&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Important pep talk!&lt;/h2&gt;
+&lt;p&gt;I &lt;em&gt;promise&lt;/em&gt; you can succeed in this class.&lt;/p&gt;
+&lt;p&gt;Learning R can be difficult at first—it’s like learning a new language, just like Spanish, French, or Chinese. Hadley Wickham—the chief data scientist at RStudio and the author of some amazing R packages you’ll be using like &lt;strong&gt;ggplot2&lt;/strong&gt;—&lt;a href=&#34;https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/&#34;&gt;made this wise observation&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It’s easy when you start out programming to get really frustrated and think, “Oh it’s me, I’m really stupid,” or, “I’m not made out to program.” But, that is absolutely not the case. Everyone gets frustrated. I still get frustrated occasionally when writing R code. It’s just a natural part of programming. So, it happens to everyone and gets less and less over time. Don’t blame yourself. Just take a break, do something fun, and then come back and try again later.
+Even experienced programmers find themselves bashing their heads against seemingly intractable errors. If you’re finding yourself taking way too long hitting your head against a wall and not understanding, take a break, talk to classmates, e-mail me, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;expectations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Expectations&lt;/h2&gt;
+&lt;p&gt;Seminar courses like these are only successful if we all work together. Shared expectations are a big part of that. As such, I expect the following from you:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Participation - I expect you to show up, ask questions, work through the in-class coding exercises, and be generally present while we are together.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Understanding - We are all at different places in our research and our experience with scientific computing. Rather than belittle each other for not knowing how to do something, I hope to create an environment where we all learn from each other and there are no stupid questions. I expect you to help me achieve this.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Communication - I am happy to shift directions in the course if it stops meeting your needs. I can only do that if you let me know that a change is necessary. Please feel free to provide feedback early and often.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can expect the following from me:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Availability - This is a 1 credit course and your questions are likely to require more time than we can devote in class. I will do my best to make myself available outside of class hours to help you work through the spatial analysis problems that are slowing down your research progress.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Balance - The goal of this course is to teach you general approaches and workflows for spatial analyses in R, not to troubleshoot individual coding problems. I will do my best to point you toward resources that can help you solve your individual problems without monopolizing the time of others in class.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;course-materials&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Course materials&lt;/h2&gt;
+&lt;p&gt;All of the readings and software in this class are &lt;strong&gt;free&lt;/strong&gt;. There are free online version of all the textbooks, R and RStudio are inherently free, and GSU provides &lt;a href=&#34;https://technology.gsu.edu/technology-services/it-services/software-computer-purchase/software-download-and-purchase/adobe-creative-cloud/&#34;&gt;free access to Adobe Illustrator&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;books-articles-and-other-materials&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Books, articles, and other materials&lt;/h3&gt;
+&lt;p&gt;We’ll rely heavily on these books, which are all available online (&lt;strong&gt;for free!&lt;/strong&gt;). I recommend getting the printed versions of these books if you are interested, but it is not required.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Alberto Cairo, &lt;em&gt;The Truthful Art: Data, Charts, and Maps for Communication&lt;/em&gt; (Berkeley, California: New Riders, 2016).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;span&gt;$27&lt;/span&gt; used, &lt;span&gt;$32&lt;/span&gt; new at &lt;a href=&#34;https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075&#34;&gt;Amazon&lt;/a&gt;. A &lt;strong&gt;free&lt;/strong&gt; eBook version is available through GSU’s library through O’Reilly’s Higher Education database. The easiest way to access it is to visit a special URL (&lt;a href=&#34;http://go.oreilly.com/georgia-state-university&#34; class=&#34;uri&#34;&gt;http://go.oreilly.com/georgia-state-university&lt;/a&gt;), log in with your GSU account, and then search for “The Truthful Art.”&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Kieran Healy, &lt;em&gt;Data Visualization: A Practical Introduction&lt;/em&gt; (Princeton: Princeton University Press, 2018), &lt;a href=&#34;http://socviz.co/&#34; class=&#34;uri&#34;&gt;http://socviz.co/&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://socviz.co/&#34;&gt;&lt;strong&gt;FREE&lt;/strong&gt; online&lt;/a&gt;; &lt;span&gt;$30&lt;/span&gt; used, &lt;span&gt;$36&lt;/span&gt; new at &lt;a href=&#34;https://www.amazon.com/Data-Visualization-Introduction-Kieran-Healy/dp/0691181624/&#34;&gt;Amazon&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Claus E. Wilke, &lt;em&gt;Fundamentals of Data Visualization&lt;/em&gt; (Sebastopol, California: O’Reilly Media, 2018), &lt;a href=&#34;https://serialmentor.com/dataviz/&#34; class=&#34;uri&#34;&gt;https://serialmentor.com/dataviz/&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://clauswilke.com/dataviz/&#34;&gt;&lt;strong&gt;FREE&lt;/strong&gt; online&lt;/a&gt;; &lt;span&gt;$32&lt;/span&gt; new at &lt;a href=&#34;https://www.amazon.com/Fundamentals-Data-Visualization-Informative-Compelling/dp/1492031089&#34;&gt;Amazon&lt;/a&gt;. An eBook version is also available through &lt;a href=&#34;http://go.oreilly.com/georgia-state-university&#34;&gt;the O’Reilly database&lt;/a&gt;, but you can just use &lt;a href=&#34;https://clauswilke.com/dataviz/&#34;&gt;the online version&lt;/a&gt;.
+There will occasionally be additional articles and videos to read and watch. When this happens, links to these other resources will be included on the content page for that session.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I also highly recommend subscribing to the &lt;a href=&#34;https://rweekly.org/&#34;&gt;R Weekly newsletter&lt;/a&gt;. This e-mail is sent every Monday and is full of helpful tutorials about how to do stuff with R.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-and-rstudio&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;R and RStudio&lt;/h3&gt;
+&lt;p&gt;You will do all of your analysis with the open source (and free!) programming language &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;R&lt;/a&gt;. You will use &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;RStudio&lt;/a&gt; as the main program to access R. &lt;strong&gt;Think of R as an engine and RStudio as a car dashboard&lt;/strong&gt;—R handles all the calculations produces the actual statistics and graphical output, while RStudio provides a nice interface for running R code.&lt;/p&gt;
+&lt;p&gt;R is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free &lt;a href=&#34;http://rstudio.cloud/&#34;&gt;RStudio.cloud&lt;/a&gt; service, which lets you run a full instance of RStudio in your web browser. This means you won’t have to install anything on your computer to get started with R! We will have a shared class workspace in RStudio.cloud that will let you quickly copy templates for examples, exercises, and mini projects.&lt;/p&gt;
+&lt;p&gt;RStudio.cloud is convenient, but it can be slow and it is not designed to be able to handle larger datasets or more complicated analysis and graphics. You also can’t use your own custom fonts with RStudio.cloud. Over the course of the semester, you’ll probably want to get around to installing R, RStudio, and other R packages on your computer and wean yourself off of RStudio.cloud. This isn’t 100% necessary, but it’s helpful.&lt;/p&gt;
+&lt;p&gt;You can &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/resource/install/&#34;&gt;find instructions for installing R, RStudio, and all the tidyverse packages here.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;online-help&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Online help&lt;/h3&gt;
+&lt;p&gt;Data science and statistical programming can be difficult. Computers are stupid and little errors in your code can cause hours of headache (even if you’ve been doing this stuff for years!).&lt;/p&gt;
+&lt;p&gt;Fortunately there are tons of online resources to help you with this. Two of the most important are &lt;a href=&#34;https://stackoverflow.com/&#34;&gt;StackOverflow&lt;/a&gt; (a Q&amp;amp;A site with hundreds of thousands of answers to all sorts of programming questions) and &lt;a href=&#34;https://community.rstudio.com/&#34;&gt;RStudio Community&lt;/a&gt; (a forum specifically designed for people using RStudio and the tidyverse (i.e. you)).&lt;/p&gt;
+&lt;p&gt;If you use Twitter, post R-related questions and content with &lt;a href=&#34;https://twitter.com/search?q=%23rstats&#34;&gt;#rstats&lt;/a&gt;. The community there is exceptionally generous and helpful.&lt;/p&gt;
+&lt;p&gt;Searching for help with R on Google can sometimes be tricky because the program name is, um, a single letter. Google is generally smart enough to figure out what you mean when you search for “r scatterplot,” but if it does struggle, try searching for “rstats” instead (e.g. “rstats scatterplot”). Also, since most of your R work will deal with &lt;strong&gt;ggplot2&lt;/strong&gt;, it’s often easier to just search for that instead of the letter “r” (e.g. “ggplot scatterplot”).&lt;/p&gt;
+&lt;p&gt;Additionally, we have a class chatroom at &lt;a href=&#34;https://gsudatavizs20.slack.com&#34;&gt;Slack&lt;/a&gt; where anyone in the class can ask questions and anyone can answer. &lt;strong&gt;I will monitor Slack regularly and will respond quickly.&lt;/strong&gt; (It’s one of the rare Slack workspaces where I actually have notifications enabled!) Ask questions about the readings, exercises, and mini projects. You’ll likely have similar questions as your peers, and you’ll likely be able to answer other peoples’ questions too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;course-schedule&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Course schedule&lt;/h2&gt;
+&lt;p&gt;We have no regularly scheduled meeting times.&lt;/p&gt;
+&lt;p&gt;Instead, 100% of the class content is asynchronous. You can do the readings and watch the videos on your own schedule at whatever time works best for you. Many of you work full time and you have childcare and parental care responsibilities, leaving you with only evenings for coursework. I’ve designed this asynchronous system with &lt;em&gt;you specifically&lt;/em&gt; in mind. I also can only really do teaching work at night when my kids are in bed—I recorded all these videos between like 10 PM and 2 AM. We’re all in similar pandemic boats.&lt;/p&gt;
+&lt;p&gt;Each session has (1) a set of readings and an accompanying lecture, (2) a lesson, (3) an example with lots of reference code, and (4) a short assignment. The &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/schedule/&#34;&gt;schedule page&lt;/a&gt; provides an overview of all these moving parts.&lt;/p&gt;
+&lt;p&gt;I recommend following this general process for each session:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do everything on the content (&lt;i class=&#34;fas fa-book-reader&#34;&gt;&lt;/i&gt;) page&lt;/li&gt;
+&lt;li&gt;Work through the lesson (&lt;i class=&#34;fas fa-chalkboard-teacher&#34;&gt;&lt;/i&gt;) page&lt;/li&gt;
+&lt;li&gt;Complete the assignment (&lt;i class=&#34;fas fa-pencil-ruler&#34;&gt;&lt;/i&gt;) while referencing the example (&lt;i class=&#34;fas fa-laptop-code&#34;&gt;&lt;/i&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;course-policies&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Course policies&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Be nice. Be honest. Don’t cheat.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We will also follow &lt;a href=&#34;https://codeofconduct.gsu.edu/&#34;&gt;Georgia State’s Code of Conduct&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This syllabus reflects a plan for the semester. Deviations may become necessary as the course progresses.&lt;/p&gt;
+&lt;div id=&#34;student-hours&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Student hours&lt;/h3&gt;
+&lt;p&gt;Please watch this video:&lt;/p&gt;
+&lt;iframe src=&#34;https://player.vimeo.com/video/270014784&#34; width=&#34;640&#34; height=&#34;360&#34; frameborder=&#34;0&#34; allow=&#34;autoplay; fullscreen&#34; allowfullscreen style=&#34;display: block; margin: 0 auto 1rem;&#34;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Student hours are set times dedicated to all of you (most professors call these “office hours”; I don’t&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;). This means that I will be &lt;del&gt;in my office&lt;/del&gt; at home (wistfully) waiting for you to &lt;del&gt;come by&lt;/del&gt; talk to me remotely with whatever questions you have. This is the best and easiest way to find me and the best chance for discussing class material and concerns.&lt;/p&gt;
+&lt;p&gt;Because of the pandemic, we cannot meet in person. I can meet you online via Webex. &lt;a href=&#34;https://calendly.com/andrewheiss/&#34;&gt;Make an appointment with me here&lt;/a&gt;, and then use this link to talk to me during student hours: &lt;a href=&#34;https://gsumeetings.webex.com/meet/aheiss&#34; class=&#34;uri&#34;&gt;https://gsumeetings.webex.com/meet/aheiss&lt;/a&gt;. You can also find me through e-mail and Slack.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;learning-during-a-pandemic&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Learning during a pandemic&lt;/h3&gt;
+&lt;p&gt;Life absolutely sucks right now. None of us is really okay. &lt;strong&gt;We’re all just pretending.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You most likely know people who have lost their jobs, have tested positive for COVID-19, have been hospitalized, or perhaps have even died. You all have increased (or possibly decreased) work responsibilities and increased family care responsibilities—you might be caring for extra people (young and/or old!) right now, and you are likely facing uncertain job prospects (or have been laid off!).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;I’m fully committed to making sure that you learn everything you were hoping to learn from this class!&lt;/strong&gt; I will make whatever accommodations I can to help you finish your exercises, do well on your projects, and learn and understand the class material. Under ordinary conditions, I am flexible and lenient with grading and course expectations when students face difficult challenges. Under pandemic conditions, that flexibility and leniency is intensified.&lt;/p&gt;
+&lt;p&gt;If you tell me you’re having trouble, I will not judge you or think less of you. I hope you’ll extend me the same grace.&lt;/p&gt;
+&lt;p&gt;You &lt;em&gt;never&lt;/em&gt; owe me personal information about your health (mental or physical). You are &lt;em&gt;always&lt;/em&gt; welcome to talk to me about things that you’re going through, though. If I can’t help you, I usually know somebody who can.&lt;/p&gt;
+&lt;p&gt;If you need extra help, or if you need more time with something, or if you feel like you’re behind or not understanding everything, &lt;strong&gt;do not suffer in silence!&lt;/strong&gt; Talk to me! I will work with you. &lt;strong&gt;I promise.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Please&lt;/em&gt; sign up for a time to meet with me during student hours at &lt;a href=&#34;https://calendly.com/andrewheiss/&#34; class=&#34;uri&#34;&gt;https://calendly.com/andrewheiss/&lt;/a&gt;. I’m also available through e-mail and Slack. I’ve enabled notifications on my Slack account, so I’ll see your messages quickly!&lt;/p&gt;
+&lt;p&gt;I want you to learn lots of things from this class (Graphic design! Fancy charts! R! ggplot!), but I primarily want you to stay healthy, balanced, and grounded during this crisis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;late-work&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Late work&lt;/h3&gt;
+&lt;p&gt;With the exception of the mini projects and the final project, there’s no such late work. I would &lt;strong&gt;highly recommend&lt;/strong&gt; staying caught up as much as possible, but if you need to turn something in late, that’s fine—there’s &lt;strong&gt;no penalty&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;counseling-and-psychological-services-cps&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Counseling and Psychological Services (CPS)&lt;/h3&gt;
+&lt;p&gt;Life at GSU can be complicated and challenging (especially during a pandemic!). You might feel overwhelmed, experience anxiety or depression, or struggle with relationships or family responsibilities. &lt;a href=&#34;https://education.gsu.edu/cps/&#34;&gt;Counseling and Psychological Services (CPS)&lt;/a&gt; provides free, &lt;em&gt;confidential&lt;/em&gt; support for students who are struggling with mental health and emotional challenges. The CPS office is staffed by professional psychologists who are attuned to the needs of all types of college and professional students. Please do not hesitate to contact CPS for assistance—getting help is a smart and courageous thing to do.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;basic-needs-security&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Basic needs security&lt;/h3&gt;
+&lt;p&gt;If you have difficulty affording groceries or accessing sufficient food to eat every day, or if you lack a safe and stable place to live, and you believe this may affect your performance in this course, please contact the &lt;a href=&#34;https://deanofstudents.gsu.edu/&#34;&gt;Dean of Students&lt;/a&gt; for support. They can provide a host of services including free groceries from the &lt;a href=&#34;https://nutrition.gsu.edu/panther-pantry/&#34;&gt;Panther Pantry&lt;/a&gt; and assisting with homelessness with the &lt;a href=&#34;https://deanofstudents.gsu.edu/student-assistance/embark/&#34;&gt;Embark Network&lt;/a&gt;. Additionally, please talk to me if you are comfortable in doing so. This will enable me to provide any resources that I might possess.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;laurens-promise&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Lauren’s Promise&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;I will listen and believe you if someone is threatening you.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Lauren McCluskey, a 21-year-old honors student athlete, &lt;a href=&#34;https://www.sltrib.com/opinion/commentary/2019/02/10/commentary-failing-lauren/&#34;&gt;was murdered on October 22, 2018 by a man she briefly dated on the University of Utah campus&lt;/a&gt;. We must all take action to ensure that this never happens again.&lt;/p&gt;
+&lt;p&gt;If you are in immediate danger, call 911 or GSU police (404-413-3333).&lt;/p&gt;
+&lt;p&gt;If you are experiencing sexual assault, domestic violence, or stalking, please report it to me and I will connect you to resources or call &lt;a href=&#34;https://counselingcenter.gsu.edu/crisis-services/concern-self/immediate-help/&#34;&gt;GSU’s Counseling and Psychological Services&lt;/a&gt; (404-413-1640).&lt;/p&gt;
+&lt;p&gt;Any form of sexual harassment or violence will not be excused or tolerated at Georgia State. GSU has instituted procedures to respond to violations of these laws and standards, programs aimed at the prevention of such conduct, and intervention on behalf of the victims. Georgia State University Police officers will treat victims of sexual assault, domestic violence, and stalking with respect and dignity. Advocates on campus and in the community can help with victims’ physical and emotional health, reporting options, and academic concerns.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;academic-honesty&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Academic honesty&lt;/h3&gt;
+&lt;p&gt;Violation of &lt;a href=&#34;https://deanofstudents.gsu.edu/faculty-staff-resources/academic-honesty/&#34;&gt;GSU’s Policy on Academic Honesty&lt;/a&gt; will result in an F in the course and possible disciplinary action.&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; All violations will be formally reported to the Dean of Students.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;special-needs&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Special needs&lt;/h3&gt;
+&lt;p&gt;Students who wish to request accommodation for a disability may do so by registering with the &lt;a href=&#34;https://disability.gsu.edu/&#34;&gt;Office of Disability Services&lt;/a&gt;. Students may only be accommodated upon issuance by the Office of Disability Services of a signed &lt;a href=&#34;https://disability.gsu.edu/services/how-to-register/&#34;&gt;Accommodation Plan&lt;/a&gt; and are responsible for providing a copy of that plan to instructors of all classes in which accommodations are sought.&lt;/p&gt;
+&lt;p&gt;Students with special needs should then make an appointment with me during the first week of class to discuss any accommodations that need to be made.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;assignments-and-grades&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Assignments and grades&lt;/h2&gt;
+&lt;p&gt;You can find descriptions for all the assignments on the &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/&#34;&gt;assignments page&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;centered-table&#34;&gt;
+&lt;table style=&#34;width:60%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;33%&#34; /&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;col width=&#34;13%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Assignment&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Points&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Percent&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Reflections (15 × 10)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;150&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;23%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Exercises (15 × 10)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;150&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;23%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Mini project 1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;75&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;12%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Mini project 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;75&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;12%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Final project&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;200&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;31%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Total&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;650&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&#34;centered-table&#34;&gt;
+
+
+&lt;table style=&#34;width:49%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;11%&#34; /&gt;
+&lt;col width=&#34;13%&#34; /&gt;
+&lt;col width=&#34;11%&#34; /&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Grade&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Range&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Grade&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Range&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;A&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;93–100%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;73–76%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;A−&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;90–92%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;C−&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;70–72%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;B+&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;87–89%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;D+&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;67–69%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;B&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;83–86%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;D&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;63–66%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;B−&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;80–82%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;D−&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;60–62%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;C+&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;77–79%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;F&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&amp;lt; 60%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div&gt;
+
+
+
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;There’s fairly widespread misunderstanding about what office hours actually are! &lt;a href=&#34;https://www.chronicle.com/article/Can-This-Man-Change-How-Elite/245714/&#34;&gt;Many students often think that they are the times I &lt;em&gt;shouldn’t&lt;/em&gt; be disturbed&lt;/a&gt;, which is the exact opposite of what they’re for!&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;So seriously, just don’t cheat or plagiarize!&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>
