@@ -13,6 +13,187 @@
     </image>
     
     <item>
+      <title>Installing R, RStudio, tidyverse, and tinytex</title>
+      <link>http://isdrfall21.classes.spaseslab.com/resource/install/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/resource/install/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Modified from &lt;a href=&#34;https://datavizs21.classes.andrewheiss.com/resource/install/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Andrew Heiss&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You will do all of your work in this class with the open source (and free!) programming language &lt;a href=&#34;https://cran.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R&lt;/a&gt;. You will use &lt;a href=&#34;https://www.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RStudio&lt;/a&gt; as the main program to access R. Here are some instructions for how to get started.&lt;/p&gt;
+&lt;h2 id=&#34;rstudiocloud&#34;&gt;RStudio.cloud&lt;/h2&gt;
+&lt;p&gt;R is free, but it can sometimes be a pain to install and configure. To make life easier, we are going to use an &lt;a href=&#34;rstudio.boisestate.edu&#34;&gt;RStudio server&lt;/a&gt;, a web-interface to RStudio, that is set up on the Boise State Research Computing cluster. This means you won&amp;rsquo;t have to install anything on your computer to get started with R! We will have a shared folder with the data for exercises and a Github workspace to allow easy access to code and templates.&lt;/p&gt;
+&lt;h2 id=&#34;rstudio-on-your-computer&#34;&gt;RStudio on your computer&lt;/h2&gt;
+&lt;p&gt;At some point you are likely to need a local version of R to run the analyses for your graduate work. Here&amp;rsquo;s how you install all these things&lt;/p&gt;
+&lt;h3 id=&#34;install-r&#34;&gt;Install R&lt;/h3&gt;
+&lt;p&gt;First you need to install R itself (the engine).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the CRAN (Collective R Archive Network)&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; website: &lt;a href=&#34;https://cran.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://cran.r-project.org/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click on &amp;ldquo;Download R for &lt;code&gt;XXX&lt;/code&gt;&amp;rdquo;, where &lt;code&gt;XXX&lt;/code&gt; is either Mac or Windows:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/img/install/install-r-links.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If you use macOS, scroll down to the first &lt;code&gt;.pkg&lt;/code&gt; file in the list of files (in this picture, it&amp;rsquo;s &lt;code&gt;R-4.0.0.pkg&lt;/code&gt;; as of right now, the current version is also 4.0.0) and download it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/img/install/install-r-mac.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you use Windows, click &amp;ldquo;base&amp;rdquo; (or click on the bolded &amp;ldquo;install R for the first time&amp;rdquo; link) and download it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/img/install/install-r-windows.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Double click on the downloaded file (check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you use macOS, &lt;a href=&#34;https://www.xquartz.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;download and install XQuartz&lt;/a&gt;. You do not need to do this on Windows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;install-rstudio&#34;&gt;Install RStudio&lt;/h3&gt;
+&lt;p&gt;Next, you need to install RStudio, the nicer graphical user interface (GUI) for R (the dashboard). Once R and RStudio are both installed, you can ignore R and only use RStudio. RStudio will use R automatically and you won&amp;rsquo;t ever have to interact with it directly.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the free download location on RStudio&amp;rsquo;s website: &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/#download&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.rstudio.com/products/rstudio/download/#download&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The website should automatically detect your operating system (macOS or Windows) and show a big download button for it:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/img/install/install-r-rstudio1.png&#34; width=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;If not, scroll down a little to the large table and choose the version of RStudio that matches your operating system.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/img/install/install-r-rstudio2.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Double click on the downloaded file (again, check your &lt;code&gt;Downloads&lt;/code&gt; folder). Click yes through all the prompts to install like any other program.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Double click on RStudio to run it (check your applications folder or start menu).&lt;/p&gt;
+&lt;h3 id=&#34;install-tidyverse&#34;&gt;Install &lt;code&gt;tidyverse&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;R packages are easy to install with RStudio. Select the packages panel, click on &amp;ldquo;Install,&amp;rdquo; type the name of the package you want to install, and press enter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/img/install/install-r-package-panel.png&#34; width=&#34;40%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This can sometimes be tedious when you&amp;rsquo;re installing lots of packages, though. &lt;a href=&#34;https://www.tidyverse.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The tidyverse&lt;/a&gt;, for instance, consists of dozens of packages (including &lt;strong&gt;ggplot2&lt;/strong&gt;) that all work together. Rather than install each individually, you can install a single magical package and get them all at the same time.&lt;/p&gt;
+&lt;p&gt;Go to the packages panel in RStudio, click on &amp;ldquo;Install,&amp;rdquo; type &amp;ldquo;tidyverse&amp;rdquo;, and press enter. You&amp;rsquo;ll see a bunch of output in the RStudio console as all the tidyverse packages are installed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/img/install/install-r-tidyverse.png&#34; width=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Notice also that RStudio will generate a line of code for you and run it: &lt;code&gt;install.packages(&amp;quot;tidyverse&amp;quot;)&lt;/code&gt;. You can also just paste and run this instead of using the packages panel.&lt;/p&gt;
+&lt;h3 id=&#34;install-gdal&#34;&gt;Install &lt;code&gt;gdal&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;gdal&lt;/code&gt; is the &amp;lsquo;back-end&amp;rsquo; for most of the spatial packages in R. The easiest way to install &lt;code&gt;gdal&lt;/code&gt; is to follow the instructions at the &lt;code&gt;sf&lt;/code&gt; &lt;a href=&#34;https://github.com/r-spatial/sf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;github page&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;install-tinytex&#34;&gt;Install &lt;code&gt;tinytex&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;When you knit to PDF, R uses a special scientific typesetting program named LaTeX (pronounced &amp;ldquo;lay-tek&amp;rdquo; or &amp;ldquo;lah-tex&amp;rdquo;; for goofy nerdy reasons, the x is technically the &amp;ldquo;ch&amp;rdquo; sound in &amp;ldquo;Bach&amp;rdquo;, but most people just say it as &amp;ldquo;k&amp;rdquo;—saying &amp;ldquo;layteks&amp;rdquo; is frowned on for whatever reason).&lt;/p&gt;
+&lt;p&gt;LaTeX is neat and makes pretty documents, but it&amp;rsquo;s a huge program—&lt;a href=&#34;https://tug.org/mactex/mactex-download.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the macOS version, for instance, is nearly 4 GB&lt;/a&gt;! To make life easier, there&amp;rsquo;s &lt;a href=&#34;https://yihui.org/tinytex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;an R package named &lt;strong&gt;tinytex&lt;/strong&gt;&lt;/a&gt; that installs a minimal LaTeX program and that automatically deals with differences between macOS and Windows.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s how to install &lt;strong&gt;tinytex&lt;/strong&gt; so you can knit to pretty PDFs:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Use the Packages in panel in RStudio to install &lt;strong&gt;tinytex&lt;/strong&gt; like you did above with &lt;strong&gt;tidyverse&lt;/strong&gt;. Alternatively, run &lt;code&gt;install.packages(&amp;quot;tinytex&amp;quot;)&lt;/code&gt; in the console.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;tinytex::install_tinytex()&lt;/code&gt; in the console.&lt;/li&gt;
+&lt;li&gt;Wait for a bit while R downloads and installs everything you need.&lt;/li&gt;
+&lt;li&gt;The end! You should now be able to knit to PDF.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;It&amp;rsquo;s a goofy name, but CRAN is where most R packages—and R itself—lives.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>http://isdrfall21.classes.spaseslab.com/resource/r/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/resource/r/</guid>
+      <description>&lt;h2 id=&#34;learning-r&#34;&gt;Learning R&lt;/h2&gt;
+&lt;p&gt;I highly recommend subscribing to the &lt;a href=&#34;https://rweekly.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Weekly newsletter&lt;/a&gt;. This e-mail is sent every Monday and is full of helpful tutorials about how to do stuff with R.&lt;/p&gt;
+&lt;p&gt;Searching for help with R on Google can sometimes be tricky because the program name is a single letter. Google is generally smart enough to figure out what you mean when you search for &amp;ldquo;r scatterplot&amp;rdquo;, but if it does struggle, try searching for &amp;ldquo;rstats&amp;rdquo; instead (e.g. &amp;ldquo;rstats scatterplot&amp;rdquo;). Also, since most of your R work in this class will deal with &lt;strong&gt;ggplot2&lt;/strong&gt;, it&amp;rsquo;s often easier to just search for that instead of the letter &amp;ldquo;r&amp;rdquo; (e.g. &amp;ldquo;ggplot scatterplot&amp;rdquo;).&lt;/p&gt;
+&lt;p&gt;These resources are also really really helpful:&lt;/p&gt;
+&lt;h3 id=&#34;general-r-resources&#34;&gt;General R Resources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;An Introduction to R&lt;/strong&gt;&lt;/a&gt;: &lt;em&gt;The&lt;/em&gt; definitive introductory text by Venables, Smith, and the R Core Team.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://swirlstats.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Swirl&lt;/strong&gt;&lt;/a&gt;: A set of free, self-contained tutorials that run from within your RStudio terminal.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r4ds.had.co.nz/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;R for Data Science&lt;/strong&gt;&lt;/a&gt;: A free online book for learning the basics of R and the tidyverse.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.rstudio.com/resources/cheatsheets/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;R and RStudio cheat sheets&lt;/strong&gt;&lt;/a&gt;: A large collection of simple cheat sheets for RStudio, &lt;strong&gt;ggplot2&lt;/strong&gt;, and other R-related things.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stat545.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Stat 545&lt;/strong&gt;&lt;/a&gt;: &lt;a href=&#34;https://twitter.com/JennyBryan&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Jenny Bryan&lt;/a&gt; at RStudio has an entire introductory course in R, visualization, and data analysis online.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www2.stat.duke.edu/courses/Fall17/sta112.01/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;STA 112FS: Data Science&lt;/strong&gt;&lt;/a&gt;: &lt;a href=&#34;https://twitter.com/minebocek&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Mine Çetinkaya-Rundel&lt;/a&gt; at the University of Edinburgh / Duke University has an entire introductory course in R, visualization, and data science online.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cslu.ohsu.edu/~bedricks/courses/cs631/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;CSE 631: Principles &amp;amp; Practice of Data Visualization&lt;/strong&gt;&lt;/a&gt;: Yet another introductory course for R and ggplot2 by &lt;a href=&#34;https://twitter.com/apreshill&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Alison Presmanes Hill&lt;/a&gt; at RStudio.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;r-spatial-resources&#34;&gt;R Spatial Resources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rstudio/cheatsheets/blob/master/sf.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;sf cheatsheet&lt;/strong&gt;&lt;/a&gt;: An at-a-glance description of the various &lt;strong&gt;sf&lt;/strong&gt; verbs and their application.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://geocompr.robinlovelace.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Geocomputation with R&lt;/strong&gt;&lt;/a&gt;: Online version of the textbook by Lovelace, Nowosad, and Muenchow.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>http://isdrfall21.classes.spaseslab.com/resource/data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/resource/data/</guid>
+      <description>&lt;p&gt;So much data, so little time&amp;hellip; Here are some links to help you get started finding data for your geospatial projects&lt;/p&gt;
+&lt;h2 id=&#34;spatial-data-repositories&#34;&gt;Spatial Data Repositories&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://databasin.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;DataBasin&lt;/strong&gt;&lt;/a&gt;: Lots of spatial data related to conservation issues across the US. The &lt;a href=&#34;https://adaptwest.databasin.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AdaptWest&lt;/a&gt; portal has &lt;em&gt;tons&lt;/em&gt; of spatial data on climate change and its potential impacts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis/gap/science/protected-areas&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;US Protected Areas Database&lt;/strong&gt;&lt;/a&gt;: PAD-US is America’s official national inventory of U.S. terrestrial and marine protected areas that are dedicated to the preservation of biological diversity and to other natural, recreation and cultural uses, managed for these purposes through legal or other effective means. PAD-US also includes the best available aggregation of federal land and marine areas provided directly by managing agencies, coordinated through the Federal Geographic Data Committee (FGDC) Federal Lands Working Group.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis/gap/science/gap-analysis&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;USGS Gap Analysis Project&lt;/strong&gt;&lt;/a&gt;: A variety of datasets depicting land cover and species distributions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;general-data-repositories&#34;&gt;General Data Repositories&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://tinyletter.com/data-is-plural&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Data is Plural newsletter&lt;/strong&gt;&lt;/a&gt;: Jeremy Singer-Vine sends a weekly newsletter of the most interesting public datasets he&amp;rsquo;s found. You should subscribe to it. &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;He also has an archive of all the datasets he&amp;rsquo;s highlighted.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://toolbox.google.com/datasetsearch&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Google Dataset Search&lt;/strong&gt;&lt;/a&gt;: Google indexes thousands of public datasets; search for them here.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.kaggle.com/datasets&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/a&gt;: Kaggle hosts machine learning competitions where people compete to create the fastest, most efficient, most predictive algorithms. A byproduct of these competitions is a host of fascinating datasets that are generally free and open to the public. See, for example, &lt;a href=&#34;https://www.kaggle.com/hugomathien/soccer&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the European Soccer Database&lt;/a&gt;, the &lt;a href=&#34;https://www.kaggle.com/rtatman/salem-witchcraft-dataset&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Salem Witchcraft Dataset&lt;/a&gt; or results from an &lt;a href=&#34;https://www.kaggle.com/rtatman/oreo-flavors-tastetest-ratings&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Oreo flavors taste test&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.threesixtygiving.org/data/data-registry/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;360Giving&lt;/strong&gt;&lt;/a&gt;: Dozens of British foundations follow a standard file format for sharing grant data and have made that data available online.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://us-cities.survey.okfn.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;US City Open Data Census&lt;/strong&gt;&lt;/a&gt;: More than 100 US cities have committed to sharing dozens of types of data, including data about crime, budgets, campaign finance, lobbying, transit, and zoning. This site from the &lt;a href=&#34;http://sunlightfoundation.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sunlight Foundation&lt;/a&gt; and &lt;a href=&#34;http://www.codeforamerica.org//&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code for America&lt;/a&gt; collects this data and rates cities by how well they&amp;rsquo;re doing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;political-science-and-economics-datasets&#34;&gt;Political science and economics datasets##&lt;/h2&gt;
+&lt;p&gt;There&amp;rsquo;s a wealth of data available for political science- and economics-related topics:
+- &lt;a href=&#34;https://github.com/briatte/srqm/wiki/Data&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;François Briatte&amp;rsquo;s extensive curated lists&lt;/strong&gt;&lt;/a&gt;: Includes data from/about intergovernmental organizations (IGOs), nongovernmental organizations (NGOs), public opinion surveys, parliaments and legislatures, wars, human rights, elections, and municipalities.
+- &lt;a href=&#34;https://github.com/leeper/poliscitoys/issues/1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Thomas Leeper&amp;rsquo;s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Good short list of useful datasets, divided by type of data (country-level data, survey data, social media data, event data, text data, etc.).
+- &lt;a href=&#34;https://github.com/erikgahner/PolData&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Erik Gahner&amp;rsquo;s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Huge list of useful datasets, divided by topic (governance, elections, policy, political elites, etc.)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://isdrfall21.classes.spaseslab.com/resource/git.rmarkdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/resource/git.rmarkdown/</guid>
+      <description>
+&lt;script src=&#34;http://isdrfall21.classes.spaseslab.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Getting in the habit of using version control can be challenging, especially if you are collaborating with others. The challenge gets worse when some of those collaborators are not familiar with the importance of version control. Here are a few links to try and make your (and their) transition a little smoother.&lt;/p&gt;
+&lt;div id=&#34;installing-git-and-making-it-play-nice-with-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installing Git and making it play nice with R&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://happygitwithr.com/&#34;&gt;Happy git with R&lt;/a&gt; is &lt;a href=&#34;https://jennybryan.org/&#34;&gt;Jenny Bryan’s&lt;/a&gt;: extremely helpful introduction to git and incorporating it into your R workflow.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;getting-the-hang-of-git&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Getting the hang of git&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sbf5.com/~cduan/technical/git/&#34;&gt;Understanding the logic of git&lt;/a&gt;: provides a relatively accessible explanation of the various operations in git and links that t0 commonly used syntax.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ohshitgit.com/&#34;&gt;&lt;strong&gt;Oh Sh@t, Git?!?&lt;/strong&gt;&lt;/a&gt;: A less technical, more irreverant introduction to git workflows and fixing the inevitable challenges of version control. (G-rated version available at &lt;a href=&#34;https://dangitgit.com/en&#34;&gt;Dang it, Git?!?&lt;/a&gt;).&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Python basics</title>
       <link>http://isdrfall21.classes.spaseslab.com/courses/example/python/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
@@ -283,7 +464,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-614597382&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-273418659&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -293,7 +474,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-614597382&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-273418659&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -750,8 +931,7 @@ Three
 &lt;script src=&#34;http://isdrfall21.classes.spaseslab.com/schedule/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;Here’s your roadmap for the semester!&lt;/p&gt;
-&lt;p&gt;Every class session has four important sections. You should read about the details for each using the main menu at the top of this webpage.&lt;/p&gt;
+&lt;p&gt;Here’s our tentative plan for this semester. In general, we’ll use Tuesdays to introduce the conceptual foundation for the different operations/analyses we are learning along with a few code demonstrations. Thursdays will be more of a guided ‘lab’ section where you can work through the &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/examples/&#34;&gt;examples&lt;/a&gt; and then begin your &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/assignments/&#34;&gt;assignment&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;ical&#34;&gt;
 &lt;p&gt;You can subscribe to this calendar URL in Outlook, Google Calendar, or Apple Calendar:&lt;br&gt;&lt;a class=&#34;btn btn-primary&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/schedule/schedule.ics&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-calendar-alt&#34;&gt;&lt;/i&gt;&lt;/a&gt; &lt;input id=&#34;ics_url&#34; type=&#34;text&#34; value=&#34;https://isdrfall21.classes.spaseslab.com/schedule/schedule.ics&#34; onclick=&#34;this.select()&#34; readonly=&#34;readonly&#34; size=&#34;60&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -867,7 +1047,7 @@ Three
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-2&#34;&gt;
+            class=&#34; schedule-bg-1&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;September 7&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 5)&lt;/small&gt;&lt;/td&gt;
@@ -885,7 +1065,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;September 9&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 6)&lt;/small&gt;&lt;/td&gt;
@@ -902,7 +1082,7 @@ Three
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-2&#34;&gt;
+            class=&#34; schedule-bg-4&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;September 14&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 7)&lt;/small&gt;&lt;/td&gt;
@@ -920,7 +1100,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-4&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;September 16&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 8)&lt;/small&gt;&lt;/td&gt;
@@ -1053,7 +1233,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 5&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 13)&lt;/small&gt;&lt;/td&gt;
@@ -1071,7 +1251,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-2&#34;&gt;
+            class=&#34; schedule-bg-1&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 7&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 14)&lt;/small&gt;&lt;/td&gt;
@@ -1088,7 +1268,7 @@ Three
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-4&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 12&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 15)&lt;/small&gt;&lt;/td&gt;
@@ -1106,7 +1286,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-2&#34;&gt;
+            class=&#34; schedule-bg-4&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 14&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 16)&lt;/small&gt;&lt;/td&gt;
@@ -1141,7 +1321,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; section-bottom schedule-bg-1&#34;&gt;
+            class=&#34; section-bottom schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 18&lt;/strong&gt;&lt;/td&gt;
             &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-star&#34;&gt;&lt;/i&gt; &lt;strong&gt;Mini project 1 due&lt;/strong&gt;&lt;/td&gt;
@@ -1168,7 +1348,7 @@ Three
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-4&#34;&gt;
+            class=&#34; schedule-bg-1&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 19&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 17)&lt;/small&gt;&lt;/td&gt;
@@ -1203,7 +1383,7 @@ Three
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-4&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 26&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 19)&lt;/small&gt;&lt;/td&gt;
@@ -1255,7 +1435,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 2&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 21)&lt;/small&gt;&lt;/td&gt;
@@ -1272,7 +1452,7 @@ Three
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-2&#34;&gt;
+            class=&#34; schedule-bg-1&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 4&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 22)&lt;/small&gt;&lt;/td&gt;
@@ -1309,7 +1489,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; section-bottom schedule-bg-1&#34;&gt;
+            class=&#34; section-bottom schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 5&lt;/strong&gt;&lt;/td&gt;
             &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-star&#34;&gt;&lt;/i&gt; &lt;strong&gt;Mini project 2 due&lt;/strong&gt;&lt;/td&gt;
@@ -1336,37 +1516,38 @@ Three
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-4&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 9&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 23)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Quantifying spatial patterns&lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/content/12-content/&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/10-example/&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/10-exercise/&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 11&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 24)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Using R to characterize landscape patterns across scales&lt;/span&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/10-example/&#34;&gt;
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/12-example/&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/10-exercise/&#34;&gt;
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/12-exercise/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
@@ -1374,37 +1555,38 @@ Three
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 16&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 25)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Point patterns and spatial dependence&lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/content/13-content/&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/10-example/&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/10-exercise/&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 18&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 26)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Dispersion, variograms, and kriging in R&lt;/span&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/10-example/&#34;&gt;
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/13-example/&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/10-exercise/&#34;&gt;
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/13-exercise/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34;&#34;&gt;
+            class=&#34; schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 23&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(NA)&lt;/small&gt;&lt;/td&gt;
@@ -1423,7 +1605,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34;&#34;&gt;
+            class=&#34; schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 25&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(NA)&lt;/small&gt;&lt;/td&gt;
@@ -1442,72 +1624,94 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 30&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 27)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Modelling the probability of occurrence in space&lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/content/14-content/&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/10-example/&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/10-exercise/&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-4&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;December 2&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 28)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Species (event) distribution models in R&lt;/span&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/10-example/&#34;&gt;
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/14-example/&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/10-exercise/&#34;&gt;
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/14-exercise/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-1&#34;&gt;
+            class=&#34; schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
-                &lt;strong&gt;December 7&lt;/strong&gt;&lt;br&gt;
-                &lt;small&gt;(Session 29)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R&lt;/span&gt;&lt;/td&gt;
+                &lt;strong&gt;November 29&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;Assignments for Session 24, 26, and 28 Due&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr
+            class=&#34; schedule-bg-2&#34;&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
+                &lt;strong&gt;December 7&lt;/strong&gt;&lt;br&gt;
+                &lt;small&gt;(Session 29)&lt;/small&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Conclusion and final project work&lt;/span&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/10-example/&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/10-exercise/&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/content/15-content/&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
             class=&#34; schedule-bg-1&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;December 9&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 30)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Final project workday&lt;/span&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/10-example/&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/10-exercise/&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
             class=&#34; schedule-bg-3&#34;&gt;
@@ -1645,9 +1849,7 @@ Even experienced programmers find themselves bashing their heads against seeming
 &lt;h2&gt;Course materials&lt;/h2&gt;
 &lt;div id=&#34;r-and-rstudio&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;R and RStudio&lt;/h3&gt;
-&lt;p&gt;You will do all of your analysis with the open source (and free!) programming language &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;R&lt;/a&gt;. You will use &lt;a href=&#34;https://www.rstudio.com/&#34;&gt;RStudio&lt;/a&gt; as the main program to access R. &lt;strong&gt;Think of R as an engine and RStudio as a car dashboard&lt;/strong&gt;—R handles all the calculations produces the actual statistics and graphical output, while RStudio provides a nice interface for running R code.&lt;/p&gt;
-&lt;p&gt;R is free, but it can sometimes be a pain to install and configure. To make life easier, you can (and should!) use the free &lt;a href=&#34;http://rstudio.cloud/&#34;&gt;RStudio.cloud&lt;/a&gt; service, which lets you run a full instance of RStudio in your web browser. This means you won’t have to install anything on your computer to get started with R! We will have a shared class workspace in RStudio.cloud that will let you quickly copy templates for examples, exercises, and mini projects.&lt;/p&gt;
-&lt;p&gt;You can &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/resource/install/&#34;&gt;find instructions for installing R, RStudio, and all the tidyverse packages here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;R is free, but it can sometimes be a pain to install and configure especially when dealing with spatial packages (we’ll talk more about why this is during class). To make life easier, I have set up an online &lt;a href=&#34;http://rstudio.cloud/&#34;&gt;RStudio server&lt;/a&gt; service, which lets you run a full instance of RStudio in your web browser. This means you won’t have to install anything on your computer and we should be able to avoid a number of the machine-specific issues that pop-up when 20 students have 20 different computers, operating systems (OS), etc. If you haven’t installed R on your local machine and would like some help getting that set up, there’ a useful set of &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/resource/install/&#34;&gt;instructions for installing R, RStudio, and all the tidyverse packages here.&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;course-schedule&#34; class=&#34;section level2&#34;&gt;
@@ -1685,9 +1887,9 @@ Even experienced programmers find themselves bashing their heads against seeming
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;Exercises (20 × 10)&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;200&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;50%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Exercises (14 × 15)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;210&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;51%&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;Mini project 1&lt;/td&gt;
@@ -1702,11 +1904,11 @@ Even experienced programmers find themselves bashing their heads against seeming
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;Final project&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;100&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;25%&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;24%&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;Total&lt;/td&gt;
-&lt;td align=&#34;center&#34;&gt;400&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;410&lt;/td&gt;
 &lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
