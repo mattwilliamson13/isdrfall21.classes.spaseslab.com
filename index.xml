@@ -320,13 +320,10 @@ The variance of the distribution is $\sigma^{2}$.
 &lt;p&gt;The &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/syllabus/&#34;&gt;syllabus&lt;/a&gt;, &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/content/&#34;&gt;content&lt;/a&gt;, &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/example/&#34;&gt;examples&lt;/a&gt;, and &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/assigment/&#34;&gt;assignments&lt;/a&gt; pages for this class&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;http://socviz.co/lookatdata.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chapter 1&lt;/a&gt; in Kieran Healy, &lt;em&gt;Data Visualization&lt;/em&gt; (&lt;strong&gt;Healy:2018?&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chapter 1 - 6&lt;/a&gt; in Venables et al., &lt;em&gt;An Introduction to R&lt;/em&gt; (Venables et al. 2009) - for a quick refresher on data types in R&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; Chapters 2 and 3 in Alberto Cairo, &lt;em&gt;The Truthful Art&lt;/em&gt; (&lt;strong&gt;Cairo:2016?&lt;/strong&gt;) (&lt;em&gt;skim the introduction and chapter 1&lt;/em&gt;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://www.washingtonpost.com/news/wonk/wp/2018/06/15/study-charts-change-hearts-and-minds-better-than-words-do/?utm_term=.4474599c0d5e&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Study: Charts change hearts and minds better than words do&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://open.lib.umn.edu/mapping/chapter/7-lying-with-maps/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lying with maps&lt;/a&gt; - a portion of &lt;em&gt;Mapping, Society, and Technology&lt;/em&gt; an ebook by Eric Deluca and Sara Nelson.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
@@ -379,6 +376,11 @@ The variance of the distribution is $\sigma^{2}$.
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/01-slides.html#class-details&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-venables2009introduction&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Venables, W. N., D. M. Smith, R. D. C. Team, and others. 2009. An introduction to r. Citeseer.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -540,7 +542,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-274583169&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-934167528&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -550,7 +552,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-274583169&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-934167528&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
