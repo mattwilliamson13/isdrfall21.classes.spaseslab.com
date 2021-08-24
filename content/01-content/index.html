@@ -33,10 +33,10 @@
   
     
   
-  <meta name="description" content="Load, analyze, and visualize spatial data in R for reproducible workflows." />
+  <meta name="description" content="Today we’ll focus on getting oriented to the course and the tools we’ll be using throughout the semester. Readings are designed to help understand some of the ‘rules’ of R syntax and develop an understanding for manipulating different types of data in R." />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/author/nelson-bighetti/" />
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/content/01-content/" />
 
   
 
@@ -283,8 +283,6 @@
   
 
   
-    <link rel="alternate" href="/author/nelson-bighetti/index.xml" type="application/rss+xml" title="Spatial Data in R" />
-  
 
   
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -293,7 +291,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/author/nelson-bighetti/" />
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/content/01-content/" />
 
   
   
@@ -303,7 +301,6 @@
   
   
   
-    
     
     
   
@@ -314,19 +311,25 @@
     <meta property="twitter:creator" content="@MwilliamsonMatt" />
   
   <meta property="og:site_name" content="Spatial Data in R" />
-  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/author/nelson-bighetti/" />
-  <meta property="og:title" content="Nelson Bighetti | Spatial Data in R" />
-  <meta property="og:description" content="Load, analyze, and visualize spatial data in R for reproducible workflows." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/author/nelson-bighetti/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_270x270_fill_q75_lanczos_center.jpg" />
-    <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/author/nelson-bighetti/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_270x270_fill_q75_lanczos_center.jpg" /><meta property="og:locale" content="en-us" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/content/01-content/" />
+  <meta property="og:title" content="Welcome to Space!! | Spatial Data in R" />
+  <meta property="og:description" content="Today we’ll focus on getting oriented to the course and the tools we’ll be using throughout the semester. Readings are designed to help understand some of the ‘rules’ of R syntax and develop an understanding for manipulating different types of data in R." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
-      <meta property="og:updated_time" content="2020-12-13T00:00:00&#43;00:00" />
+      <meta
+        property="article:published_time"
+        content="2021-08-24T00:00:00&#43;00:00"
+      />
     
+    <meta property="article:modified_time" content="2021-08-24T00:00:00&#43;00:00">
   
 
   
 
 
+
+  
 
   
 
@@ -346,7 +349,7 @@
   <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
 
 
-  <title>Nelson Bighetti | Spatial Data in R</title>
+  <title>Welcome to Space!! | Spatial Data in R</title>
 </head>
 
 
@@ -491,7 +494,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/content/"><span>Content</span></a>
+          <a class="nav-link  active" href="/content/"><span>Content</span></a>
         </li>
 
         
@@ -682,217 +685,248 @@
 
     
 
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
 
-
-
-<section id="profile-page" class="pt-5">
-  <div class="container">
-    
-    
-      
-      
-      
-      
 
 
 
 
   
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-  <div class="col-12 col-lg-4">
-    <div id="profile">
-
-      
-      
-      <img class="avatar avatar-circle" src="/author/nelson-bighetti/avatar_hu52a603635ecebd45650b162dadabb4e5_12861_270x270_fill_q75_lanczos_center.jpg" alt="Nelson Bighetti">
-      
-
-      <div class="portrait-title">
-        <h2>Nelson Bighetti</h2>
-        <h3>Assistant Professor in Human Environment Systems</h3>
-
-        
-        <h3>
-          <a href="https://www.boisestate.edu/" target="_blank" rel="noopener">
-          <span>Boise State University</span>
-          </a>
-        </h3>
-        
-      </div>
-
-      <ul class="network-icon" aria-hidden="true">
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="/#contact"  aria-label="envelope">
-            <i class="fas fa-envelope big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener" aria-label="graduation-cap">
-            <i class="fas fa-graduation-cap big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="https://github.com/gcushen" target="_blank" rel="noopener" aria-label="github">
-            <i class="fab fa-github big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="linkedin">
-            <i class="fab fa-linkedin big-icon"></i>
-          </a>
-        </li>
-        
-      </ul>
-
-    </div>
-  </div>
-  <div class="col-12 col-lg-8">
-
     
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+    
+  
+
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/content/">Overview</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/content/">Readings and lectures</a>
+      </li>
+
+      
+    </ul>
     
 
-    <div class="article-style">
-      <p>Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.</p>
-<p>
-  <i class="fas fa-download  pr-1 fa-fw"></i> Download my <a href="/uploads/demo_resume.pdf" target="_blank">resumé</a>.</p>
-
-    </div>
-
-    <div class="row">
-
-      
-      <div class="col-md-5">
-        <div class="section-subheading">Interests</div>
-        <ul class="ul-interests mb-0">
-          
-          <li>Social-ecological systems</li>
-          
-          <li>Environmental governance</li>
-          
-          <li>Wildlife connectivity</li>
-          
-        </ul>
-      </div>
-      
-
-      
-      <div class="col-md-7">
-        <div class="section-subheading">Education</div>
-        <ul class="ul-edu fa-ul mb-0">
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">PhD Ecology (Integrative Ecology Emphasis), 2019</p>
-              <p class="institution">University of California, Davis</p>
-            </div>
-          </li>
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">MSc in Wildlife Biology, 2008</p>
-              <p class="institution">Colorado State University</p>
-            </div>
-          </li>
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">BSc in Wildlife Biology, 2003</p>
-              <p class="institution">Colorado State University</p>
-            </div>
-          </li>
-          
-        </ul>
-      </div>
-      
-
-    </div>
   </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/content/01-content/">Course content</a>
+    <ul class="nav docs-sidenav">
+      
+      <li class="active">
+        <a href="/content/01-content/">1: Welcome to Space!</a>
+      </li>
+
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+        </div>
+
+        
+        <div class="d-none d-xl-block col-xl-2 docs-toc">
+            <ul class="nav toc-top">
+                <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+            </ul>
+
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#readings">Readings</a></li>
+    <li><a href="#slides">Slides</a></li>
+  </ul>
+</nav>
+
+            
+        </div>
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>Welcome to Space!!</h1>
+
+                    
+
+                    
+
+                    
+
+                    <div class="article-style">
+                        <p>Today we’ll focus on getting oriented to the course and the tools we’ll be using throughout the semester. Readings are designed to help understand some of the ‘rules’ of R syntax and develop an understanding for manipulating different types of data in R.</p>
+<h2 id="readings">Readings</h2>
+<ul>
+<li>
+<p>The <a href="/syllabus/">syllabus</a>, <a href="/content/">content</a>, <a href="/example/">examples</a>, and <a href="/assigment/">assignments</a> pages for this class</p>
+</li>
+<li>
+<p><i class="fas fa-book"></i> <a href="http://socviz.co/lookatdata.html" target="_blank" rel="noopener">Chapter 1</a> in Kieran Healy, <em>Data Visualization</em> (<strong>Healy:2018?</strong>)</p>
+</li>
+<li>
+<p><i class="fas fa-book"></i> Chapters 2 and 3 in Alberto Cairo, <em>The Truthful Art</em> (<strong>Cairo:2016?</strong>) (<em>skim the introduction and chapter 1</em>)</p>
+</li>
+<li>
+<p><i class="fas fa-external-link-square-alt"></i> <a href="https://www.washingtonpost.com/news/wonk/wp/2018/06/15/study-charts-change-hearts-and-minds-better-than-words-do/?utm_term=.4474599c0d5e" target="_blank" rel="noopener">Study: Charts change hearts and minds better than words do</a></p>
+</li>
+</ul>
+<h2 id="slides">Slides</h2>
+<p>The slides for today’s lesson are available online as an HTML file. Use the buttons below to open the slides either as an interactive website or as a static PDF (for printing or storing for later). You can also click in the slides below and navigate through them with your left and right arrow keys.</p>
+<p><a class="btn btn-primary btn-lg" target="_blank" href="/slides/01-slides.html"><i class="fas fa-external-link-alt"></i> View all slides in new window</a> <a class="btn btn-primary btn-lg" target="_blank" href="/slides/01-slides.pdf" role="button"><i class="far fa-file-pdf"></i> Download PDF of all slides</a></p>
+<ul class="nav nav-tabs" id="slide-tabs" role="tablist">
+<li class="nav-item">
+<a class="nav-link active" id="welcome-tab" data-toggle="tab" href="#welcome" role="tab" aria-controls="welcome" aria-selected="true">Welcome</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="plan-for-the-day-tab" data-toggle="tab" href="#plan-for-the-day" role="tab" aria-controls="plan-for-the-day" aria-selected="false">Plan for the day</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="introductions-tab" data-toggle="tab" href="#introductions" role="tab" aria-controls="introductions" aria-selected="false">Introductions</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="why-not-r-tab" data-toggle="tab" href="#why-not-r" role="tab" aria-controls="why-not-r" aria-selected="false">Why (not) R?</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="class-details-tab" data-toggle="tab" href="#class-details" role="tab" aria-controls="class-details" aria-selected="false">Class details</a>
+</li>
+</ul>
+<div id="slide-tabs" class="tab-content">
+<div id="welcome" class="tab-pane fade show active" role="tabpanel" aria-labelledby="welcome-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/01-slides.html#1">
+</iframe>
+</div>
+</div>
+<div id="plan-for-the-day" class="tab-pane fade" role="tabpanel" aria-labelledby="plan-for-the-day-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/01-slides.html#outline">
+</iframe>
+</div>
+</div>
+<div id="introductions" class="tab-pane fade" role="tabpanel" aria-labelledby="introductions-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/01-slides.html#introductions">
+</iframe>
+</div>
+</div>
+<div id="why-not-r" class="tab-pane fade" role="tabpanel" aria-labelledby="why-not-r-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/01-slides.html#why-not-r">
+</iframe>
+</div>
+</div>
+<div id="class-details" class="tab-pane fade" role="tabpanel" aria-labelledby="class-details-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/01-slides.html#class-details">
+</iframe>
+</div>
+</div>
 </div>
 
-    
+                    </div>
 
-    
-    
-    
-    <div class="article-widget content-widget-hr">
-      <h3>Latest</h3>
-      <ul>
+                    
+
+
+
+                    
+                    <div class="article-widget">
+                        
+<div class="post-nav">
+  
+  
+</div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on Aug 24, 2021</p>
+
+                    
+
+
+
+
+
+                    
+
+
+
+                </div>
+
+            </article>
+
+            <footer>
+    <hr>
+
+    <div class="row course-info">
+        <div class="col-md-7">
+            <p>
+                <strong>HES 597: Spatial Data in R (Fall 2021)</strong><br>
+
+                <a href="https://www.boisestate.edu" target="_blank" rel="noopener">Boise State University</a> &emsp;&emsp;
+                <a href="https://www.boisestate.edu/hes/" target="_blank" rel="noopener">Human-Environment Systems</a>
+            </p>
+
+            <p>
+                <a href="https://www.spaseslab.com" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Dr. Matt Williamson</a> &emsp;&emsp;
+                <a href="mailto:mattwilliamson@boisestate.edu"><i class="fas fa-envelope"></i>
+                    mattwilliamson@boisestate.edu</a>
+            </p>
+
+            <p>
+                <i class="far fa-calendar-alt"></i> T TH &emsp;&emsp;
+                <i class="far fa-clock"></i> 10:30 - 11:45 
+                <br><i class="fas fa-university"></i> Albertson&#39;s Library Rm201C
+            </p>
+        </div>
+
+        <div class="col-md-5 credits">
+            <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+            
+            <p>Content <i class="fab fa-creative-commons"></i> 2021 <a href="https://www.spaseslab.com" target="_blank" rel="noopener">Matt Williamson</a></p>
         
-        <li>
-          <a href="/post/getting-started/">Welcome to Wowchemy, the website builder for Hugo</a>
-        </li>
-        
-        <li>
-          <a href="/post/jupyter/">Display Jupyter Notebooks with Academic</a>
-        </li>
-        
-      </ul>
+            <p>This site was inspired by Andrew Heiss' <a href="https://datavizs21.classes.andrewheiss.com/" target="_blank" rel="noopener">Data Visualization course</a> created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
+            
+            <p><a href="https://github.com/mattwilliamson13/isdrfall21" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
+        </div>
     </div>
-    
-  </div>
-</section>
+</footer>
+
+        </main>
+    </div>
+</div>
 
         
 
@@ -934,6 +968,11 @@
 
     
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
 
     
     
@@ -971,46 +1010,6 @@
 
 
     
-    
-    <div class="container">
-        <footer>
-    <hr>
-
-    <div class="row course-info">
-        <div class="col-md-7">
-            <p>
-                <strong>HES 597: Spatial Data in R (Fall 2021)</strong><br>
-
-                <a href="https://www.boisestate.edu" target="_blank" rel="noopener">Boise State University</a> &emsp;&emsp;
-                <a href="https://www.boisestate.edu/hes/" target="_blank" rel="noopener">Human-Environment Systems</a>
-            </p>
-
-            <p>
-                <a href="https://www.spaseslab.com" target="_blank" rel="noopener"><i class="fas fa-user"></i>
-                    Dr. Matt Williamson</a> &emsp;&emsp;
-                <a href="mailto:mattwilliamson@boisestate.edu"><i class="fas fa-envelope"></i>
-                    mattwilliamson@boisestate.edu</a>
-            </p>
-
-            <p>
-                <i class="far fa-calendar-alt"></i> T TH &emsp;&emsp;
-                <i class="far fa-clock"></i> 10:30 - 11:45 
-                <br><i class="fas fa-university"></i> Albertson&#39;s Library Rm201C
-            </p>
-        </div>
-
-        <div class="col-md-5 credits">
-            <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
-            
-            <p>Content <i class="fab fa-creative-commons"></i> 2021 <a href="https://www.spaseslab.com" target="_blank" rel="noopener">Matt Williamson</a></p>
-        
-            <p>This site was inspired by Andrew Heiss' <a href="https://datavizs21.classes.andrewheiss.com/" target="_blank" rel="noopener">Data Visualization course</a> created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
-            
-            <p><a href="https://github.com/mattwilliamson13/isdrfall21" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
-        </div>
-    </div>
-</footer>
-    </div>
     
 
     
