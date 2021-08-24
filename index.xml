@@ -540,7 +540,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-612389475&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-274583169&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -550,7 +550,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-612389475&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-274583169&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1856,7 +1856,7 @@ Three
     &lt;div class=&#34;col-md-4&#34;&gt;
         &lt;h3&gt;Instructor&lt;/h3&gt;
         &lt;ul class=&#34;icon-list&#34;&gt;
-            &lt;li&gt;&lt;i class=&#34;fas fa-user&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://www.spaseslab.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Dr. Matt Williamson&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;i class=&#34;fas fa-user&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://www.boisestate.edu/hes/people/matt-williamson/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; Dr. Matt Williamson&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;i class=&#34;fas fa-university&#34;&gt;&lt;/i&gt; Environmental Research Building 4125&lt;/li&gt;
             &lt;li&gt;&lt;i class=&#34;fas fa-envelope&#34;&gt;&lt;/i&gt; &lt;a href=&#34;mailto:mattwilliamson@boisestate.edu&#34;&gt; mattwilliamson@boisestate.edu&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;i class=&#34;fab fa-twitter&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://twitter.com/MwilliamsonMatt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; @MwilliamsonMatt&lt;/a&gt;&lt;/li&gt;
