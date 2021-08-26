@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Matt Williamosn" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Let&rsquo;s &ldquo;git&rdquo; started We are using GitHub classroom for all of the assignments in this course. This allows each of you to have your own repositories for version control and backup of your code without the worries of stepping on someone else toes." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/01-example/" />
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#0033A0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.55b0a53bae217a85804b4d933f04ec9c.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/01-example/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@MwilliamsonMatt" />
+    <meta property="twitter:creator" content="@MwilliamsonMatt" />
+  
+  <meta property="og:site_name" content="Spatial Data in R" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/01-example/" />
+  <meta property="og:title" content="Introduction to course resources, Rmarkdown, and data in R | Spatial Data in R" />
+  <meta property="og:description" content="Let&rsquo;s &ldquo;git&rdquo; started We are using GitHub classroom for all of the assignments in this course. This allows each of you to have your own repositories for version control and backup of your code without the worries of stepping on someone else toes." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2021-08-26T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2021-08-26T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+  
+
+  <link rel="stylesheet" type="text/css" href="/custom-css/print.css" media="print" />
+
+  <link rel="shortcut icon" href="http://isdrfall21.classes.spaseslab.com/iSDR_logo.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo152x152.png" />
+  <link rel="icon" type="image/png" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo16x16.png" sizes="16x16" />
+  <meta name="application-name" content="HES 597: Spatial Data in R" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
+
+
+  <title>Introduction to course resources, Rmarkdown, and data in R | Spatial Data in R</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Spatial Data in R</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Spatial Data in R</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/syllabus/"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/schedule/"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/content/"><span>Content</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/example/"><span>Examples</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/assignment/"><span>Assignments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://ecostatsbsu.slack.com/archives/CV4DEJ8M7" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://rstudio.boisestate.edu/" target="_blank" rel="noopener"><span><i class="fab fa-r-project"></i></span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+    
+
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+    
+  
+
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/example/">Overview</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/example/">Code examples</a>
+      </li>
+
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/example/01-example/">Examples</a>
+    <ul class="nav docs-sidenav">
+      
+      <li class="active">
+        <a href="/example/01-example/">1: Introduction to course resources, Rmarkdown, and data in R</a>
+      </li>
+
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+        </div>
+
+        
+        <div class="d-none d-xl-block col-xl-2 docs-toc">
+            <ul class="nav toc-top">
+                <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+            </ul>
+
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lets-git-started">Let&rsquo;s &ldquo;git&rdquo; started</a>
+      <ul>
+        <li><a href="#accept-the-invitation-to-the-assignment-repo">Accept the invitation to the assignment repo</a></li>
+        <li><a href="#making-sure-rstudio-server-can-access-your-github-account">Making sure Rstudio server can access your GitHub account</a></li>
+        <li><a href="#bring-the-project-into-rstudio">Bring the project into RStudio</a></li>
+        <li><a href="#verify-that-the-git-tab-is-available-and-that-your-project-is-shown-in-the-upper-right-hand-corner">Verify that the &ldquo;Git&rdquo; tab is available and that your project is shown in the upper right-hand corner</a></li>
+        <li><a href="#basic-workflow">Basic workflow</a></li>
+      </ul>
+    </li>
+    <li><a href="#r-markdown">R Markdown</a>
+      <ul>
+        <li><a href="#including-plots">Including Plots</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-types-and-structures">Data Types and Structures</a>
+      <ul>
+        <li><a href="#data-types">Data Types</a></li>
+        <li><a href="#data-structures">Data Structures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+            
+        </div>
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>Introduction to course resources, Rmarkdown, and data in R</h1>
+
+                    
+
+                    
+
+                    
+
+                    <div class="article-style">
+                        <h2 id="lets-git-started">Let&rsquo;s &ldquo;git&rdquo; started</h2>
+<p>We are using GitHub classroom for all of the assignments in this course. This allows each of you to have your own repositories for version control and backup of your code without the worries of stepping on someone else toes. The goal of this class is not to have you become a &lsquo;master&rsquo; of all things git, but I am hoping you&rsquo;ll learn the utility of version control and adopt as much of it as make sense for you and your workflows.</p>
+<h3 id="accept-the-invitation-to-the-assignment-repo">Accept the invitation to the assignment repo</h3>
+<p>The first thing you&rsquo;ll need to do is accept the invitation to &lsquo;assignment-1` repository (repo). This <em>should</em> automatically clone (make an exact copy) of the assignment repo in your personal account.</p>
+<h3 id="making-sure-rstudio-server-can-access-your-github-account">Making sure Rstudio server can access your GitHub account</h3>
+<p>Unfortunately, GitHub has ended its support for username/password remote authentication. Instead, it uses something called a Personal Access Token. You can read more about it <a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank" rel="noopener">here</a> if you are interested, but the easiest way to deal with this is by following Jenny Bryan&rsquo;s <a href="https://happygitwithr.com/credential-caching.html#credential-caching" target="_blank" rel="noopener">happygitwithr</a> recommended approach:</p>
+<ol>
+<li>Introduce yourself to git:
+There are a number of ways to do this, but I find this to be the easiest</li>
+</ol>
+<pre><code class="language-r">library(usethis) #you may need to install this using install.packages('usethis')
+use_git_config(user.name = &quot;Jane Doe&quot;, user.email = &quot;jane@example.org&quot;) #your info here
+</code></pre>
+<ol start="2">
+<li>Get a PAT if you don&rsquo;t have one already (make sure you save it somewhere)</li>
+</ol>
+<pre><code class="language-r">usethis::create_github_token()
+</code></pre>
+<ol start="3">
+<li>Store your credential for use in RStudio</li>
+</ol>
+<pre><code class="language-r">library(gitcreds) #may need to install this too
+
+gitcreds_set() #should prompt you for your pat - paste it here
+</code></pre>
+<ol start="4">
+<li>Verify that Rstudio has saved your credential</li>
+</ol>
+<pre><code class="language-r">gitcreds_get()
+</code></pre>
+<p>R should return something that looks like this:</p>
+<p><img src="/example/img/01/credentialsuccess.png" width="70%" /></p>
+<h3 id="bring-the-project-into-rstudio">Bring the project into RStudio</h3>
+<ol start="2">
+<li>Go to File&gt;New Project and choose the &ldquo;Version Control&rdquo; option</li>
+<li>Select &ldquo;Git&rdquo; (Not Subversion)</li>
+<li>paste the link from the &ldquo;Clone Repository&rdquo; button into the &ldquo;Repository URL&rdquo; space</li>
+</ol>
+<h3 id="verify-that-the-git-tab-is-available-and-that-your-project-is-shown-in-the-upper-right-hand-corner">Verify that the &ldquo;Git&rdquo; tab is available and that your project is shown in the upper right-hand corner</h3>
+<p>Assuming all this has worked, you should be able to click on the &ldquo;Git&rdquo; tab and see something like this:</p>
+<p><img src="/example/img/01/gittab.png" width="70%" /></p>
+<h3 id="basic-workflow">Basic workflow</h3>
+<ol>
+<li>
+<p>Everytime you begin working on code, make sure you &ldquo;Pull&rdquo; from the remote repository to make sure you have the most recent version of things (this is especially important when you are collaborating with people).</p>
+</li>
+<li>
+<p>Make some changes to code</p>
+</li>
+<li>
+<p>Save those changes</p>
+</li>
+<li>
+<p>&ldquo;Commit&rdquo; those changes - Think of commits as &lsquo;breadcrumbs&rsquo; they help you remember where you were in the coding process in case you need to revert back to a previous version. Your commit messages should help you remember what was &lsquo;happening&rsquo; in the code when you made the commit. In general, you should save and commit fairly frequently and especially everytime you do something &lsquo;consequential&rsquo;. Git allows you to &lsquo;turn back time&rsquo;, but that&rsquo;s only useful if you left enough information to get back to where you want to be.</p>
+</li>
+<li>
+<p>Push your work to the remote - when you&rsquo;re done working on the project for the day, push your local changes to the remote. This will ensure that if you switch computers or if someone else is going to work on the project, you (or they) will have the most recent version. Plus, if you don&rsquo;t do this, step 1 will really mess you up.</p>
+</li>
+</ol>
+<h2 id="r-markdown">R Markdown</h2>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" target="_blank" rel="noopener">http://rmarkdown.rstudio.com</a>. We&rsquo;ll be using Rmarkdown for the assignments in class and this website was built (generally) using Rmarkdown. You can create new Rmarkdown documents by going to File &raquo; New File &raquo; New Rmarkdown (we&rsquo;ll be using html for this class)</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.</p>
+<p>There are lots of helpful resources to help you get started using Rmarkdown. There&rsquo;s a <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target="_blank" rel="noopener">cheatsheet</a> and a much longer <a href="https://bookdown.org/yihui/rmarkdown/" target="_blank" rel="noopener">user&rsquo;s guide</a>. I don&rsquo;t expect you to become an expert in Rmarkdown, but it is a helpful way to keep all of your thougths and code together in a single, coherent document. Getting proficient in Rmarkdown and git allows you to work with collaborators on an analysis, graphics, and manuscript all within a single platform. This fully-integrated workflow takes practice and patience (especially when you have collaborators that are new to this approach), this course is just an initial step down that path. I&rsquo;ll do my best to keep it simple - please let me know if you have questions!</p>
+<p>You can embed an R code chunk like this:</p>
+<pre><code class="language-r">summary(cars)
+</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+</code></pre>
+<h3 id="including-plots">Including Plots</h3>
+<p>You can also embed plots, for example:</p>
+<p><img src="/example/01-example_files/figure-html/pressure-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<h2 id="data-types-and-structures">Data Types and Structures</h2>
+<h3 id="data-types">Data Types</h3>
+<p>Okay, now that we have all of those details out of the way, let&rsquo;s take a look at data structures in <code>R</code>. As we discussed,<code>R</code> has six basic types of data: numeric, integer, logical, complex, character, and raw. For this class, we won&rsquo;t bother with complex or raw as you are unlikely to encounter them in your introductory spatial explorations.</p>
+<ul>
+<li>
+<p><strong>Numeric</strong> data are numbers that contain a decimal. They can also be whole numbers</p>
+</li>
+<li>
+<p><strong>Integers</strong> are whole numbers (those numbers without a decimal point).</p>
+</li>
+<li>
+<p><strong>Logical</strong> data take on the value of either <code>TRUE</code> or <code>FALSE</code>. There’s also another special type of logical called <code>NA</code> to represent missing values.</p>
+</li>
+<li>
+<p><strong>Character data</strong> represent string values. You can think of character strings as something like a word (or multiple words). A special type of character string is a factor, which is a string but with additional attributes (like levels or an order). Factors become important in the analyses and visualizations we&rsquo;ll attempt later in the course.</p>
+</li>
+</ul>
+<p>There are a variety of ways to learn more about the structure of different data types:</p>
+<ul>
+<li><code>class()</code> - returns the type of object (high level)</li>
+<li><code>typeof()</code> - returns the type of object (low level)</li>
+<li><code>length()</code> tells you about the length of an object</li>
+<li><code>attributes()</code> - does the object have any metadata</li>
+</ul>
+<pre><code class="language-r">num &lt;- 2.2
+class(num)
+</code></pre>
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+<pre><code class="language-r">typeof(num)
+</code></pre>
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+<pre><code class="language-r">y &lt;- 1:10 
+y
+</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+<pre><code class="language-r">class(y)
+</code></pre>
+<pre><code>## [1] &quot;integer&quot;
+</code></pre>
+<pre><code class="language-r">typeof(y)
+</code></pre>
+<pre><code>## [1] &quot;integer&quot;
+</code></pre>
+<pre><code class="language-r">length(y)
+</code></pre>
+<pre><code>## [1] 10
+</code></pre>
+<pre><code class="language-r">b &lt;- &quot;3&quot;
+class(b)
+</code></pre>
+<pre><code>## [1] &quot;character&quot;
+</code></pre>
+<pre><code class="language-r">is.numeric(b)
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">c &lt;- as.numeric(b)
+class(c)
+</code></pre>
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+<h3 id="data-structures">Data Structures</h3>
+<p>You can store information in a variety of ways in <code>R</code>. The types we are most likely to encounter this semester are:</p>
+<ul>
+<li><strong>Vectors</strong>: a collection of elements that are typically <code>character</code>, <code>logical</code>, <code>integer</code>, or <code>numeric</code>.</li>
+</ul>
+<pre><code class="language-r">#sometimes we'll need to make sequences of numbers to facilitate joins
+series &lt;- 1:10
+series.2 &lt;- seq(10)
+series.3 &lt;- seq(from = 1, to = 10, by = 0.1)
+series
+</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+<pre><code class="language-r">series.2
+</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+<pre><code class="language-r">series.3
+</code></pre>
+<pre><code>##  [1]  1.0  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3  2.4
+## [16]  2.5  2.6  2.7  2.8  2.9  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9
+## [31]  4.0  4.1  4.2  4.3  4.4  4.5  4.6  4.7  4.8  4.9  5.0  5.1  5.2  5.3  5.4
+## [46]  5.5  5.6  5.7  5.8  5.9  6.0  6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  6.9
+## [61]  7.0  7.1  7.2  7.3  7.4  7.5  7.6  7.7  7.8  7.9  8.0  8.1  8.2  8.3  8.4
+## [76]  8.5  8.6  8.7  8.8  8.9  9.0  9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8  9.9
+## [91] 10.0
+</code></pre>
+<pre><code class="language-r">c(series.2, series.3)
+</code></pre>
+<pre><code>##   [1]  1.0  2.0  3.0  4.0  5.0  6.0  7.0  8.0  9.0 10.0  1.0  1.1  1.2  1.3  1.4
+##  [16]  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3  2.4  2.5  2.6  2.7  2.8  2.9
+##  [31]  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  4.0  4.1  4.2  4.3  4.4
+##  [46]  4.5  4.6  4.7  4.8  4.9  5.0  5.1  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9
+##  [61]  6.0  6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  6.9  7.0  7.1  7.2  7.3  7.4
+##  [76]  7.5  7.6  7.7  7.8  7.9  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.8  8.9
+##  [91]  9.0  9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8  9.9 10.0
+</code></pre>
+<pre><code class="language-r">class(series.3)
+</code></pre>
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+<pre><code class="language-r">typeof(series.3)
+</code></pre>
+<pre><code>## [1] &quot;double&quot;
+</code></pre>
+<pre><code class="language-r">length(series.3)
+</code></pre>
+<pre><code>## [1] 91
+</code></pre>
+<ul>
+<li>Missing Data: R supports missing data in most of the data structures we use, but they can lead to some strange behaviors. Here are a few ways to find missing data:</li>
+</ul>
+<pre><code class="language-r">x &lt;- c(&quot;a&quot;, NA, &quot;c&quot;, &quot;d&quot;, NA)
+is.na(x)
+</code></pre>
+<pre><code>## [1] FALSE  TRUE FALSE FALSE  TRUE
+</code></pre>
+<pre><code class="language-r">anyNA(x)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<ul>
+<li><strong>Matrices</strong>: are an extension of the numeric or character vectors. They are not a separate type of object but simply an atomic vector with dimensions; the number of rows and columns. As with atomic vectors, the <em>elements of a matrix must be of the same data</em>. Matrices are the foundation of rasters, which we&rsquo;ll be discussing frequently throughout the course</li>
+</ul>
+<pre><code class="language-r">#matrices are filled columnwise in R
+m &lt;- matrix(1:6, nrow = 2, ncol = 3)
+dim(m)
+</code></pre>
+<pre><code>## [1] 2 3
+</code></pre>
+<pre><code class="language-r">x &lt;- 1:3
+y &lt;- 10:12
+
+a &lt;- cbind(x, y)
+dim(a)
+</code></pre>
+<pre><code>## [1] 3 2
+</code></pre>
+<pre><code class="language-r">a[3,1]
+</code></pre>
+<pre><code>## x 
+## 3
+</code></pre>
+<pre><code class="language-r">b &lt;- rbind(x, y)
+dim(b)
+</code></pre>
+<pre><code>## [1] 2 3
+</code></pre>
+<pre><code class="language-r">b[1,3]
+</code></pre>
+<pre><code>## x 
+## 3
+</code></pre>
+<ul>
+<li><strong>Lists</strong>: Lists essentially act like containers in <code>R</code> - they can hold a variety of different data types and structures including more lists. We use lists a lot for functional programming in R where we can apply a function to each element in a list. We&rsquo;ll see this with extracting values from multiple rasters. We can extract elements of lists usin <code>[]</code> and <code>[[]]</code></li>
+</ul>
+<pre><code class="language-r">x &lt;- list(1, &quot;a&quot;, TRUE, 1+4i)
+x
+</code></pre>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &quot;a&quot;
+## 
+## [[3]]
+## [1] TRUE
+## 
+## [[4]]
+## [1] 1+4i
+</code></pre>
+<pre><code class="language-r">#adding names
+xlist &lt;- list(a = &quot;Waldo&quot;, b = 1:10, data = head(mtcars))
+xlist
+</code></pre>
+<pre><code>## $a
+## [1] &quot;Waldo&quot;
+## 
+## $b
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $data
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+</code></pre>
+<pre><code class="language-r">xlist[[1]]
+</code></pre>
+<pre><code>## [1] &quot;Waldo&quot;
+</code></pre>
+<pre><code class="language-r">xlist[[3]]
+</code></pre>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+</code></pre>
+<pre><code class="language-r">xlist[[3]][1]
+</code></pre>
+<pre><code>##                    mpg
+## Mazda RX4         21.0
+## Mazda RX4 Wag     21.0
+## Datsun 710        22.8
+## Hornet 4 Drive    21.4
+## Hornet Sportabout 18.7
+## Valiant           18.1
+</code></pre>
+<pre><code class="language-r">xlist[[3]][1,2]
+</code></pre>
+<pre><code>## [1] 6
+</code></pre>
+<pre><code class="language-r">xlist[3][1]
+</code></pre>
+<pre><code>## $data
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+</code></pre>
+<ul>
+<li><strong>Data Frames</strong>: data frames resemble that tabular datasets you might be used to in spreadsheet programs and are probably one of the most common types of data in <code>R</code>. A data frame is a special type of list where every element has the same length (but can have different types of data). We&rsquo;ll be reading in a number of data frames for this first assignment.</li>
+</ul>
+<pre><code class="language-r">dat &lt;- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+dat
+</code></pre>
+<pre><code>##    id  x  y
+## 1   a  1 11
+## 2   b  2 12
+## 3   c  3 13
+## 4   d  4 14
+## 5   e  5 15
+## 6   f  6 16
+## 7   g  7 17
+## 8   h  8 18
+## 9   i  9 19
+## 10  j 10 20
+</code></pre>
+<pre><code class="language-r">is.list(dat)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">class(dat)
+</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;
+</code></pre>
+<pre><code class="language-r">#lots of ways to look at data in data frames
+str(dat) #compact summary of the structure of a dataframe
+</code></pre>
+<pre><code>## 'data.frame':	10 obs. of  3 variables:
+##  $ id: chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
+##  $ x : int  1 2 3 4 5 6 7 8 9 10
+##  $ y : int  11 12 13 14 15 16 17 18 19 20
+</code></pre>
+<pre><code class="language-r">head(dat) #gives the first 6 rows similar to tail()
+</code></pre>
+<pre><code>##   id x  y
+## 1  a 1 11
+## 2  b 2 12
+## 3  c 3 13
+## 4  d 4 14
+## 5  e 5 15
+## 6  f 6 16
+</code></pre>
+<pre><code class="language-r">dim(dat)
+</code></pre>
+<pre><code>## [1] 10  3
+</code></pre>
+<pre><code class="language-r">colnames(dat)
+</code></pre>
+<pre><code>## [1] &quot;id&quot; &quot;x&quot;  &quot;y&quot;
+</code></pre>
+<pre><code class="language-r">## accessing elements of a dataframe
+dat[1,3]
+</code></pre>
+<pre><code>## [1] 11
+</code></pre>
+<pre><code class="language-r">dat[[&quot;y&quot;]]
+</code></pre>
+<pre><code>##  [1] 11 12 13 14 15 16 17 18 19 20
+</code></pre>
+<pre><code class="language-r">dat$y
+</code></pre>
+<pre><code>##  [1] 11 12 13 14 15 16 17 18 19 20
+</code></pre>
+<ul>
+<li><strong>Tibbles</strong>: are similar to data frames, but allow for lists <em>within</em> columns. They are designed for use with the <code>tidyverse</code> (which we&rsquo;ll explore more in future classes), but the primary reason for introducing them here is because they are the foundation of <code>sf</code> objects which we&rsquo;ll use frequently in the weeks to come.</li>
+</ul>
+<pre><code class="language-r">library(tidyverse)
+</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.1     ✓ forcats 0.5.1
+</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+</code></pre>
+<pre><code class="language-r">dat.tib &lt;- tibble(dat)
+is.list(dat.tib)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">class(dat.tib)
+</code></pre>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
+</code></pre>
+<pre><code class="language-r">#lots of ways to look at data in data frames
+str(dat.tib) #compact summary of the structure of a dataframe
+</code></pre>
+<pre><code>## tibble [10 × 3] (S3: tbl_df/tbl/data.frame)
+##  $ id: chr [1:10] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
+##  $ x : int [1:10] 1 2 3 4 5 6 7 8 9 10
+##  $ y : int [1:10] 11 12 13 14 15 16 17 18 19 20
+</code></pre>
+<pre><code class="language-r">head(dat.tib) #gives the first 6 rows similar to tail()
+</code></pre>
+<pre><code>## # A tibble: 6 × 3
+##   id        x     y
+##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;
+## 1 a         1    11
+## 2 b         2    12
+## 3 c         3    13
+## 4 d         4    14
+## 5 e         5    15
+## 6 f         6    16
+</code></pre>
+<pre><code class="language-r">dim(dat.tib)
+</code></pre>
+<pre><code>## [1] 10  3
+</code></pre>
+<pre><code class="language-r">colnames(dat.tib)
+</code></pre>
+<pre><code>## [1] &quot;id&quot; &quot;x&quot;  &quot;y&quot;
+</code></pre>
+<pre><code class="language-r">## accessing elements of a dataframe
+dat.tib[1,3]
+</code></pre>
+<pre><code>## # A tibble: 1 × 1
+##       y
+##   &lt;int&gt;
+## 1    11
+</code></pre>
+<pre><code class="language-r">dat.tib[[&quot;y&quot;]]
+</code></pre>
+<pre><code>##  [1] 11 12 13 14 15 16 17 18 19 20
+</code></pre>
+<pre><code class="language-r">dat.tib$y
+</code></pre>
+<pre><code>##  [1] 11 12 13 14 15 16 17 18 19 20
+</code></pre>
+<p>Many of the packages used for spatial operations in <code>R</code> rely on special objects (e.g., <code>Spatial*</code>, <code>RasterLayer</code>) that are combinations of these various elemental data types. That is why we are taking a little time to understand them before jumping into spatial data.</p>
+
+                    </div>
+
+                    
+
+
+
+                    
+                    <div class="article-widget">
+                        
+<div class="post-nav">
+  
+  
+</div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on Aug 26, 2021</p>
+
+                    
+
+
+
+
+
+                    
+
+
+
+                </div>
+
+            </article>
+
+            <footer>
+    <hr>
+
+    <div class="row course-info">
+        <div class="col-md-7">
+            <p>
+                <strong>HES 597: Spatial Data in R (Fall 2021)</strong><br>
+
+                <a href="https://www.boisestate.edu" target="_blank" rel="noopener">Boise State University</a> &emsp;&emsp;
+                <a href="https://www.boisestate.edu/hes/" target="_blank" rel="noopener">Human-Environment Systems</a>
+            </p>
+
+            <p>
+                <a href="https://www.boisestate.edu/hes/people/matt-williamson/" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Dr. Matt Williamson</a> &emsp;&emsp;
+                <a href="mailto:mattwilliamson@boisestate.edu"><i class="fas fa-envelope"></i>
+                    mattwilliamson@boisestate.edu</a>
+            </p>
+
+            <p>
+                <i class="far fa-calendar-alt"></i> T TH &emsp;&emsp;
+                <i class="far fa-clock"></i> 10:30 - 11:45 
+                <br><i class="fas fa-university"></i> Albertson&#39;s Library Rm201C
+            </p>
+        </div>
+
+        <div class="col-md-5 credits">
+            <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+            
+            <p>Content <i class="fab fa-creative-commons"></i> 2021 <a href="https://www.boisestate.edu/hes/people/matt-williamson/" target="_blank" rel="noopener">Matt Williamson</a></p>
+        
+            <p>This site was inspired by Andrew Heiss' <a href="https://datavizs21.classes.andrewheiss.com/" target="_blank" rel="noopener">Data Visualization course</a> created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
+            
+            <p><a href="https://github.com/mattwilliamson13/isdrfall21" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
+        </div>
+    </div>
+</footer>
+
+        </main>
+    </div>
+</div>
+
+        
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/en/js/wowchemy.min.99ddacf76b31e04b589f8ff7e550cbb8.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+    
+    
+
+    
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

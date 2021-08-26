@@ -309,6 +309,460 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>Introduction to course resources, Rmarkdown, and data in R</title>
+      <link>http://isdrfall21.classes.spaseslab.com/example/01-example/</link>
+      <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/example/01-example/</guid>
+      <description>&lt;h2 id=&#34;lets-git-started&#34;&gt;Let&amp;rsquo;s &amp;ldquo;git&amp;rdquo; started&lt;/h2&gt;
+&lt;p&gt;We are using GitHub classroom for all of the assignments in this course. This allows each of you to have your own repositories for version control and backup of your code without the worries of stepping on someone else toes. The goal of this class is not to have you become a &amp;lsquo;master&amp;rsquo; of all things git, but I am hoping you&amp;rsquo;ll learn the utility of version control and adopt as much of it as make sense for you and your workflows.&lt;/p&gt;
+&lt;h3 id=&#34;accept-the-invitation-to-the-assignment-repo&#34;&gt;Accept the invitation to the assignment repo&lt;/h3&gt;
+&lt;p&gt;The first thing you&amp;rsquo;ll need to do is accept the invitation to &amp;lsquo;assignment-1` repository (repo). This &lt;em&gt;should&lt;/em&gt; automatically clone (make an exact copy) of the assignment repo in your personal account.&lt;/p&gt;
+&lt;h3 id=&#34;making-sure-rstudio-server-can-access-your-github-account&#34;&gt;Making sure Rstudio server can access your GitHub account&lt;/h3&gt;
+&lt;p&gt;Unfortunately, GitHub has ended its support for username/password remote authentication. Instead, it uses something called a Personal Access Token. You can read more about it &lt;a href=&#34;https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; if you are interested, but the easiest way to deal with this is by following Jenny Bryan&amp;rsquo;s &lt;a href=&#34;https://happygitwithr.com/credential-caching.html#credential-caching&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;happygitwithr&lt;/a&gt; recommended approach:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Introduce yourself to git:
+There are a number of ways to do this, but I find this to be the easiest&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(usethis) #you may need to install this using install.packages(&#39;usethis&#39;)
+use_git_config(user.name = &amp;quot;Jane Doe&amp;quot;, user.email = &amp;quot;jane@example.org&amp;quot;) #your info here
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Get a PAT if you don&amp;rsquo;t have one already (make sure you save it somewhere)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;usethis::create_github_token()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Store your credential for use in RStudio&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(gitcreds) #may need to install this too
+
+gitcreds_set() #should prompt you for your pat - paste it here
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Verify that Rstudio has saved your credential&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;gitcreds_get()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;R should return something that looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/img/01/credentialsuccess.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;bring-the-project-into-rstudio&#34;&gt;Bring the project into RStudio&lt;/h3&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Go to File&amp;gt;New Project and choose the &amp;ldquo;Version Control&amp;rdquo; option&lt;/li&gt;
+&lt;li&gt;Select &amp;ldquo;Git&amp;rdquo; (Not Subversion)&lt;/li&gt;
+&lt;li&gt;paste the link from the &amp;ldquo;Clone Repository&amp;rdquo; button into the &amp;ldquo;Repository URL&amp;rdquo; space&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;verify-that-the-git-tab-is-available-and-that-your-project-is-shown-in-the-upper-right-hand-corner&#34;&gt;Verify that the &amp;ldquo;Git&amp;rdquo; tab is available and that your project is shown in the upper right-hand corner&lt;/h3&gt;
+&lt;p&gt;Assuming all this has worked, you should be able to click on the &amp;ldquo;Git&amp;rdquo; tab and see something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/img/01/gittab.png&#34; width=&#34;70%&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;basic-workflow&#34;&gt;Basic workflow&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Everytime you begin working on code, make sure you &amp;ldquo;Pull&amp;rdquo; from the remote repository to make sure you have the most recent version of things (this is especially important when you are collaborating with people).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make some changes to code&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Save those changes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;Commit&amp;rdquo; those changes - Think of commits as &amp;lsquo;breadcrumbs&amp;rsquo; they help you remember where you were in the coding process in case you need to revert back to a previous version. Your commit messages should help you remember what was &amp;lsquo;happening&amp;rsquo; in the code when you made the commit. In general, you should save and commit fairly frequently and especially everytime you do something &amp;lsquo;consequential&amp;rsquo;. Git allows you to &amp;lsquo;turn back time&amp;rsquo;, but that&amp;rsquo;s only useful if you left enough information to get back to where you want to be.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Push your work to the remote - when you&amp;rsquo;re done working on the project for the day, push your local changes to the remote. This will ensure that if you switch computers or if someone else is going to work on the project, you (or they) will have the most recent version. Plus, if you don&amp;rsquo;t do this, step 1 will really mess you up.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;r-markdown&#34;&gt;R Markdown&lt;/h2&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;. We&amp;rsquo;ll be using Rmarkdown for the assignments in class and this website was built (generally) using Rmarkdown. You can create new Rmarkdown documents by going to File &amp;raquo; New File &amp;raquo; New Rmarkdown (we&amp;rsquo;ll be using html for this class)&lt;/p&gt;
+&lt;p&gt;When you click the &lt;strong&gt;Knit&lt;/strong&gt; button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.&lt;/p&gt;
+&lt;p&gt;There are lots of helpful resources to help you get started using Rmarkdown. There&amp;rsquo;s a &lt;a href=&#34;https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cheatsheet&lt;/a&gt; and a much longer &lt;a href=&#34;https://bookdown.org/yihui/rmarkdown/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;user&amp;rsquo;s guide&lt;/a&gt;. I don&amp;rsquo;t expect you to become an expert in Rmarkdown, but it is a helpful way to keep all of your thougths and code together in a single, coherent document. Getting proficient in Rmarkdown and git allows you to work with collaborators on an analysis, graphics, and manuscript all within a single platform. This fully-integrated workflow takes practice and patience (especially when you have collaborators that are new to this approach), this course is just an initial step down that path. I&amp;rsquo;ll do my best to keep it simple - please let me know if you have questions!&lt;/p&gt;
+&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summary(cars)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;including-plots&#34;&gt;Including Plots&lt;/h3&gt;
+&lt;p&gt;You can also embed plots, for example:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/01-example_files/figure-html/pressure-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Note that the &lt;code&gt;echo = FALSE&lt;/code&gt; parameter was added to the code chunk to prevent printing of the R code that generated the plot.&lt;/p&gt;
+&lt;h2 id=&#34;data-types-and-structures&#34;&gt;Data Types and Structures&lt;/h2&gt;
+&lt;h3 id=&#34;data-types&#34;&gt;Data Types&lt;/h3&gt;
+&lt;p&gt;Okay, now that we have all of those details out of the way, let&amp;rsquo;s take a look at data structures in &lt;code&gt;R&lt;/code&gt;. As we discussed,&lt;code&gt;R&lt;/code&gt; has six basic types of data: numeric, integer, logical, complex, character, and raw. For this class, we won&amp;rsquo;t bother with complex or raw as you are unlikely to encounter them in your introductory spatial explorations.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Numeric&lt;/strong&gt; data are numbers that contain a decimal. They can also be whole numbers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Integers&lt;/strong&gt; are whole numbers (those numbers without a decimal point).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Logical&lt;/strong&gt; data take on the value of either &lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;. There’s also another special type of logical called &lt;code&gt;NA&lt;/code&gt; to represent missing values.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Character data&lt;/strong&gt; represent string values. You can think of character strings as something like a word (or multiple words). A special type of character string is a factor, which is a string but with additional attributes (like levels or an order). Factors become important in the analyses and visualizations we&amp;rsquo;ll attempt later in the course.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are a variety of ways to learn more about the structure of different data types:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class()&lt;/code&gt; - returns the type of object (high level)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;typeof()&lt;/code&gt; - returns the type of object (low level)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt; tells you about the length of an object&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;attributes()&lt;/code&gt; - does the object have any metadata&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;num &amp;lt;- 2.2
+class(num)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;typeof(num)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;double&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;y &amp;lt;- 1:10 
+y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  1  2  3  4  5  6  7  8  9 10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;integer&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;typeof(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;integer&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;length(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;b &amp;lt;- &amp;quot;3&amp;quot;
+class(b)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;is.numeric(b)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;c &amp;lt;- as.numeric(b)
+class(c)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;data-structures&#34;&gt;Data Structures&lt;/h3&gt;
+&lt;p&gt;You can store information in a variety of ways in &lt;code&gt;R&lt;/code&gt;. The types we are most likely to encounter this semester are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vectors&lt;/strong&gt;: a collection of elements that are typically &lt;code&gt;character&lt;/code&gt;, &lt;code&gt;logical&lt;/code&gt;, &lt;code&gt;integer&lt;/code&gt;, or &lt;code&gt;numeric&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#sometimes we&#39;ll need to make sequences of numbers to facilitate joins
+series &amp;lt;- 1:10
+series.2 &amp;lt;- seq(10)
+series.3 &amp;lt;- seq(from = 1, to = 10, by = 0.1)
+series
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  1  2  3  4  5  6  7  8  9 10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;series.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  1  2  3  4  5  6  7  8  9 10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;series.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  1.0  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3  2.4
+## [16]  2.5  2.6  2.7  2.8  2.9  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9
+## [31]  4.0  4.1  4.2  4.3  4.4  4.5  4.6  4.7  4.8  4.9  5.0  5.1  5.2  5.3  5.4
+## [46]  5.5  5.6  5.7  5.8  5.9  6.0  6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  6.9
+## [61]  7.0  7.1  7.2  7.3  7.4  7.5  7.6  7.7  7.8  7.9  8.0  8.1  8.2  8.3  8.4
+## [76]  8.5  8.6  8.7  8.8  8.9  9.0  9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8  9.9
+## [91] 10.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;c(series.2, series.3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   [1]  1.0  2.0  3.0  4.0  5.0  6.0  7.0  8.0  9.0 10.0  1.0  1.1  1.2  1.3  1.4
+##  [16]  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3  2.4  2.5  2.6  2.7  2.8  2.9
+##  [31]  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7  3.8  3.9  4.0  4.1  4.2  4.3  4.4
+##  [46]  4.5  4.6  4.7  4.8  4.9  5.0  5.1  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9
+##  [61]  6.0  6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  6.9  7.0  7.1  7.2  7.3  7.4
+##  [76]  7.5  7.6  7.7  7.8  7.9  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.8  8.9
+##  [91]  9.0  9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8  9.9 10.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(series.3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;typeof(series.3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;double&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;length(series.3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 91
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Missing Data: R supports missing data in most of the data structures we use, but they can lead to some strange behaviors. Here are a few ways to find missing data:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- c(&amp;quot;a&amp;quot;, NA, &amp;quot;c&amp;quot;, &amp;quot;d&amp;quot;, NA)
+is.na(x)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE  TRUE FALSE FALSE  TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;anyNA(x)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Matrices&lt;/strong&gt;: are an extension of the numeric or character vectors. They are not a separate type of object but simply an atomic vector with dimensions; the number of rows and columns. As with atomic vectors, the &lt;em&gt;elements of a matrix must be of the same data&lt;/em&gt;. Matrices are the foundation of rasters, which we&amp;rsquo;ll be discussing frequently throughout the course&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#matrices are filled columnwise in R
+m &amp;lt;- matrix(1:6, nrow = 2, ncol = 3)
+dim(m)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 1:3
+y &amp;lt;- 10:12
+
+a &amp;lt;- cbind(x, y)
+dim(a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;a[3,1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## x 
+## 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;b &amp;lt;- rbind(x, y)
+dim(b)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;b[1,3]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## x 
+## 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lists&lt;/strong&gt;: Lists essentially act like containers in &lt;code&gt;R&lt;/code&gt; - they can hold a variety of different data types and structures including more lists. We use lists a lot for functional programming in R where we can apply a function to each element in a list. We&amp;rsquo;ll see this with extracting values from multiple rasters. We can extract elements of lists usin &lt;code&gt;[]&lt;/code&gt; and &lt;code&gt;[[]]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- list(1, &amp;quot;a&amp;quot;, TRUE, 1+4i)
+x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &amp;quot;a&amp;quot;
+## 
+## [[3]]
+## [1] TRUE
+## 
+## [[4]]
+## [1] 1+4i
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#adding names
+xlist &amp;lt;- list(a = &amp;quot;Waldo&amp;quot;, b = 1:10, data = head(mtcars))
+xlist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $a
+## [1] &amp;quot;Waldo&amp;quot;
+## 
+## $b
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $data
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;xlist[[1]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Waldo&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;xlist[[3]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;xlist[[3]][1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                    mpg
+## Mazda RX4         21.0
+## Mazda RX4 Wag     21.0
+## Datsun 710        22.8
+## Hornet 4 Drive    21.4
+## Hornet Sportabout 18.7
+## Valiant           18.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;xlist[[3]][1,2]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;xlist[3][1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $data
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Data Frames&lt;/strong&gt;: data frames resemble that tabular datasets you might be used to in spreadsheet programs and are probably one of the most common types of data in &lt;code&gt;R&lt;/code&gt;. A data frame is a special type of list where every element has the same length (but can have different types of data). We&amp;rsquo;ll be reading in a number of data frames for this first assignment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dat &amp;lt;- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+dat
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    id  x  y
+## 1   a  1 11
+## 2   b  2 12
+## 3   c  3 13
+## 4   d  4 14
+## 5   e  5 15
+## 6   f  6 16
+## 7   g  7 17
+## 8   h  8 18
+## 9   i  9 19
+## 10  j 10 20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;is.list(dat)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(dat)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;data.frame&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#lots of ways to look at data in data frames
+str(dat) #compact summary of the structure of a dataframe
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &#39;data.frame&#39;:	10 obs. of  3 variables:
+##  $ id: chr  &amp;quot;a&amp;quot; &amp;quot;b&amp;quot; &amp;quot;c&amp;quot; &amp;quot;d&amp;quot; ...
+##  $ x : int  1 2 3 4 5 6 7 8 9 10
+##  $ y : int  11 12 13 14 15 16 17 18 19 20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(dat) #gives the first 6 rows similar to tail()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   id x  y
+## 1  a 1 11
+## 2  b 2 12
+## 3  c 3 13
+## 4  d 4 14
+## 5  e 5 15
+## 6  f 6 16
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dim(dat)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10  3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;colnames(dat)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;id&amp;quot; &amp;quot;x&amp;quot;  &amp;quot;y&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## accessing elements of a dataframe
+dat[1,3]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 11
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dat[[&amp;quot;y&amp;quot;]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 11 12 13 14 15 16 17 18 19 20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dat$y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 11 12 13 14 15 16 17 18 19 20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tibbles&lt;/strong&gt;: are similar to data frames, but allow for lists &lt;em&gt;within&lt;/em&gt; columns. They are designed for use with the &lt;code&gt;tidyverse&lt;/code&gt; (which we&amp;rsquo;ll explore more in future classes), but the primary reason for introducing them here is because they are the foundation of &lt;code&gt;sf&lt;/code&gt; objects which we&amp;rsquo;ll use frequently in the weeks to come.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(tidyverse)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.1     ✓ forcats 0.5.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dat.tib &amp;lt;- tibble(dat)
+is.list(dat.tib)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(dat.tib)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;tbl_df&amp;quot;     &amp;quot;tbl&amp;quot;        &amp;quot;data.frame&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#lots of ways to look at data in data frames
+str(dat.tib) #compact summary of the structure of a dataframe
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## tibble [10 × 3] (S3: tbl_df/tbl/data.frame)
+##  $ id: chr [1:10] &amp;quot;a&amp;quot; &amp;quot;b&amp;quot; &amp;quot;c&amp;quot; &amp;quot;d&amp;quot; ...
+##  $ x : int [1:10] 1 2 3 4 5 6 7 8 9 10
+##  $ y : int [1:10] 11 12 13 14 15 16 17 18 19 20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(dat.tib) #gives the first 6 rows similar to tail()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 3
+##   id        x     y
+##   &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;
+## 1 a         1    11
+## 2 b         2    12
+## 3 c         3    13
+## 4 d         4    14
+## 5 e         5    15
+## 6 f         6    16
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dim(dat.tib)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10  3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;colnames(dat.tib)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;id&amp;quot; &amp;quot;x&amp;quot;  &amp;quot;y&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## accessing elements of a dataframe
+dat.tib[1,3]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 1 × 1
+##       y
+##   &amp;lt;int&amp;gt;
+## 1    11
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dat.tib[[&amp;quot;y&amp;quot;]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 11 12 13 14 15 16 17 18 19 20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dat.tib$y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 11 12 13 14 15 16 17 18 19 20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Many of the packages used for spatial operations in &lt;code&gt;R&lt;/code&gt; rely on special objects (e.g., &lt;code&gt;Spatial*&lt;/code&gt;, &lt;code&gt;RasterLayer&lt;/code&gt;) that are combinations of these various elemental data types. That is why we are taking a little time to understand them before jumping into spatial data.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Welcome to Space!!</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/01-content/</link>
       <pubDate>Tue, 24 Aug 2021 00:00:00 +0000</pubDate>
@@ -542,7 +996,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-128975643&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-689752314&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -552,7 +1006,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-128975643&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-689752314&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
