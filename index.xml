@@ -369,6 +369,43 @@ data &amp;lt;- lapply(csv.list, function (x) read.csv(x))
     </item>
     
     <item>
+      <title>Spatial data is special data</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/02-content/</link>
+      <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/02-content/</guid>
+      <description>&lt;p&gt;Today we’ll start getting into the nitty-gritty of geographic data and how the various elements describing spatial position are managed within &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;objectives&#34;&gt;Objectives&lt;/h2&gt;
+&lt;p&gt;By the end of today, you should be able to:
+* Describe several ways to load spatial data into &lt;code&gt;R&lt;/code&gt;
+* Define a coordinate reference system and describe why it is important
+* Identify the different ways projections are expressed in &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;gdal&lt;/code&gt;
+* Describe the other key elements of spatial data&lt;/p&gt;
+&lt;h2 id=&#34;readings&#34;&gt;Readings&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://geocompr.robinlovelace.net/spatial-class.html#crs-intro&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Coordinate Reference Systems&lt;/a&gt; Section 2.4 in Lovelace et al., &lt;em&gt;Geocomputation with R&lt;/em&gt; (Lovelace et al. 2019)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s05-introduction.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chapter 1: Introduction&lt;/a&gt; in Essentials of Geographic Information Systems by Campbell and Shin (Campbell and Shin 2011)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://open.lib.umn.edu/mapping/chapter/3-scale-and-projections/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Scale and Projections&lt;/a&gt; - a portion of &lt;em&gt;Mapping, Society, and Technology&lt;/em&gt; an Laura Matson and Melinda Kernik.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;Coming soon!!&lt;/p&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-campbell_essentials_2011&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Campbell, J., and M. Shin. 2011. Essentials of geographic information systems. Saylor Foundation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-lovelace_geocomputation_2019&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Lovelace, R., J. Nowosad, and J. Muenchow. 2019. Geocomputation with R. CRC Press.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Introduction to course resources, Rmarkdown, and data in R</title>
       <link>http://isdrfall21.classes.spaseslab.com/example/01-example/</link>
       <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
@@ -1056,7 +1093,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-872965134&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-725386419&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1066,7 +1103,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-872965134&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-725386419&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

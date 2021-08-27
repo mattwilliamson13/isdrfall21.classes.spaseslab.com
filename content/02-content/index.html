@@ -33,10 +33,11 @@
   
     
   
-  <meta name="description" content="Today we’ll focus on getting oriented to the course and the tools we’ll be using throughout the semester. Readings are designed to help understand some of the ‘rules’ of R syntax and develop an understanding for manipulating different types of data in R." />
+  <meta name="description" content="Today we’ll start getting into the nitty-gritty of geographic data and how the various elements describing spatial position are managed within R.
+Objectives By the end of today, you should be able to: * Describe several ways to load spatial data into R * Define a coordinate reference system and describe why it is important * Identify the different ways projections are expressed in R and gdal * Describe the other key elements of spatial data" />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/content/01-content/" />
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/content/02-content/" />
 
   
 
@@ -291,7 +292,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/content/01-content/" />
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/content/02-content/" />
 
   
   
@@ -311,18 +312,19 @@
     <meta property="twitter:creator" content="@MwilliamsonMatt" />
   
   <meta property="og:site_name" content="Spatial Data in R" />
-  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/content/01-content/" />
-  <meta property="og:title" content="Welcome to Space!! | Spatial Data in R" />
-  <meta property="og:description" content="Today we’ll focus on getting oriented to the course and the tools we’ll be using throughout the semester. Readings are designed to help understand some of the ‘rules’ of R syntax and develop an understanding for manipulating different types of data in R." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/content/02-content/" />
+  <meta property="og:title" content="Spatial data is special data | Spatial Data in R" />
+  <meta property="og:description" content="Today we’ll start getting into the nitty-gritty of geographic data and how the various elements describing spatial position are managed within R.
+Objectives By the end of today, you should be able to: * Describe several ways to load spatial data into R * Define a coordinate reference system and describe why it is important * Identify the different ways projections are expressed in R and gdal * Describe the other key elements of spatial data" /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2021-08-24T00:00:00&#43;00:00"
+        content="2021-08-27T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2021-08-24T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2021-08-27T00:00:00&#43;00:00">
   
 
   
@@ -349,7 +351,7 @@
   <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
 
 
-  <title>Welcome to Space!! | Spatial Data in R</title>
+  <title>Spatial data is special data | Spatial Data in R</title>
 </head>
 
 
@@ -737,12 +739,12 @@
     <a class="docs-toc-link" href="/content/01-content/">Course content</a>
     <ul class="nav docs-sidenav">
       
-      <li class="active">
+      <li >
         <a href="/content/01-content/">1: Welcome to Space!</a>
       </li>
 
       
-      <li >
+      <li class="active">
         <a href="/content/02-content/">2: Spatial data is special data</a>
       </li>
 
@@ -764,6 +766,7 @@
 
             <nav id="TableOfContents">
   <ul>
+    <li><a href="#objectives">Objectives</a></li>
     <li><a href="#readings">Readings</a></li>
     <li><a href="#slides">Slides</a></li>
   </ul>
@@ -778,7 +781,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Welcome to Space!!</h1>
+                    <h1>Spatial data is special data</h1>
 
                     
 
@@ -787,74 +790,33 @@
                     
 
                     <div class="article-style">
-                        <p>Today we’ll focus on getting oriented to the course and the tools we’ll be using throughout the semester. Readings are designed to help understand some of the ‘rules’ of R syntax and develop an understanding for manipulating different types of data in R.</p>
+                        <p>Today we’ll start getting into the nitty-gritty of geographic data and how the various elements describing spatial position are managed within <code>R</code>.</p>
+<h2 id="objectives">Objectives</h2>
+<p>By the end of today, you should be able to:
+* Describe several ways to load spatial data into <code>R</code>
+* Define a coordinate reference system and describe why it is important
+* Identify the different ways projections are expressed in <code>R</code> and <code>gdal</code>
+* Describe the other key elements of spatial data</p>
 <h2 id="readings">Readings</h2>
 <ul>
 <li>
-<p>The <a href="/syllabus/">syllabus</a>, <a href="/content/">content</a>, <a href="/example/">examples</a>, and <a href="/assigment/">assignments</a> pages for this class</p>
+<p><i class="fas fa-book"></i> <a href="https://geocompr.robinlovelace.net/spatial-class.html#crs-intro" target="_blank" rel="noopener">Coordinate Reference Systems</a> Section 2.4 in Lovelace et al., <em>Geocomputation with R</em> (Lovelace et al. 2019)</p>
 </li>
 <li>
-<p><i class="fas fa-book"></i> <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf" target="_blank" rel="noopener">Chapter 1 - 6</a> in Venables et al., <em>An Introduction to R</em> (Venables et al. 2009) - for a quick refresher on data types in R (it’s only 30 pages)</p>
+<p><i class="fas fa-book"></i> <a href="https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s05-introduction.html" target="_blank" rel="noopener">Chapter 1: Introduction</a> in Essentials of Geographic Information Systems by Campbell and Shin (Campbell and Shin 2011)</p>
 </li>
 <li>
-<p><i class="fas fa-external-link-square-alt"></i> <a href="https://open.lib.umn.edu/mapping/chapter/7-lying-with-maps/" target="_blank" rel="noopener">Lying with maps</a> - a portion of <em>Mapping, Society, and Technology</em> an ebook by Eric Deluca and Sara Nelson.</p>
+<p><i class="fas fa-external-link-square-alt"></i> <a href="https://open.lib.umn.edu/mapping/chapter/3-scale-and-projections/" target="_blank" rel="noopener">Scale and Projections</a> - a portion of <em>Mapping, Society, and Technology</em> an Laura Matson and Melinda Kernik.</p>
 </li>
 </ul>
 <h2 id="slides">Slides</h2>
-<p>The slides for today’s lesson are available online as an HTML file. Use the buttons below to open the slides either as an interactive website or as a static PDF (for printing or storing for later). You can also click in the slides below and navigate through them with your left and right arrow keys.</p>
-<p><a class="btn btn-primary btn-lg" target="_blank" href="/slides/01-slides.html"><i class="fas fa-external-link-alt"></i> View all slides in new window</a> <a class="btn btn-primary btn-lg" target="_blank" href="/slides/01-slides.pdf" role="button"><i class="far fa-file-pdf"></i> Download PDF of all slides</a></p>
-<ul class="nav nav-tabs" id="slide-tabs" role="tablist">
-<li class="nav-item">
-<a class="nav-link active" id="welcome-tab" data-toggle="tab" href="#welcome" role="tab" aria-controls="welcome" aria-selected="true">Welcome</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" id="plan-for-the-day-tab" data-toggle="tab" href="#plan-for-the-day" role="tab" aria-controls="plan-for-the-day" aria-selected="false">Plan for the day</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" id="introductions-tab" data-toggle="tab" href="#introductions" role="tab" aria-controls="introductions" aria-selected="false">Introductions</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" id="why-not-r-tab" data-toggle="tab" href="#why-not-r" role="tab" aria-controls="why-not-r" aria-selected="false">Why (not) R?</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" id="class-details-tab" data-toggle="tab" href="#class-details" role="tab" aria-controls="class-details" aria-selected="false">Class details</a>
-</li>
-</ul>
-<div id="slide-tabs" class="tab-content">
-<div id="welcome" class="tab-pane fade show active" role="tabpanel" aria-labelledby="welcome-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/01-slides.html#1">
-</iframe>
-</div>
-</div>
-<div id="plan-for-the-day" class="tab-pane fade" role="tabpanel" aria-labelledby="plan-for-the-day-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/01-slides.html#outline">
-</iframe>
-</div>
-</div>
-<div id="introductions" class="tab-pane fade" role="tabpanel" aria-labelledby="introductions-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/01-slides.html#introductions">
-</iframe>
-</div>
-</div>
-<div id="why-not-r" class="tab-pane fade" role="tabpanel" aria-labelledby="why-not-r-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/01-slides.html#why-not-r">
-</iframe>
-</div>
-</div>
-<div id="class-details" class="tab-pane fade" role="tabpanel" aria-labelledby="class-details-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/01-slides.html#class-details">
-</iframe>
-</div>
-</div>
-</div>
+<p>Coming soon!!</p>
 <div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
-<div id="ref-venables2009introduction" class="csl-entry">
-<p>Venables, W. N., D. M. Smith, R. D. C. Team, and others. 2009. An introduction to r. Citeseer.</p>
+<div id="ref-campbell_essentials_2011" class="csl-entry">
+<p>Campbell, J., and M. Shin. 2011. Essentials of geographic information systems. Saylor Foundation.</p>
+</div>
+<div id="ref-lovelace_geocomputation_2019" class="csl-entry">
+<p>Lovelace, R., J. Nowosad, and J. Muenchow. 2019. Geocomputation with R. CRC Press.</p>
 </div>
 </div>
 
@@ -872,10 +834,9 @@
   
   
   <div class="post-nav-item">
-    <div class="meta-nav">Previous</div>
-    <a href="/content/02-content/" rel="next">Spatial data is special data</a>
+    <div class="meta-nav">Next</div>
+    <a href="/content/01-content/" rel="prev">Welcome to Space!!</a>
   </div>
-  
   
 </div>
 
@@ -884,7 +845,7 @@
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on Aug 24, 2021</p>
+                    <p>Last updated on Aug 27, 2021</p>
 
                     
 
