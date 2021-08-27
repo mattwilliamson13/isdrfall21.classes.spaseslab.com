@@ -309,6 +309,66 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>Introduction to class resources and data structures in R</title>
+      <link>http://isdrfall21.classes.spaseslab.com/assignment/01-exercise/</link>
+      <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/assignment/01-exercise/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;This is here for ease of reference; you should complete your assignment using your individual GitHub Classroom repositories&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;your-assignment&#34;&gt;Your assignment&lt;/h2&gt;
+&lt;p&gt;The goal for this assignment is to ensure that you:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;have access to our Rstudio server and shared data folder&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;can access the assignments in Github Classroom&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;are able to determine what data structure you&amp;rsquo;re working with and what data types are contained with the object&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;can succesfully knit an Rmarkdown document to html&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;step-1-load-your-packages&#34;&gt;Step 1: Load your packages&lt;/h2&gt;
+&lt;p&gt;In general, I do this in one code chunk at the beginning of the Rmarkdown document so that users know exactly what packages they&amp;rsquo;ll need and can make decisions about if/how they want to install them.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(tidyverse)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.0     ✓ forcats 0.5.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;step-2-load-the-data&#34;&gt;Step 2: Load the data&lt;/h2&gt;
+&lt;p&gt;For the next few weeks, we&amp;rsquo;ll be using data from the High Country News &lt;a href=&#34;https://www.landgrabu.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Land Grab University&lt;/a&gt; project. These data depict the role of expropriated Indigenous land in funding the fifty-two land-grant universities in the United States. They contain information on nearly 11 million acres of Indigenous land tanke from ~250 tribes, bands and communities through a multitude of treaties and violent land seizures. Check it out as it will help you understand what these data are depicting.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;csv.list &amp;lt;- list.files(&#39;/opt/data/session02/CSVs/&#39;, pattern = &amp;quot;*.csv&amp;quot;, full.names = TRUE)
+data &amp;lt;- lapply(csv.list, function (x) read.csv(x))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Question 1: what is &lt;code&gt;lapply&lt;/code&gt; doing in the statement above?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Question 2: what type of data is contained in the 3 column of the 2nd element of the &lt;code&gt;data&lt;/code&gt; object? (show the code you used to figure it out by inserting a code chunk)?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Question 3: what happens if you run the above code with the the &lt;code&gt;read_csv&lt;/code&gt; function from the &lt;code&gt;tidyverse&lt;/code&gt; package?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Question 4: Use the first element of the &lt;code&gt;data&lt;/code&gt; object to determine the total amount paid for the land depicted in that object (HINT: you&amp;rsquo;ll need to coerce the data into a different format)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Remember - edit this document and knit to .html within your GitHub Classroom repo and &lt;em&gt;commit&lt;/em&gt; &lt;em&gt;and&lt;/em&gt; &lt;em&gt;push&lt;/em&gt; those changes&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Introduction to course resources, Rmarkdown, and data in R</title>
       <link>http://isdrfall21.classes.spaseslab.com/example/01-example/</link>
       <pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate>
@@ -996,7 +1056,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-689752314&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-274891365&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1006,7 +1066,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-689752314&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-274891365&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
