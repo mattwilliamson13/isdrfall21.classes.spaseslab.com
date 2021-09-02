@@ -309,6 +309,159 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>Workflows for getting spatial data into R</title>
+      <link>http://isdrfall21.classes.spaseslab.com/example/02-example/</link>
+      <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/example/02-example/</guid>
+      <description>&lt;p&gt;Today&amp;rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&amp;rsquo;ll look at ways to do this using the &lt;code&gt;sf&lt;/code&gt;, &lt;code&gt;sp&lt;/code&gt; (with &lt;code&gt;rgdal&lt;/code&gt;), &lt;code&gt;raster&lt;/code&gt;, and &lt;code&gt;terra&lt;/code&gt; packages.&lt;/p&gt;
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;Remember that we&amp;rsquo;ll be using GitHub classroom so you&amp;rsquo;ll need to introduce yourself to git and then clone the Assignment 2 repository. The instructions are in &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/example/01-example/&#34;&gt;Example 1&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;loading-the-data&#34;&gt;Loading the data&lt;/h2&gt;
+&lt;p&gt;I created a few small shapefiles to help illustrate the basic workflow for bringing in both shapefiles and rasters. In the code below, you&amp;rsquo;ll need to change the &lt;code&gt;filepath&lt;/code&gt; object to match the path to our shared direction. This is not an ideal practice as it makes it challenging for others to automatically reproduce your analaysis, but I&amp;rsquo;m using here because GitHub can&amp;rsquo;t handle large files like rasters or shapefiles and transferring files is more than I want to take on today&amp;hellip;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll demonstrate loading the data using &lt;code&gt;rgdal&lt;/code&gt;, &lt;code&gt;sp&lt;/code&gt;, and &lt;code&gt;sf&lt;/code&gt; packages (for shapefiles) and the &lt;code&gt;raster&lt;/code&gt; and &lt;code&gt;terra&lt;/code&gt; packages (for rasters).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#load the necessary libraries
+library(sp)
+library(sf)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Linking to GEOS 3.9.1, GDAL 3.2.2, PROJ 7.2.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(rgdal)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## rgdal: version: 1.5-23, (SVN revision 1121)
+## Geospatial Data Abstraction Library extensions to R successfully loaded
+## Loaded GDAL runtime: GDAL 3.1.4, released 2020/10/20
+## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
+## GDAL binary built with GEOS: TRUE 
+## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
+## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
+## Linking to sp version:1.4-5
+## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+## use options(&amp;quot;rgdal_show_exportToProj4_warnings&amp;quot;=&amp;quot;none&amp;quot;) before loading rgdal.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(raster)
+library(terra)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## terra version 1.2.11
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &#39;terra&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &#39;package:rgdal&#39;:
+## 
+##     project
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;filepath &amp;lt;- &amp;quot;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/&amp;quot;
+
+#shapefiles
+id.sp &amp;lt;- readOGR(paste0(filepath, &amp;quot;ID.shp&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## OGR data source with driver: ESRI Shapefile 
+## Source: &amp;quot;/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/ID.shp&amp;quot;, layer: &amp;quot;ID&amp;quot;
+## with 1 features
+## It has 14 fields
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;id.sf &amp;lt;- st_read(paste0(filepath, &amp;quot;ID.shp&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Reading layer `ID&#39; from data source 
+##   `/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/ID.shp&#39; 
+##   using driver `ESRI Shapefile&#39;
+## Simple feature collection with 1 feature and 14 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -117.243 ymin: 41.98818 xmax: -111.0435 ymax: 49.00085
+## Geodetic CRS:  NAD83
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#rasters
+id.raster &amp;lt;- raster(paste0(filepath, &amp;quot;idval.tif&amp;quot;))
+id.rast &amp;lt;-  rast(paste0(filepath, &amp;quot;idval.tif&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;check-the-geometry&#34;&gt;Check the geometry&lt;/h2&gt;
+&lt;p&gt;Polygon data is often developed by hand using a technique called &amp;lsquo;heads-up digitizing&amp;rsquo;. This can lead to some subtle, but important errors in the geometry that eventually create problems for us down the road. We can check that using &lt;code&gt;st_is_vald()&lt;/code&gt; and if that returns &lt;code&gt;FALSE&lt;/code&gt; we can use &lt;code&gt;st_make_valid()&lt;/code&gt; to fix it (hopefully).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;st_is_valid(id.sf)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#luckily it&#39;s true so we don&#39;t need st_make_valid() here
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once we&amp;rsquo;ve got the data into &lt;code&gt;R&lt;/code&gt;, we probably want to take a look at it. We can do that quickly just using the base &lt;code&gt;plot&lt;/code&gt; function (we&amp;rsquo;ll use fancier methods later).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(id.raster)
+plot(id.sp, add=TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/02-example_files/figure-html/initplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(id.rast)
+plot(st_geometry(id.sf), add=TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/02-example_files/figure-html/initplot-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;What do you notice? The Idaho shapefile doesn&amp;rsquo;t show up!! Leading us to our next step:&lt;/p&gt;
+&lt;h2 id=&#34;check-the-projections&#34;&gt;Check the projections&lt;/h2&gt;
+&lt;p&gt;As we discussed in class, we can&amp;rsquo;t really do much with spatial data in R until we get all the pieces aligned. The plot suggests the data aren&amp;rsquo;t in the same projection, but we can check that more formally, here. Notice the use of &lt;code&gt;as&lt;/code&gt; to coerce the &lt;code&gt;sf&lt;/code&gt; object into a &lt;code&gt;Spatial*&lt;/code&gt; object. This is necessary in a number of places because certain operations are only defined for a subset of &lt;code&gt;R&lt;/code&gt; objects.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;proj4string(id.sp) == proj4string(id.raster)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in proj4string(id.sp): CRS object has comment, which is lost in output
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;st_crs(id.sf) == st_crs(id.raster)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;identicalCRS(id.sp, id.raster)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;identicalCRS(as(id.sf, &amp;quot;Spatial&amp;quot;), id.raster)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;reproject-the-data&#34;&gt;Reproject the data&lt;/h2&gt;
+&lt;p&gt;As the tests above indicate, our data are not in the same projection. We need to reproject them!! Here are a few ways to do it. Notice that I demonstrate how to project the rasters to the shapefile projection - I generally don&amp;rsquo;t recommend this, but am showing it here for completeness.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;new.crs &amp;lt;- CRS(&amp;quot;+init=epsg:2163&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in showSRID(uprojargs, format = &amp;quot;PROJ&amp;quot;, multiline = &amp;quot;NO&amp;quot;, prefer_proj =
+## prefer_proj): Discarded datum unknown in Proj4 definition
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;id.sf.proj &amp;lt;- id.sf %&amp;gt;% st_transform(., new.crs)
+id.sp.proj &amp;lt;- spTransform(id.sp, new.crs)
+
+id.raster.proj &amp;lt;- projectRaster(id.raster, res = 480, crs=new.crs)
+id.rast.proj &amp;lt;- terra::project(id.rast, as(id.raster.proj, &amp;quot;SpatRaster&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;lets-see-if-that-worked&#34;&gt;Let&amp;rsquo;s see if that worked&lt;/h2&gt;
+&lt;p&gt;Always good to double-check&amp;hellip;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;proj4string(id.sp.proj) == proj4string(id.raster.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in proj4string(id.sp.proj): CRS object has comment, which is lost in
+## output
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;st_crs(id.sf.proj) == st_crs(id.raster.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;identicalCRS(id.sp.proj, id.raster.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;identicalCRS(as(id.sf.proj, &amp;quot;Spatial&amp;quot;), id.raster.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;plot-it-again&#34;&gt;Plot it again&lt;/h2&gt;
+&lt;p&gt;Now it looks like everything is lined up, we should be able to generate a quick plot to look at that data&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(id.raster.proj)
+plot(id.sp.proj, add=TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/02-example_files/figure-html/plotit2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Or using the &lt;code&gt;sf&lt;/code&gt; &lt;code&gt;st_geometry&lt;/code&gt; command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(id.rast.proj)
+plot(st_geometry(id.sf.proj), add=TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/02-example_files/figure-html/plotit3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Introduction to class resources and data structures in R</title>
       <link>http://isdrfall21.classes.spaseslab.com/assignment/01-exercise/</link>
       <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
@@ -375,11 +528,21 @@ data &amp;lt;- lapply(csv.list, function (x) read.csv(x))
       <guid>http://isdrfall21.classes.spaseslab.com/content/02-content/</guid>
       <description>&lt;p&gt;Today we’ll start getting into the nitty-gritty of geographic data and how the various elements describing spatial position are managed within &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;objectives&#34;&gt;Objectives&lt;/h2&gt;
-&lt;p&gt;By the end of today, you should be able to:
-* Describe several ways to load spatial data into &lt;code&gt;R&lt;/code&gt;
-* Define a coordinate reference system and describe why it is important
-* Identify the different ways projections are expressed in &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;gdal&lt;/code&gt;
-* Describe the other key elements of spatial data&lt;/p&gt;
+&lt;p&gt;By the end of today, you should be able to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Describe several ways to load spatial data into &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Define a coordinate reference system and describe why it is important&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Identify the different ways projections are expressed in &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;gdal&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Describe the other key elements of spatial data&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;readings&#34;&gt;Readings&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -393,7 +556,7 @@ data &amp;lt;- lapply(csv.list, function (x) read.csv(x))
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/01-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/01-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/02-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/02-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
 &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link active&#34; id=&#34;welcome-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#welcome&#34; role=&#34;tab&#34; aria-controls=&#34;welcome&#34; aria-selected=&#34;true&#34;&gt;Welcome&lt;/a&gt;
@@ -1133,7 +1296,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-547198263&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-217435689&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1143,7 +1306,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-547198263&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-217435689&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

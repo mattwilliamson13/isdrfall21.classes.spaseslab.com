@@ -33,11 +33,10 @@
   
     
   
-  <meta name="description" content="Today we’ll start getting into the nitty-gritty of geographic data and how the various elements describing spatial position are managed within R.
-Objectives By the end of today, you should be able to:" />
+  <meta name="description" content="Today&rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&rsquo;ll look at ways to do this using the sf, sp (with rgdal), raster, and terra packages." />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/content/02-content/" />
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/02-example/" />
 
   
 
@@ -292,7 +291,7 @@ Objectives By the end of today, you should be able to:" />
   <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/content/02-content/" />
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/02-example/" />
 
   
   
@@ -312,19 +311,18 @@ Objectives By the end of today, you should be able to:" />
     <meta property="twitter:creator" content="@MwilliamsonMatt" />
   
   <meta property="og:site_name" content="Spatial Data in R" />
-  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/content/02-content/" />
-  <meta property="og:title" content="Spatial data is special data | Spatial Data in R" />
-  <meta property="og:description" content="Today we’ll start getting into the nitty-gritty of geographic data and how the various elements describing spatial position are managed within R.
-Objectives By the end of today, you should be able to:" /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/02-example/" />
+  <meta property="og:title" content="Workflows for getting spatial data into R | Spatial Data in R" />
+  <meta property="og:description" content="Today&rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&rsquo;ll look at ways to do this using the sf, sp (with rgdal), raster, and terra packages." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2021-08-27T00:00:00&#43;00:00"
+        content="2021-09-01T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2021-08-27T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2021-09-01T00:00:00&#43;00:00">
   
 
   
@@ -351,7 +349,7 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
   <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
 
 
-  <title>Spatial data is special data | Spatial Data in R</title>
+  <title>Workflows for getting spatial data into R | Spatial Data in R</title>
 </head>
 
 
@@ -496,7 +494,7 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
         
 
         <li class="nav-item">
-          <a class="nav-link  active" href="/content/"><span>Content</span></a>
+          <a class="nav-link " href="/content/"><span>Content</span></a>
         </li>
 
         
@@ -526,7 +524,7 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/example/"><span>Examples</span></a>
+          <a class="nav-link  active" href="/example/"><span>Examples</span></a>
         </li>
 
         
@@ -722,11 +720,11 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
 
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/content/">Overview</a>
+    <a class="docs-toc-link" href="/example/">Overview</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/content/">Readings and lectures</a>
+        <a href="/example/">Code examples</a>
       </li>
 
       
@@ -736,16 +734,16 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/content/01-content/">Course content</a>
+    <a class="docs-toc-link" href="/example/01-example/">Examples</a>
     <ul class="nav docs-sidenav">
       
       <li >
-        <a href="/content/01-content/">1: Welcome to Space!</a>
+        <a href="/example/01-example/">1: Introduction to course resources, Rmarkdown, and data in R</a>
       </li>
 
       
       <li class="active">
-        <a href="/content/02-content/">2: Spatial data is special data</a>
+        <a href="/example/02-example/">2: Getting your spatial data into R</a>
       </li>
 
       
@@ -766,9 +764,13 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
 
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#objectives">Objectives</a></li>
-    <li><a href="#readings">Readings</a></li>
-    <li><a href="#slides">Slides</a></li>
+    <li><a href="#getting-started">Getting started</a></li>
+    <li><a href="#loading-the-data">Loading the data</a></li>
+    <li><a href="#check-the-geometry">Check the geometry</a></li>
+    <li><a href="#check-the-projections">Check the projections</a></li>
+    <li><a href="#reproject-the-data">Reproject the data</a></li>
+    <li><a href="#lets-see-if-that-worked">Let&rsquo;s see if that worked</a></li>
+    <li><a href="#plot-it-again">Plot it again</a></li>
   </ul>
 </nav>
 
@@ -781,7 +783,7 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Spatial data is special data</h1>
+                    <h1>Workflows for getting spatial data into R</h1>
 
                     
 
@@ -790,85 +792,151 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
                     
 
                     <div class="article-style">
-                        <p>Today we’ll start getting into the nitty-gritty of geographic data and how the various elements describing spatial position are managed within <code>R</code>.</p>
-<h2 id="objectives">Objectives</h2>
-<p>By the end of today, you should be able to:</p>
-<ul>
-<li>
-<p>Describe several ways to load spatial data into <code>R</code></p>
-</li>
-<li>
-<p>Define a coordinate reference system and describe why it is important</p>
-</li>
-<li>
-<p>Identify the different ways projections are expressed in <code>R</code> and <code>gdal</code></p>
-</li>
-<li>
-<p>Describe the other key elements of spatial data</p>
-</li>
-</ul>
-<h2 id="readings">Readings</h2>
-<ul>
-<li>
-<p><i class="fas fa-book"></i> <a href="https://geocompr.robinlovelace.net/spatial-class.html#crs-intro" target="_blank" rel="noopener">Coordinate Reference Systems</a> Section 2.4 in Lovelace et al., <em>Geocomputation with R</em> (Lovelace et al. 2019)</p>
-</li>
-<li>
-<p><i class="fas fa-book"></i> <a href="https://saylordotorg.github.io/text_essentials-of-geographic-information-systems/s05-introduction.html" target="_blank" rel="noopener">Chapter 1: Introduction</a> in Essentials of Geographic Information Systems by Campbell and Shin (Campbell and Shin 2011)</p>
-</li>
-<li>
-<p><i class="fas fa-external-link-square-alt"></i> <a href="https://open.lib.umn.edu/mapping/chapter/3-scale-and-projections/" target="_blank" rel="noopener">Scale and Projections</a> - a portion of <em>Mapping, Society, and Technology</em> an Laura Matson and Melinda Kernik.</p>
-</li>
-</ul>
-<h2 id="slides">Slides</h2>
-<p><a class="btn btn-primary btn-lg" target="_blank" href="/slides/02-slides.html"><i class="fas fa-external-link-alt"></i> View all slides in new window</a> <a class="btn btn-primary btn-lg" target="_blank" href="/slides/02-slides.pdf" role="button"><i class="far fa-file-pdf"></i> Download PDF of all slides</a></p>
-<ul class="nav nav-tabs" id="slide-tabs" role="tablist">
-<li class="nav-item">
-<a class="nav-link active" id="welcome-tab" data-toggle="tab" href="#welcome" role="tab" aria-controls="welcome" aria-selected="true">Welcome</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" id="defining-location-tab" data-toggle="tab" href="#defining-location" role="tab" aria-controls="defining-location" aria-selected="false">Defining location</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" id="the-crs-tab" data-toggle="tab" href="#the-crs" role="tab" aria-controls="the-crs" aria-selected="false">The CRS</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" id="other-important-elements-tab" data-toggle="tab" href="#other-important-elements" role="tab" aria-controls="other-important-elements" aria-selected="false">Other important elements</a>
-</li>
-</ul>
-<div id="slide-tabs" class="tab-content">
-<div id="welcome" class="tab-pane fade show active" role="tabpanel" aria-labelledby="welcome-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/02-slides.html#1">
-</iframe>
-</div>
-</div>
-<div id="defining-location" class="tab-pane fade" role="tabpanel" aria-labelledby="defining-location-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/02-slides.html#projections">
-</iframe>
-</div>
-</div>
-<div id="the-crs" class="tab-pane fade" role="tabpanel" aria-labelledby="the-crs-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/02-slides.html#crs">
-</iframe>
-</div>
-</div>
-<div id="other-important-elements" class="tab-pane fade" role="tabpanel" aria-labelledby="other-important-elements-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/02-slides.html#elements">
-</iframe>
-</div>
-</div>
-</div>
-<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
-<div id="ref-campbell_essentials_2011" class="csl-entry">
-<p>Campbell, J., and M. Shin. 2011. Essentials of geographic information systems. Saylor Foundation.</p>
-</div>
-<div id="ref-lovelace_geocomputation_2019" class="csl-entry">
-<p>Lovelace, R., J. Nowosad, and J. Muenchow. 2019. Geocomputation with R. CRC Press.</p>
-</div>
-</div>
+                        <p>Today&rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&rsquo;ll look at ways to do this using the <code>sf</code>, <code>sp</code> (with <code>rgdal</code>), <code>raster</code>, and <code>terra</code> packages.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>Remember that we&rsquo;ll be using GitHub classroom so you&rsquo;ll need to introduce yourself to git and then clone the Assignment 2 repository. The instructions are in <a href="/example/01-example/">Example 1</a></p>
+<h2 id="loading-the-data">Loading the data</h2>
+<p>I created a few small shapefiles to help illustrate the basic workflow for bringing in both shapefiles and rasters. In the code below, you&rsquo;ll need to change the <code>filepath</code> object to match the path to our shared direction. This is not an ideal practice as it makes it challenging for others to automatically reproduce your analaysis, but I&rsquo;m using here because GitHub can&rsquo;t handle large files like rasters or shapefiles and transferring files is more than I want to take on today&hellip;.</p>
+<p>I&rsquo;ll demonstrate loading the data using <code>rgdal</code>, <code>sp</code>, and <code>sf</code> packages (for shapefiles) and the <code>raster</code> and <code>terra</code> packages (for rasters).</p>
+<pre><code class="language-r">#load the necessary libraries
+library(sp)
+library(sf)
+</code></pre>
+<pre><code>## Linking to GEOS 3.9.1, GDAL 3.2.2, PROJ 7.2.1
+</code></pre>
+<pre><code class="language-r">library(rgdal)
+</code></pre>
+<pre><code>## rgdal: version: 1.5-23, (SVN revision 1121)
+## Geospatial Data Abstraction Library extensions to R successfully loaded
+## Loaded GDAL runtime: GDAL 3.1.4, released 2020/10/20
+## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
+## GDAL binary built with GEOS: TRUE 
+## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
+## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
+## Linking to sp version:1.4-5
+## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.
+</code></pre>
+<pre><code class="language-r">library(raster)
+library(terra)
+</code></pre>
+<pre><code>## terra version 1.2.11
+</code></pre>
+<pre><code>## 
+## Attaching package: 'terra'
+</code></pre>
+<pre><code>## The following object is masked from 'package:rgdal':
+## 
+##     project
+</code></pre>
+<pre><code class="language-r">filepath &lt;- &quot;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/&quot;
+
+#shapefiles
+id.sp &lt;- readOGR(paste0(filepath, &quot;ID.shp&quot;))
+</code></pre>
+<pre><code>## OGR data source with driver: ESRI Shapefile 
+## Source: &quot;/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/ID.shp&quot;, layer: &quot;ID&quot;
+## with 1 features
+## It has 14 fields
+</code></pre>
+<pre><code class="language-r">id.sf &lt;- st_read(paste0(filepath, &quot;ID.shp&quot;))
+</code></pre>
+<pre><code>## Reading layer `ID' from data source 
+##   `/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/ID.shp' 
+##   using driver `ESRI Shapefile'
+## Simple feature collection with 1 feature and 14 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -117.243 ymin: 41.98818 xmax: -111.0435 ymax: 49.00085
+## Geodetic CRS:  NAD83
+</code></pre>
+<pre><code class="language-r">#rasters
+id.raster &lt;- raster(paste0(filepath, &quot;idval.tif&quot;))
+id.rast &lt;-  rast(paste0(filepath, &quot;idval.tif&quot;))
+</code></pre>
+<h2 id="check-the-geometry">Check the geometry</h2>
+<p>Polygon data is often developed by hand using a technique called &lsquo;heads-up digitizing&rsquo;. This can lead to some subtle, but important errors in the geometry that eventually create problems for us down the road. We can check that using <code>st_is_vald()</code> and if that returns <code>FALSE</code> we can use <code>st_make_valid()</code> to fix it (hopefully).</p>
+<pre><code class="language-r">st_is_valid(id.sf)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">#luckily it's true so we don't need st_make_valid() here
+</code></pre>
+<p>Once we&rsquo;ve got the data into <code>R</code>, we probably want to take a look at it. We can do that quickly just using the base <code>plot</code> function (we&rsquo;ll use fancier methods later).</p>
+<pre><code class="language-r">plot(id.raster)
+plot(id.sp, add=TRUE)
+</code></pre>
+<p><img src="/example/02-example_files/figure-html/initplot-1.png" width="672" /></p>
+<pre><code class="language-r">plot(id.rast)
+plot(st_geometry(id.sf), add=TRUE)
+</code></pre>
+<p><img src="/example/02-example_files/figure-html/initplot-2.png" width="672" /></p>
+<p>What do you notice? The Idaho shapefile doesn&rsquo;t show up!! Leading us to our next step:</p>
+<h2 id="check-the-projections">Check the projections</h2>
+<p>As we discussed in class, we can&rsquo;t really do much with spatial data in R until we get all the pieces aligned. The plot suggests the data aren&rsquo;t in the same projection, but we can check that more formally, here. Notice the use of <code>as</code> to coerce the <code>sf</code> object into a <code>Spatial*</code> object. This is necessary in a number of places because certain operations are only defined for a subset of <code>R</code> objects.</p>
+<pre><code class="language-r">proj4string(id.sp) == proj4string(id.raster)
+</code></pre>
+<pre><code>## Warning in proj4string(id.sp): CRS object has comment, which is lost in output
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">st_crs(id.sf) == st_crs(id.raster)
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">identicalCRS(id.sp, id.raster)
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">identicalCRS(as(id.sf, &quot;Spatial&quot;), id.raster)
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<h2 id="reproject-the-data">Reproject the data</h2>
+<p>As the tests above indicate, our data are not in the same projection. We need to reproject them!! Here are a few ways to do it. Notice that I demonstrate how to project the rasters to the shapefile projection - I generally don&rsquo;t recommend this, but am showing it here for completeness.</p>
+<pre><code class="language-r">new.crs &lt;- CRS(&quot;+init=epsg:2163&quot;)
+</code></pre>
+<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;, prefer_proj =
+## prefer_proj): Discarded datum unknown in Proj4 definition
+</code></pre>
+<pre><code class="language-r">id.sf.proj &lt;- id.sf %&gt;% st_transform(., new.crs)
+id.sp.proj &lt;- spTransform(id.sp, new.crs)
+
+id.raster.proj &lt;- projectRaster(id.raster, res = 480, crs=new.crs)
+id.rast.proj &lt;- terra::project(id.rast, as(id.raster.proj, &quot;SpatRaster&quot;))
+</code></pre>
+<h2 id="lets-see-if-that-worked">Let&rsquo;s see if that worked</h2>
+<p>Always good to double-check&hellip;</p>
+<pre><code class="language-r">proj4string(id.sp.proj) == proj4string(id.raster.proj)
+</code></pre>
+<pre><code>## Warning in proj4string(id.sp.proj): CRS object has comment, which is lost in
+## output
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">st_crs(id.sf.proj) == st_crs(id.raster.proj)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">identicalCRS(id.sp.proj, id.raster.proj)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">identicalCRS(as(id.sf.proj, &quot;Spatial&quot;), id.raster.proj)
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<h2 id="plot-it-again">Plot it again</h2>
+<p>Now it looks like everything is lined up, we should be able to generate a quick plot to look at that data</p>
+<pre><code class="language-r">plot(id.raster.proj)
+plot(id.sp.proj, add=TRUE)
+</code></pre>
+<p><img src="/example/02-example_files/figure-html/plotit2-1.png" width="672" /></p>
+<p>Or using the <code>sf</code> <code>st_geometry</code> command:</p>
+<pre><code class="language-r">plot(id.rast.proj)
+plot(st_geometry(id.sf.proj), add=TRUE)
+</code></pre>
+<p><img src="/example/02-example_files/figure-html/plotit3-1.png" width="672" /></p>
 
                     </div>
 
@@ -885,7 +953,7 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
   
   <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/content/01-content/" rel="prev">Welcome to Space!!</a>
+    <a href="/example/01-example/" rel="prev">Introduction to course resources, Rmarkdown, and data in R</a>
   </div>
   
 </div>
@@ -895,7 +963,7 @@ Objectives By the end of today, you should be able to:" /><meta property="og:ima
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on Aug 27, 2021</p>
+                    <p>Last updated on Sep 1, 2021</p>
 
                     
 

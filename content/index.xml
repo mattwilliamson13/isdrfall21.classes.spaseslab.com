@@ -19,11 +19,21 @@
       <guid>http://isdrfall21.classes.spaseslab.com/content/02-content/</guid>
       <description>&lt;p&gt;Today we’ll start getting into the nitty-gritty of geographic data and how the various elements describing spatial position are managed within &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;objectives&#34;&gt;Objectives&lt;/h2&gt;
-&lt;p&gt;By the end of today, you should be able to:
-* Describe several ways to load spatial data into &lt;code&gt;R&lt;/code&gt;
-* Define a coordinate reference system and describe why it is important
-* Identify the different ways projections are expressed in &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;gdal&lt;/code&gt;
-* Describe the other key elements of spatial data&lt;/p&gt;
+&lt;p&gt;By the end of today, you should be able to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Describe several ways to load spatial data into &lt;code&gt;R&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Define a coordinate reference system and describe why it is important&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Identify the different ways projections are expressed in &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;gdal&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Describe the other key elements of spatial data&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;readings&#34;&gt;Readings&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -37,7 +47,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/01-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/01-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/02-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/02-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
 &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link active&#34; id=&#34;welcome-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#welcome&#34; role=&#34;tab&#34; aria-controls=&#34;welcome&#34; aria-selected=&#34;true&#34;&gt;Welcome&lt;/a&gt;
