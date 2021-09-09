@@ -17,24 +17,7 @@
       <link>http://isdrfall21.classes.spaseslab.com/example/03-example/</link>
       <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
       <guid>http://isdrfall21.classes.spaseslab.com/example/03-example/</guid>
-      <description>&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(sf)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(tidyverse)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.0     ✓ forcats 0.5.1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Today we&amp;rsquo;ll build on the introductory discussion we were having about vector operatoins and the &lt;code&gt;sf&lt;/code&gt; package. We&amp;rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the &lt;code&gt;sf&lt;/code&gt; package.&lt;/p&gt;
+      <description>&lt;p&gt;Today we&amp;rsquo;ll build on the introductory discussion we were having about vector operations and the &lt;code&gt;sf&lt;/code&gt; package. We&amp;rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the &lt;code&gt;sf&lt;/code&gt; package.&lt;/p&gt;
 &lt;h2 id=&#34;a-reminder-about-vector-geometries-in-r&#34;&gt;A reminder about vector geometries in &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;You&amp;rsquo;ll recall that the &lt;code&gt;sf&lt;/code&gt; package organizes the different types of vectors (e.g., points, lines, polygons) in to a hierarchical structure organized by complexity of geometries contained within an &lt;code&gt;R&lt;/code&gt; object. For example, a single point will be a &lt;code&gt;POINT&lt;/code&gt;, several points will be a &lt;code&gt;MULTIPOINT&lt;/code&gt;, and an object containing points, polygons, and lines will be a &lt;code&gt;GEOMETRYCOLLECTION&lt;/code&gt;. We need to be aware of what types of geometries and objects we have becasue some operations are restricted to particular types of objects or geometries as indicated by errors that read:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Error in UseMethod(&amp;quot;st_crs&amp;lt;-&amp;quot;) :  no applicable method for &#39;st_crs&amp;lt;-&#39; applied to an object of class &amp;quot;c(&#39;XY&#39;, &#39;POINT&#39;, &#39;sfg&#39;)&amp;quot;&lt;/code&gt;&lt;/p&gt;

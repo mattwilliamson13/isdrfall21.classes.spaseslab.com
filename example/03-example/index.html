@@ -33,7 +33,7 @@
   
     
   
-  <meta name="description" content="library(sf)  ## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1  library(tidyverse)  ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──  ## ✓ ggplot2 3.3.5 ✓ purrr 0.3.4 ## ✓ tibble 3." />
+  <meta name="description" content="Today we&rsquo;ll build on the introductory discussion we were having about vector operations and the sf package. We&rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the sf package." />
 
   
   <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/03-example/" />
@@ -313,7 +313,7 @@
   <meta property="og:site_name" content="Spatial Data in R" />
   <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/03-example/" />
   <meta property="og:title" content="Working with vectors in R | Spatial Data in R" />
-  <meta property="og:description" content="library(sf)  ## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1  library(tidyverse)  ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──  ## ✓ ggplot2 3.3.5 ✓ purrr 0.3.4 ## ✓ tibble 3." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:description" content="Today we&rsquo;ll build on the introductory discussion we were having about vector operations and the sf package. We&rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the sf package." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -799,24 +799,7 @@
                     
 
                     <div class="article-style">
-                        <pre><code class="language-r">library(sf)
-</code></pre>
-<pre><code>## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
-</code></pre>
-<pre><code class="language-r">library(tidyverse)
-</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.0     ✓ forcats 0.5.1
-</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
-</code></pre>
-<p>Today we&rsquo;ll build on the introductory discussion we were having about vector operatoins and the <code>sf</code> package. We&rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the <code>sf</code> package.</p>
+                        <p>Today we&rsquo;ll build on the introductory discussion we were having about vector operations and the <code>sf</code> package. We&rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the <code>sf</code> package.</p>
 <h2 id="a-reminder-about-vector-geometries-in-r">A reminder about vector geometries in <code>R</code></h2>
 <p>You&rsquo;ll recall that the <code>sf</code> package organizes the different types of vectors (e.g., points, lines, polygons) in to a hierarchical structure organized by complexity of geometries contained within an <code>R</code> object. For example, a single point will be a <code>POINT</code>, several points will be a <code>MULTIPOINT</code>, and an object containing points, polygons, and lines will be a <code>GEOMETRYCOLLECTION</code>. We need to be aware of what types of geometries and objects we have becasue some operations are restricted to particular types of objects or geometries as indicated by errors that read:</p>
 <p><code>Error in UseMethod(&quot;st_crs&lt;-&quot;) :  no applicable method for 'st_crs&lt;-' applied to an object of class &quot;c('XY', 'POINT', 'sfg')&quot;</code></p>
