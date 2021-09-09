@@ -33,10 +33,10 @@
   
     
   
-  <meta name="description" content="Today&rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&rsquo;ll look at ways to do this using the sf, sp (with rgdal), raster, and terra packages." />
+  <meta name="description" content="library(sf)  ## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1  library(tidyverse)  ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──  ## ✓ ggplot2 3.3.5 ✓ purrr 0.3.4 ## ✓ tibble 3." />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/02-example/" />
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/03-example/" />
 
   
 
@@ -291,7 +291,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/02-example/" />
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/03-example/" />
 
   
   
@@ -311,18 +311,18 @@
     <meta property="twitter:creator" content="@MwilliamsonMatt" />
   
   <meta property="og:site_name" content="Spatial Data in R" />
-  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/02-example/" />
-  <meta property="og:title" content="Workflows for getting spatial data into R | Spatial Data in R" />
-  <meta property="og:description" content="Today&rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&rsquo;ll look at ways to do this using the sf, sp (with rgdal), raster, and terra packages." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/03-example/" />
+  <meta property="og:title" content="Working with vectors in R | Spatial Data in R" />
+  <meta property="og:description" content="library(sf)  ## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1  library(tidyverse)  ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──  ## ✓ ggplot2 3.3.5 ✓ purrr 0.3.4 ## ✓ tibble 3." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2021-09-01T00:00:00&#43;00:00"
+        content="2021-09-09T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2021-09-01T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2021-09-09T00:00:00&#43;00:00">
   
 
   
@@ -349,7 +349,7 @@
   <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
 
 
-  <title>Workflows for getting spatial data into R | Spatial Data in R</title>
+  <title>Working with vectors in R | Spatial Data in R</title>
 </head>
 
 
@@ -742,12 +742,12 @@
       </li>
 
       
-      <li class="active">
+      <li >
         <a href="/example/02-example/">2: Getting your spatial data into R</a>
       </li>
 
       
-      <li >
+      <li class="active">
         <a href="/example/03-example/">3: Points, lines, and polygons in R</a>
       </li>
 
@@ -769,13 +769,15 @@
 
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#getting-started">Getting started</a></li>
-    <li><a href="#loading-the-data">Loading the data</a></li>
-    <li><a href="#check-the-geometry">Check the geometry</a></li>
-    <li><a href="#check-the-projections">Check the projections</a></li>
-    <li><a href="#reproject-the-data">Reproject the data</a></li>
-    <li><a href="#lets-see-if-that-worked">Let&rsquo;s see if that worked</a></li>
-    <li><a href="#plot-it-again">Plot it again</a></li>
+    <li><a href="#a-reminder-about-vector-geometries-in-r">A reminder about vector geometries in <code>R</code></a></li>
+    <li><a href="#conventions-in-sf-and-the-tidyverse">Conventions in <code>sf</code> and the <code>tidyverse</code></a>
+      <ul>
+        <li><a href="#unary-predicates">Unary predicates</a></li>
+        <li><a href="#unary-measures">Unary measures</a></li>
+        <li><a href="#unary-transformers">Unary transformers</a></li>
+      </ul>
+    </li>
+    <li><a href="#using-sf-and-the-tidyverse">Using <code>sf</code> and the <code>tidyverse</code></a></li>
   </ul>
 </nav>
 
@@ -788,7 +790,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Workflows for getting spatial data into R</h1>
+                    <h1>Working with vectors in R</h1>
 
                     
 
@@ -797,151 +799,286 @@
                     
 
                     <div class="article-style">
-                        <p>Today&rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&rsquo;ll look at ways to do this using the <code>sf</code>, <code>sp</code> (with <code>rgdal</code>), <code>raster</code>, and <code>terra</code> packages.</p>
-<h2 id="getting-started">Getting started</h2>
-<p>Remember that we&rsquo;ll be using GitHub classroom so you&rsquo;ll need to introduce yourself to git and then clone the Assignment 2 repository. The instructions are in <a href="/example/01-example/">Example 1</a></p>
-<h2 id="loading-the-data">Loading the data</h2>
-<p>I created a few small shapefiles to help illustrate the basic workflow for bringing in both shapefiles and rasters. In the code below, you&rsquo;ll need to change the <code>filepath</code> object to match the path to our shared direction. This is not an ideal practice as it makes it challenging for others to automatically reproduce your analaysis, but I&rsquo;m using here because GitHub can&rsquo;t handle large files like rasters or shapefiles and transferring files is more than I want to take on today&hellip;.</p>
-<p>I&rsquo;ll demonstrate loading the data using <code>rgdal</code>, <code>sp</code>, and <code>sf</code> packages (for shapefiles) and the <code>raster</code> and <code>terra</code> packages (for rasters).</p>
-<pre><code class="language-r">#load the necessary libraries
-library(sp)
-library(sf)
+                        <pre><code class="language-r">library(sf)
 </code></pre>
-<pre><code>## Linking to GEOS 3.9.1, GDAL 3.2.2, PROJ 7.2.1
+<pre><code>## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
 </code></pre>
-<pre><code class="language-r">library(rgdal)
+<pre><code class="language-r">library(tidyverse)
 </code></pre>
-<pre><code>## rgdal: version: 1.5-23, (SVN revision 1121)
-## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.1.4, released 2020/10/20
-## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
-## GDAL binary built with GEOS: TRUE 
-## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
-## Linking to sp version:1.4-5
-## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
 </code></pre>
-<pre><code class="language-r">library(raster)
-library(terra)
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.0     ✓ forcats 0.5.1
 </code></pre>
-<pre><code>## terra version 1.2.11
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
 </code></pre>
-<pre><code>## 
-## Attaching package: 'terra'
+<p>Today we&rsquo;ll build on the introductory discussion we were having about vector operatoins and the <code>sf</code> package. We&rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the <code>sf</code> package.</p>
+<h2 id="a-reminder-about-vector-geometries-in-r">A reminder about vector geometries in <code>R</code></h2>
+<p>You&rsquo;ll recall that the <code>sf</code> package organizes the different types of vectors (e.g., points, lines, polygons) in to a hierarchical structure organized by complexity of geometries contained within an <code>R</code> object. For example, a single point will be a <code>POINT</code>, several points will be a <code>MULTIPOINT</code>, and an object containing points, polygons, and lines will be a <code>GEOMETRYCOLLECTION</code>. We need to be aware of what types of geometries and objects we have becasue some operations are restricted to particular types of objects or geometries as indicated by errors that read:</p>
+<p><code>Error in UseMethod(&quot;st_crs&lt;-&quot;) :  no applicable method for 'st_crs&lt;-' applied to an object of class &quot;c('XY', 'POINT', 'sfg')&quot;</code></p>
+<p>which indicates that the function (<code>st_crs</code>) does not have a method defined for the type of object it&rsquo;s being applied to. Note that the function inside <code>UseMethod</code> will be replaced by whichever function you&rsquo;re attempting to apply to your object and the <code>object of class</code> component will vary based on the function and the object class.</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POINT</code></td>
+<td>single point geometry</td>
+</tr>
+<tr>
+<td><code>MULTIPOINT</code></td>
+<td>set of points</td>
+</tr>
+<tr>
+<td><code>LINESTRING</code></td>
+<td>single linestring (two or more points connected by straight lines)</td>
+</tr>
+<tr>
+<td><code>MULTILINESTRING</code></td>
+<td>set of linestrings</td>
+</tr>
+<tr>
+<td><code>POLYGON</code></td>
+<td>exterior ring with zero or more inner rings, denoting holes</td>
+</tr>
+<tr>
+<td><code>MULTIPOLYGON</code></td>
+<td>set of polygons</td>
+</tr>
+<tr>
+<td><code>GEOMETRYCOLLECTION</code></td>
+<td>set of the geometries above</td>
+</tr>
+</tbody>
+</table>
+<p>As is, these geometries are built on vertices with coordinates that are based on the Cartesian plane and thus are &ldquo;spatial&rdquo;, but not georeferenced or geographic. In order to convert these <code>sf</code> geometries to a geogrphic object (i.e., one with a CRS and whose location depicts and actual spot on the earth&rsquo;s surface), we use <code>st_sfc()</code> to create a simple feature geography list column (see <code>?st_sfc</code> for an example of this workflow).</p>
+<h2 id="conventions-in-sf-and-the-tidyverse">Conventions in <code>sf</code> and the <code>tidyverse</code></h2>
+<p>One of the benefits of the <code>sf</code> package is that it is designed to interface with the <a href="https://www.tidyverse.org/" target="_blank" rel="noopener"><code>tidyverse</code></a> suite of packages. One of the appealing parts of working with <code>tidyverse</code> packages is that they share an underlying philosophy, data structure, and grammar. This can make life a lot easier as you move from getting your data into <code>R</code>, constructing a set of covariates (including those derived from spatial data), analyzing, and plotting (or mapping) those data. People have strong opinions about the <code>tidyverse</code>, but I find it to be an (eventually) useful way for people to gain some intuition for working in <code>R</code>. One of the grammatical conventions used in the <code>tidyverse</code> suite of packages is the use <code>_</code> in function calls (this is known as snake case should you ever need to know that at a dinner party). The <code>_</code> is typically used to separate the verb in a function call from its predicate. For example, <code>bind_rows()</code> in the <code>dplyr</code> package &ldquo;binds&rdquo; (the verb) rows (the predicate) wheras <code>bind_cols()</code> binds columns. For the <code>sf</code> package it&rsquo;s slightly different in that most of the functions begin with a <code>st_</code> or <code>sf_</code> prefix to indicate that the function is designed to work on spatial objects followed by a word (or words) describing what the operation does (e.g., <code>st_centroid()</code> returns a <code>MULTIPOINT</code> object with each point located at the centroid of a polygon). We can classify these functions based on what they are expected to return:</p>
+<ul>
+<li>
+<p><strong>Predicates</strong>: evaluate a logical statement asserting that a property is <code>TRUE</code></p>
+</li>
+<li>
+<p><strong>Measures</strong>: return a numeric value with units based on the units of the CRS</p>
+</li>
+<li>
+<p><strong>Transformations</strong>: create new geometries based on input geometries.</p>
+</li>
+</ul>
+<p>We can also distinguish these functions based on how many geometries that operate on:</p>
+<ul>
+<li><strong>Unary</strong>: operate on a single geometry at a time (meaning that if you have a <code>MULTI*</code> object the function works on each geometry individually)</li>
+<li><strong>Binary</strong>: operate on pairs of geometries</li>
+<li><strong>n-ary</strong>: operate on sets of geometries</li>
+</ul>
+<p>We&rsquo;ll focus on the unary operators for now, but the binary and n-ary operators will become more important as we move to develop databases for spatial analysis.</p>
+<h3 id="unary-predicates">Unary predicates</h3>
+<p>Unary predicates are helpful &lsquo;checks&rsquo; to make sure the object you are working with has the properties you might expect. Are the geometries valid? Is the data projected? Because we are asking a set of <code>TRUE/FALSE</code> questions, these functions are specified as <code>st_is_</code>:</p>
+<table>
+<thead>
+<tr>
+<th>predicate</th>
+<th>asks&hellip;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>simple</code></td>
+<td>is the geometry self-intersecting (i.e., simple)?</td>
+</tr>
+<tr>
+<td><code>valid</code></td>
+<td>is the geometry valid?</td>
+</tr>
+<tr>
+<td><code>empty</code></td>
+<td>is the geometry column of an object empty?</td>
+</tr>
+<tr>
+<td><code>longlat</code></td>
+<td>does the object have geographic coordinates? (<code>FALSE</code> if coords are projected, <code>NA</code> if no <code>crs</code>)</td>
+</tr>
+<tr>
+<td><code>is(geometry, class)</code></td>
+<td>is the geometry of a particular class?</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-r">nc &lt;- st_read(system.file(&quot;shape/nc.shp&quot;, package=&quot;sf&quot;))
 </code></pre>
-<pre><code>## The following object is masked from 'package:rgdal':
-## 
-##     project
-</code></pre>
-<pre><code class="language-r">filepath &lt;- &quot;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/&quot;
-
-#shapefiles
-id.sp &lt;- readOGR(paste0(filepath, &quot;ID.shp&quot;))
-</code></pre>
-<pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/ID.shp&quot;, layer: &quot;ID&quot;
-## with 1 features
-## It has 14 fields
-</code></pre>
-<pre><code class="language-r">id.sf &lt;- st_read(paste0(filepath, &quot;ID.shp&quot;))
-</code></pre>
-<pre><code>## Reading layer `ID' from data source 
-##   `/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/ID.shp' 
+<pre><code>## Reading layer `nc' from data source 
+##   `/Library/Frameworks/R.framework/Versions/4.1/Resources/library/sf/shape/nc.shp' 
 ##   using driver `ESRI Shapefile'
-## Simple feature collection with 1 feature and 14 fields
-## Geometry type: POLYGON
+## Simple feature collection with 100 features and 14 fields
+## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
-## Bounding box:  xmin: -117.243 ymin: 41.98818 xmax: -111.0435 ymax: 49.00085
-## Geodetic CRS:  NAD83
+## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## Geodetic CRS:  NAD27
 </code></pre>
-<pre><code class="language-r">#rasters
-id.raster &lt;- raster(paste0(filepath, &quot;idval.tif&quot;))
-id.rast &lt;-  rast(paste0(filepath, &quot;idval.tif&quot;))
-</code></pre>
-<h2 id="check-the-geometry">Check the geometry</h2>
-<p>Polygon data is often developed by hand using a technique called &lsquo;heads-up digitizing&rsquo;. This can lead to some subtle, but important errors in the geometry that eventually create problems for us down the road. We can check that using <code>st_is_vald()</code> and if that returns <code>FALSE</code> we can use <code>st_make_valid()</code> to fix it (hopefully).</p>
-<pre><code class="language-r">st_is_valid(id.sf)
+<pre><code class="language-r">st_is_longlat(nc)
 </code></pre>
 <pre><code>## [1] TRUE
 </code></pre>
-<pre><code class="language-r">#luckily it's true so we don't need st_make_valid() here
+<pre><code class="language-r">st_is_valid(nc)
 </code></pre>
-<p>Once we&rsquo;ve got the data into <code>R</code>, we probably want to take a look at it. We can do that quickly just using the base <code>plot</code> function (we&rsquo;ll use fancier methods later).</p>
-<pre><code class="language-r">plot(id.raster)
-plot(id.sp, add=TRUE)
+<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 </code></pre>
-<p><img src="/example/02-example_files/figure-html/initplot-1.png" width="672" /></p>
-<pre><code class="language-r">plot(id.rast)
-plot(st_geometry(id.sf), add=TRUE)
+<h3 id="unary-measures">Unary measures</h3>
+<p>Measures return a quantity that describes the geometry</p>
+<table>
+<thead>
+<tr>
+<th>measure</th>
+<th>returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dimension</code></td>
+<td>0 for points, 1 for linear, 2 for polygons, possibly <code>NA</code> for empty geometries</td>
+</tr>
+<tr>
+<td><code>area</code></td>
+<td>the area of a geometry</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>the length of a linear geometry</td>
+</tr>
+</tbody>
+</table>
+<p><code>distance</code> is a binary measure that returns the distance between pairs of geometries either within a single object or between features in multiple objects</p>
+<pre><code class="language-r">head(st_area(nc))
 </code></pre>
-<p><img src="/example/02-example_files/figure-html/initplot-2.png" width="672" /></p>
-<p>What do you notice? The Idaho shapefile doesn&rsquo;t show up!! Leading us to our next step:</p>
-<h2 id="check-the-projections">Check the projections</h2>
-<p>As we discussed in class, we can&rsquo;t really do much with spatial data in R until we get all the pieces aligned. The plot suggests the data aren&rsquo;t in the same projection, but we can check that more formally, here. Notice the use of <code>as</code> to coerce the <code>sf</code> object into a <code>Spatial*</code> object. This is necessary in a number of places because certain operations are only defined for a subset of <code>R</code> objects.</p>
-<pre><code class="language-r">proj4string(id.sp) == proj4string(id.raster)
+<pre><code>## Units: [m^2]
+## [1] 1137107793  610916077 1423145355  694378925 1520366979  967504822
 </code></pre>
-<pre><code>## Warning in proj4string(id.sp): CRS object has comment, which is lost in output
+<pre><code class="language-r">st_distance(nc)[1:5,1:5]
 </code></pre>
-<pre><code>## [1] FALSE
+<pre><code>## Units: [m]
+##          [,1]     [,2]     [,3]      [,4]      [,5]
+## [1,]      0.0      0.0  25591.8 439493.26 299049.94
+## [2,]      0.0      0.0      0.0 408416.68 268284.09
+## [3,]  25591.8      0.0      0.0 366648.94 226461.23
+## [4,] 439493.3 408416.7 366648.9      0.00  67066.43
+## [5,] 299049.9 268284.1 226461.2  67066.43      0.00
 </code></pre>
-<pre><code class="language-r">st_crs(id.sf) == st_crs(id.raster)
+<h3 id="unary-transformers">Unary transformers</h3>
+<p>Unary transformations work on a per object basis and return a new geometry for each geometry.
+These are a few of the most common, we&rsquo;ll encounter a few more as the semester continues.</p>
+<table>
+<thead>
+<tr>
+<th>transformer</th>
+<th>returns a geometry &hellip;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>centroid</code></td>
+<td>of type <code>POINT</code> with the geometry&rsquo;s centroid</td>
+</tr>
+<tr>
+<td><code>buffer</code></td>
+<td>that is this larger (or smaller) than the input geometry, depending on the buffer size</td>
+</tr>
+<tr>
+<td><code>jitter</code></td>
+<td>that was moved in space a certain amount, using a bivariate uniform distribution</td>
+</tr>
+<tr>
+<td><code>boundary</code></td>
+<td>with the boundary of the input geometry</td>
+</tr>
+<tr>
+<td><code>convex_hull</code></td>
+<td>that forms the convex hull of the input geometry</td>
+</tr>
+<tr>
+<td><code>line_merge</code></td>
+<td>after merging connecting <code>LINESTRING</code> elements of a <code>MULTILINESTRING</code> into longer <code>LINESTRING</code>s.</td>
+</tr>
+<tr>
+<td><code>make_valid</code></td>
+<td>that is valid</td>
+</tr>
+<tr>
+<td><code>node</code></td>
+<td>with added nodes to linear geometries at intersections without a node; only works on individual linear geometries</td>
+</tr>
+<tr>
+<td><code>point_on_surface</code></td>
+<td>with a (arbitrary) point on a surface</td>
+</tr>
+<tr>
+<td><code>polygonize</code></td>
+<td>of type polygon, created from lines that form a closed ring</td>
+</tr>
+<tr>
+<td><code>segmentize</code></td>
+<td>a (linear) geometry with nodes at a given density or minimal distance</td>
+</tr>
+<tr>
+<td><code>simplify</code></td>
+<td>simplified by removing vertices/nodes (lines or polygons)</td>
+</tr>
+<tr>
+<td><code>split</code></td>
+<td>that has been split with a splitting linestring</td>
+</tr>
+<tr>
+<td><code>transform</code></td>
+<td>transformed or convert to a new coordinate reference system (<a href="/example/02-example">last week</a>)</td>
+</tr>
+<tr>
+<td><code>collection_extract</code></td>
+<td>with subgeometries from a <code>GEOMETRYCOLLECTION</code> of a particular type</td>
+</tr>
+<tr>
+<td><code>cast</code></td>
+<td>that is converted to another type</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-r">plot(st_geometry(nc))
+plot(st_geometry(st_centroid(nc)), add=TRUE, col='red')
 </code></pre>
-<pre><code>## [1] FALSE
+<pre><code>## Warning in st_centroid.sf(nc): st_centroid assumes attributes are constant over
+## geometries of x
 </code></pre>
-<pre><code class="language-r">identicalCRS(id.sp, id.raster)
-</code></pre>
-<pre><code>## [1] FALSE
-</code></pre>
-<pre><code class="language-r">identicalCRS(as(id.sf, &quot;Spatial&quot;), id.raster)
-</code></pre>
-<pre><code>## [1] FALSE
-</code></pre>
-<h2 id="reproject-the-data">Reproject the data</h2>
-<p>As the tests above indicate, our data are not in the same projection. We need to reproject them!! Here are a few ways to do it. Notice that I demonstrate how to project the rasters to the shapefile projection - I generally don&rsquo;t recommend this, but am showing it here for completeness.</p>
-<pre><code class="language-r">new.crs &lt;- CRS(&quot;+init=epsg:2163&quot;)
-</code></pre>
-<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;, prefer_proj =
-## prefer_proj): Discarded datum unknown in Proj4 definition
-</code></pre>
-<pre><code class="language-r">id.sf.proj &lt;- id.sf %&gt;% st_transform(., new.crs)
-id.sp.proj &lt;- spTransform(id.sp, new.crs)
+<p><img src="/example/03-example_files/figure-html/polycent-1.png" width="672" /></p>
+<h2 id="using-sf-and-the-tidyverse">Using <code>sf</code> and the <code>tidyverse</code></h2>
+<p>As I mentioned, one of the benefits of using the <code>sf</code> package is that commands from the other <code>tidyverse</code> package have defined methods for spatial objects. The <code>dplyr</code> package has a ton of helpful functions for maniputlating data in <code>R</code>. For example, we might select a single row from a shapefile based on the value of its attributes by using the <code>dplyr::filter()</code> command:</p>
+<pre><code class="language-r">durham.cty &lt;- nc %&gt;% 
+  filter(., NAME == &quot;Durham&quot;)
+## We can also use the bracket approach
+durham.cty2 &lt;- nc[nc$NAME == &quot;Durham&quot;,]
 
-id.raster.proj &lt;- projectRaster(id.raster, res = 480, crs=new.crs)
-id.rast.proj &lt;- terra::project(id.rast, as(id.raster.proj, &quot;SpatRaster&quot;))
+plot(st_geometry(nc))
+plot(st_geometry(durham.cty), add=TRUE, col=&quot;blue&quot;)
 </code></pre>
-<h2 id="lets-see-if-that-worked">Let&rsquo;s see if that worked</h2>
-<p>Always good to double-check&hellip;</p>
-<pre><code class="language-r">proj4string(id.sp.proj) == proj4string(id.raster.proj)
+<p><img src="/example/03-example_files/figure-html/sffilter-1.png" width="672" /></p>
+<p>Or perhaps we only want a few of the columns in the dataset (because shapefiles always have lots of extra stuff). We can use <code>dplyr::select()</code> to choose columns by name:</p>
+<pre><code class="language-r">nc.select &lt;- nc %&gt;% 
+  select(., c(&quot;CNTY_ID&quot;, &quot;NAME&quot;, &quot;FIPS&quot;))
+plot(nc.select)
 </code></pre>
-<pre><code>## Warning in proj4string(id.sp.proj): CRS object has comment, which is lost in
-## output
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">st_crs(id.sf.proj) == st_crs(id.raster.proj)
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">identicalCRS(id.sp.proj, id.raster.proj)
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">identicalCRS(as(id.sf.proj, &quot;Spatial&quot;), id.raster.proj)
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<h2 id="plot-it-again">Plot it again</h2>
-<p>Now it looks like everything is lined up, we should be able to generate a quick plot to look at that data</p>
-<pre><code class="language-r">plot(id.raster.proj)
-plot(id.sp.proj, add=TRUE)
-</code></pre>
-<p><img src="/example/02-example_files/figure-html/plotit2-1.png" width="672" /></p>
-<p>Or using the <code>sf</code> <code>st_geometry</code> command:</p>
-<pre><code class="language-r">plot(id.rast.proj)
-plot(st_geometry(id.sf.proj), add=TRUE)
-</code></pre>
-<p><img src="/example/02-example_files/figure-html/plotit3-1.png" width="672" /></p>
+<p><img src="/example/03-example_files/figure-html/sfselect-1.png" width="672" /></p>
+<p><strong>Notice that the geometries are <em>sticky</em>, this will be important later</strong></p>
 
                     </div>
 
@@ -957,15 +1094,8 @@ plot(st_geometry(id.sf.proj), add=TRUE)
   
   
   <div class="post-nav-item">
-    <div class="meta-nav">Previous</div>
-    <a href="/example/03-example/" rel="next">Working with vectors in R</a>
-  </div>
-  
-  
-  
-  <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/example/01-example/" rel="prev">Introduction to course resources, Rmarkdown, and data in R</a>
+    <a href="/example/02-example/" rel="prev">Workflows for getting spatial data into R</a>
   </div>
   
 </div>
@@ -975,7 +1105,7 @@ plot(st_geometry(id.sf.proj), add=TRUE)
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on Sep 1, 2021</p>
+                    <p>Last updated on Sep 9, 2021</p>
 
                     
 

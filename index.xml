@@ -309,6 +309,294 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>Working with vectors in R</title>
+      <link>http://isdrfall21.classes.spaseslab.com/example/03-example/</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/example/03-example/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(sf)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(tidyverse)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.0     ✓ forcats 0.5.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Today we&amp;rsquo;ll build on the introductory discussion we were having about vector operatoins and the &lt;code&gt;sf&lt;/code&gt; package. We&amp;rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the &lt;code&gt;sf&lt;/code&gt; package.&lt;/p&gt;
+&lt;h2 id=&#34;a-reminder-about-vector-geometries-in-r&#34;&gt;A reminder about vector geometries in &lt;code&gt;R&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;You&amp;rsquo;ll recall that the &lt;code&gt;sf&lt;/code&gt; package organizes the different types of vectors (e.g., points, lines, polygons) in to a hierarchical structure organized by complexity of geometries contained within an &lt;code&gt;R&lt;/code&gt; object. For example, a single point will be a &lt;code&gt;POINT&lt;/code&gt;, several points will be a &lt;code&gt;MULTIPOINT&lt;/code&gt;, and an object containing points, polygons, and lines will be a &lt;code&gt;GEOMETRYCOLLECTION&lt;/code&gt;. We need to be aware of what types of geometries and objects we have becasue some operations are restricted to particular types of objects or geometries as indicated by errors that read:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Error in UseMethod(&amp;quot;st_crs&amp;lt;-&amp;quot;) :  no applicable method for &#39;st_crs&amp;lt;-&#39; applied to an object of class &amp;quot;c(&#39;XY&#39;, &#39;POINT&#39;, &#39;sfg&#39;)&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;which indicates that the function (&lt;code&gt;st_crs&lt;/code&gt;) does not have a method defined for the type of object it&amp;rsquo;s being applied to. Note that the function inside &lt;code&gt;UseMethod&lt;/code&gt; will be replaced by whichever function you&amp;rsquo;re attempting to apply to your object and the &lt;code&gt;object of class&lt;/code&gt; component will vary based on the function and the object class.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;type&lt;/th&gt;
+&lt;th&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POINT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;single point geometry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;MULTIPOINT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;set of points&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;LINESTRING&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;single linestring (two or more points connected by straight lines)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;MULTILINESTRING&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;set of linestrings&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POLYGON&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;exterior ring with zero or more inner rings, denoting holes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;MULTIPOLYGON&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;set of polygons&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GEOMETRYCOLLECTION&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;set of the geometries above&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;As is, these geometries are built on vertices with coordinates that are based on the Cartesian plane and thus are &amp;ldquo;spatial&amp;rdquo;, but not georeferenced or geographic. In order to convert these &lt;code&gt;sf&lt;/code&gt; geometries to a geogrphic object (i.e., one with a CRS and whose location depicts and actual spot on the earth&amp;rsquo;s surface), we use &lt;code&gt;st_sfc()&lt;/code&gt; to create a simple feature geography list column (see &lt;code&gt;?st_sfc&lt;/code&gt; for an example of this workflow).&lt;/p&gt;
+&lt;h2 id=&#34;conventions-in-sf-and-the-tidyverse&#34;&gt;Conventions in &lt;code&gt;sf&lt;/code&gt; and the &lt;code&gt;tidyverse&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;One of the benefits of the &lt;code&gt;sf&lt;/code&gt; package is that it is designed to interface with the &lt;a href=&#34;https://www.tidyverse.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt; suite of packages. One of the appealing parts of working with &lt;code&gt;tidyverse&lt;/code&gt; packages is that they share an underlying philosophy, data structure, and grammar. This can make life a lot easier as you move from getting your data into &lt;code&gt;R&lt;/code&gt;, constructing a set of covariates (including those derived from spatial data), analyzing, and plotting (or mapping) those data. People have strong opinions about the &lt;code&gt;tidyverse&lt;/code&gt;, but I find it to be an (eventually) useful way for people to gain some intuition for working in &lt;code&gt;R&lt;/code&gt;. One of the grammatical conventions used in the &lt;code&gt;tidyverse&lt;/code&gt; suite of packages is the use &lt;code&gt;_&lt;/code&gt; in function calls (this is known as snake case should you ever need to know that at a dinner party). The &lt;code&gt;_&lt;/code&gt; is typically used to separate the verb in a function call from its predicate. For example, &lt;code&gt;bind_rows()&lt;/code&gt; in the &lt;code&gt;dplyr&lt;/code&gt; package &amp;ldquo;binds&amp;rdquo; (the verb) rows (the predicate) wheras &lt;code&gt;bind_cols()&lt;/code&gt; binds columns. For the &lt;code&gt;sf&lt;/code&gt; package it&amp;rsquo;s slightly different in that most of the functions begin with a &lt;code&gt;st_&lt;/code&gt; or &lt;code&gt;sf_&lt;/code&gt; prefix to indicate that the function is designed to work on spatial objects followed by a word (or words) describing what the operation does (e.g., &lt;code&gt;st_centroid()&lt;/code&gt; returns a &lt;code&gt;MULTIPOINT&lt;/code&gt; object with each point located at the centroid of a polygon). We can classify these functions based on what they are expected to return:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Predicates&lt;/strong&gt;: evaluate a logical statement asserting that a property is &lt;code&gt;TRUE&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Measures&lt;/strong&gt;: return a numeric value with units based on the units of the CRS&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Transformations&lt;/strong&gt;: create new geometries based on input geometries.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We can also distinguish these functions based on how many geometries that operate on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Unary&lt;/strong&gt;: operate on a single geometry at a time (meaning that if you have a &lt;code&gt;MULTI*&lt;/code&gt; object the function works on each geometry individually)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Binary&lt;/strong&gt;: operate on pairs of geometries&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;n-ary&lt;/strong&gt;: operate on sets of geometries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We&amp;rsquo;ll focus on the unary operators for now, but the binary and n-ary operators will become more important as we move to develop databases for spatial analysis.&lt;/p&gt;
+&lt;h3 id=&#34;unary-predicates&#34;&gt;Unary predicates&lt;/h3&gt;
+&lt;p&gt;Unary predicates are helpful &amp;lsquo;checks&amp;rsquo; to make sure the object you are working with has the properties you might expect. Are the geometries valid? Is the data projected? Because we are asking a set of &lt;code&gt;TRUE/FALSE&lt;/code&gt; questions, these functions are specified as &lt;code&gt;st_is_&lt;/code&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;predicate&lt;/th&gt;
+&lt;th&gt;asks&amp;hellip;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;simple&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;is the geometry self-intersecting (i.e., simple)?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;valid&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;is the geometry valid?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;empty&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;is the geometry column of an object empty?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;longlat&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;does the object have geographic coordinates? (&lt;code&gt;FALSE&lt;/code&gt; if coords are projected, &lt;code&gt;NA&lt;/code&gt; if no &lt;code&gt;crs&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;is(geometry, class)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;is the geometry of a particular class?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;nc &amp;lt;- st_read(system.file(&amp;quot;shape/nc.shp&amp;quot;, package=&amp;quot;sf&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Reading layer `nc&#39; from data source 
+##   `/Library/Frameworks/R.framework/Versions/4.1/Resources/library/sf/shape/nc.shp&#39; 
+##   using driver `ESRI Shapefile&#39;
+## Simple feature collection with 100 features and 14 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## Geodetic CRS:  NAD27
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;st_is_longlat(nc)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;st_is_valid(nc)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;unary-measures&#34;&gt;Unary measures&lt;/h3&gt;
+&lt;p&gt;Measures return a quantity that describes the geometry&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;measure&lt;/th&gt;
+&lt;th&gt;returns&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;dimension&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;0 for points, 1 for linear, 2 for polygons, possibly &lt;code&gt;NA&lt;/code&gt; for empty geometries&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;area&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;the area of a geometry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;length&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;the length of a linear geometry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;distance&lt;/code&gt; is a binary measure that returns the distance between pairs of geometries either within a single object or between features in multiple objects&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(st_area(nc))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Units: [m^2]
+## [1] 1137107793  610916077 1423145355  694378925 1520366979  967504822
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;st_distance(nc)[1:5,1:5]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Units: [m]
+##          [,1]     [,2]     [,3]      [,4]      [,5]
+## [1,]      0.0      0.0  25591.8 439493.26 299049.94
+## [2,]      0.0      0.0      0.0 408416.68 268284.09
+## [3,]  25591.8      0.0      0.0 366648.94 226461.23
+## [4,] 439493.3 408416.7 366648.9      0.00  67066.43
+## [5,] 299049.9 268284.1 226461.2  67066.43      0.00
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;unary-transformers&#34;&gt;Unary transformers&lt;/h3&gt;
+&lt;p&gt;Unary transformations work on a per object basis and return a new geometry for each geometry.
+These are a few of the most common, we&amp;rsquo;ll encounter a few more as the semester continues.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;transformer&lt;/th&gt;
+&lt;th&gt;returns a geometry &amp;hellip;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;centroid&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;of type &lt;code&gt;POINT&lt;/code&gt; with the geometry&amp;rsquo;s centroid&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;buffer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;that is this larger (or smaller) than the input geometry, depending on the buffer size&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jitter&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;that was moved in space a certain amount, using a bivariate uniform distribution&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;boundary&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;with the boundary of the input geometry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;convex_hull&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;that forms the convex hull of the input geometry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;line_merge&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;after merging connecting &lt;code&gt;LINESTRING&lt;/code&gt; elements of a &lt;code&gt;MULTILINESTRING&lt;/code&gt; into longer &lt;code&gt;LINESTRING&lt;/code&gt;s.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;make_valid&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;that is valid&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;node&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;with added nodes to linear geometries at intersections without a node; only works on individual linear geometries&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;point_on_surface&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;with a (arbitrary) point on a surface&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;polygonize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;of type polygon, created from lines that form a closed ring&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;segmentize&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;a (linear) geometry with nodes at a given density or minimal distance&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;simplify&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;simplified by removing vertices/nodes (lines or polygons)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;split&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;that has been split with a splitting linestring&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;transform&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;transformed or convert to a new coordinate reference system (&lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/example/02-example&#34;&gt;last week&lt;/a&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;collection_extract&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;with subgeometries from a &lt;code&gt;GEOMETRYCOLLECTION&lt;/code&gt; of a particular type&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;cast&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;that is converted to another type&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(st_geometry(nc))
+plot(st_geometry(st_centroid(nc)), add=TRUE, col=&#39;red&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in st_centroid.sf(nc): st_centroid assumes attributes are constant over
+## geometries of x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/03-example_files/figure-html/polycent-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;using-sf-and-the-tidyverse&#34;&gt;Using &lt;code&gt;sf&lt;/code&gt; and the &lt;code&gt;tidyverse&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;As I mentioned, one of the benefits of using the &lt;code&gt;sf&lt;/code&gt; package is that commands from the other &lt;code&gt;tidyverse&lt;/code&gt; package have defined methods for spatial objects. The &lt;code&gt;dplyr&lt;/code&gt; package has a ton of helpful functions for maniputlating data in &lt;code&gt;R&lt;/code&gt;. For example, we might select a single row from a shapefile based on the value of its attributes by using the &lt;code&gt;dplyr::filter()&lt;/code&gt; command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;durham.cty &amp;lt;- nc %&amp;gt;% 
+  filter(., NAME == &amp;quot;Durham&amp;quot;)
+## We can also use the bracket approach
+durham.cty2 &amp;lt;- nc[nc$NAME == &amp;quot;Durham&amp;quot;,]
+
+plot(st_geometry(nc))
+plot(st_geometry(durham.cty), add=TRUE, col=&amp;quot;blue&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/03-example_files/figure-html/sffilter-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Or perhaps we only want a few of the columns in the dataset (because shapefiles always have lots of extra stuff). We can use &lt;code&gt;dplyr::select()&lt;/code&gt; to choose columns by name:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;nc.select &amp;lt;- nc %&amp;gt;% 
+  select(., c(&amp;quot;CNTY_ID&amp;quot;, &amp;quot;NAME&amp;quot;, &amp;quot;FIPS&amp;quot;))
+plot(nc.select)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/03-example_files/figure-html/sfselect-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Notice that the geometries are &lt;em&gt;sticky&lt;/em&gt;, this will be important later&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Vector data models for geographic information</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/03-content/</link>
       <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
@@ -323,7 +611,7 @@ The variance of the distribution is $\sigma^{2}$.
 &lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://geocompr.robinlovelace.net/spatial-class.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Section 2.2&lt;/a&gt; on Vector Data and &lt;a href=&#34;https://geocompr.robinlovelace.net/geometric-operations.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sections 5.1-5.3&lt;/a&gt; on Geographic Operations in Lovelace et al. (Lovelace et al. 2019) - for more details about vectors and geometric operations on vectors.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://open.lib.umn.edu/mapping/chapter/7-lying-with-maps/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Lying with maps&lt;/a&gt; - a portion of &lt;em&gt;Mapping, Society, and Technology&lt;/em&gt; an ebook by Eric Deluca and Sara Nelson.&lt;/p&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://keen-swartz-3146c4.netlify.app/geometries.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Section 3.1 and 3.2&lt;/a&gt; of Spatial Data Science, a &lt;code&gt;bookdown&lt;/code&gt; project by Edzer Pebesma and Roger Bivand (of the &lt;code&gt;sf&lt;/code&gt;, &lt;code&gt;sp&lt;/code&gt;, &lt;code&gt;rgeos&lt;/code&gt;, and &lt;code&gt;rgdal&lt;/code&gt; packages)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
@@ -1365,7 +1653,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-758924631&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-328746159&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1375,7 +1663,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-758924631&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-328746159&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
