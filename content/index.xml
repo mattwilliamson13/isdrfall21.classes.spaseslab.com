@@ -17,7 +17,7 @@
       <link>http://isdrfall21.classes.spaseslab.com/content/03-content/</link>
       <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
       <guid>http://isdrfall21.classes.spaseslab.com/content/03-content/</guid>
-      <description>&lt;p&gt;Today we’ll focus on getting oriented to the course and the tools we’ll be using throughout the semester. Readings are designed to help understand some of the ‘rules’ of R syntax and develop an understanding for manipulating different types of data in R.&lt;/p&gt;
+      <description>&lt;p&gt;Today we’ll focus on learning the vector data model and how it is implemented within the spatial packages in the &lt;code&gt;R&lt;/code&gt; computing environment.&lt;/p&gt;
 &lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -76,6 +76,35 @@
 &lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
 &lt;div id=&#34;ref-lovelace_geocomputation_2019&#34; class=&#34;csl-entry&#34;&gt;
 &lt;p&gt;Lovelace, R., J. Nowosad, and J. Muenchow. 2019. Geocomputation with R. CRC Press.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Raster data models for geographic information</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/04-content/</link>
+      <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/04-content/</guid>
+      <description>&lt;p&gt;Today we’ll be exploring the raster data model and how it is implemented within the spatial packages in the &lt;code&gt;R&lt;/code&gt; computing environment.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;p&gt;These chapters are not ‘prerequisite’ reading for the week, but provide a lot of helpful background for raster proccessing in R.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://www.rspatial.org/raster/RasterPackage.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;raster&lt;/code&gt; package vignette&lt;/a&gt; has a number of helpful examples for different workflows with raster objects in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://rspatial.org/terra/pkg/1-introduction.html#&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;terra&lt;/code&gt; package vignette&lt;/a&gt; describes the new raster functions available in &lt;code&gt;terra&lt;/code&gt;, their relationship to those in the &lt;code&gt;raster&lt;/code&gt; package, and the changes in syntax between the two.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://adv-r.hadley.nz/fp.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Functional Programming&lt;/a&gt; and &lt;a href=&#34;https://adv-r.hadley.nz/perf-measure.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Measuring performance&lt;/a&gt; from &lt;em&gt;Advanced R&lt;/em&gt; (Wickham 2019) provide an excellent introduction to developing your own functions for repeated operations and ways to optimise code for large problems. Raster data processing often involves repeating (sometimes multiple) steps 100s of times. These chapters introduce strategies for developing functions for repeated operations and identfying and fixing bottlenecks in those functions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;Coming Soon!&lt;/p&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-wickham2019advanced&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Wickham, H. 2019. Advanced r. chapman; hall/CRC.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
