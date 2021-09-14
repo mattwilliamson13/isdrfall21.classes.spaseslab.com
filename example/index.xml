@@ -116,7 +116,7 @@
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;nc &amp;lt;- st_read(system.file(&amp;quot;shape/nc.shp&amp;quot;, package=&amp;quot;sf&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Reading layer `nc&#39; from data source 
-##   `/Library/Frameworks/R.framework/Versions/4.1/Resources/library/sf/shape/nc.shp&#39; 
+##   `/Library/Frameworks/R.framework/Versions/4.0/Resources/library/sf/shape/nc.shp&#39; 
 ##   using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 100 features and 14 fields
 ## Geometry type: MULTIPOLYGON
