@@ -33,10 +33,10 @@
   
     
   
-  <meta name="description" content="Today&rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&rsquo;ll look at ways to do this using the sf, sp (with rgdal), raster, and terra packages." />
+  <meta name="description" content="As we have discussed (constantly), we need to get all of our data aligned before we can do much with spatial analysis or plotting. Workflows for rasters are basically the same as those for vectors (i." />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/02-example/" />
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/04-example/" />
 
   
 
@@ -291,7 +291,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/02-example/" />
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/04-example/" />
 
   
   
@@ -311,18 +311,18 @@
     <meta property="twitter:creator" content="@MwilliamsonMatt" />
   
   <meta property="og:site_name" content="Spatial Data in R" />
-  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/02-example/" />
-  <meta property="og:title" content="Workflows for getting spatial data into R | Spatial Data in R" />
-  <meta property="og:description" content="Today&rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&rsquo;ll look at ways to do this using the sf, sp (with rgdal), raster, and terra packages." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/04-example/" />
+  <meta property="og:title" content="Working with rasters in R | Spatial Data in R" />
+  <meta property="og:description" content="As we have discussed (constantly), we need to get all of our data aligned before we can do much with spatial analysis or plotting. Workflows for rasters are basically the same as those for vectors (i." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2021-09-01T00:00:00&#43;00:00"
+        content="2021-09-16T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2021-09-01T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2021-09-16T00:00:00&#43;00:00">
   
 
   
@@ -349,7 +349,7 @@
   <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
 
 
-  <title>Workflows for getting spatial data into R | Spatial Data in R</title>
+  <title>Working with rasters in R | Spatial Data in R</title>
 </head>
 
 
@@ -742,7 +742,7 @@
       </li>
 
       
-      <li class="active">
+      <li >
         <a href="/example/02-example/">2: Getting your spatial data into R</a>
       </li>
 
@@ -752,7 +752,7 @@
       </li>
 
       
-      <li >
+      <li class="active">
         <a href="/example/04-example/">4: Rasters in R</a>
       </li>
 
@@ -772,17 +772,7 @@
                 <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
             </ul>
 
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#getting-started">Getting started</a></li>
-    <li><a href="#loading-the-data">Loading the data</a></li>
-    <li><a href="#check-the-geometry">Check the geometry</a></li>
-    <li><a href="#check-the-projections">Check the projections</a></li>
-    <li><a href="#reproject-the-data">Reproject the data</a></li>
-    <li><a href="#lets-see-if-that-worked">Let&rsquo;s see if that worked</a></li>
-    <li><a href="#plot-it-again">Plot it again</a></li>
-  </ul>
-</nav>
+            <nav id="TableOfContents"></nav>
 
             
         </div>
@@ -793,7 +783,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Workflows for getting spatial data into R</h1>
+                    <h1>Working with rasters in R</h1>
 
                     
 
@@ -802,151 +792,85 @@
                     
 
                     <div class="article-style">
-                        <p>Today&rsquo;s exercise and assignment will focus on getting different types of spatial data into R; exploring the CRS, extent, and resolution of those objects; and aligning objects with different projections. We&rsquo;ll look at ways to do this using the <code>sf</code>, <code>sp</code> (with <code>rgdal</code>), <code>raster</code>, and <code>terra</code> packages.</p>
-<h2 id="getting-started">Getting started</h2>
-<p>Remember that we&rsquo;ll be using GitHub classroom so you&rsquo;ll need to introduce yourself to git and then clone the Assignment 2 repository. The instructions are in <a href="/example/01-example/">Example 1</a></p>
-<h2 id="loading-the-data">Loading the data</h2>
-<p>I created a few small shapefiles to help illustrate the basic workflow for bringing in both shapefiles and rasters. In the code below, you&rsquo;ll need to change the <code>filepath</code> object to match the path to our shared direction. This is not an ideal practice as it makes it challenging for others to automatically reproduce your analaysis, but I&rsquo;m using here because GitHub can&rsquo;t handle large files like rasters or shapefiles and transferring files is more than I want to take on today&hellip;.</p>
-<p>I&rsquo;ll demonstrate loading the data using <code>rgdal</code>, <code>sp</code>, and <code>sf</code> packages (for shapefiles) and the <code>raster</code> and <code>terra</code> packages (for rasters).</p>
-<pre><code class="language-r">#load the necessary libraries
-library(sp)
-library(sf)
-</code></pre>
-<pre><code>## Linking to GEOS 3.9.1, GDAL 3.2.2, PROJ 7.2.1
-</code></pre>
-<pre><code class="language-r">library(rgdal)
-</code></pre>
-<pre><code>## rgdal: version: 1.5-23, (SVN revision 1121)
-## Geospatial Data Abstraction Library extensions to R successfully loaded
-## Loaded GDAL runtime: GDAL 3.1.4, released 2020/10/20
-## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
-## GDAL binary built with GEOS: TRUE 
-## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
-## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
-## Linking to sp version:1.4-5
-## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.
-</code></pre>
-<pre><code class="language-r">library(raster)
-library(terra)
-</code></pre>
-<pre><code>## terra version 1.2.11
-</code></pre>
-<pre><code>## 
-## Attaching package: 'terra'
-</code></pre>
-<pre><code>## The following object is masked from 'package:rgdal':
-## 
-##     project
-</code></pre>
-<pre><code class="language-r">filepath &lt;- &quot;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/&quot;
+                        <p>As we have discussed (constantly), we need to get all of our data aligned before we can do much with spatial analysis or plotting. Workflows for rasters are basically the same as those for vectors (i.e., read the data, compare CRSs, reproject if necessary). The main difference is that rasters introduce a few additional components that we need to match up - the orgin, extent, and resolution. We&rsquo;ll start by looking at how we can verify if/when things are aligned and then move to &lsquo;fixing&rsquo; issues of non-alignment.</p>
+<h1 id="read-the-data">Read the data</h1>
+<p>We use the <code>rast()</code> function from the <code>terra</code> package to read the data into our workspace. Note that the pathnames here are not the same as what you&rsquo;ll use for the lab (because these paths correspond to my computer).</p>
+<pre><code class="language-r">hm &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session08/hmi.tif')
 
-#shapefiles
-id.sp &lt;- readOGR(paste0(filepath, &quot;ID.shp&quot;))
+val &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session08/idval.tif')
 </code></pre>
-<pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/ID.shp&quot;, layer: &quot;ID&quot;
-## with 1 features
-## It has 14 fields
-</code></pre>
-<pre><code class="language-r">id.sf &lt;- st_read(paste0(filepath, &quot;ID.shp&quot;))
-</code></pre>
-<pre><code>## Reading layer `ID' from data source 
-##   `/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/ID.shp' 
-##   using driver `ESRI Shapefile'
-## Simple feature collection with 1 feature and 14 fields
-## Geometry type: POLYGON
-## Dimension:     XY
-## Bounding box:  xmin: -117.243 ymin: 41.98818 xmax: -111.0435 ymax: 49.00085
-## Geodetic CRS:  NAD83
-</code></pre>
-<pre><code class="language-r">#rasters
-id.raster &lt;- raster(paste0(filepath, &quot;idval.tif&quot;))
-id.rast &lt;-  rast(paste0(filepath, &quot;idval.tif&quot;))
-</code></pre>
-<h2 id="check-the-geometry">Check the geometry</h2>
-<p>Polygon data is often developed by hand using a technique called &lsquo;heads-up digitizing&rsquo;. This can lead to some subtle, but important errors in the geometry that eventually create problems for us down the road. We can check that using <code>st_is_vald()</code> and if that returns <code>FALSE</code> we can use <code>st_make_valid()</code> to fix it (hopefully).</p>
-<pre><code class="language-r">st_is_valid(id.sf)
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<pre><code class="language-r">#luckily it's true so we don't need st_make_valid() here
-</code></pre>
-<p>Once we&rsquo;ve got the data into <code>R</code>, we probably want to take a look at it. We can do that quickly just using the base <code>plot</code> function (we&rsquo;ll use fancier methods later).</p>
-<pre><code class="language-r">plot(id.raster)
-plot(id.sp, add=TRUE)
-</code></pre>
-<p><img src="/example/02-example_files/figure-html/initplot-1.png" width="672" /></p>
-<pre><code class="language-r">plot(id.rast)
-plot(st_geometry(id.sf), add=TRUE)
-</code></pre>
-<p><img src="/example/02-example_files/figure-html/initplot-2.png" width="672" /></p>
-<p>What do you notice? The Idaho shapefile doesn&rsquo;t show up!! Leading us to our next step:</p>
-<h2 id="check-the-projections">Check the projections</h2>
-<p>As we discussed in class, we can&rsquo;t really do much with spatial data in R until we get all the pieces aligned. The plot suggests the data aren&rsquo;t in the same projection, but we can check that more formally, here. Notice the use of <code>as</code> to coerce the <code>sf</code> object into a <code>Spatial*</code> object. This is necessary in a number of places because certain operations are only defined for a subset of <code>R</code> objects.</p>
-<pre><code class="language-r">proj4string(id.sp) == proj4string(id.raster)
-</code></pre>
-<pre><code>## Warning in proj4string(id.sp): CRS object has comment, which is lost in output
+<h1 id="check-the-projection">Check the projection</h1>
+<p>Let&rsquo;s take a look at the data. We notice a few obvious differences right off the bat.</p>
+<p><img src="/example/04-example_files/figure-html/initplot-1.png" width="672" /></p>
+<p>The plots make it pretty obvious that our extents are different, but what else might be different? Let&rsquo;s use the <code>terra::crs</code> command to check on the different Coordinate Reference Systems.</p>
+<pre><code class="language-r">crs(val) == crs(hm)
 </code></pre>
 <pre><code>## [1] FALSE
 </code></pre>
-<pre><code class="language-r">st_crs(id.sf) == st_crs(id.raster)
+<pre><code class="language-r">crs(hm, proj=TRUE) #use the proj argument to make the output a bit more readable (but deprecated)
+</code></pre>
+<pre><code>## [1] &quot;+proj=aea +lat_0=37.5 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
+</code></pre>
+<pre><code class="language-r">crs(val, proj=TRUE)
+</code></pre>
+<pre><code>## [1] &quot;+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
+</code></pre>
+<h1 id="reproject-and-crop-the-raster">Reproject and crop the raster</h1>
+<p>As we have discussed, projecting rasters is a bit tricky because we can distort the cells and potentially alter the attribute-geometry-relationship. That said, we often don&rsquo;t want to deal with giant rasters when we are only analyzing a small area. Cropping can help us reduce the size of the rasters, but will require us to reproject one of the rasters to get there. Let&rsquo;s reproject the smaller raster (because it&rsquo;s faster) and then crop the large raster.</p>
+<pre><code class="language-r">val.proj &lt;- project(val, crs(hm))
+hm.crop &lt;- crop(hm, val.proj)
+</code></pre>
+<p><img src="/example/04-example_files/figure-html/cropplot-1.png" width="672" /></p>
+<p>This is looking better, does this mean we have the two rasters aligned?</p>
+<pre><code class="language-r">crs(hm.crop) == crs(val.proj)
 </code></pre>
 <pre><code>## [1] FALSE
 </code></pre>
-<pre><code class="language-r">identicalCRS(id.sp, id.raster)
+<p>Looks like something else might still be off. Let&rsquo;s check the resolution, origin, and extent.</p>
+<h1 id="resampling-aggregating-disaggregating">Resampling, aggregating, disaggregating</h1>
+<pre><code class="language-r">res(hm.crop) == res(val.proj)
+</code></pre>
+<pre><code>## [1] FALSE FALSE
+</code></pre>
+<pre><code class="language-r">ext(hm.crop) == ext(val.proj)
 </code></pre>
 <pre><code>## [1] FALSE
 </code></pre>
-<pre><code class="language-r">identicalCRS(as(id.sf, &quot;Spatial&quot;), id.raster)
+<pre><code class="language-r">origin(hm.crop) == origin(val.proj)
 </code></pre>
-<pre><code>## [1] FALSE
+<pre><code>## [1] FALSE FALSE
 </code></pre>
-<h2 id="reproject-the-data">Reproject the data</h2>
-<p>As the tests above indicate, our data are not in the same projection. We need to reproject them!! Here are a few ways to do it. Notice that I demonstrate how to project the rasters to the shapefile projection - I generally don&rsquo;t recommend this, but am showing it here for completeness.</p>
-<pre><code class="language-r">new.crs &lt;- CRS(&quot;+init=epsg:2163&quot;)
+<p>As you can see, the two rasters have different resolutions, extents, and origins. Although, we reprojected the data into the proper projection, this doesn&rsquo;t change these other fundamental properties of the data. We&rsquo;ll use <code>resample()</code> here to fix this because we need to both change the resolution and the location of the cell centers (if we were just changing resolutions, we could use <code>aggregate()</code>, or <code>disaggregate()</code>). We&rsquo;ll resample to the coarser resolution, but we could go the other way if it made sense for the data.</p>
+<pre><code class="language-r">res(hm.crop)
 </code></pre>
-<pre><code>## Warning in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;, prefer_proj =
-## prefer_proj): Discarded datum unknown in Proj4 definition
+<pre><code>## [1] 270 270
 </code></pre>
-<pre><code class="language-r">id.sf.proj &lt;- id.sf %&gt;% st_transform(., new.crs)
-id.sp.proj &lt;- spTransform(id.sp, new.crs)
-
-id.raster.proj &lt;- projectRaster(id.raster, res = 480, crs=new.crs)
-id.rast.proj &lt;- terra::project(id.rast, as(id.raster.proj, &quot;SpatRaster&quot;))
+<pre><code class="language-r">res(val.proj)
 </code></pre>
-<h2 id="lets-see-if-that-worked">Let&rsquo;s see if that worked</h2>
-<p>Always good to double-check&hellip;</p>
-<pre><code class="language-r">proj4string(id.sp.proj) == proj4string(id.raster.proj)
+<pre><code>## [1] 480 480
 </code></pre>
-<pre><code>## Warning in proj4string(id.sp.proj): CRS object has comment, which is lost in
-## output
+<pre><code class="language-r">hm.rsmple &lt;- resample(hm.crop, val.proj, method='bilinear')
+crs(hm.rsmple) == crs(val.proj)
 </code></pre>
 <pre><code>## [1] TRUE
 </code></pre>
-<pre><code class="language-r">st_crs(id.sf.proj) == st_crs(id.raster.proj)
+<h1 id="running-functions-on-multi-layer-rasters">Running functions on multi-layer rasters</h1>
+<p>Great, we&rsquo;ve gotten our data aligned. Let&rsquo;s make a single <code>SpatRast</code> object with 2 layers so that we can run some smoothing.</p>
+<pre><code class="language-r">combined.data &lt;- rast(list(hm.rsmple, val.proj))
+nlyr(combined.data)
 </code></pre>
-<pre><code>## [1] TRUE
+<pre><code>## [1] 2
 </code></pre>
-<pre><code class="language-r">identicalCRS(id.sp.proj, id.raster.proj)
+<pre><code class="language-r">plot(combined.data)
 </code></pre>
-<pre><code>## [1] TRUE
+<p><img src="/example/04-example_files/figure-html/rstcombine-1.png" width="672" /></p>
+<p>One of the nice parts about multilayer rasters is that we can run functions across all pixels in all the layers of a multilayer raster with relative ease. One place we might use this is to scale and center our data before a regression analysis.</p>
+<pre><code class="language-r">combined.scale &lt;- scale(combined.data)
+plot(combined.scale)
 </code></pre>
-<pre><code class="language-r">identicalCRS(as(id.sf.proj, &quot;Spatial&quot;), id.raster.proj)
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<h2 id="plot-it-again">Plot it again</h2>
-<p>Now it looks like everything is lined up, we should be able to generate a quick plot to look at that data</p>
-<pre><code class="language-r">plot(id.raster.proj)
-plot(id.sp.proj, add=TRUE)
-</code></pre>
-<p><img src="/example/02-example_files/figure-html/plotit2-1.png" width="672" /></p>
-<p>Or using the <code>sf</code> <code>st_geometry</code> command:</p>
-<pre><code class="language-r">plot(id.rast.proj)
-plot(st_geometry(id.sf.proj), add=TRUE)
-</code></pre>
-<p><img src="/example/02-example_files/figure-html/plotit3-1.png" width="672" /></p>
+<p><img src="/example/04-example_files/figure-html/focl-1.png" width="672" /></p>
+<h1 id="repetitive-operations">Repetitive operations</h1>
+<p>One of the things you&rsquo;ll notice is that you end up doing a lot of copy-and-pasting when you&rsquo;re processing lots of rasters. This can lead to errors that can be really difficult to diagnose. One way around this is to build functions that take &lsquo;anonymous&rsquo; arguments.</p>
 
                     </div>
 
@@ -962,15 +886,8 @@ plot(st_geometry(id.sf.proj), add=TRUE)
   
   
   <div class="post-nav-item">
-    <div class="meta-nav">Previous</div>
-    <a href="/example/03-example/" rel="next">Working with vectors in R</a>
-  </div>
-  
-  
-  
-  <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/example/01-example/" rel="prev">Introduction to course resources, Rmarkdown, and data in R</a>
+    <a href="/example/03-example/" rel="prev">Working with vectors in R</a>
   </div>
   
 </div>
@@ -980,7 +897,7 @@ plot(st_geometry(id.sf.proj), add=TRUE)
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on Sep 1, 2021</p>
+                    <p>Last updated on Sep 16, 2021</p>
 
                     
 

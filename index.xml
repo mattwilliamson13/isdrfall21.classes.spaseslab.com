@@ -309,6 +309,93 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>Working with rasters in R</title>
+      <link>http://isdrfall21.classes.spaseslab.com/example/04-example/</link>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/example/04-example/</guid>
+      <description>&lt;p&gt;As we have discussed (constantly), we need to get all of our data aligned before we can do much with spatial analysis or plotting. Workflows for rasters are basically the same as those for vectors (i.e., read the data, compare CRSs, reproject if necessary). The main difference is that rasters introduce a few additional components that we need to match up - the orgin, extent, and resolution. We&amp;rsquo;ll start by looking at how we can verify if/when things are aligned and then move to &amp;lsquo;fixing&amp;rsquo; issues of non-alignment.&lt;/p&gt;
+&lt;h1 id=&#34;read-the-data&#34;&gt;Read the data&lt;/h1&gt;
+&lt;p&gt;We use the &lt;code&gt;rast()&lt;/code&gt; function from the &lt;code&gt;terra&lt;/code&gt; package to read the data into our workspace. Note that the pathnames here are not the same as what you&amp;rsquo;ll use for the lab (because these paths correspond to my computer).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hm &amp;lt;- rast(&#39;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session08/hmi.tif&#39;)
+
+val &amp;lt;- rast(&#39;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session08/idval.tif&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;check-the-projection&#34;&gt;Check the projection&lt;/h1&gt;
+&lt;p&gt;Let&amp;rsquo;s take a look at the data. We notice a few obvious differences right off the bat.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/04-example_files/figure-html/initplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The plots make it pretty obvious that our extents are different, but what else might be different? Let&amp;rsquo;s use the &lt;code&gt;terra::crs&lt;/code&gt; command to check on the different Coordinate Reference Systems.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;crs(val) == crs(hm)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;crs(hm, proj=TRUE) #use the proj argument to make the output a bit more readable (but deprecated)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;+proj=aea +lat_0=37.5 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;crs(val, proj=TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;reproject-and-crop-the-raster&#34;&gt;Reproject and crop the raster&lt;/h1&gt;
+&lt;p&gt;As we have discussed, projecting rasters is a bit tricky because we can distort the cells and potentially alter the attribute-geometry-relationship. That said, we often don&amp;rsquo;t want to deal with giant rasters when we are only analyzing a small area. Cropping can help us reduce the size of the rasters, but will require us to reproject one of the rasters to get there. Let&amp;rsquo;s reproject the smaller raster (because it&amp;rsquo;s faster) and then crop the large raster.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;val.proj &amp;lt;- project(val, crs(hm))
+hm.crop &amp;lt;- crop(hm, val.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/04-example_files/figure-html/cropplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This is looking better, does this mean we have the two rasters aligned?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;crs(hm.crop) == crs(val.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Looks like something else might still be off. Let&amp;rsquo;s check the resolution, origin, and extent.&lt;/p&gt;
+&lt;h1 id=&#34;resampling-aggregating-disaggregating&#34;&gt;Resampling, aggregating, disaggregating&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;res(hm.crop) == res(val.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ext(hm.crop) == ext(val.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;origin(hm.crop) == origin(val.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, the two rasters have different resolutions, extents, and origins. Although, we reprojected the data into the proper projection, this doesn&amp;rsquo;t change these other fundamental properties of the data. We&amp;rsquo;ll use &lt;code&gt;resample()&lt;/code&gt; here to fix this because we need to both change the resolution and the location of the cell centers (if we were just changing resolutions, we could use &lt;code&gt;aggregate()&lt;/code&gt;, or &lt;code&gt;disaggregate()&lt;/code&gt;). We&amp;rsquo;ll resample to the coarser resolution, but we could go the other way if it made sense for the data.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;res(hm.crop)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 270 270
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;res(val.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 480 480
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hm.rsmple &amp;lt;- resample(hm.crop, val.proj, method=&#39;bilinear&#39;)
+crs(hm.rsmple) == crs(val.proj)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;running-functions-on-multi-layer-rasters&#34;&gt;Running functions on multi-layer rasters&lt;/h1&gt;
+&lt;p&gt;Great, we&amp;rsquo;ve gotten our data aligned. Let&amp;rsquo;s make a single &lt;code&gt;SpatRast&lt;/code&gt; object with 2 layers so that we can run some smoothing.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;combined.data &amp;lt;- rast(list(hm.rsmple, val.proj))
+nlyr(combined.data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(combined.data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/04-example_files/figure-html/rstcombine-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;One of the nice parts about multilayer rasters is that we can run functions across all pixels in all the layers of a multilayer raster with relative ease. One place we might use this is to scale and center our data before a regression analysis.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;combined.scale &amp;lt;- scale(combined.data)
+plot(combined.scale)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://isdrfall21.classes.spaseslab.com/example/04-example_files/figure-html/focl-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;repetitive-operations&#34;&gt;Repetitive operations&lt;/h1&gt;
+&lt;p&gt;One of the things you&amp;rsquo;ll notice is that you end up doing a lot of copy-and-pasting when you&amp;rsquo;re processing lots of rasters. This can lead to errors that can be really difficult to diagnose. One way around this is to build functions that take &amp;lsquo;anonymous&amp;rsquo; arguments.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Raster data models for geographic information</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/04-content/</link>
       <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
@@ -1696,7 +1783,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-643287915&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-693247851&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1706,7 +1793,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-643287915&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-693247851&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
