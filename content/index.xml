@@ -5,12 +5,47 @@
     <link>http://isdrfall21.classes.spaseslab.com/content/</link>
       <atom:link href="http://isdrfall21.classes.spaseslab.com/content/index.xml" rel="self" type="application/rss+xml" />
     <description>Readings and lectures</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 13 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 20 Sep 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png</url>
       <title>Readings and lectures</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/</link>
     </image>
+    
+    <item>
+      <title>Building networks from spatial data</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/05-content/</link>
+      <pubDate>Mon, 20 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/05-content/</guid>
+      <description>&lt;p&gt;Today we’ll be exploring one additional data model for spatial information, the network. We’ll explore what constitutes a network, generally. Then, we’ll think a bit about spatial networks. Finally, we’ll start to look at how we might build networks from geospatial data in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;p&gt;These chapters are not ‘prerequisite’ reading for the week, but provide a lot of helpful background for raster proccessing in R.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://www.nature.com/articles/35065725&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Exploring complex networks&lt;/a&gt;(Strogatz 2001) is probably one of the most widely read articles describing networks and their role in a broad suite of disciplines. It is also written by a mathemetician which may make some of the language and formulae a little dense for you. That’s okay! Try to take the high-level points and leave the details for now.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2435.12799&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;This editorial&lt;/a&gt;(Poisot et al. 2016) to a Special Feature in &lt;em&gt;Functional Ecology&lt;/em&gt; provides some context for networks that are specific to ecologists.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://geocompr.robinlovelace.net/transport.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Transportation Chapter&lt;/a&gt; in (Lovelace et al. 2019) makes the concepts of a network concrete (literally) by using a transportation route example to illustrate the various components of a network analysis in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Coming Soon&lt;/strong&gt;&lt;/p&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-lovelace_geocomputation_2019&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Lovelace, R., J. Nowosad, and J. Muenchow. 2019. Geocomputation with R. CRC Press.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-poisotnetworks&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Poisot, T., D. B. Stouffer, and S. Kéfi. 2016. Describe, understand and predict: Why do we need networks in ecology? Functional Ecology 30:1878–1882.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-strogatz2001exploring&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Strogatz, S. H. 2001. Exploring complex networks. nature 410:268–276.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Raster data models for geographic information</title>

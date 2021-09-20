@@ -33,11 +33,10 @@
   
     
   
-  <meta name="description" content="Today we’ll be exploring the raster data model and how it is implemented within the spatial packages in the R computing environment.
-Resources These chapters are not ‘prerequisite’ reading for the week, but provide a lot of helpful background for raster proccessing in R." />
+  <meta name="description" content="Today we’ll be exploring one additional data model for spatial information, the network. We’ll explore what constitutes a network, generally. Then, we’ll think a bit about spatial networks. Finally, we’ll start to look at how we might build networks from geospatial data in R." />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/content/04-content/" />
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/content/05-content/" />
 
   
 
@@ -292,7 +291,7 @@ Resources These chapters are not ‘prerequisite’ reading for the week, but pr
   <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/content/04-content/" />
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/content/05-content/" />
 
   
   
@@ -312,19 +311,18 @@ Resources These chapters are not ‘prerequisite’ reading for the week, but pr
     <meta property="twitter:creator" content="@MwilliamsonMatt" />
   
   <meta property="og:site_name" content="Spatial Data in R" />
-  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/content/04-content/" />
-  <meta property="og:title" content="Raster data models for geographic information | Spatial Data in R" />
-  <meta property="og:description" content="Today we’ll be exploring the raster data model and how it is implemented within the spatial packages in the R computing environment.
-Resources These chapters are not ‘prerequisite’ reading for the week, but provide a lot of helpful background for raster proccessing in R." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/content/05-content/" />
+  <meta property="og:title" content="Building networks from spatial data | Spatial Data in R" />
+  <meta property="og:description" content="Today we’ll be exploring one additional data model for spatial information, the network. We’ll explore what constitutes a network, generally. Then, we’ll think a bit about spatial networks. Finally, we’ll start to look at how we might build networks from geospatial data in R." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2021-09-13T00:00:00&#43;00:00"
+        content="2021-09-20T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2021-09-13T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2021-09-20T00:00:00&#43;00:00">
   
 
   
@@ -351,7 +349,7 @@ Resources These chapters are not ‘prerequisite’ reading for the week, but pr
   <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
 
 
-  <title>Raster data models for geographic information | Spatial Data in R</title>
+  <title>Building networks from spatial data | Spatial Data in R</title>
 </head>
 
 
@@ -754,12 +752,12 @@ Resources These chapters are not ‘prerequisite’ reading for the week, but pr
       </li>
 
       
-      <li class="active">
+      <li >
         <a href="/content/04-content/">4: Raster data models for geographic information</a>
       </li>
 
       
-      <li >
+      <li class="active">
         <a href="/content/05-content/">5: Spatial data as networks</a>
       </li>
 
@@ -795,7 +793,7 @@ Resources These chapters are not ‘prerequisite’ reading for the week, but pr
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Raster data models for geographic information</h1>
+                    <h1>Building networks from spatial data</h1>
 
                     
 
@@ -804,56 +802,31 @@ Resources These chapters are not ‘prerequisite’ reading for the week, but pr
                     
 
                     <div class="article-style">
-                        <p>Today we’ll be exploring the raster data model and how it is implemented within the spatial packages in the <code>R</code> computing environment.</p>
+                        <p>Today we’ll be exploring one additional data model for spatial information, the network. We’ll explore what constitutes a network, generally. Then, we’ll think a bit about spatial networks. Finally, we’ll start to look at how we might build networks from geospatial data in <code>R</code>.</p>
 <h2 id="resources">Resources</h2>
 <p>These chapters are not ‘prerequisite’ reading for the week, but provide a lot of helpful background for raster proccessing in R.</p>
 <ul>
 <li>
-<p><i class="fas fa-book"></i> The <a href="https://www.rspatial.org/raster/RasterPackage.pdf" target="_blank" rel="noopener"><code>raster</code> package vignette</a> has a number of helpful examples for different workflows with raster objects in <code>R</code>.</p>
+<p><i class="fas fa-book"></i> <a href="https://www.nature.com/articles/35065725" target="_blank" rel="noopener">Exploring complex networks</a>(Strogatz 2001) is probably one of the most widely read articles describing networks and their role in a broad suite of disciplines. It is also written by a mathemetician which may make some of the language and formulae a little dense for you. That’s okay! Try to take the high-level points and leave the details for now.</p>
 </li>
 <li>
-<p><i class="fas fa-external-link-square-alt"></i> The <a href="https://rspatial.org/terra/pkg/1-introduction.html#" target="_blank" rel="noopener"><code>terra</code> package vignette</a> describes the new raster functions available in <code>terra</code>, their relationship to those in the <code>raster</code> package, and the changes in syntax between the two.</p>
+<p><i class="fas fa-book"></i> <a href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2435.12799" target="_blank" rel="noopener">This editorial</a>(Poisot et al. 2016) to a Special Feature in <em>Functional Ecology</em> provides some context for networks that are specific to ecologists.</p>
 </li>
 <li>
-<p><i class="fas fa-book"></i> The <a href="https://adv-r.hadley.nz/fp.html" target="_blank" rel="noopener">Functional Programming</a> and <a href="https://adv-r.hadley.nz/perf-measure.html" target="_blank" rel="noopener">Measuring performance</a> from <em>Advanced R</em> (Wickham 2019) provide an excellent introduction to developing your own functions for repeated operations and ways to optimise code for large problems. Raster data processing often involves repeating (sometimes multiple) steps 100s of times. These chapters introduce strategies for developing functions for repeated operations and identfying and fixing bottlenecks in those functions.</p>
+<p><i class="fas fa-book"></i> The <a href="https://geocompr.robinlovelace.net/transport.html" target="_blank" rel="noopener">Transportation Chapter</a> in (Lovelace et al. 2019) makes the concepts of a network concrete (literally) by using a transportation route example to illustrate the various components of a network analysis in <code>R</code>.</p>
 </li>
 </ul>
 <h2 id="slides">Slides</h2>
-<p><a class="btn btn-primary btn-lg" target="_blank" href="/slides/04-slides.html"><i class="fas fa-external-link-alt"></i> View all slides in new window</a> <a class="btn btn-primary btn-lg" target="_blank" href="/slides/04-slides.pdf" role="button"><i class="far fa-file-pdf"></i> Download PDF of all slides</a></p>
-<ul class="nav nav-tabs" id="slide-tabs" role="tablist">
-<li class="nav-item">
-<a class="nav-link active" id="raster-data-models-for-geographic-information-tab" data-toggle="tab" href="#raster-data-models-for-geographic-information" role="tab" aria-controls="raster-data-models-for-geographic-information" aria-selected="true">Raster Data Models for Geographic Information</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" id="the-raster-data-model-tab" data-toggle="tab" href="#the-raster-data-model" role="tab" aria-controls="the-raster-data-model" aria-selected="false">The Raster Data Model</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" id="operations-on-vector-data-tab" data-toggle="tab" href="#operations-on-vector-data" role="tab" aria-controls="operations-on-vector-data" aria-selected="false">Operations on vector data</a>
-</li>
-</ul>
-<div id="slide-tabs" class="tab-content">
-<div id="raster-data-models-for-geographic-information" class="tab-pane fade show active" role="tabpanel" aria-labelledby="raster-data-models-for-geographic-information-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/04-slides.html#1">
-</iframe>
-</div>
-</div>
-<div id="the-raster-data-model" class="tab-pane fade" role="tabpanel" aria-labelledby="the-raster-data-model-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/04-slides.html#defining">
-</iframe>
-</div>
-</div>
-<div id="operations-on-vector-data" class="tab-pane fade" role="tabpanel" aria-labelledby="operations-on-vector-data-tab">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/04-slides.html#operations">
-</iframe>
-</div>
-</div>
-</div>
+<p><strong>Coming Soon</strong></p>
 <div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
-<div id="ref-wickham2019advanced" class="csl-entry">
-<p>Wickham, H. 2019. Advanced r. chapman; hall/CRC.</p>
+<div id="ref-lovelace_geocomputation_2019" class="csl-entry">
+<p>Lovelace, R., J. Nowosad, and J. Muenchow. 2019. Geocomputation with R. CRC Press.</p>
+</div>
+<div id="ref-poisotnetworks" class="csl-entry">
+<p>Poisot, T., D. B. Stouffer, and S. Kéfi. 2016. Describe, understand and predict: Why do we need networks in ecology? Functional Ecology 30:1878–1882.</p>
+</div>
+<div id="ref-strogatz2001exploring" class="csl-entry">
+<p>Strogatz, S. H. 2001. Exploring complex networks. nature 410:268–276.</p>
 </div>
 </div>
 
@@ -871,15 +844,8 @@ Resources These chapters are not ‘prerequisite’ reading for the week, but pr
   
   
   <div class="post-nav-item">
-    <div class="meta-nav">Previous</div>
-    <a href="/content/05-content/" rel="next">Building networks from spatial data</a>
-  </div>
-  
-  
-  
-  <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/content/03-content/" rel="prev">Vector data models for geographic information</a>
+    <a href="/content/04-content/" rel="prev">Raster data models for geographic information</a>
   </div>
   
 </div>
@@ -889,7 +855,7 @@ Resources These chapters are not ‘prerequisite’ reading for the week, but pr
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on Sep 13, 2021</p>
+                    <p>Last updated on Sep 20, 2021</p>
 
                     
 
