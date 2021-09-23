@@ -321,7 +321,7 @@ The variance of the distribution is $\sigma^{2}$.
 &lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://www.nature.com/articles/35065725&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Exploring complex networks&lt;/a&gt;(Strogatz 2001) is probably one of the most widely read articles describing networks and their role in a broad suite of disciplines. It is also written by a mathemetician which may make some of the language and formulae a little dense for you. That’s okay! Try to take the high-level points and leave the details for now.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2435.12799&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;This editorial&lt;/a&gt;(Poisot et al. 2016) to a Special Feature in &lt;em&gt;Functional Ecology&lt;/em&gt; provides some context for networks that are specific to ecologists.&lt;/p&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2435.12799&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;This editorial&lt;/a&gt;(Poisot et al. 2016) is the opening to a Special Feature in &lt;em&gt;Functional Ecology&lt;/em&gt; and provides some context for networks that are specific to ecologists.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://geocompr.robinlovelace.net/transport.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Transportation Chapter&lt;/a&gt; in (Lovelace et al. 2019) makes the concepts of a network concrete (literally) by using a transportation route example to illustrate the various components of a network analysis in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
@@ -1818,7 +1818,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-915873246&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-148735962&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1828,7 +1828,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-915873246&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-148735962&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
