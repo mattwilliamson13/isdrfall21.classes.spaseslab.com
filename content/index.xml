@@ -19,7 +19,7 @@
       <guid>http://isdrfall21.classes.spaseslab.com/content/06-content/</guid>
       <description>&lt;p&gt;Today we’ll begin exploring typical workflows for spatial analysis by working with attribute data. Attributes generally provide additional information about a location that we can use for visualization and analysis. Unlike spatial operations that we’ll explore next week, attribute data do not all require geographic information (but they do need some means of relating to a geography).&lt;/p&gt;
 &lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
-&lt;p&gt;These chapters are not ‘prerequisite’ reading for the week, but provide a lot of helpful background for raster processing in R.&lt;/p&gt;
+&lt;p&gt;These chapters are not ‘prerequisite’ reading for the week, but provide a lot of helpful background for attribute operations in R.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://r4ds.had.co.nz/tidy-data.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tidy Data&lt;/a&gt; and &lt;a href=&#34;https://r4ds.had.co.nz/relational-data.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Relational Data&lt;/a&gt; sections from &lt;strong&gt;R For Data Science&lt;/strong&gt; (Wickham and Grolemund 2016) provide a great overview to data cleaning and manipulation functions available in the &lt;code&gt;tidyverse&lt;/code&gt;.&lt;/p&gt;
@@ -466,6 +466,81 @@
 &lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
 &lt;div id=&#34;ref-venables2009introduction&#34; class=&#34;csl-entry&#34;&gt;
 &lt;p&gt;Venables, W. N., D. M. Smith, R. D. C. Team, and others. 2009. An introduction to r. Citeseer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building spatial databases based on co-location</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/07-content/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/07-content/</guid>
+      <description>&lt;p&gt;Today we’ll continue our development of attributes (or covariates) in our spatial databases. We’ll look at developing attributes that describe various geographic properties along with joining and subsetting based on locations.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;p&gt;These chapters are not ‘prerequisite’ reading for the week, but provide a lot of helpful background for determining spatial relations between vector datasets and extracting those into attribute tables for subsequent visualization and analysis.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://geocompr.robinlovelace.net/spatial-operations.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Spatial Data Operations Chapter&lt;/a&gt; in (Lovelace et al. 2019) makes the concepts of a network concrete (literally) by using a transportation route example to illustrate the various components of a network analysis in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://keen-swartz-3146c4.netlify.app/featureattributes.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Attributes and Support&lt;/a&gt; of Spatial Data Science, a &lt;code&gt;bookdown&lt;/code&gt; project by Edzer Pebesma and Roger Bivand (of the &lt;code&gt;sf&lt;/code&gt;, &lt;code&gt;sp&lt;/code&gt;, &lt;code&gt;rgeos&lt;/code&gt;, and &lt;code&gt;rgdal&lt;/code&gt; packages)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/07-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/07-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;building-spatial-databases-based-on-attributes-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#building-spatial-databases-based-on-attributes&#34; role=&#34;tab&#34; aria-controls=&#34;building-spatial-databases-based-on-attributes&#34; aria-selected=&#34;true&#34;&gt;Building spatial databases based on attributes&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;workflows-for-spatial-analysis-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#workflows-for-spatial-analysis&#34; role=&#34;tab&#34; aria-controls=&#34;workflows-for-spatial-analysis&#34; aria-selected=&#34;false&#34;&gt;Workflows for spatial analysis&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;databases-and-attributes-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#databases-and-attributes&#34; role=&#34;tab&#34; aria-controls=&#34;databases-and-attributes&#34; aria-selected=&#34;false&#34;&gt;Databases and attributes&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;common-attribute-operations-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#common-attribute-operations&#34; role=&#34;tab&#34; aria-controls=&#34;common-attribute-operations&#34; aria-selected=&#34;false&#34;&gt;Common attribute operations&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;joining-aspatial-data-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#joining-aspatial-data&#34; role=&#34;tab&#34; aria-controls=&#34;joining-aspatial-data&#34; aria-selected=&#34;false&#34;&gt;Joining (a)spatial data&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;building-spatial-databases-based-on-attributes&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;building-spatial-databases-based-on-attributes-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/07-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;workflows-for-spatial-analysis&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;workflows-for-spatial-analysis-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/07-slides.html#workflows&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;databases-and-attributes&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;databases-and-attributes-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/07-slides.html#database&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;common-attribute-operations&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;common-attribute-operations-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/07-slides.html#apps&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;joining-aspatial-data&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;joining-aspatial-data-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/07-slides.html#joins&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-lovelace_geocomputation_2019&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Lovelace, R., J. Nowosad, and J. Muenchow. 2019. Geocomputation with R. CRC Press.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
