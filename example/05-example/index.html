@@ -33,10 +33,10 @@
   
     
   
-  <meta name="description" content="Today we&rsquo;ll build on the introductory discussion we were having about vector operations and the sf package. We&rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the sf package." />
+  <meta name="description" content="One of the strongest justifications for using R as a Geographic Information System (GIS) is the ability to construct complete, reproducible workflows from data entry and cleaning through analysis and visualization." />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/03-example/" />
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/05-example/" />
 
   
 
@@ -291,7 +291,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/03-example/" />
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/05-example/" />
 
   
   
@@ -311,18 +311,18 @@
     <meta property="twitter:creator" content="@MwilliamsonMatt" />
   
   <meta property="og:site_name" content="Spatial Data in R" />
-  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/03-example/" />
-  <meta property="og:title" content="Working with vectors in R | Spatial Data in R" />
-  <meta property="og:description" content="Today we&rsquo;ll build on the introductory discussion we were having about vector operations and the sf package. We&rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the sf package." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/05-example/" />
+  <meta property="og:title" content="Building spatial databases | Spatial Data in R" />
+  <meta property="og:description" content="One of the strongest justifications for using R as a Geographic Information System (GIS) is the ability to construct complete, reproducible workflows from data entry and cleaning through analysis and visualization." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
         property="article:published_time"
-        content="2021-09-09T00:00:00&#43;00:00"
+        content="2021-10-06T00:00:00&#43;00:00"
       />
     
-    <meta property="article:modified_time" content="2021-09-09T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2021-10-06T00:00:00&#43;00:00">
   
 
   
@@ -349,7 +349,7 @@
   <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
 
 
-  <title>Working with vectors in R | Spatial Data in R</title>
+  <title>Building spatial databases | Spatial Data in R</title>
 </head>
 
 
@@ -747,7 +747,7 @@
       </li>
 
       
-      <li class="active">
+      <li >
         <a href="/example/03-example/">3: Points, lines, and polygons in R</a>
       </li>
 
@@ -757,7 +757,7 @@
       </li>
 
       
-      <li >
+      <li class="active">
         <a href="/example/05-example/">5: Spatial databases in R</a>
       </li>
 
@@ -777,19 +777,7 @@
                 <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
             </ul>
 
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#a-reminder-about-vector-geometries-in-r">A reminder about vector geometries in <code>R</code></a></li>
-    <li><a href="#conventions-in-sf-and-the-tidyverse">Conventions in <code>sf</code> and the <code>tidyverse</code></a>
-      <ul>
-        <li><a href="#unary-predicates">Unary predicates</a></li>
-        <li><a href="#unary-measures">Unary measures</a></li>
-        <li><a href="#unary-transformers">Unary transformers</a></li>
-      </ul>
-    </li>
-    <li><a href="#using-sf-and-the-tidyverse">Using <code>sf</code> and the <code>tidyverse</code></a></li>
-  </ul>
-</nav>
+            <nav id="TableOfContents"></nav>
 
             
         </div>
@@ -800,7 +788,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Working with vectors in R</h1>
+                    <h1>Building spatial databases</h1>
 
                     
 
@@ -809,269 +797,226 @@
                     
 
                     <div class="article-style">
-                        <p>Today we&rsquo;ll build on the introductory discussion we were having about vector operations and the <code>sf</code> package. We&rsquo;ll build a few vectors from scratch and then move on to explore a broader suite of common vector operations implemented by the <code>sf</code> package.</p>
-<h2 id="a-reminder-about-vector-geometries-in-r">A reminder about vector geometries in <code>R</code></h2>
-<p>You&rsquo;ll recall that the <code>sf</code> package organizes the different types of vectors (e.g., points, lines, polygons) in to a hierarchical structure organized by complexity of geometries contained within an <code>R</code> object. For example, a single point will be a <code>POINT</code>, several points will be a <code>MULTIPOINT</code>, and an object containing points, polygons, and lines will be a <code>GEOMETRYCOLLECTION</code>. We need to be aware of what types of geometries and objects we have becasue some operations are restricted to particular types of objects or geometries as indicated by errors that read:</p>
-<p><code>Error in UseMethod(&quot;st_crs&lt;-&quot;) :  no applicable method for 'st_crs&lt;-' applied to an object of class &quot;c('XY', 'POINT', 'sfg')&quot;</code></p>
-<p>which indicates that the function (<code>st_crs</code>) does not have a method defined for the type of object it&rsquo;s being applied to. Note that the function inside <code>UseMethod</code> will be replaced by whichever function you&rsquo;re attempting to apply to your object and the <code>object of class</code> component will vary based on the function and the object class.</p>
-<table>
-<thead>
-<tr>
-<th>type</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>POINT</code></td>
-<td>single point geometry</td>
-</tr>
-<tr>
-<td><code>MULTIPOINT</code></td>
-<td>set of points</td>
-</tr>
-<tr>
-<td><code>LINESTRING</code></td>
-<td>single linestring (two or more points connected by straight lines)</td>
-</tr>
-<tr>
-<td><code>MULTILINESTRING</code></td>
-<td>set of linestrings</td>
-</tr>
-<tr>
-<td><code>POLYGON</code></td>
-<td>exterior ring with zero or more inner rings, denoting holes</td>
-</tr>
-<tr>
-<td><code>MULTIPOLYGON</code></td>
-<td>set of polygons</td>
-</tr>
-<tr>
-<td><code>GEOMETRYCOLLECTION</code></td>
-<td>set of the geometries above</td>
-</tr>
-</tbody>
-</table>
-<p>As is, these geometries are built on vertices with coordinates that are based on the Cartesian plane and thus are &ldquo;spatial&rdquo;, but not georeferenced or geographic. In order to convert these <code>sf</code> geometries to a geogrphic object (i.e., one with a CRS and whose location depicts and actual spot on the earth&rsquo;s surface), we use <code>st_sfc()</code> to create a simple feature geography list column (see <code>?st_sfc</code> for an example of this workflow).</p>
-<h2 id="conventions-in-sf-and-the-tidyverse">Conventions in <code>sf</code> and the <code>tidyverse</code></h2>
-<p>One of the benefits of the <code>sf</code> package is that it is designed to interface with the <a href="https://www.tidyverse.org/" target="_blank" rel="noopener"><code>tidyverse</code></a> suite of packages. One of the appealing parts of working with <code>tidyverse</code> packages is that they share an underlying philosophy, data structure, and grammar. This can make life a lot easier as you move from getting your data into <code>R</code>, constructing a set of covariates (including those derived from spatial data), analyzing, and plotting (or mapping) those data. People have strong opinions about the <code>tidyverse</code>, but I find it to be an (eventually) useful way for people to gain some intuition for working in <code>R</code>. One of the grammatical conventions used in the <code>tidyverse</code> suite of packages is the use <code>_</code> in function calls (this is known as snake case should you ever need to know that at a dinner party). The <code>_</code> is typically used to separate the verb in a function call from its predicate. For example, <code>bind_rows()</code> in the <code>dplyr</code> package &ldquo;binds&rdquo; (the verb) rows (the predicate) wheras <code>bind_cols()</code> binds columns. For the <code>sf</code> package it&rsquo;s slightly different in that most of the functions begin with a <code>st_</code> or <code>sf_</code> prefix to indicate that the function is designed to work on spatial objects followed by a word (or words) describing what the operation does (e.g., <code>st_centroid()</code> returns a <code>MULTIPOINT</code> object with each point located at the centroid of a polygon). We can classify these functions based on what they are expected to return:</p>
-<ul>
-<li>
-<p><strong>Predicates</strong>: evaluate a logical statement asserting that a property is <code>TRUE</code></p>
-</li>
-<li>
-<p><strong>Measures</strong>: return a numeric value with units based on the units of the CRS</p>
-</li>
-<li>
-<p><strong>Transformations</strong>: create new geometries based on input geometries.</p>
-</li>
-</ul>
-<p>We can also distinguish these functions based on how many geometries that operate on:</p>
-<ul>
-<li><strong>Unary</strong>: operate on a single geometry at a time (meaning that if you have a <code>MULTI*</code> object the function works on each geometry individually)</li>
-<li><strong>Binary</strong>: operate on pairs of geometries</li>
-<li><strong>n-ary</strong>: operate on sets of geometries</li>
-</ul>
-<p>We&rsquo;ll focus on the unary operators for now, but the binary and n-ary operators will become more important as we move to develop databases for spatial analysis.</p>
-<h3 id="unary-predicates">Unary predicates</h3>
-<p>Unary predicates are helpful &lsquo;checks&rsquo; to make sure the object you are working with has the properties you might expect. Are the geometries valid? Is the data projected? Because we are asking a set of <code>TRUE/FALSE</code> questions, these functions are specified as <code>st_is_</code>:</p>
-<table>
-<thead>
-<tr>
-<th>predicate</th>
-<th>asks&hellip;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>simple</code></td>
-<td>is the geometry self-intersecting (i.e., simple)?</td>
-</tr>
-<tr>
-<td><code>valid</code></td>
-<td>is the geometry valid?</td>
-</tr>
-<tr>
-<td><code>empty</code></td>
-<td>is the geometry column of an object empty?</td>
-</tr>
-<tr>
-<td><code>longlat</code></td>
-<td>does the object have geographic coordinates? (<code>FALSE</code> if coords are projected, <code>NA</code> if no <code>crs</code>)</td>
-</tr>
-<tr>
-<td><code>is(geometry, class)</code></td>
-<td>is the geometry of a particular class?</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="language-r">nc &lt;- st_read(system.file(&quot;shape/nc.shp&quot;, package=&quot;sf&quot;))
+                        <p>One of the strongest justifications for using <code>R</code> as a Geographic Information System (GIS) is the ability to construct complete, reproducible workflows from data entry and cleaning through analysis and visualization. Constructing databases that combine spatial and tabular data is at the core of those workflows. This example should help you practice some of the key database operations that you may encounter as you conduct your own analysis.</p>
+<h1 id="load-the-datasets-and-packages">Load the datasets and packages</h1>
+<p>The data we&rsquo;ll be using for today&rsquo;s example and assignment are a mix of spatial and tabular data. The tabular data come from the <a href="https://www.landgrabu.org/" target="_blank" rel="noopener">Land-Grab University(LGU)</a> data on parcel sales and the National Park Service&rsquo;s (NPS) <a href="https://irma.nps.gov/STATS/Reports/National" target="_blank" rel="noopener">annual visitation data</a> for NPS-operated units in the Intermountain and Pacific West regions. The spatial data is a shapefile from the US Protected Area Database (PADUS) and a shapefile containing the parcels described by the Land-Grab University parcel database. We&rsquo;ll load each of those here and take a look at features and fields in each dataset. <strong>Remember that you&rsquo;ll need to change the paths to match your own data.</strong></p>
+<pre><code class="language-r">library(sf)
 </code></pre>
-<pre><code>## Reading layer `nc' from data source 
-##   `/Library/Frameworks/R.framework/Versions/4.0/Resources/library/sf/shape/nc.shp' 
-##   using driver `ESRI Shapefile'
-## Simple feature collection with 100 features and 14 fields
+<pre><code>## Linking to GEOS 3.9.1, GDAL 3.2.2, PROJ 7.2.1
+</code></pre>
+<pre><code class="language-r">library(tidyverse)
+</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.1     ✓ forcats 0.5.1
+</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+</code></pre>
+<pre><code class="language-r">nps.visits.csv &lt;- read_csv('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session14/ParkVisits_2020IWPW.csv', skip = 3)
+</code></pre>
+<pre><code>## Rows: 1668 Columns: 8
+</code></pre>
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (5): ParkName, UnitCode, ParkType, Region, State
+## dbl (2): Year, Month
+</code></pre>
+<pre><code>## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</code></pre>
+<pre><code class="language-r">head(nps.visits.csv)
+</code></pre>
+<pre><code>## # A tibble: 6 × 8
+##   ParkName                   UnitCode ParkType Region State  Year Month RecreationVisits
+##   &lt;chr&gt;                      &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;            &lt;dbl&gt;
+## 1 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     1              273
+## 2 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     2              314
+## 3 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     3              233
+## 4 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     4                0
+## 5 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     5                0
+## 6 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     6              130
+</code></pre>
+<pre><code class="language-r">parcels.csv &lt;- read_csv('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session14/Parcels.csv')
+</code></pre>
+<pre><code>## Rows: 79461 Columns: 43
+</code></pre>
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (36): MTRSA_LG, Loc_State, Loc_County, LG_State, LG_Reason, University, ...
+## dbl  (6): Acres, Yr_ST_Accept, Yr_Uni_Assign, Yr_Patent, Date_Patent, GIS_Ac...
+</code></pre>
+<pre><code>## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</code></pre>
+<pre><code class="language-r">head(parcels.csv)
+</code></pre>
+<pre><code>## # A tibble: 6 × 43
+##   MTRSA_LG      Loc_State Loc_County Acres LG_State LG_Reason        University 
+##   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;      
+## 1 &quot;AR050020S02… AR        Garland      160 AL       Patented under … Auburn Uni…
+## 2 &quot;KS060210S00… KS        McPherson     40 AL       Patented under … Auburn Uni…
+## 3 &quot;KS060210S00… KS        McPherson     40 AL       Patented under … Auburn Uni…
+## 4 &quot;KS060190S01… KS        Barton        80 AL       Patented under … Auburn Uni…
+## 5 &quot;KS060190S01… KS        Barton        80 AL       Patented under … Auburn Uni…
+## 6 &quot;KS060210S00… KS        McPherson     80 AL       Patented under … Auburn Uni…
+## # … with 36 more variables: Uni_Ben_History &lt;chr&gt;, Royce_ID &lt;chr&gt;,
+## #   Tribal_Nation &lt;chr&gt;, US_Acquired_Mode &lt;chr&gt;, Cession_States &lt;chr&gt;,
+## #   Royce_Link &lt;chr&gt;, Yr_US_Acquire &lt;chr&gt;, Date_US_Acquire &lt;chr&gt;,
+## #   US_Paid_for_Parcel &lt;chr&gt;, Endow_Raised_Parcel &lt;chr&gt;,
+## #   Uni_Raise_US_Pay_Multiple &lt;chr&gt;, Yr_ST_Accept &lt;dbl&gt;, Yr_Uni_Assign &lt;dbl&gt;,
+## #   Yr_Patent &lt;dbl&gt;, Date_Patent &lt;dbl&gt;, Patentees &lt;chr&gt;,
+## #   Patent_Source_Reason &lt;chr&gt;, Source_ID &lt;chr&gt;, Source &lt;chr&gt;, …
+</code></pre>
+<pre><code class="language-r">regional.pas.sf &lt;- read_sf('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session14/reg_pas.shp')
+
+regional.pas.sf
+</code></pre>
+<pre><code>## Simple feature collection with 544 features and 32 fields
 ## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
-## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
-## Geodetic CRS:  NAD27
+## Bounding box:  xmin: -2034299 ymin: 1004785 xmax: -530474 ymax: 3059862
+## Projected CRS: USA_Contiguous_Albers_Equal_Area_Conic_USGS_version
+## # A tibble: 544 × 33
+##    Categry Own_Typ Own_Nam Loc_Own Mng_Typ Mang_Nm Loc_Mng Des_Tp Loc_Ds Unit_Nm
+##    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  
+##  1 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   AS     Nation…
+##  2 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   CA     San Lu…
+##  3 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   CA     San Lu…
+##  4 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  C. J. …
+##  5 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  Carey …
+##  6 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  Hagerm…
+##  7 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  North …
+##  8 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  Sand C…
+##  9 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   FR     Eagle …
+## 10 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   FSA    Farm S…
+## # … with 534 more rows, and 23 more variables: Loc_Nm &lt;chr&gt;, Stat_Nm &lt;chr&gt;,
+## #   Agg_Src &lt;chr&gt;, GIS_Src &lt;chr&gt;, Src_Dat &lt;chr&gt;, GIS_Acr &lt;int&gt;, Sr_PAID &lt;chr&gt;,
+## #   WDPA_Cd &lt;int&gt;, Pb_Accs &lt;chr&gt;, Accss_S &lt;chr&gt;, Accss_D &lt;chr&gt;, GAP_Sts &lt;chr&gt;,
+## #   GAPCdSr &lt;chr&gt;, GAPCdDt &lt;chr&gt;, IUCN_Ct &lt;chr&gt;, IUCNCtS &lt;chr&gt;, IUCNCtD &lt;chr&gt;,
+## #   Dat_Est &lt;chr&gt;, Commnts &lt;chr&gt;, SHAPE_L &lt;dbl&gt;, SHAPE_A &lt;dbl&gt;, FetClss &lt;chr&gt;,
+## #   geometry &lt;MULTIPOLYGON [m]&gt;
 </code></pre>
-<pre><code class="language-r">st_is_longlat(nc)
+<pre><code class="language-r">regional.parcels.sf &lt;- read_sf('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session14/Parcel_Polygons.shp')
+
+regional.parcels.sf
+</code></pre>
+<pre><code>## Simple feature collection with 79360 features and 4 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XYZ
+## Bounding box:  xmin: -124.5124 ymin: 28.82222 xmax: -81.65863 ymax: 49.00015
+## z_range:       zmin: 0 zmax: 0
+## Geodetic CRS:  NAD83
+## # A tibble: 79,360 × 5
+##    OBJECTID_1 MTRSA_LG                    Shape_Leng Shape_Area                  geometry
+##         &lt;dbl&gt; &lt;chr&gt;                            &lt;dbl&gt;      &lt;dbl&gt;        &lt;MULTIPOLYGON [°]&gt;
+##  1          1 AR050020N0160W0SN360ASWVA       0.0317  0.0000626 Z (((-92.66263 34.76826 …
+##  2          2 AR050020S0210W0SN200ANEAL       0.0325  0.0000651 Z (((-93.26224 34.55195 …
+##  3          3 AR050020S0220W0SN250ASEWV       0.0321  0.0000639 Z (((-93.29927 34.53098 …
+##  4          4 AR050030N0250W0SN040ASEWV       0.0308  0.0000580 Z (((-93.66021 34.93445 …
+##  5          5 AR050030S0210W0SN290ANWWV       0.0324  0.0000652 Z (((-93.27249 34.44986 …
+##  6          6 AR050050N0310W0SN170ASWSWMS     0.0164  0.0000166 Z (((-94.33553 35.10705 …
+##  7          7 AR050050N0310W0SN200ANWSWMS     0.0163  0.0000164 Z (((-94.33586 35.0962 0…
+##  8          8 AR050050N0310W0SN200AW½NWMS     0.0235  0.0000328 Z (((-94.33575 35.0998 0…
+##  9          9 AR050060S0220W0SN220ANWME       0.0324  0.0000651 Z (((-93.33463 34.21174 …
+## 10         10 AR050060S0260W0SN210ASECT       0.0323  0.0000643 Z (((-93.768 34.2144 0, …
+## # … with 79,350 more rows
+</code></pre>
+<h1 id="check-the-geometries-understand-the-data">Check the geometries, understand the data</h1>
+<p>By now you know that before we get too far down the road, we want to check the geometries and projections of our spatial data. Let&rsquo;s do that here. We can use the <code>all()</code> function to check to see if all of the geometries are valid (i.e., <code>st_is_valid()</code> returns all <code>TRUE</code>).</p>
+<pre><code class="language-r">all(st_is_valid(regional.pas.sf))
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<pre><code class="language-r">all(st_is_valid(regional.parcels.sf))
+</code></pre>
+<pre><code>## st_as_s2(): dropping Z and/or M coordinate
+</code></pre>
+<pre><code>## [1] FALSE
+</code></pre>
+<p>Unfortunately, they aren&rsquo;t all valid so we&rsquo;ll need to fix that here.</p>
+<pre><code class="language-r">regional.pas.valid &lt;- st_make_valid(regional.pas.sf)
+all(st_is_valid(regional.pas.valid)) #fixed it!
 </code></pre>
 <pre><code>## [1] TRUE
 </code></pre>
-<pre><code class="language-r">st_is_valid(nc)
+<pre><code class="language-r">regional.parcels.valid &lt;- st_make_valid(regional.parcels.sf)
+all(st_is_valid(regional.parcels.valid)) #fixed it!
 </code></pre>
-<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+<pre><code>## [1] TRUE
 </code></pre>
-<h3 id="unary-measures">Unary measures</h3>
-<p>Measures return a quantity that describes the geometry</p>
-<table>
-<thead>
-<tr>
-<th>measure</th>
-<th>returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dimension</code></td>
-<td>0 for points, 1 for linear, 2 for polygons, possibly <code>NA</code> for empty geometries</td>
-</tr>
-<tr>
-<td><code>area</code></td>
-<td>the area of a geometry</td>
-</tr>
-<tr>
-<td><code>length</code></td>
-<td>the length of a linear geometry</td>
-</tr>
-</tbody>
-</table>
-<p><code>distance</code> is a binary measure that returns the distance between pairs of geometries either within a single object or between features in multiple objects</p>
-<pre><code class="language-r">head(st_area(nc))
+<p>Now that we&rsquo;ve gotten the geometries cleaned up, we need to make sure the two datasets align.</p>
+<pre><code class="language-r">st_crs(regional.parcels.valid) == st_crs(regional.pas.valid) #Of course they dont
 </code></pre>
-<pre><code>## Units: [m^2]
-## [1] 1137107793  610916077 1423145355  694378925 1520366979  967504822
+<pre><code>## [1] FALSE
 </code></pre>
-<pre><code class="language-r">st_distance(nc)[1:5,1:5]
-</code></pre>
-<pre><code>## Units: [m]
-##          [,1]     [,2]     [,3]      [,4]      [,5]
-## [1,]      0.0      0.0  25591.8 439493.26 299049.94
-## [2,]      0.0      0.0      0.0 408416.68 268284.09
-## [3,]  25591.8      0.0      0.0 366648.94 226461.23
-## [4,] 439493.3 408416.7 366648.9      0.00  67066.43
-## [5,] 299049.9 268284.1 226461.2  67066.43      0.00
-</code></pre>
-<h3 id="unary-transformers">Unary transformers</h3>
-<p>Unary transformations work on a per object basis and return a new geometry for each geometry.
-These are a few of the most common, we&rsquo;ll encounter a few more as the semester continues.</p>
-<table>
-<thead>
-<tr>
-<th>transformer</th>
-<th>returns a geometry &hellip;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>centroid</code></td>
-<td>of type <code>POINT</code> with the geometry&rsquo;s centroid</td>
-</tr>
-<tr>
-<td><code>buffer</code></td>
-<td>that is this larger (or smaller) than the input geometry, depending on the buffer size</td>
-</tr>
-<tr>
-<td><code>jitter</code></td>
-<td>that was moved in space a certain amount, using a bivariate uniform distribution</td>
-</tr>
-<tr>
-<td><code>boundary</code></td>
-<td>with the boundary of the input geometry</td>
-</tr>
-<tr>
-<td><code>convex_hull</code></td>
-<td>that forms the convex hull of the input geometry</td>
-</tr>
-<tr>
-<td><code>line_merge</code></td>
-<td>after merging connecting <code>LINESTRING</code> elements of a <code>MULTILINESTRING</code> into longer <code>LINESTRING</code>s.</td>
-</tr>
-<tr>
-<td><code>make_valid</code></td>
-<td>that is valid</td>
-</tr>
-<tr>
-<td><code>node</code></td>
-<td>with added nodes to linear geometries at intersections without a node; only works on individual linear geometries</td>
-</tr>
-<tr>
-<td><code>point_on_surface</code></td>
-<td>with a (arbitrary) point on a surface</td>
-</tr>
-<tr>
-<td><code>polygonize</code></td>
-<td>of type polygon, created from lines that form a closed ring</td>
-</tr>
-<tr>
-<td><code>segmentize</code></td>
-<td>a (linear) geometry with nodes at a given density or minimal distance</td>
-</tr>
-<tr>
-<td><code>simplify</code></td>
-<td>simplified by removing vertices/nodes (lines or polygons)</td>
-</tr>
-<tr>
-<td><code>split</code></td>
-<td>that has been split with a splitting linestring</td>
-</tr>
-<tr>
-<td><code>transform</code></td>
-<td>transformed or convert to a new coordinate reference system (<a href="/example/02-example">last week</a>)</td>
-</tr>
-<tr>
-<td><code>collection_extract</code></td>
-<td>with subgeometries from a <code>GEOMETRYCOLLECTION</code> of a particular type</td>
-</tr>
-<tr>
-<td><code>cast</code></td>
-<td>that is converted to another type</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="language-r">plot(st_geometry(nc))
-plot(st_geometry(st_centroid(nc)), add=TRUE, col='red')
-</code></pre>
-<pre><code>## Warning in st_centroid.sf(nc): st_centroid assumes attributes are constant over
-## geometries of x
-</code></pre>
-<p><img src="/example/03-example_files/figure-html/polycent-1.png" width="672" /></p>
-<h2 id="using-sf-and-the-tidyverse">Using <code>sf</code> and the <code>tidyverse</code></h2>
-<p>As I mentioned, one of the benefits of using the <code>sf</code> package is that commands from the other <code>tidyverse</code> package have defined methods for spatial objects. The <code>dplyr</code> package has a ton of helpful functions for maniputlating data in <code>R</code>. For example, we might select a single row from a shapefile based on the value of its attributes by using the <code>dplyr::filter()</code> command:</p>
-<pre><code class="language-r">durham.cty &lt;- nc %&gt;% 
-  filter(., NAME == &quot;Durham&quot;)
-## We can also use the bracket approach
-durham.cty2 &lt;- nc[nc$NAME == &quot;Durham&quot;,]
+<pre><code class="language-r">parcels.project &lt;- regional.parcels.valid %&gt;% 
+  st_transform(., crs = st_crs(regional.pas.valid))
 
-plot(st_geometry(nc))
-plot(st_geometry(durham.cty), add=TRUE, col=&quot;blue&quot;)
+st_crs(parcels.project) == st_crs(regional.pas.valid) #fixed it!
 </code></pre>
-<p><img src="/example/03-example_files/figure-html/sffilter-1.png" width="672" /></p>
-<p>Or perhaps we only want a few of the columns in the dataset (because shapefiles always have lots of extra stuff). We can use <code>dplyr::select()</code> to choose columns by name:</p>
-<pre><code class="language-r">nc.select &lt;- nc %&gt;% 
-  select(., c(&quot;CNTY_ID&quot;, &quot;NAME&quot;, &quot;FIPS&quot;))
-plot(nc.select)
+<pre><code>## [1] TRUE
 </code></pre>
-<p><img src="/example/03-example_files/figure-html/sfselect-1.png" width="672" /></p>
-<p><strong>Notice that the geometries are <em>sticky</em>, this will be important later</strong></p>
+<h1 id="where-are-we-going">Where are we going?</h1>
+<p>We&rsquo;d like to explore how visitation to a number of NPS units contrasts with the amount of money the US paid to purchase the land those units sit on. This means we&rsquo;ll need a dataset that contains: a) the total number of visits to each unit in 2020, b) the number of parcels that were sold within the present-day boundaries of those units, and c) the sum of the value paid for those units.</p>
+<h1 id="subset-the-data-to-suit-our-questions">Subset the data to suit our questions</h1>
+<p>I&rsquo;m going to focus on Idaho for this example, so I&rsquo;ll subset the data for that here.</p>
+<pre><code class="language-r">id.parcels.csv &lt;- parcels.csv %&gt;% 
+  filter(., Loc_State == &quot;ID&quot;)
+
+id.park.visits &lt;- nps.visits.csv %&gt;% 
+  filter(., State == &quot;ID&quot;)
+
+id.pas.sf &lt;- regional.pas.valid %&gt;% 
+  filter(., Stat_Nm == &quot;ID&quot;)
+</code></pre>
+<h1 id="joining-with-keypairs">Joining with keypairs</h1>
+<p>You&rsquo;ll notice that the the LGU parcels dataset does not have many attributes and none that will let us use <code>filter</code> to reduce the dataset. That&rsquo;s because the bulk of the tabular data is stored in the <code>parcels.csv</code> file. We&rsquo;ll have to join them before we can subset them based on an attribute. Remember, that the <code>_join</code> commands return objects with the <code>class</code> of the first argument.</p>
+<pre><code class="language-r">join1 &lt;- left_join(id.parcels.csv, parcels.project, by = &quot;MTRSA_LG&quot;)
+class(join1)
+</code></pre>
+<pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;
+</code></pre>
+<pre><code class="language-r">join2 &lt;- left_join(parcels.project, id.parcels.csv, by = &quot;MTRSA_LG&quot;)
+class(join2)
+</code></pre>
+<pre><code>## [1] &quot;sf&quot;         &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
+</code></pre>
+<p>Given this, there are two ways we might approach joining and subsetting the data.</p>
+<pre><code class="language-r">id.parcels.sf &lt;- left_join(parcels.project, id.parcels.csv, by = &quot;MTRSA_LG&quot;) %&gt;% 
+  filter(., Loc_State == &quot;ID&quot;)
+class(id.parcels.sf)
+</code></pre>
+<pre><code>## [1] &quot;sf&quot;         &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
+</code></pre>
+<pre><code class="language-r">nrow(id.parcels.sf)
+</code></pre>
+<pre><code>## [1] 336
+</code></pre>
+<pre><code class="language-r">id.parcels.sf2 &lt;- inner_join(parcels.project, id.parcels.csv, by = &quot;MTRSA_LG&quot;)
+class(id.parcels.sf2)
+</code></pre>
+<pre><code>## [1] &quot;sf&quot;         &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
+</code></pre>
+<pre><code class="language-r">nrow(id.parcels.sf2)
+</code></pre>
+<pre><code>## [1] 336
+</code></pre>
+<p>Okay, now all we need to do is get the visit data attached to the NPS. But before we can do that, we need to summarize the monthly visits into a total for the year.</p>
+<pre><code class="language-r">id.park.visits.ann &lt;- id.park.visits %&gt;% 
+  group_by(UnitCode) %&gt;% 
+  summarise(., Total = sum(RecreationVisits))
+
+id.pas.visits &lt;- id.pas.sf %&gt;% 
+  inner_join(., id.park.visits.ann, by = c(&quot;Loc_Nm&quot; = &quot;UnitCode&quot;))
+</code></pre>
+<h1 id="joining-based-on-location">Joining based on location</h1>
 
                     </div>
 
@@ -1087,15 +1032,8 @@ plot(nc.select)
   
   
   <div class="post-nav-item">
-    <div class="meta-nav">Previous</div>
-    <a href="/example/04-example/" rel="next">Working with rasters in R</a>
-  </div>
-  
-  
-  
-  <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/example/02-example/" rel="prev">Workflows for getting spatial data into R</a>
+    <a href="/example/04-example/" rel="prev">Working with rasters in R</a>
   </div>
   
 </div>
@@ -1105,7 +1043,7 @@ plot(nc.select)
                 </div>
 
                 <div class="body-footer">
-                    <p>Last updated on Sep 9, 2021</p>
+                    <p>Last updated on Oct 6, 2021</p>
 
                     
 
