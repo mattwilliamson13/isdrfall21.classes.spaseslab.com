@@ -318,7 +318,7 @@ The variance of the distribution is $\sigma^{2}$.
 &lt;p&gt;The data we&amp;rsquo;ll be using for today&amp;rsquo;s example and assignment are a mix of spatial and tabular data. The tabular data come from the &lt;a href=&#34;https://www.landgrabu.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Land-Grab University(LGU)&lt;/a&gt; data on parcel sales and the National Park Service&amp;rsquo;s (NPS) &lt;a href=&#34;https://irma.nps.gov/STATS/Reports/National&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;annual visitation data&lt;/a&gt; for NPS-operated units in the Intermountain and Pacific West regions. The spatial data is a shapefile from the US Protected Area Database (PADUS) and a shapefile containing the parcels described by the Land-Grab University parcel database. We&amp;rsquo;ll load each of those here and take a look at features and fields in each dataset. &lt;strong&gt;Remember that you&amp;rsquo;ll need to change the paths to match your own data.&lt;/strong&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(sf)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Linking to GEOS 3.9.1, GDAL 3.2.2, PROJ 7.2.1
+&lt;pre&gt;&lt;code&gt;## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(tidyverse)
 &lt;/code&gt;&lt;/pre&gt;
@@ -327,13 +327,13 @@ The variance of the distribution is $\sigma^{2}$.
 &lt;pre&gt;&lt;code&gt;## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
 ## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
 ## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.1     ✓ forcats 0.5.1
+## ✓ readr   2.0.0     ✓ forcats 0.5.1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;nps.visits.csv &amp;lt;- read_csv(&#39;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session14/ParkVisits_2020IWPW.csv&#39;, skip = 3)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;nps.visits.csv &amp;lt;- read_csv(&#39;/Users/matthewwilliamson/Downloads/session14/ParkVisits_2020IWPW.csv&#39;, skip = 3)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Rows: 1668 Columns: 8
 &lt;/code&gt;&lt;/pre&gt;
@@ -349,16 +349,16 @@ The variance of the distribution is $\sigma^{2}$.
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(nps.visits.csv)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 8
-##   ParkName                   UnitCode ParkType Region State  Year Month RecreationVisits
-##   &amp;lt;chr&amp;gt;                      &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
-## 1 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     1              273
-## 2 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     2              314
-## 3 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     3              233
-## 4 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     4                0
-## 5 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     5                0
-## 6 Alibates Flint Quarries NM ALFL     Nationa… Inter… TX     2020     6              130
+##   ParkName       UnitCode ParkType   Region   State  Year Month RecreationVisits
+##   &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;            &amp;lt;dbl&amp;gt;
+## 1 Alibates Flin… ALFL     National … Intermo… TX     2020     1              273
+## 2 Alibates Flin… ALFL     National … Intermo… TX     2020     2              314
+## 3 Alibates Flin… ALFL     National … Intermo… TX     2020     3              233
+## 4 Alibates Flin… ALFL     National … Intermo… TX     2020     4                0
+## 5 Alibates Flin… ALFL     National … Intermo… TX     2020     5                0
+## 6 Alibates Flin… ALFL     National … Intermo… TX     2020     6              130
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;parcels.csv &amp;lt;- read_csv(&#39;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session14/Parcels.csv&#39;)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;parcels.csv &amp;lt;- read_csv(&#39;/Users/matthewwilliamson/Downloads/session14/Parcels.csv&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Rows: 79461 Columns: 43
 &lt;/code&gt;&lt;/pre&gt;
@@ -388,9 +388,14 @@ The variance of the distribution is $\sigma^{2}$.
 ## #   US_Paid_for_Parcel &amp;lt;chr&amp;gt;, Endow_Raised_Parcel &amp;lt;chr&amp;gt;,
 ## #   Uni_Raise_US_Pay_Multiple &amp;lt;chr&amp;gt;, Yr_ST_Accept &amp;lt;dbl&amp;gt;, Yr_Uni_Assign &amp;lt;dbl&amp;gt;,
 ## #   Yr_Patent &amp;lt;dbl&amp;gt;, Date_Patent &amp;lt;dbl&amp;gt;, Patentees &amp;lt;chr&amp;gt;,
-## #   Patent_Source_Reason &amp;lt;chr&amp;gt;, Source_ID &amp;lt;chr&amp;gt;, Source &amp;lt;chr&amp;gt;, …
+## #   Patent_Source_Reason &amp;lt;chr&amp;gt;, Source_ID &amp;lt;chr&amp;gt;, Source &amp;lt;chr&amp;gt;,
+## #   Source_Loc &amp;lt;chr&amp;gt;, Source_Type &amp;lt;chr&amp;gt;, Source_Form &amp;lt;chr&amp;gt;, Source_Acqu &amp;lt;chr&amp;gt;,
+## #   Source_Acqu_Detail &amp;lt;chr&amp;gt;, Located_GIS &amp;lt;chr&amp;gt;, Parcel_Link &amp;lt;chr&amp;gt;,
+## #   MTRSA &amp;lt;chr&amp;gt;, MTRS &amp;lt;chr&amp;gt;, A_or_L &amp;lt;chr&amp;gt;, Aliquot &amp;lt;chr&amp;gt;, Types &amp;lt;chr&amp;gt;,
+## #   GISAcres &amp;lt;dbl&amp;gt;, GIS_Acre_Div_List_Acre &amp;lt;dbl&amp;gt;, Polygon &amp;lt;chr&amp;gt;,
+## #   Accuracy &amp;lt;chr&amp;gt;, LG_Royce &amp;lt;chr&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;regional.pas.sf &amp;lt;- read_sf(&#39;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session14/reg_pas.shp&#39;)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;regional.pas.sf &amp;lt;- read_sf(&#39;/Users/matthewwilliamson/Downloads/session14/reg_pas.shp&#39;)
 
 regional.pas.sf
 &lt;/code&gt;&lt;/pre&gt;
@@ -419,7 +424,7 @@ regional.pas.sf
 ## #   Dat_Est &amp;lt;chr&amp;gt;, Commnts &amp;lt;chr&amp;gt;, SHAPE_L &amp;lt;dbl&amp;gt;, SHAPE_A &amp;lt;dbl&amp;gt;, FetClss &amp;lt;chr&amp;gt;,
 ## #   geometry &amp;lt;MULTIPOLYGON [m]&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;regional.parcels.sf &amp;lt;- read_sf(&#39;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session14/Parcel_Polygons.shp&#39;)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;regional.parcels.sf &amp;lt;- read_sf(&#39;/Users/matthewwilliamson/Downloads/session14/Parcel_Polygons.shp&#39;)
 
 regional.parcels.sf
 &lt;/code&gt;&lt;/pre&gt;
@@ -430,18 +435,18 @@ regional.parcels.sf
 ## z_range:       zmin: 0 zmax: 0
 ## Geodetic CRS:  NAD83
 ## # A tibble: 79,360 × 5
-##    OBJECTID_1 MTRSA_LG                    Shape_Leng Shape_Area                  geometry
-##         &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;                            &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;        &amp;lt;MULTIPOLYGON [°]&amp;gt;
-##  1          1 AR050020N0160W0SN360ASWVA       0.0317  0.0000626 Z (((-92.66263 34.76826 …
-##  2          2 AR050020S0210W0SN200ANEAL       0.0325  0.0000651 Z (((-93.26224 34.55195 …
-##  3          3 AR050020S0220W0SN250ASEWV       0.0321  0.0000639 Z (((-93.29927 34.53098 …
-##  4          4 AR050030N0250W0SN040ASEWV       0.0308  0.0000580 Z (((-93.66021 34.93445 …
-##  5          5 AR050030S0210W0SN290ANWWV       0.0324  0.0000652 Z (((-93.27249 34.44986 …
-##  6          6 AR050050N0310W0SN170ASWSWMS     0.0164  0.0000166 Z (((-94.33553 35.10705 …
-##  7          7 AR050050N0310W0SN200ANWSWMS     0.0163  0.0000164 Z (((-94.33586 35.0962 0…
-##  8          8 AR050050N0310W0SN200AW½NWMS     0.0235  0.0000328 Z (((-94.33575 35.0998 0…
-##  9          9 AR050060S0220W0SN220ANWME       0.0324  0.0000651 Z (((-93.33463 34.21174 …
-## 10         10 AR050060S0260W0SN210ASECT       0.0323  0.0000643 Z (((-93.768 34.2144 0, …
+##    OBJECTID_1 MTRSA_LG    Shape_Leng Shape_Area                         geometry
+##         &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;            &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;               &amp;lt;MULTIPOLYGON [°]&amp;gt;
+##  1          1 AR050020N0…     0.0317  0.0000626 Z (((-92.66263 34.76826 0, -92.…
+##  2          2 AR050020S0…     0.0325  0.0000651 Z (((-93.26224 34.55195 0, -93.…
+##  3          3 AR050020S0…     0.0321  0.0000639 Z (((-93.29927 34.53098 0, -93.…
+##  4          4 AR050030N0…     0.0308  0.0000580 Z (((-93.66021 34.93445 0, -93.…
+##  5          5 AR050030S0…     0.0324  0.0000652 Z (((-93.27249 34.44986 0, -93.…
+##  6          6 AR050050N0…     0.0164  0.0000166 Z (((-94.33553 35.10705 0, -94.…
+##  7          7 AR050050N0…     0.0163  0.0000164 Z (((-94.33586 35.0962 0, -94.3…
+##  8          8 AR050050N0…     0.0235  0.0000328 Z (((-94.33575 35.0998 0, -94.3…
+##  9          9 AR050060S0…     0.0324  0.0000651 Z (((-93.33463 34.21174 0, -93.…
+## 10         10 AR050060S0…     0.0323  0.0000643 Z (((-93.768 34.2144 0, -93.767…
 ## # … with 79,350 more rows
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;check-the-geometries-understand-the-data&#34;&gt;Check the geometries, understand the data&lt;/h1&gt;
@@ -533,6 +538,15 @@ id.pas.visits &amp;lt;- id.pas.sf %&amp;gt;%
   inner_join(., id.park.visits.ann, by = c(&amp;quot;Loc_Nm&amp;quot; = &amp;quot;UnitCode&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;joining-based-on-location&#34;&gt;Joining based on location&lt;/h1&gt;
+&lt;p&gt;Now we need to figure out how many parcels are within the orignal NPS unit boundaries. We&amp;rsquo;ll use a spatial join (&lt;code&gt;st_join&lt;/code&gt;) to make that happen. Remember, that we can use any of the binary predicates (&lt;code&gt;?geos_binary_pred&lt;/code&gt;) to specify how we&amp;rsquo;d like to join the data. Here, I&amp;rsquo;ll &lt;code&gt;st_is_within_distance&lt;/code&gt; to illustrate.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;parcels.in.pas &amp;lt;- st_join(id.pas.visits, id.parcels.sf, join=st_is_within_distance, dist=100000)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;estimating-the-total-amount-paid&#34;&gt;Estimating the total amount paid&lt;/h1&gt;
+&lt;p&gt;The result of selecting all of the parcels with 100000m of the NPS units is a data frame with 26 features (i.e., 26 parcels met the criteria). Now we need to calculate the total value (remember that we have to fix the currency to make it numeric).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;parcels.in.pas.sum &amp;lt;- parcels.in.pas %&amp;gt;% 
+  group_by(Unit_Nm) %&amp;gt;% 
+  summarise(., total = sum(readr::parse_number(US_Paid_for_Parcel), na.rm=TRUE))
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -2176,7 +2190,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-723684519&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-795643128&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -2186,7 +2200,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-723684519&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-795643128&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
