@@ -336,6 +336,34 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>Workflows for combining raster and vector data</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/08-content/</link>
+      <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/08-content/</guid>
+      <description>&lt;p&gt;Now that you’ve gotten some experience building databases using tabular and vector data, we’ll take a look at combining data models (i.e., using vectors and rasters together). We’ll rely largely on &lt;code&gt;terra::rasterize&lt;/code&gt;, &lt;code&gt;terra::zonal&lt;/code&gt;, and &lt;code&gt;terra::extract&lt;/code&gt; to summarize data in ways that allow them to be combined with other tabular and vector data. We’ll also take a look at the speed of different approaches and think about scaling each approach to larger geographic extents.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://geocompr.robinlovelace.net/spatial-operations.html#spatial-ras&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Spatial Data Operations Chapter&lt;/a&gt; in (Lovelace et al. 2019) provides a nice overview of raster processing in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; This post on &lt;a href=&#34;https://strimas.com/post/processing-large-rasters-in-r/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Processing Large Rasters in R&lt;/a&gt; by Matt Strimas-Mackey has a lot of useful background on what’s happening under the hood when processing large rasters in &lt;code&gt;R&lt;/code&gt; along with examples of benchmarking to characterize speedups.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://bookdown.org/mcwimberly/gdswr-book/combining-raster-and-vector-data-1-gridded-meteorological-data.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chapters 9 and 10&lt;/a&gt; on raster processing in Michael Wimberly’s “Geospatial Data Science With R: Applications in Environmental Geography” bookdown project has a lot of useful examples using gridded climate data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;Coming soon!&lt;/p&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-lovelace_geocomputation_2019&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Lovelace, R., J. Nowosad, and J. Muenchow. 2019. Geocomputation with R. CRC Press.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Building spatial databases</title>
       <link>http://isdrfall21.classes.spaseslab.com/example/05-example/</link>
       <pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate>
@@ -2292,7 +2320,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-596832147&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-241359876&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -2302,7 +2330,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-596832147&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-241359876&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
