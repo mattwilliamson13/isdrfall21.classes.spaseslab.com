@@ -160,11 +160,38 @@
 &lt;p&gt;&lt;a href=&#34;http://us-cities.survey.okfn.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;US City Open Data Census&lt;/strong&gt;&lt;/a&gt;: More than 100 US cities have committed to sharing dozens of types of data, including data about crime, budgets, campaign finance, lobbying, transit, and zoning. This site from the &lt;a href=&#34;http://sunlightfoundation.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sunlight Foundation&lt;/a&gt; and &lt;a href=&#34;http://www.codeforamerica.org//&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code for America&lt;/a&gt; collects this data and rates cities by how well they&amp;rsquo;re doing.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;political-science-and-economics-datasets&#34;&gt;Political science and economics datasets##&lt;/h2&gt;
-&lt;p&gt;There&amp;rsquo;s a wealth of data available for political science- and economics-related topics:
-- &lt;a href=&#34;https://github.com/briatte/srqm/wiki/Data&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;François Briatte&amp;rsquo;s extensive curated lists&lt;/strong&gt;&lt;/a&gt;: Includes data from/about intergovernmental organizations (IGOs), nongovernmental organizations (NGOs), public opinion surveys, parliaments and legislatures, wars, human rights, elections, and municipalities.
-- &lt;a href=&#34;https://github.com/leeper/poliscitoys/issues/1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Thomas Leeper&amp;rsquo;s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Good short list of useful datasets, divided by type of data (country-level data, survey data, social media data, event data, text data, etc.).
-- &lt;a href=&#34;https://github.com/erikgahner/PolData&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Erik Gahner&amp;rsquo;s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Huge list of useful datasets, divided by topic (governance, elections, policy, political elites, etc.)&lt;/p&gt;
+&lt;h2 id=&#34;political-science-and-economics-datasets&#34;&gt;Political science and economics datasets&lt;/h2&gt;
+&lt;p&gt;There&amp;rsquo;s a wealth of data available for political science- and economics-related topics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/briatte/srqm/wiki/Data&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;François Briatte&amp;rsquo;s extensive curated lists&lt;/strong&gt;&lt;/a&gt;: Includes data from/about intergovernmental organizations (IGOs), nongovernmental organizations (NGOs), public opinion surveys, parliaments and legislatures, wars, human rights, elections, and municipalities.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/leeper/poliscitoys/issues/1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Thomas Leeper&amp;rsquo;s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Good short list of useful datasets, divided by type of data (country-level data, survey data, social media data, event data, text data, etc.).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/erikgahner/PolData&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Erik Gahner&amp;rsquo;s list of political science datasets&lt;/strong&gt;&lt;/a&gt;: Huge list of useful datasets, divided by topic (governance, elections, policy, political elites, etc.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://insideairbnb.com/get-the-data.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Inside AirBnB&lt;/strong&gt;&lt;/a&gt; a Creative Commons-licensed dataset with a ton of spatially referenced info on AirBnBs in cities across the globe.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;the-30daymapchallenge-repositories&#34;&gt;The #30daymapchallenge repositories&lt;/h2&gt;
+&lt;p&gt;The #30daymapchallenge is a social mapping/cartography/data visualization challenge designed to encourage experimentation with different types of datasets and mapping approaches. Searching the hashtag on social media (especially Twitter) will bring up a bunch of cool examples. Here are a few repositories to help you get started:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tjukanovt/30DayMapChallenge&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;The Official #30DayMapChallenge Repo&lt;/strong&gt;&lt;/a&gt; has an archive of past challenges and a description of what this is all about.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://rud.is/books/30-day-map-challenge/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Bob Rudis&#39; 2019 bookdown project&lt;/strong&gt;&lt;/a&gt; Contains both code and useful information for generating the visualizations along with sources for data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/AlexandraKapp/30daymapchallenge&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Alexandra Kapp&amp;rsquo;s 2020 repository&lt;/strong&gt;&lt;/a&gt; makes use of some of the newer animation and interactive visualization techniques.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/topics/30daymapchallenge&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;The R-Spatial list of 2020 challenge repositories&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -1357,9 +1384,9 @@ plot(st_geometry(id.sf.proj), add=TRUE)
     
     <item>
       <title>Introduction to class resources and data structures in R</title>
-      <link>http://isdrfall21.classes.spaseslab.com/assignment/01-exercise/</link>
+      <link>http://isdrfall21.classes.spaseslab.com/assignment/04-exercise/</link>
       <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>http://isdrfall21.classes.spaseslab.com/assignment/01-exercise/</guid>
+      <guid>http://isdrfall21.classes.spaseslab.com/assignment/04-exercise/</guid>
       <description>&lt;p&gt;&lt;strong&gt;This is here for ease of reference; you should complete your assignment using your individual GitHub Classroom repositories&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;your-assignment&#34;&gt;Your assignment&lt;/h2&gt;
 &lt;p&gt;The goal for this assignment is to ensure that you:&lt;/p&gt;
@@ -1499,6 +1526,81 @@ data &amp;lt;- lapply(csv.list, function (x) read.csv(x))
 &lt;p&gt;Lovelace, R., J. Nowosad, and J. Muenchow. 2019. Geocomputation with R. CRC Press.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mini-Project 1: Building a spatial database</title>
+      <link>http://isdrfall21.classes.spaseslab.com/assignment/01-miniproj1/</link>
+      <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/assignment/01-miniproj1/</guid>
+      <description>&lt;h2 id=&#34;overview-of-the-class-project&#34;&gt;Overview of the class project&lt;/h2&gt;
+&lt;p&gt;The mini-projects and final project are intended to give you the chance to practice the workflows and techniques that we cover in class in the context of a complete analysis. Because each of you are in different stages of collecting your own data and because confronting datasets that aren&amp;rsquo;t yours can help clarify important concepts and design elements, I&amp;rsquo;m asking you to develop an analysis of data that &lt;strong&gt;isn&amp;rsquo;t yours&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The goal here is to have you gain some experience finding spatial data, thinking about an interesting question where the geographic location is (at least partially) important in determining how we might think about the process that gives rise to the data, and developing an analysis and suite of visualizations that help you (and others) better understand that process.&lt;/p&gt;
+&lt;h2 id=&#34;mini-project-1&#34;&gt;Mini-project 1&lt;/h2&gt;
+&lt;p&gt;The goals for this phase of your final project are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Articulate an interesting research question based on a dataset you&amp;rsquo;d like to learn more about.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Develop a spatial database that contains potentially relevant explanatory variables that you&amp;rsquo;d like to explore in the context of that research question.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Demonstrate an understanding of the various workflow elements involved in designing and constructing a spatial database for subsequent visualization and analysis.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;finding-data&#34;&gt;Finding Data&lt;/h3&gt;
+&lt;p&gt;The first step in developing your projects will be figuring out what question you&amp;rsquo;d like to ask and what data you&amp;rsquo;ll need to get there. There&amp;rsquo;s a never-ending list of available data online, but you might start with the &lt;a href=&#34;http://isdrfall21.classes.spaseslab.com/resource/data/&#34;&gt;Data Resources Page&lt;/a&gt;. You&amp;rsquo;re welcome to explore data that might end up being a part of your research (e.g., Census Data, landcover data), but I would encourage you to use the data to answer a question that isn&amp;rsquo;t necessarily the focus of your research. This will give you the opportunity to learn about the data while also zooming out from your research questions.&lt;/p&gt;
+&lt;h3 id=&#34;the-assignment&#34;&gt;The assignment&lt;/h3&gt;
+&lt;p&gt;Ultimately, you&amp;rsquo;ll need a dependent variable and a number of explanatory variables organized in a format that will allow you to visualize and analyze them effectively and efficiently. To that end, I&amp;rsquo;d like you to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Choose a dependent variable that has a point geometry&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Choose sensible &amp;lsquo;regions&amp;rsquo; (e.g., counties, ecoregions, watersheds, nations) that might serve to organize higher-order variables that describe the process that gives rise to your dependent variable. These should have a polygon or multipolygon geometry.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Choose a suite (at least 3 variables) of tabular data that can be joined to either your points or regions to help further describe the context of the process of interest.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Choose a suite (at least 3 variables) of spatial data (polygon or raster, at least 1 raster) of spatial data that can be joined to your database using &lt;code&gt;terra::extract&lt;/code&gt;, &lt;code&gt;terra::zonal&lt;/code&gt;, and &lt;code&gt;st_join&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Construct your database using spatial and tabular joins and raster extractions, use &lt;code&gt;summarise&lt;/code&gt; to generate at least one aggregated estimate at the regional level and &lt;code&gt;mutate&lt;/code&gt; to create a new predictor that is derived from the data you&amp;rsquo;ve collected.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Turn in a .Rmarkdown document that describes your research question, provides a brief overview of each dataset you are using (1-2 sentences describing what the data is, where it came from, and why you think it&amp;rsquo;s relevant), and provides all of the necessary code (with annotation) to reproduce the production of your database. (&lt;strong&gt;Remember this last bit is important as I&amp;rsquo;ll need to be able to reproduce your analysis from end-to-end&lt;/strong&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mini-Project 2: Visualizing your data</title>
+      <link>http://isdrfall21.classes.spaseslab.com/assignment/02-miniproj2/</link>
+      <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/assignment/02-miniproj2/</guid>
+      <description>&lt;h2 id=&#34;reminder-of-the-class-project&#34;&gt;Reminder of the class project&lt;/h2&gt;
+&lt;p&gt;The mini-projects and final project are intended to give you the chance to practice the workflows and techniques that we cover in class in the context of a complete analysis. Because each of you are in different stages of collecting your own data and because confronting datasets that aren&amp;rsquo;t yours can help clarify important concepts and design elements, I&amp;rsquo;m asking you to develop an analysis of data that &lt;strong&gt;isn&amp;rsquo;t yours&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The goal here is to have you gain some experience finding spatial data, thinking about an interesting question where the geographic location is (at least partially) important in determining how we might think about the process that gives rise to the data, and developing an analysis and suite of visualizations that help you (and others) better understand that process.&lt;/p&gt;
+&lt;h2 id=&#34;mini-project-2&#34;&gt;Mini-project 2&lt;/h2&gt;
+&lt;p&gt;Now that you&amp;rsquo;ve built a spatial database, it&amp;rsquo;s time to start making some sense of it. One way to do that is by visualizing the data, either using maps or other types of plots. That&amp;rsquo;s the goal of this assignment. Given your research question and &amp;lsquo;hypotheses&amp;rsquo; (I&amp;rsquo;m using this term loosely because you are [hopefully] using data that you&amp;rsquo;re not terribly familiar with), this project asks you to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Develop two static maps that display the relationship between your dependent variables and one or more of your predictor variables&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Develop one interactive map that allows you to explore potential correlations/relations between your &lt;strong&gt;predictor&lt;/strong&gt; variables&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Develop two additional non-spatial visualizations that attempt to characterize the same relations without using a map&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Submit a knittable Rmarkdown document that describes your research question and what you hope to learn from the visualizations you develop. Your document should also include reflections on the effectiveness of each visualization. How does mapping help or confuse relationships? How do interactive maps facilitate different kinds of explorations compared with static maps? How does what you&amp;rsquo;ve learned about these different visualizations inform how you might approach planning an analysis and presenting the results? As always, your document should also include well-annotated code that allows me to reproduce the figures.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -2190,7 +2292,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-795643128&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-596832147&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -2200,7 +2302,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-795643128&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-596832147&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -3104,7 +3206,7 @@ Three
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-3&#34;&gt;
+            class=&#34; section-bottom schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 15&lt;/strong&gt;&lt;/td&gt;
             &lt;td style=&#34;width:48%;text-align:left&#34;&gt;Assignments for sessions 14 and 16 due&lt;/td&gt;
@@ -3120,23 +3222,6 @@ Three
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr
-            class=&#34; section-bottom schedule-bg-3&#34;&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
-                &lt;strong&gt;October 18&lt;/strong&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-star&#34;&gt;&lt;/i&gt; &lt;strong&gt;Mini project 1 due&lt;/strong&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/01-mini-project/&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
             class=&#34; fake-header-table&#34;&gt;
@@ -3181,6 +3266,23 @@ Three
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/09-exercise/&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr
+            class=&#34; schedule-bg-3&#34;&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
+                &lt;strong&gt;October 25&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-star&#34;&gt;&lt;/i&gt; &lt;strong&gt;Mini project 1 due&lt;/strong&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/01-mini-project/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
@@ -3272,7 +3374,7 @@ Three
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
-            class=&#34; schedule-bg-3&#34;&gt;
+            class=&#34; section-bottom schedule-bg-3&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 5&lt;/strong&gt;&lt;/td&gt;
             &lt;td style=&#34;width:48%;text-align:left&#34;&gt;Assignments for Session 21 Due&lt;/td&gt;
@@ -3288,23 +3390,6 @@ Three
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr
-            class=&#34; section-bottom schedule-bg-3&#34;&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
-                &lt;strong&gt;November 5&lt;/strong&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-star&#34;&gt;&lt;/i&gt; &lt;strong&gt;Mini project 2 due&lt;/strong&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/02-mini-project/&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
             class=&#34; fake-header-table&#34;&gt;
@@ -3349,6 +3434,23 @@ Three
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/12-exercise/&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr
+            class=&#34; schedule-bg-3&#34;&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
+                &lt;strong&gt;November 12&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;i class=&#34;fas fa-star&#34;&gt;&lt;/i&gt; &lt;strong&gt;Mini project 2 due&lt;/strong&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/02-mini-project/&#34;&gt;
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
