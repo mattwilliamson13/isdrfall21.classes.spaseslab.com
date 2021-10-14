@@ -33,10 +33,11 @@
   
     
   
-  <meta name="description" content="One of the strongest justifications for using R as a Geographic Information System (GIS) is the ability to construct complete, reproducible workflows from data entry and cleaning through analysis and visualization." />
+  <meta name="description" content="Often when we build our databases for analyses, we&rsquo;ll be working with both vector and raster data models. This creates two issues:
+ It&rsquo;s not easy (or often possible) to perform calculations across data models Many statistical algorithms expect dataframes with dependent and independent variables which makes working with rasters particularly tricky." />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/05-example/" />
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/06-example/" />
 
   
 
@@ -291,7 +292,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/05-example/" />
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/06-example/" />
 
   
   
@@ -311,9 +312,10 @@
     <meta property="twitter:creator" content="@MwilliamsonMatt" />
   
   <meta property="og:site_name" content="Spatial Data in R" />
-  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/05-example/" />
-  <meta property="og:title" content="Building spatial databases | Spatial Data in R" />
-  <meta property="og:description" content="One of the strongest justifications for using R as a Geographic Information System (GIS) is the ability to construct complete, reproducible workflows from data entry and cleaning through analysis and visualization." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/06-example/" />
+  <meta property="og:title" content="Combining raster and vector data | Spatial Data in R" />
+  <meta property="og:description" content="Often when we build our databases for analyses, we&rsquo;ll be working with both vector and raster data models. This creates two issues:
+ It&rsquo;s not easy (or often possible) to perform calculations across data models Many statistical algorithms expect dataframes with dependent and independent variables which makes working with rasters particularly tricky." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -349,7 +351,7 @@
   <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
 
 
-  <title>Building spatial databases | Spatial Data in R</title>
+  <title>Combining raster and vector data | Spatial Data in R</title>
 </head>
 
 
@@ -757,12 +759,12 @@
       </li>
 
       
-      <li class="active">
+      <li >
         <a href="/example/05-example/">5: Spatial databases in R</a>
       </li>
 
       
-      <li >
+      <li class="active">
         <a href="/example/06-example/">6: Combining raster and vector data</a>
       </li>
 
@@ -782,7 +784,11 @@
                 <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
             </ul>
 
-            <nav id="TableOfContents"></nav>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#load-your-libraries-and-the-data">Load your libraries and the data</a></li>
+  </ul>
+</nav>
 
             
         </div>
@@ -793,7 +799,7 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Building spatial databases</h1>
+                    <h1>Combining raster and vector data</h1>
 
                     
 
@@ -802,240 +808,245 @@
                     
 
                     <div class="article-style">
-                        <p>One of the strongest justifications for using <code>R</code> as a Geographic Information System (GIS) is the ability to construct complete, reproducible workflows from data entry and cleaning through analysis and visualization. Constructing databases that combine spatial and tabular data is at the core of those workflows. This example should help you practice some of the key database operations that you may encounter as you conduct your own analysis.</p>
-<h1 id="load-the-datasets-and-packages">Load the datasets and packages</h1>
-<p>The data we&rsquo;ll be using for today&rsquo;s example and assignment are a mix of spatial and tabular data. The tabular data come from the <a href="https://www.landgrabu.org/" target="_blank" rel="noopener">Land-Grab University(LGU)</a> data on parcel sales and the National Park Service&rsquo;s (NPS) <a href="https://irma.nps.gov/STATS/Reports/National" target="_blank" rel="noopener">annual visitation data</a> for NPS-operated units in the Intermountain and Pacific West regions. The spatial data is a shapefile from the US Protected Area Database (PADUS) and a shapefile containing the parcels described by the Land-Grab University parcel database. We&rsquo;ll load each of those here and take a look at features and fields in each dataset. <strong>Remember that you&rsquo;ll need to change the paths to match your own data.</strong></p>
-<pre><code class="language-r">library(sf)
-</code></pre>
-<pre><code>## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
-</code></pre>
+                        <p>Often when we build our databases for analyses, we&rsquo;ll be working with both vector and raster data models. This creates two issues:</p>
+<ol>
+<li>It&rsquo;s not easy (or often possible) to perform calculations across data models</li>
+<li>Many statistical algorithms expect dataframes with dependent and independent variables which makes working with rasters particularly tricky.</li>
+</ol>
+<p>Today we&rsquo;ll look at a few ways to bring these two data models together to develop a dataset for analysis.</p>
+<h2 id="load-your-libraries-and-the-data">Load your libraries and the data</h2>
+<p>Let&rsquo;s bring in the data. You should recognize the regional PA dataset and the land value dataset as we&rsquo;ve been working with them a fair amount the last few weeks. The dataset you may not recognize is the species richness dataset (here, for mammals). These data come from a series of studies led by Clinton Jenkins and available <a href="https://biodiversitymapping.org/" target="_blank" rel="noopener">here</a>. Let&rsquo;s read them in here.</p>
 <pre><code class="language-r">library(tidyverse)
 </code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
 </code></pre>
 <pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tibble  3.1.5     ✓ dplyr   1.0.7
 ## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.0     ✓ forcats 0.5.1
+## ✓ readr   2.0.2     ✓ forcats 0.5.1
 </code></pre>
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 </code></pre>
-<pre><code class="language-r">nps.visits.csv &lt;- read_csv('/Users/matthewwilliamson/Downloads/session14/ParkVisits_2020IWPW.csv', skip = 3)
+<pre><code class="language-r">library(pander)
+library(sf)
 </code></pre>
-<pre><code>## Rows: 1668 Columns: 8
+<pre><code>## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
 </code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (5): ParkName, UnitCode, ParkType, Region, State
-## dbl (2): Year, Month
+<pre><code class="language-r">library(terra)
 </code></pre>
-<pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-</code></pre>
-<pre><code class="language-r">head(nps.visits.csv)
-</code></pre>
-<pre><code>## # A tibble: 6 × 8
-##   ParkName       UnitCode ParkType   Region   State  Year Month RecreationVisits
-##   &lt;chr&gt;          &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;            &lt;dbl&gt;
-## 1 Alibates Flin… ALFL     National … Intermo… TX     2020     1              273
-## 2 Alibates Flin… ALFL     National … Intermo… TX     2020     2              314
-## 3 Alibates Flin… ALFL     National … Intermo… TX     2020     3              233
-## 4 Alibates Flin… ALFL     National … Intermo… TX     2020     4                0
-## 5 Alibates Flin… ALFL     National … Intermo… TX     2020     5                0
-## 6 Alibates Flin… ALFL     National … Intermo… TX     2020     6              130
-</code></pre>
-<pre><code class="language-r">parcels.csv &lt;- read_csv('/Users/matthewwilliamson/Downloads/session14/Parcels.csv')
-</code></pre>
-<pre><code>## Rows: 79461 Columns: 43
-</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (36): MTRSA_LG, Loc_State, Loc_County, LG_State, LG_Reason, University, ...
-## dbl  (6): Acres, Yr_ST_Accept, Yr_Uni_Assign, Yr_Patent, Date_Patent, GIS_Ac...
+<pre><code>## terra version 1.4.14
 </code></pre>
 <pre><code>## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## Attaching package: 'terra'
 </code></pre>
-<pre><code class="language-r">head(parcels.csv)
+<pre><code>## The following object is masked from 'package:pander':
+## 
+##     wrap
 </code></pre>
-<pre><code>## # A tibble: 6 × 43
-##   MTRSA_LG      Loc_State Loc_County Acres LG_State LG_Reason        University 
-##   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;      
-## 1 &quot;AR050020S02… AR        Garland      160 AL       Patented under … Auburn Uni…
-## 2 &quot;KS060210S00… KS        McPherson     40 AL       Patented under … Auburn Uni…
-## 3 &quot;KS060210S00… KS        McPherson     40 AL       Patented under … Auburn Uni…
-## 4 &quot;KS060190S01… KS        Barton        80 AL       Patented under … Auburn Uni…
-## 5 &quot;KS060190S01… KS        Barton        80 AL       Patented under … Auburn Uni…
-## 6 &quot;KS060210S00… KS        McPherson     80 AL       Patented under … Auburn Uni…
-## # … with 36 more variables: Uni_Ben_History &lt;chr&gt;, Royce_ID &lt;chr&gt;,
-## #   Tribal_Nation &lt;chr&gt;, US_Acquired_Mode &lt;chr&gt;, Cession_States &lt;chr&gt;,
-## #   Royce_Link &lt;chr&gt;, Yr_US_Acquire &lt;chr&gt;, Date_US_Acquire &lt;chr&gt;,
-## #   US_Paid_for_Parcel &lt;chr&gt;, Endow_Raised_Parcel &lt;chr&gt;,
-## #   Uni_Raise_US_Pay_Multiple &lt;chr&gt;, Yr_ST_Accept &lt;dbl&gt;, Yr_Uni_Assign &lt;dbl&gt;,
-## #   Yr_Patent &lt;dbl&gt;, Date_Patent &lt;dbl&gt;, Patentees &lt;chr&gt;,
-## #   Patent_Source_Reason &lt;chr&gt;, Source_ID &lt;chr&gt;, Source &lt;chr&gt;,
-## #   Source_Loc &lt;chr&gt;, Source_Type &lt;chr&gt;, Source_Form &lt;chr&gt;, Source_Acqu &lt;chr&gt;,
-## #   Source_Acqu_Detail &lt;chr&gt;, Located_GIS &lt;chr&gt;, Parcel_Link &lt;chr&gt;,
-## #   MTRSA &lt;chr&gt;, MTRS &lt;chr&gt;, A_or_L &lt;chr&gt;, Aliquot &lt;chr&gt;, Types &lt;chr&gt;,
-## #   GISAcres &lt;dbl&gt;, GIS_Acre_Div_List_Acre &lt;dbl&gt;, Polygon &lt;chr&gt;,
-## #   Accuracy &lt;chr&gt;, LG_Royce &lt;chr&gt;
+<pre><code>## The following object is masked from 'package:dplyr':
+## 
+##     src
 </code></pre>
-<pre><code class="language-r">regional.pas.sf &lt;- read_sf('/Users/matthewwilliamson/Downloads/session14/reg_pas.shp')
-
-regional.pas.sf
+<pre><code>## The following object is masked from 'package:tidyr':
+## 
+##     extract
 </code></pre>
-<pre><code>## Simple feature collection with 544 features and 32 fields
+<pre><code class="language-r">library(units)
+</code></pre>
+<pre><code>## udunits database from /Library/Frameworks/R.framework/Versions/4.0/Resources/library/units/share/udunits/udunits2.xml
+</code></pre>
+<pre><code class="language-r">library(purrr)
+library(sp)
+library(profvis)
+#landval &lt;- terra::rast('/Users/matthewwilliamson/Downloads/session04/idval.tif')
+landval &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/Regval.tif')
+mammal.rich &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/Mammals_total_richness.tif')
+pas.desig &lt;- st_read('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/regionalPAs1.shp')
+</code></pre>
+<pre><code>## Reading layer `regionalPAs1' from data source 
+##   `/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/regionalPAs1.shp' 
+##   using driver `ESRI Shapefile'
+## Simple feature collection with 224 features and 7 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -1714157 ymin: 1029431 xmax: -621234.8 ymax: 3043412
+## Projected CRS: USA_Contiguous_Albers_Equal_Area_Conic_USGS_version
+</code></pre>
+<pre><code class="language-r">pas.proc &lt;- st_read('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/reg_pas.shp')
+</code></pre>
+<pre><code>## Reading layer `reg_pas' from data source 
+##   `/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/reg_pas.shp' 
+##   using driver `ESRI Shapefile'
+## Simple feature collection with 544 features and 32 fields
 ## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
 ## Bounding box:  xmin: -2034299 ymin: 1004785 xmax: -530474 ymax: 3059862
 ## Projected CRS: USA_Contiguous_Albers_Equal_Area_Conic_USGS_version
-## # A tibble: 544 × 33
-##    Categry Own_Typ Own_Nam Loc_Own Mng_Typ Mang_Nm Loc_Mng Des_Tp Loc_Ds Unit_Nm
-##    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;  
-##  1 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   AS     Nation…
-##  2 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   CA     San Lu…
-##  3 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   CA     San Lu…
-##  4 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  C. J. …
-##  5 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  Carey …
-##  6 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  Hagerm…
-##  7 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  North …
-##  8 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   COORD  Sand C…
-##  9 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   FR     Eagle …
-## 10 Procla… DESG    DESG    &lt;NA&gt;    FED     FWS     0       PROC   FSA    Farm S…
-## # … with 534 more rows, and 23 more variables: Loc_Nm &lt;chr&gt;, Stat_Nm &lt;chr&gt;,
-## #   Agg_Src &lt;chr&gt;, GIS_Src &lt;chr&gt;, Src_Dat &lt;chr&gt;, GIS_Acr &lt;int&gt;, Sr_PAID &lt;chr&gt;,
-## #   WDPA_Cd &lt;int&gt;, Pb_Accs &lt;chr&gt;, Accss_S &lt;chr&gt;, Accss_D &lt;chr&gt;, GAP_Sts &lt;chr&gt;,
-## #   GAPCdSr &lt;chr&gt;, GAPCdDt &lt;chr&gt;, IUCN_Ct &lt;chr&gt;, IUCNCtS &lt;chr&gt;, IUCNCtD &lt;chr&gt;,
-## #   Dat_Est &lt;chr&gt;, Commnts &lt;chr&gt;, SHAPE_L &lt;dbl&gt;, SHAPE_A &lt;dbl&gt;, FetClss &lt;chr&gt;,
-## #   geometry &lt;MULTIPOLYGON [m]&gt;
 </code></pre>
-<pre><code class="language-r">regional.parcels.sf &lt;- read_sf('/Users/matthewwilliamson/Downloads/session14/Parcel_Polygons.shp')
+<pre><code class="language-r">#combine the pas into 1, but the columns don't all mathc
 
-regional.parcels.sf
+colnames(pas.proc)[c(1, 6, 8, 10, 12, 22, 25)] &lt;- colnames(pas.desig)
 </code></pre>
-<pre><code>## Simple feature collection with 79360 features and 4 fields
-## Geometry type: MULTIPOLYGON
-## Dimension:     XYZ
-## Bounding box:  xmin: -124.5124 ymin: 28.82222 xmax: -81.65863 ymax: 49.00015
-## z_range:       zmin: 0 zmax: 0
-## Geodetic CRS:  NAD83
-## # A tibble: 79,360 × 5
-##    OBJECTID_1 MTRSA_LG    Shape_Leng Shape_Area                         geometry
-##         &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;               &lt;MULTIPOLYGON [°]&gt;
-##  1          1 AR050020N0…     0.0317  0.0000626 Z (((-92.66263 34.76826 0, -92.…
-##  2          2 AR050020S0…     0.0325  0.0000651 Z (((-93.26224 34.55195 0, -93.…
-##  3          3 AR050020S0…     0.0321  0.0000639 Z (((-93.29927 34.53098 0, -93.…
-##  4          4 AR050030N0…     0.0308  0.0000580 Z (((-93.66021 34.93445 0, -93.…
-##  5          5 AR050030S0…     0.0324  0.0000652 Z (((-93.27249 34.44986 0, -93.…
-##  6          6 AR050050N0…     0.0164  0.0000166 Z (((-94.33553 35.10705 0, -94.…
-##  7          7 AR050050N0…     0.0163  0.0000164 Z (((-94.33586 35.0962 0, -94.3…
-##  8          8 AR050050N0…     0.0235  0.0000328 Z (((-94.33575 35.0998 0, -94.3…
-##  9          9 AR050060S0…     0.0324  0.0000651 Z (((-93.33463 34.21174 0, -93.…
-## 10         10 AR050060S0…     0.0323  0.0000643 Z (((-93.768 34.2144 0, -93.767…
-## # … with 79,350 more rows
+<pre><code>## Warning in colnames(pas.proc)[c(1, 6, 8, 10, 12, 22, 25)] &lt;-
+## colnames(pas.desig): number of items to replace is not a multiple of replacement
+## length
 </code></pre>
-<h1 id="check-the-geometries-understand-the-data">Check the geometries, understand the data</h1>
-<p>By now you know that before we get too far down the road, we want to check the geometries and projections of our spatial data. Let&rsquo;s do that here. We can use the <code>all()</code> function to check to see if all of the geometries are valid (i.e., <code>st_is_valid()</code> returns all <code>TRUE</code>).</p>
-<pre><code class="language-r">all(st_is_valid(regional.pas.sf))
+<pre><code class="language-r">pas &lt;- pas.proc %&gt;% 
+  select(., colnames(pas.desig)) %&gt;% 
+  bind_rows(pas.desig, pas.proc)
 </code></pre>
-<pre><code>## [1] FALSE
+<p>Because we haven&rsquo;t looked at the species richness data yet, let&rsquo;s plot it here.</p>
+<pre><code class="language-r">plot(mammal.rich)
 </code></pre>
-<pre><code class="language-r">all(st_is_valid(regional.parcels.sf))
+<p><img src="/example/06-example_files/figure-html/mamplot-1.png" width="672" /></p>
+<p>Ooof. Not pretty. That&rsquo;s because this data is stored as a catgorical raster displaying the count of species contained within each 10km grid cell. Often we are interested in knowing more than just how many species occur. We&rsquo;d rather know something about how many speices and how rare they are. That data is also contained here and we can get it using <code>terra::catalyze</code>.</p>
+<pre><code class="language-r">mammal.rich &lt;- catalyze(mammal.rich)
+plot(mammal.rich)
 </code></pre>
-<pre><code>## st_as_s2(): dropping Z and/or M coordinate
+<p><img src="/example/06-example_files/figure-html/mamcat-1.png" width="672" /></p>
+<p>When we plot the data we see that the &ldquo;Value&rdquo; raster contains the informaiton we are looking for (the number of species weighted by their regional rarity). Lets take that and leave the rest.</p>
+<pre><code class="language-r">mammal.rich &lt;- mammal.rich[[2]]
+plot(mammal.rich)
 </code></pre>
-<pre><code>## [1] FALSE
+<p><img src="/example/06-example_files/figure-html/mamassign-1.png" width="672" /></p>
+<p>Before we move on into our analysis phase. Let&rsquo;s double check the CRS of our data.</p>
+<pre><code class="language-r">st_crs(mammal.rich)$proj4string
 </code></pre>
-<p>Unfortunately, they aren&rsquo;t all valid so we&rsquo;ll need to fix that here.</p>
-<pre><code class="language-r">regional.pas.valid &lt;- st_make_valid(regional.pas.sf)
-all(st_is_valid(regional.pas.valid)) #fixed it!
+<pre><code>## [1] &quot;+proj=aea +lat_0=37.5 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
 </code></pre>
-<pre><code>## [1] TRUE
+<pre><code class="language-r">st_crs(landval)$proj4string
 </code></pre>
-<pre><code class="language-r">regional.parcels.valid &lt;- st_make_valid(regional.parcels.sf)
-all(st_is_valid(regional.parcels.valid)) #fixed it!
+<pre><code>## [1] &quot;+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
 </code></pre>
-<pre><code>## [1] TRUE
+<pre><code class="language-r">st_crs(pas)$proj4string
 </code></pre>
-<p>Now that we&rsquo;ve gotten the geometries cleaned up, we need to make sure the two datasets align.</p>
-<pre><code class="language-r">st_crs(regional.parcels.valid) == st_crs(regional.pas.valid) #Of course they dont
+<pre><code>## [1] &quot;+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
 </code></pre>
-<pre><code>## [1] FALSE
+<p>Alhtough the PAs and land value rasters match, the mammal richness is in a different project. We&rsquo;ll deal with that once we&rsquo;ve subsetted the data a bit.</p>
+<h1 id="step-2-filter-the-data">Step 2: Filter the data</h1>
+<p>You&rsquo;ll need to filter the PADUS dataset so that it only contains the <a href="https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis/gap/science/pad-us-data-overview?qt-science_center_objects=0#qt-science_center_objects" target="_blank" rel="noopener">Gap Status 1</a> protected areas. Here, I&rsquo;ll do it for Idaho.</p>
+<pre><code class="language-r">id.gap.1 &lt;- pas %&gt;% 
+  filter(., State_Nm == &quot;ID&quot; &amp; GAP_Sts == &quot;1&quot;)
 </code></pre>
-<pre><code class="language-r">parcels.project &lt;- regional.parcels.valid %&gt;% 
-  st_transform(., crs = st_crs(regional.pas.valid))
+<h1 id="step-3-get-the-data-for-median-income-by-county">Step 3: Get the data for median income by county</h1>
+<p>Now let&rsquo;s get the median income data and geometry for each county. We&rsquo;ll use the tidycensus package for that. Note that you may have to sign up for a Census Api before you can use the tidycensus package (<a href="https://walker-data.com/tidycensus/articles/basic-usage.html" target="_blank" rel="noopener">instructions here</a>)</p>
+<pre><code class="language-r">id.income &lt;- tidycensus:: get_acs(geography = &quot;county&quot;, 
+              variables = c(medianicome = &quot;B19013_001&quot;),
+              state = &quot;ID&quot;, 
+              year = 2018,
+              key = key,
+              geometry = TRUE) %&gt;% 
+                st_transform(., st_crs(pas))
+</code></pre>
+<pre><code>## Getting data from the 2014-2018 5-year ACS
+</code></pre>
+<pre><code>## Downloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.
+</code></pre>
+<pre><code>## 
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |                                                                      |   1%
+  |                                                                            
+  |=                                                                     |   1%
+  |                                                                            
+  |=                                                                     |   2%
+  |                                                                            
+  |==                                                                    |   2%
+  |                                                                            
+  |==                                                                    |   3%
+  |                                                                            
+  |==                                                                    |   4%
+  |                                                                            
+  |===                                                                   |   4%
+  |                                                                            
+  |===                                                                   |   5%
+  |                                                                            
+  |====                                                                  |   5%
+  |                                                                            
+  |====                                                                  |   6%
+  |                                                                            
+  |=====                                                                 |   6%
+  |                                                                            
+  |=====                                                                 |   7%
+  |                                                                            
+  |=====                                                                 |   8%
+  |                                                                            
+  |======                                                                |   8%
+  |                                                                            
+  |======                                                                |   9%
+  |                                                                            
+  |=======                                                               |  10%
+  |                                                                            
+  |========                                                              |  11%
+  |                                                                            
+  |========                                                              |  12%
+  |                                                                            
+  |=========                                                             |  13%
+  |                                                                            
+  |==========                                                            |  14%
+  |                                                                            
+  |==========                                                            |  15%
+  |                                                                            
+  |===========                                                           |  15%
+  |                                                                            
+  |===========                                                           |  16%
+  |                                                                            
+  |============                                                          |  16%
+  |                                                                            
+  |============                                                          |  17%
+  |                                                                            
+  |==============                                                        |  20%
+  |                                                                            
+  |==============                                                        |  21%
+  |                                                                            
+  |===============                                                       |  22%
+  |                                                                            
+  |=====================                                                 |  30%
+  |                                                                            
+  |======================                                                |  32%
+  |                                                                            
+  |=======================                                               |  32%
+  |                                                                            
+  |========================                                              |  34%
+  |                                                                            
+  |==================================                                    |  48%
+  |                                                                            
+  |=======================================                               |  55%
+  |                                                                            
+  |=======================================                               |  56%
+  |                                                                            
+  |=================================================                     |  70%
+  |                                                                            
+  |========================================================              |  80%
+  |                                                                            
+  |==================================================================    |  94%
+  |                                                                            
+  |======================================================================| 100%
+</code></pre>
+<h1 id="step-4-use-a-spatial-join">Step 4: Use a spatial join</h1>
+<p>Use <code>st_join</code> to connect your PAs dataset with every county within 50km and then use <code>group_by</code> and <code>summarise</code> to take the mean value of the median income data for each PA. By the time you are done with this step you should have the same number of rows that you had after your initial filter of the PAs (step 2).</p>
+<pre><code class="language-r">pa.income &lt;- st_join(id.gap.1, id.income, join = st_is_within_distance, dist=50000)
 
-st_crs(parcels.project) == st_crs(regional.pas.valid) #fixed it!
-</code></pre>
-<pre><code>## [1] TRUE
-</code></pre>
-<h1 id="where-are-we-going">Where are we going?</h1>
-<p>We&rsquo;d like to explore how visitation to a number of NPS units contrasts with the amount of money the US paid to purchase the land those units sit on. This means we&rsquo;ll need a dataset that contains: a) the total number of visits to each unit in 2020, b) the number of parcels that were sold within the present-day boundaries of those units, and c) the sum of the value paid for those units.</p>
-<h1 id="subset-the-data-to-suit-our-questions">Subset the data to suit our questions</h1>
-<p>I&rsquo;m going to focus on Idaho for this example, so I&rsquo;ll subset the data for that here.</p>
-<pre><code class="language-r">id.parcels.csv &lt;- parcels.csv %&gt;% 
-  filter(., Loc_State == &quot;ID&quot;)
-
-id.park.visits &lt;- nps.visits.csv %&gt;% 
-  filter(., State == &quot;ID&quot;)
-
-id.pas.sf &lt;- regional.pas.valid %&gt;% 
-  filter(., Stat_Nm == &quot;ID&quot;)
-</code></pre>
-<h1 id="joining-with-keypairs">Joining with keypairs</h1>
-<p>You&rsquo;ll notice that the the LGU parcels dataset does not have many attributes and none that will let us use <code>filter</code> to reduce the dataset. That&rsquo;s because the bulk of the tabular data is stored in the <code>parcels.csv</code> file. We&rsquo;ll have to join them before we can subset them based on an attribute. Remember, that the <code>_join</code> commands return objects with the <code>class</code> of the first argument.</p>
-<pre><code class="language-r">join1 &lt;- left_join(id.parcels.csv, parcels.project, by = &quot;MTRSA_LG&quot;)
-class(join1)
-</code></pre>
-<pre><code>## [1] &quot;spec_tbl_df&quot; &quot;tbl_df&quot;      &quot;tbl&quot;         &quot;data.frame&quot;
-</code></pre>
-<pre><code class="language-r">join2 &lt;- left_join(parcels.project, id.parcels.csv, by = &quot;MTRSA_LG&quot;)
-class(join2)
-</code></pre>
-<pre><code>## [1] &quot;sf&quot;         &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
-</code></pre>
-<p>Given this, there are two ways we might approach joining and subsetting the data.</p>
-<pre><code class="language-r">id.parcels.sf &lt;- left_join(parcels.project, id.parcels.csv, by = &quot;MTRSA_LG&quot;) %&gt;% 
-  filter(., Loc_State == &quot;ID&quot;)
-class(id.parcels.sf)
-</code></pre>
-<pre><code>## [1] &quot;sf&quot;         &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
-</code></pre>
-<pre><code class="language-r">nrow(id.parcels.sf)
-</code></pre>
-<pre><code>## [1] 336
-</code></pre>
-<pre><code class="language-r">id.parcels.sf2 &lt;- inner_join(parcels.project, id.parcels.csv, by = &quot;MTRSA_LG&quot;)
-class(id.parcels.sf2)
-</code></pre>
-<pre><code>## [1] &quot;sf&quot;         &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;
-</code></pre>
-<pre><code class="language-r">nrow(id.parcels.sf2)
-</code></pre>
-<pre><code>## [1] 336
-</code></pre>
-<p>Okay, now all we need to do is get the visit data attached to the NPS. But before we can do that, we need to summarize the monthly visits into a total for the year.</p>
-<pre><code class="language-r">id.park.visits.ann &lt;- id.park.visits %&gt;% 
-  group_by(UnitCode) %&gt;% 
-  summarise(., Total = sum(RecreationVisits))
-
-id.pas.visits &lt;- id.pas.sf %&gt;% 
-  inner_join(., id.park.visits.ann, by = c(&quot;Loc_Nm&quot; = &quot;UnitCode&quot;))
-</code></pre>
-<h1 id="joining-based-on-location">Joining based on location</h1>
-<p>Now we need to figure out how many parcels are within the orignal NPS unit boundaries. We&rsquo;ll use a spatial join (<code>st_join</code>) to make that happen. Remember, that we can use any of the binary predicates (<code>?geos_binary_pred</code>) to specify how we&rsquo;d like to join the data. Here, I&rsquo;ll <code>st_is_within_distance</code> to illustrate.</p>
-<pre><code class="language-r">parcels.in.pas &lt;- st_join(id.pas.visits, id.parcels.sf, join=st_is_within_distance, dist=100000)
-</code></pre>
-<h1 id="estimating-the-total-amount-paid">Estimating the total amount paid</h1>
-<p>The result of selecting all of the parcels with 100000m of the NPS units is a data frame with 26 features (i.e., 26 parcels met the criteria). Now we need to calculate the total value (remember that we have to fix the currency to make it numeric).</p>
-<pre><code class="language-r">parcels.in.pas.sum &lt;- parcels.in.pas %&gt;% 
+pa.income.summary &lt;- pa.income %&gt;% 
   group_by(Unit_Nm) %&gt;% 
-  summarise(., total = sum(readr::parse_number(US_Paid_for_Parcel), na.rm=TRUE))
+  summarize(., meaninc = mean(estimate))
 </code></pre>
+<h1 id="step-5-buffer-your-pas">Step 5: Buffer your PAs</h1>
+<p>In order to get the raster data from the same area that you just estimated median income, you&rsquo;ll need to buffer the PAs by 25km</p>
+<pre><code class="language-r">pa.buf &lt;- id.gap.1 %&gt;% 
+  st_buffer(., 50000)
+</code></pre>
+<h1 id="step-6-crop-all-of-the-rasters-to-the-extent-of-your-buffered-pa-dataset">Step 6: Crop all of the rasters to the extent of your buffered PA dataset</h1>
+<p>Before you start doing a bunch of raster processing you&rsquo;ll want to get rid of the parts you don&rsquo;t need. Do that here. Remember you&rsquo;ll want all of your rasters to have the same CRS.</p>
+<pre><code class="language-r">pa.buf.vect &lt;- as(pa.buf, &quot;SpatVector&quot;)
+</code></pre>
+<h1 id="step-8-extract-the-data">Step 8: Extract the data</h1>
+<p>Now that you&rsquo;ve got all the data together, it&rsquo;s time to run the extraction. Remember that extractions run faster when all of the layers are &ldquo;stacked&rdquo;, but that requires you to use <code>resample</code> to get to the same origins and extents. Use <code>zonal</code> to estimate the <code>mean</code> and <code>sd</code> for each of the mammalian richness, land value, and NDVI datasets. Then use <code>extract</code> (without specifying a function) to estimate the same thig. Use <code>system.time()</code> to bencmark each approach.</p>
+<h1 id="step-9-join-back-to-your-pa-dataset">Step 9: Join back to your PA dataset</h1>
+<p>Now that you have the raster data extracted and summarized (into the mean and standard deviation) for each buffered PA, you should be able to join it back to the dataset you created in steps 2-4. Do that here.</p>
 
                     </div>
 
@@ -1051,8 +1062,15 @@ id.pas.visits &lt;- id.pas.sf %&gt;%
   
   
   <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/example/05-example/" rel="next">Building spatial databases</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/example/06-example/" rel="prev">Combining raster and vector data</a>
+    <a href="/example/04-example/" rel="prev">Working with rasters in R</a>
   </div>
   
 </div>
