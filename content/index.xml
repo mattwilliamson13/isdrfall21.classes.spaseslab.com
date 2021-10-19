@@ -90,6 +90,37 @@
     </item>
     
     <item>
+      <title>Truth and Cartography: Spatial Data Visualization</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/09-content/</link>
+      <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/09-content/</guid>
+      <description>&lt;p&gt;We’ve spent the last few weeks learning about operations to compile geographic information into databases for visualization and analysis. Because analysis requires you to know something about your data and because visualization is a great way to explore your data (especially when there’s a lot of it), we’ll turn to that next. For the next few weeks, we’ll be looking at different ways to visualize spatial data and the associated approaches in &lt;code&gt;R&lt;/code&gt;. Note that this could be an entire course by itself, but hopefully you’ll get enough to get started making publication quality maps by the time we’re done&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://f0nzie.github.io/dataviz-wilke-2020/introduction.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Introduction&lt;/a&gt; and &lt;a href=&#34;https://f0nzie.github.io/dataviz-wilke-2020/geospatial-data.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visualizing Geospatial Data&lt;/a&gt; chapters &lt;a href=&#34;https://f0nzie.github.io/dataviz-wilke-2020/proportional-ink.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Principles of Figure Design&lt;/a&gt; section in (Wilke 2019) provide a useful set of general introductions to data visualization principles and practce that is “platform agnostic” (though much of Wilke’s work is done in &lt;code&gt;R&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://f0nzie.github.io/dataviz-wilke-2020/introduction.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Look at Data&lt;/a&gt; and &lt;a href=&#34;https://f0nzie.github.io/dataviz-wilke-2020/geospatial-data.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Draw Maps&lt;/a&gt; chapters in (Healy 2018) revisits many of the same ideas, but focuses specifically on &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;ggplot2&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; This post on &lt;a href=&#34;https://www.esri.com/news/arcuser/0112/files/design-principles.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;making maps people want to look at&lt;/a&gt; from ESRI is a nice, concise depiction of some core principles for planning a cartographic project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;Comming Soon&lt;/p&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-healy2018data&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Healy, K. 2018. Data visualization: A practical introduction. Princeton University Press.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-wilke2019fundamentals&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Wilke, C. O. 2019. Fundamentals of data visualization: A primer on making informative and compelling figures. O’Reilly Media.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Building spatial databases based on attributes</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/06-content/</link>
       <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
