@@ -828,9 +828,9 @@
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
 </code></pre>
 <pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tibble  3.1.5     ✓ dplyr   1.0.7
 ## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   2.0.0     ✓ forcats 0.5.1
+## ✓ readr   2.0.2     ✓ forcats 0.5.1
 </code></pre>
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
@@ -843,7 +843,7 @@ library(sf)
 </code></pre>
 <pre><code class="language-r">library(terra)
 </code></pre>
-<pre><code>## terra version 1.3.22
+<pre><code>## terra version 1.4.14
 </code></pre>
 <pre><code>## 
 ## Attaching package: 'terra'
@@ -856,22 +856,25 @@ library(sf)
 ## 
 ##     src
 </code></pre>
+<pre><code>## The following object is masked from 'package:tidyr':
+## 
+##     extract
+</code></pre>
 <pre><code class="language-r">library(units)
 </code></pre>
-<pre><code>## udunits database from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/units/share/udunits/udunits2.xml
+<pre><code>## udunits database from /Library/Frameworks/R.framework/Versions/4.0/Resources/library/units/share/udunits/udunits2.xml
 </code></pre>
 <pre><code class="language-r">library(purrr)
 library(sp)
 library(profvis)
-landval &lt;- terra::rast('/Users/matthewwilliamson/Downloads/session04/idval.tif')
-#landval &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/Regval.tif')
-#mammal.rich &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/Mammals_total_richness.tif')
-mammal.rich &lt;- rast('/Users/matthewwilliamson/Downloads/session16/Mammals_total_richness.tif')
-#pas.desig &lt;- st_read('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/regionalPAs1.shp')
-pas.desig &lt;- st_read('/Users/matthewwilliamson/Downloads/session04/regionalPAs1.shp')
+#landval &lt;- terra::rast('/Users/matthewwilliamson/Downloads/session04/idval.tif')
+landval &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/Regval.tif')
+mammal.rich &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/Mammals_total_richness.tif')
+#mammal.rich &lt;- rast('/Users/matthewwilliamson/Downloads/session16/Mammals_total_richness.tif')
+pas.desig &lt;- st_read('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/regionalPAs1.shp')
 </code></pre>
 <pre><code>## Reading layer `regionalPAs1' from data source 
-##   `/Users/matthewwilliamson/Downloads/session04/regionalPAs1.shp' 
+##   `/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/regionalPAs1.shp' 
 ##   using driver `ESRI Shapefile'
 ## Simple feature collection with 224 features and 7 fields
 ## Geometry type: MULTIPOLYGON
@@ -879,10 +882,12 @@ pas.desig &lt;- st_read('/Users/matthewwilliamson/Downloads/session04/regionalPA
 ## Bounding box:  xmin: -1714157 ymin: 1029431 xmax: -621234.8 ymax: 3043412
 ## Projected CRS: USA_Contiguous_Albers_Equal_Area_Conic_USGS_version
 </code></pre>
-<pre><code class="language-r">pas.proc &lt;- st_read('/Users/matthewwilliamson/Downloads/session16/reg_pas.shp')
+<pre><code class="language-r">#pas.desig &lt;- st_read('/Users/matthewwilliamson/Downloads/session04/regionalPAs1.shp')
+#pas.proc &lt;- st_read('/Users/matthewwilliamson/Downloads/session16/reg_pas.shp')
+pas.proc &lt;- st_read('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/reg_pas.shp')
 </code></pre>
 <pre><code>## Reading layer `reg_pas' from data source 
-##   `/Users/matthewwilliamson/Downloads/session16/reg_pas.shp' 
+##   `/Volumes/GoogleDrive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/reg_pas.shp' 
 ##   using driver `ESRI Shapefile'
 ## Simple feature collection with 544 features and 32 fields
 ## Geometry type: MULTIPOLYGON
@@ -919,11 +924,11 @@ plot(mammal.rich)
 <p>Before we move on into our analysis phase. Let&rsquo;s double check the CRS of our data.</p>
 <pre><code class="language-r">st_crs(mammal.rich)$proj4string
 </code></pre>
-<pre><code>## [1] NA
+<pre><code>## [1] &quot;+proj=aea +lat_0=37.5 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
 </code></pre>
 <pre><code class="language-r">st_crs(landval)$proj4string
 </code></pre>
-<pre><code>## [1] NA
+<pre><code>## [1] &quot;+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
 </code></pre>
 <pre><code class="language-r">st_crs(pas)$proj4string
 </code></pre>
@@ -963,7 +968,11 @@ plot(mammal.rich)
   |                                                                            
   |==                                                                    |   3%
   |                                                                            
+  |==                                                                    |   4%
+  |                                                                            
   |===                                                                   |   4%
+  |                                                                            
+  |===                                                                   |   5%
   |                                                                            
   |====                                                                  |   5%
   |                                                                            
@@ -971,25 +980,33 @@ plot(mammal.rich)
   |                                                                            
   |=====                                                                 |   7%
   |                                                                            
-  |=======                                                               |  10%
+  |=====                                                                 |   8%
   |                                                                            
-  |=======                                                               |  11%
+  |======                                                                |   8%
+  |                                                                            
+  |======                                                                |   9%
+  |                                                                            
+  |=======                                                               |  10%
   |                                                                            
   |========                                                              |  11%
   |                                                                            
   |========                                                              |  12%
   |                                                                            
+  |=========                                                             |  12%
+  |                                                                            
   |=========                                                             |  13%
   |                                                                            
   |==========                                                            |  14%
+  |                                                                            
+  |==========                                                            |  15%
+  |                                                                            
+  |===========                                                           |  15%
   |                                                                            
   |===========                                                           |  16%
   |                                                                            
   |============                                                          |  16%
   |                                                                            
   |============                                                          |  17%
-  |                                                                            
-  |============                                                          |  18%
   |                                                                            
   |=============                                                         |  18%
   |                                                                            
@@ -1003,39 +1020,49 @@ plot(mammal.rich)
   |                                                                            
   |===============                                                       |  22%
   |                                                                            
-  |=======================                                               |  33%
+  |================                                                      |  23%
   |                                                                            
-  |========================                                              |  34%
+  |================                                                      |  24%
   |                                                                            
-  |=========================                                             |  35%
+  |=================                                                     |  24%
   |                                                                            
-  |=========================                                             |  36%
+  |=================                                                     |  25%
   |                                                                            
-  |==========================                                            |  37%
+  |==================                                                    |  25%
   |                                                                            
-  |==========================                                            |  38%
+  |==================                                                    |  26%
   |                                                                            
-  |===========================                                           |  39%
+  |===================                                                   |  26%
   |                                                                            
   |============================                                          |  40%
   |                                                                            
-  |=================================                                     |  48%
+  |=============================                                         |  41%
   |                                                                            
-  |==================================                                    |  49%
+  |=============================                                         |  42%
+  |                                                                            
+  |==============================                                        |  42%
+  |                                                                            
+  |==============================                                        |  43%
+  |                                                                            
+  |==============================                                        |  44%
   |                                                                            
   |===================================                                   |  50%
   |                                                                            
   |======================================                                |  54%
   |                                                                            
-  |=========================================                             |  58%
+  |======================================                                |  55%
   |                                                                            
-  |============================================                          |  62%
+  |=======================================                               |  55%
   |                                                                            
-  |============================================                          |  63%
+  |=======================================                               |  56%
   |                                                                            
-  |============================================                          |  64%
+  |========================================                              |  57%
+  |                                                                            
+  |================================================                      |  69%
   |                                                                            
   |=================================================                     |  70%
+  |                                                                            
+  |=================================================                     |  71%
   |                                                                            
   |==================================================                    |  71%
   |                                                                            
@@ -1043,7 +1070,11 @@ plot(mammal.rich)
   |                                                                            
   |===================================================                   |  73%
   |                                                                            
+  |====================================================                  |  75%
+  |                                                                            
   |===========================================================           |  84%
+  |                                                                            
+  |===========================================================           |  85%
   |                                                                            
   |============================================================          |  85%
   |                                                                            
@@ -1051,19 +1082,25 @@ plot(mammal.rich)
   |                                                                            
   |=============================================================         |  87%
   |                                                                            
-  |==============================================================        |  88%
+  |=============================================================         |  88%
+  |                                                                            
+  |==============================================================        |  89%
+  |                                                                            
+  |===============================================================       |  89%
   |                                                                            
   |===============================================================       |  90%
   |                                                                            
-  |=================================================================     |  92%
+  |================================================================      |  91%
   |                                                                            
   |=================================================================     |  93%
   |                                                                            
   |===================================================================   |  96%
   |                                                                            
+  |====================================================================  |  96%
+  |                                                                            
   |====================================================================  |  97%
   |                                                                            
-  |===================================================================== |  98%
+  |===================================================================== |  99%
   |                                                                            
   |======================================================================| 100%
 </code></pre>
