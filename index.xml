@@ -338,7 +338,7 @@ The variance of the distribution is $\sigma^{2}$.
     <item>
       <title>Static maps in R</title>
       <link>http://isdrfall21.classes.spaseslab.com/example/07-example/</link>
-      <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       <guid>http://isdrfall21.classes.spaseslab.com/example/07-example/</guid>
       <description>&lt;h2 id=&#34;loading-the-data&#34;&gt;Loading the data&lt;/h2&gt;
 &lt;p&gt;We are going to use the database that we built last week as the starting place for making some static maps this week. We&amp;rsquo;ll load that here along with some new (at least for this course) packages. The &lt;a href=&#34;https://github.com/dkahle/ggmap&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;ggmap&lt;/code&gt; package&lt;/a&gt; allows easy downloads of basemaps from Google (requires a key) and Stamen for use in mapping (and within &lt;code&gt;ggplot2&lt;/code&gt;). The &lt;a href=&#34;https://cran.r-project.org/web/packages/cartogram/readme/README.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;cartogram&lt;/code&gt; package&lt;/a&gt; facilitates thematic changes of the geometry based on other attributes (e.g., population). The &lt;a href=&#34;https://patchwork.data-imaginist.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;patchwork&lt;/code&gt; package&lt;/a&gt; allows easy composition of multi-figure plots. I&amp;rsquo;m not going to be able to demonstrate the full capabilities of these packages in one example, but their webpages have tons of useful information. You should check those out!&lt;/p&gt;
@@ -3189,7 +3189,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-756392814&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-514239768&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -3199,7 +3199,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-756392814&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-514239768&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

@@ -5,7 +5,7 @@
     <link>http://isdrfall21.classes.spaseslab.com/example/</link>
       <atom:link href="http://isdrfall21.classes.spaseslab.com/example/index.xml" rel="self" type="application/rss+xml" />
     <description>Code examples</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 21 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png</url>
       <title>Code examples</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Static maps in R</title>
       <link>http://isdrfall21.classes.spaseslab.com/example/07-example/</link>
-      <pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       <guid>http://isdrfall21.classes.spaseslab.com/example/07-example/</guid>
       <description>&lt;h2 id=&#34;loading-the-data&#34;&gt;Loading the data&lt;/h2&gt;
 &lt;p&gt;We are going to use the database that we built last week as the starting place for making some static maps this week. We&amp;rsquo;ll load that here along with some new (at least for this course) packages. The &lt;a href=&#34;https://github.com/dkahle/ggmap&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;ggmap&lt;/code&gt; package&lt;/a&gt; allows easy downloads of basemaps from Google (requires a key) and Stamen for use in mapping (and within &lt;code&gt;ggplot2&lt;/code&gt;). The &lt;a href=&#34;https://cran.r-project.org/web/packages/cartogram/readme/README.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;cartogram&lt;/code&gt; package&lt;/a&gt; facilitates thematic changes of the geometry based on other attributes (e.g., population). The &lt;a href=&#34;https://patchwork.data-imaginist.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;patchwork&lt;/code&gt; package&lt;/a&gt; allows easy composition of multi-figure plots. I&amp;rsquo;m not going to be able to demonstrate the full capabilities of these packages in one example, but their webpages have tons of useful information. You should check those out!&lt;/p&gt;
