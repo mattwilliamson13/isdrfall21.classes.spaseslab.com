@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Matt Williamosn" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Loading the data We are going to use the database that we built last week as the starting place for making some static maps this week. We&rsquo;ll load that here along with some new (at least for this course) packages." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/07-example/" />
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#0033A0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.6de7d9d991ec63060e206f02cf589456.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/07-example/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@MwilliamsonMatt" />
+    <meta property="twitter:creator" content="@MwilliamsonMatt" />
+  
+  <meta property="og:site_name" content="Spatial Data in R" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/07-example/" />
+  <meta property="og:title" content="Static maps in R | Spatial Data in R" />
+  <meta property="og:description" content="Loading the data We are going to use the database that we built last week as the starting place for making some static maps this week. We&rsquo;ll load that here along with some new (at least for this course) packages." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2021-10-21T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2021-10-21T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+  
+
+  <link rel="stylesheet" type="text/css" href="/custom-css/print.css" media="print" />
+
+  <link rel="shortcut icon" href="http://isdrfall21.classes.spaseslab.com/iSDR_logo.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo152x152.png" />
+  <link rel="icon" type="image/png" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo16x16.png" sizes="16x16" />
+  <meta name="application-name" content="HES 597: Spatial Data in R" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
+
+
+  <title>Static maps in R | Spatial Data in R</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Spatial Data in R</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Spatial Data in R</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/syllabus/"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/schedule/"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/content/"><span>Content</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/example/"><span>Examples</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/assignment/"><span>Assignments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://ecostatsbsu.slack.com/archives/CV4DEJ8M7" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://rstudio.boisestate.edu/" target="_blank" rel="noopener"><span><i class="fab fa-r-project"></i></span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+    
+
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+    
+  
+
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/example/">Overview</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/example/">Code examples</a>
+      </li>
+
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/example/01-example/">Examples</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/example/01-example/">1: Introduction to course resources, Rmarkdown, and data in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/02-example/">2: Getting your spatial data into R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/03-example/">3: Points, lines, and polygons in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/04-example/">4: Rasters in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/05-example/">5: Spatial databases in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/06-example/">6: Combining raster and vector data</a>
+      </li>
+
+      
+      <li class="active">
+        <a href="/example/07-example/">7: Static maps in R</a>
+      </li>
+
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+        </div>
+
+        
+        <div class="d-none d-xl-block col-xl-2 docs-toc">
+            <ul class="nav toc-top">
+                <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+            </ul>
+
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#loading-the-data">Loading the data</a>
+      <ul>
+        <li><a href="#making-a-map-of-idaho">Making a map of Idaho</a></li>
+      </ul>
+    </li>
+    <li><a href="#building-a-quick-map">Building a quick map</a>
+      <ul>
+        <li><a href="#a-simple-example">A simple example</a></li>
+      </ul>
+    </li>
+    <li><a href="#building-a-choropleth-map-with-the-grammar-of-graphics">Building a choropleth map with the grammar of graphics</a>
+      <ul>
+        <li><a href="#adding-a-basemap">Adding a basemap</a></li>
+        <li><a href="#changing-scales">Changing Scales</a></li>
+      </ul>
+    </li>
+    <li><a href="#building-a-cartogram">Building a cartogram</a></li>
+  </ul>
+</nav>
+
+            
+        </div>
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>Static maps in R</h1>
+
+                    
+
+                    
+
+                    
+
+                    <div class="article-style">
+                        <h2 id="loading-the-data">Loading the data</h2>
+<p>We are going to use the database that we built last week as the starting place for making some static maps this week. We&rsquo;ll load that here along with some new (at least for this course) packages. The <a href="https://github.com/dkahle/ggmap" target="_blank" rel="noopener"><code>ggmap</code> package</a> allows easy downloads of basemaps from Google (requires a key) and Stamen for use in mapping (and within <code>ggplot2</code>). The <a href="https://cran.r-project.org/web/packages/cartogram/readme/README.html" target="_blank" rel="noopener"><code>cartogram</code> package</a> facilitates thematic changes of the geometry based on other attributes (e.g., population). The <a href="https://patchwork.data-imaginist.com/" target="_blank" rel="noopener"><code>patchwork</code> package</a> allows easy composition of multi-figure plots. I&rsquo;m not going to be able to demonstrate the full capabilities of these packages in one example, but their webpages have tons of useful information. You should check those out!</p>
+<pre><code class="language-r">library(tidyverse)
+</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.3     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   2.0.0     ✓ forcats 0.5.1
+</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+</code></pre>
+<pre><code class="language-r">library(pander)
+library(sf)
+</code></pre>
+<pre><code>## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
+</code></pre>
+<pre><code class="language-r">library(terra)
+</code></pre>
+<pre><code>## terra version 1.3.22
+</code></pre>
+<pre><code>## 
+## Attaching package: 'terra'
+</code></pre>
+<pre><code>## The following object is masked from 'package:pander':
+## 
+##     wrap
+</code></pre>
+<pre><code>## The following object is masked from 'package:dplyr':
+## 
+##     src
+</code></pre>
+<pre><code class="language-r">library(units)
+</code></pre>
+<pre><code>## udunits database from /Library/Frameworks/R.framework/Versions/4.1/Resources/library/units/share/udunits/udunits2.xml
+</code></pre>
+<pre><code class="language-r">library(ggmap)
+</code></pre>
+<pre><code>## Google's Terms of Service: https://cloud.google.com/maps-platform/terms/.
+</code></pre>
+<pre><code>## Please cite ggmap if you use it! See citation(&quot;ggmap&quot;) for details.
+</code></pre>
+<pre><code>## 
+## Attaching package: 'ggmap'
+</code></pre>
+<pre><code>## The following object is masked from 'package:terra':
+## 
+##     inset
+</code></pre>
+<pre><code class="language-r">library(cartogram)
+</code></pre>
+<pre><code>## 
+## Attaching package: 'cartogram'
+</code></pre>
+<pre><code>## The following object is masked from 'package:terra':
+## 
+##     cartogram
+</code></pre>
+<pre><code class="language-r">library(patchwork)
+</code></pre>
+<pre><code>## 
+## Attaching package: 'patchwork'
+</code></pre>
+<pre><code>## The following object is masked from 'package:terra':
+## 
+##     area
+</code></pre>
+<pre><code class="language-r">library(tmap)
+library(viridis)
+</code></pre>
+<pre><code>## Loading required package: viridisLite
+</code></pre>
+<pre><code class="language-r">landval &lt;- terra::rast('/Users/matthewwilliamson/Downloads/session04/idval.tif')
+#landval &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/Regval.tif')
+#mammal.rich &lt;- rast('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/Mammals_total_richness.tif')
+mammal.rich &lt;- rast('/Users/matthewwilliamson/Downloads/session16/Mammals_total_richness.tif')
+mammal.rich &lt;- catalyze(mammal.rich) #rmemeber we had to get the layer we wanted from the richness data
+mammal.rich &lt;- mammal.rich[[2]]
+
+#pas.desig &lt;- st_read('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session04/regionalPAs1.shp')
+pas.desig &lt;- st_read('/Users/matthewwilliamson/Downloads/session04/regionalPAs1.shp')
+</code></pre>
+<pre><code>## Reading layer `regionalPAs1' from data source 
+##   `/Users/matthewwilliamson/Downloads/session04/regionalPAs1.shp' 
+##   using driver `ESRI Shapefile'
+## Simple feature collection with 224 features and 7 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -1714157 ymin: 1029431 xmax: -621234.8 ymax: 3043412
+## Projected CRS: USA_Contiguous_Albers_Equal_Area_Conic_USGS_version
+</code></pre>
+<pre><code class="language-r">pas.proc &lt;- st_read('/Users/matthewwilliamson/Downloads/session16/reg_pas.shp')
+</code></pre>
+<pre><code>## Reading layer `reg_pas' from data source 
+##   `/Users/matthewwilliamson/Downloads/session16/reg_pas.shp' 
+##   using driver `ESRI Shapefile'
+## Simple feature collection with 544 features and 32 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -2034299 ymin: 1004785 xmax: -530474 ymax: 3059862
+## Projected CRS: USA_Contiguous_Albers_Equal_Area_Conic_USGS_version
+</code></pre>
+<pre><code class="language-r">#pas.proc &lt;- st_read('/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session16/reg_pas.shp')
+#combine the pas into 1, but the columns don't all match, thanks PADUS
+
+colnames(pas.proc)[c(1, 6, 8, 10, 12, 22, 25)] &lt;- colnames(pas.desig) #find the columnames in the proc dataset and replace them with the almost matching names from the des.
+</code></pre>
+<pre><code>## Warning in colnames(pas.proc)[c(1, 6, 8, 10, 12, 22, 25)] &lt;-
+## colnames(pas.desig): number of items to replace is not a multiple of replacement
+## length
+</code></pre>
+<pre><code class="language-r">gap.sts &lt;- c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;) 
+pas &lt;- pas.proc %&gt;% 
+  select(., colnames(pas.desig)) %&gt;% 
+  bind_rows(pas.desig, pas.proc) %&gt;%  #select the columns that match and then combine
+  filter(., State_Nm == &quot;ID&quot; &amp; GAP_Sts %in% gap.sts ) %&gt;% st_make_valid() %&gt;% st_buffer(., 10000)
+#Buffering here to deal with some of the linear features along rivers
+</code></pre>
+<h3 id="making-a-map-of-idaho">Making a map of Idaho</h3>
+<p>We&rsquo;re going to focus on Idaho in the example (you&rsquo;ll focus on the West for your homework) so we&rsquo;ll need a shapefile to make sure we&rsquo;ve got coverage across the state.</p>
+<pre><code class="language-r">id &lt;- tigris::states(cb=TRUE) %&gt;% 
+  filter(STUSPS == &quot;ID&quot;) 
+</code></pre>
+<p>Let&rsquo;s get everything into the same projection to save some hassle down the road. Because the mammal richness data is the largest, we&rsquo;ll project everything to that and then crop.</p>
+<pre><code class="language-r">st_crs(mammal.rich)$proj4string
+</code></pre>
+<pre><code>## [1] &quot;+proj=aea +lat_0=37.5 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
+</code></pre>
+<pre><code class="language-r">st_crs(landval)$proj4string
+</code></pre>
+<pre><code>## [1] &quot;+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
+</code></pre>
+<pre><code class="language-r">st_crs(pas)$proj4string
+</code></pre>
+<pre><code>## [1] &quot;+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs&quot;
+</code></pre>
+<pre><code class="language-r">pa.vect &lt;- as(pas, &quot;SpatVector&quot;)
+id.vect &lt;- as(id, &quot;SpatVector&quot;)
+
+pa.vect &lt;- project(pa.vect, mammal.rich)
+id.vect &lt;- project(id.vect, mammal.rich)
+
+land.val.proj &lt;- project(landval, mammal.rich)
+
+mam.rich.crop &lt;- crop(mammal.rich, id.vect)
+id.val.crop &lt;- crop(land.val.proj, id.vect)
+</code></pre>
+<p>We&rsquo;ll also add population to our census data by making a change to our <code>tidycensus</code> call (remember that you&rsquo;ll need your Census API key to use <code>tidycensus</code> (details <a href="https://walker-data.com/tidycensus/articles/basic-usage.html" target="_blank" rel="noopener">here</a>). Notice that we also use <code>spread</code> here to move the data into wide format. Let&rsquo;s do that:</p>
+<pre><code class="language-r">id.census &lt;- tidycensus:: get_acs(geography = &quot;county&quot;, 
+              variables = c(medianincome = &quot;B19013_001&quot;,
+                            pop = &quot;B01003_001&quot;),
+              state = c(&quot;ID&quot;, &quot;MT&quot;), 
+              year = 2018,
+              key = key,
+              geometry = TRUE) %&gt;% 
+                st_transform(., crs(pa.vect)) %&gt;% 
+  select(-moe) %&gt;% 
+  spread(variable, estimate)
+</code></pre>
+<p>Now we&rsquo;ll do the necessary extractions and join everything together into a single dataframe that we can use for plotting.</p>
+<pre><code class="language-r">pa.summary &lt;- st_join(st_as_sf(pa.vect), id.census, join = st_overlaps)
+
+pa.summary &lt;- pa.summary %&gt;% 
+  group_by(Unit_Nm) %&gt;% 
+  summarize(., meaninc = mean(medianincome, na.rm=TRUE),
+            meanpop = mean(pop, na.rm=TRUE))
+#double check to see that I got the right number of rows
+nrow(pa.summary) ==length(unique(pas$Unit_Nm))
+</code></pre>
+<pre><code>## [1] TRUE
+</code></pre>
+<pre><code class="language-r">pa.zones &lt;- terra::rasterize(pa.vect, mam.rich.crop, field = &quot;Unit_Nm&quot;)
+mammal.zones &lt;- terra::zonal(mam.rich.crop, pa.zones, fun = &quot;mean&quot;, na.rm=TRUE)
+landval.zones &lt;- terra::zonal(id.val.crop, pa.zones, fun = &quot;mean&quot;, na.rm=TRUE)
+#Note that there is one few zone than we have in our PA dataset. This is because we have an overlapping jurisdicition; we'll ingnore that now but it's a common problement with using the PADUS
+
+summary.df &lt;- pa.summary %&gt;% 
+  left_join(., mammal.zones) %&gt;% 
+  left_join(., landval.zones)
+</code></pre>
+<pre><code>## Joining, by = &quot;Unit_Nm&quot;
+## Joining, by = &quot;Unit_Nm&quot;
+</code></pre>
+<pre><code class="language-r">#You will have some NAs here owing to the strange nature of the PADUS
+</code></pre>
+<h2 id="building-a-quick-map">Building a quick map</h2>
+<p>Up until now, we&rsquo;ve been using the <code>base::plot</code> function to generate rapid visualizations of our data. That&rsquo;s fine, but it takes a fair amount of work to get those graphics into something resembling a publication-quality map. The <code>tmap</code> package is a versatile package designed specifically for making thematic maps. It generally builds on the  grammar of graphics logic and follows most of the <code>ggplot2</code> conventions. It&rsquo;s not quite as flexible as <code>ggplot2</code> and doesn&rsquo;t allow easy integration for different types of non-spatial figures (but see <code>patchwork</code> for ways to address this); however, it has a lot of functionality for both static and interactive mapping and deals with raster datasets in a way that is more intuitive than <code>ggplot2</code>. I&rsquo;ll introduce a few of the features here, but I would encourage you to take a look at <a href="https://mgimond.github.io/Spatial/mapping-data-in-r.html#tmap" target="_blank" rel="noopener">Manuel Gimond&rsquo;s set of notes</a> and the <a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html" target="_blank" rel="noopener"><code>tmap</code></a> intro pages to get broader exposure to the capabilities of <code>tmap</code>. We&rsquo;ll revisit some of these next week, but let&rsquo;s get started with some simple examples.</p>
+<h3 id="a-simple-example">A simple example</h3>
+<pre><code class="language-r">tm_shape(summary.df) + tm_polygons(col = &quot;meanpop&quot;,  border.col = &quot;white&quot;) + 
+  tm_legend(outside = TRUE)
+</code></pre>
+<p><img src="/example/07-example_files/figure-html/tmpex1-1.png" width="672" /></p>
+<p>This isn&rsquo;t particularly pretty or (even useful), but let&rsquo;s take a look at a few things. The <code>tm_shape</code> specifies which dataset we are talking about (the data component of the grammar of graphics[gg]). The <code>tm_polygons</code> call allows you to specify a number of additional gg elements including the aesthetics (here we are telling <code>R</code> that colors should be assigned based on the <code>meanpop</code> variable, but that border colors are a fixed value), the geometric object to be used (polygons - specified by <code>tm_polygons</code>, but there are a variety of <code>tm_*</code> functions that can be used). You can also specify a number of additional map elements within the <code>tm_shape</code> function call or use things like <code>tm_legend</code> to exert more control. See <code>?tm_shape</code> for a full description. Let&rsquo;s add a state boundary and a raster before moving on.</p>
+<pre><code class="language-r">tm_shape(mam.rich.crop) +
+  tm_raster(&quot;Value&quot;, palette = viridis(n=50), n=50, legend.show=FALSE, legend.hist = TRUE, legend.hist.title = &quot;Species Richness&quot;) +
+tm_shape(id) +
+  tm_borders(&quot;white&quot;, lwd = .75) +
+tm_shape(summary.df) +
+  tm_polygons(col = &quot;meanpop&quot;,  border.col = &quot;white&quot;, title=&quot;Mean Population&quot;) + 
+  tm_legend(outside = TRUE)
+</code></pre>
+<p><img src="/example/07-example_files/figure-html/tmpex2-1.png" width="672" /></p>
+<p>Here again we are using the <code>tm_shape</code> call to specify which data we are talking about, then assigning aesthetics for that data based on <code>tm_raster</code> and <code>tm_shape</code>. Notice that you can control whether a particular item appears in the legend with the <code>legend.show</code> option and that you can change palettes (here using <code>viridis</code>) to link data values to color values. Notice the use of <code>+</code> as a way of adding layers and aesthetics.This is also how <code>ggplot2</code> works. We&rsquo;ll return to that in a moment.</p>
+<h2 id="building-a-choropleth-map-with-the-grammar-of-graphics">Building a choropleth map with the grammar of graphics</h2>
+<p>The <code>tmap</code> approach is relatively straigtforward and may achieve all you ever hope for in map production. That said, <code>ggplot2</code> is generally the &ldquo;industry standard&rdquo; for plotting in <code>R</code>. That doesn&rsquo;t mean it&rsquo;s the best, or the easiest; but it is under constant development to accomodate more and more different kinds of data. Let&rsquo;s start with a simple example:</p>
+<pre><code class="language-r">ggplot(summary.df) +
+  geom_sf(mapping = aes(fill = meaninc))
+</code></pre>
+<p><img src="/example/07-example_files/figure-html/gg1-1.png" width="672" /></p>
+<p>Just like the <code>tmap</code>, but with some different defaults! Note here that <code>mapping = aes()</code> is the call that specifies the mapping between the data and the aesthetics (In this case, we want the fill of the polygons to be based on the mean income). The <code>geom_</code> call specifies the geometric element. In this case, <code>geom_sf()</code> lets <code>ggplot2</code> know that <code>mapping=aes(x= longitude, y=lattitude)</code>. We can add another layer similar to how we did with <code>tmap</code>:</p>
+<pre><code class="language-r">ggplot(summary.df) +
+  geom_sf(mapping = aes(fill = meaninc)) +
+  geom_sf(data=id, fill=NA,color=&quot;black&quot;)
+</code></pre>
+<p><img src="/example/07-example_files/figure-html/gg2-1.png" width="672" /></p>
+<p>Here we&rsquo;ve added a second call to <code>geom_sf</code> and added our Idaho shapefile. This time we don&rsquo;t want to map any of the data beyond the geometry to an aesthetic so we leave out the <code>mapping</code> argument and set the <code>fill</code> and <code>color</code> to single values. Now let&rsquo;s add a little fanciness by adding a basemap from <code>ggmap</code> (check out the <code>?ggmap</code> and <code>?get_map</code> for details):</p>
+<h3 id="adding-a-basemap">Adding a basemap</h3>
+<pre><code class="language-r">bg &lt;- ggmap::get_map(as.vector(st_bbox(id)))
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/22/43.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/23/43.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/24/43.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/22/44.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/23/44.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/24/44.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/22/45.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/23/45.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/24/45.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/22/46.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/23/46.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/24/46.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/22/47.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/23/47.png
+</code></pre>
+<pre><code>## Source : http://tile.stamen.com/terrain/7/24/47.png
+</code></pre>
+<pre><code class="language-r">ggmap(bg) +
+   geom_sf(data = summary.df, mapping = aes(fill = meaninc), inherit.aes = FALSE) +
+  geom_sf(data=id, fill=NA,color=&quot;black&quot;, inherit.aes = FALSE) +
+  coord_sf(crs = st_crs(4326))
+</code></pre>
+<pre><code>## Coordinate system already present. Adding new coordinate system, which will replace the existing one.
+</code></pre>
+<p><img src="/example/07-example_files/figure-html/gg3-1.png" width="672" /></p>
+<p>We are still building the map layer-by-layer, but in this case had to use <code>ggmap</code> to get <code>R</code> to recognize that we wanted to use the downloaded file as the base for the plot. We also have to use <code>inherit.aes=FALSE</code> to allow each additional <code>geom</code> to have it&rsquo;s own set of aesthetics. Finally, we use <code>coord_sf()</code> to add a new coordinate system to the map because ggmap downloads everything in WGS84.</p>
+<h3 id="changing-scales">Changing Scales</h3>
+<p>Now that we have things starting to look nice, let&rsquo;s see if we can add a few more aesthetics and introduce a scale</p>
+<pre><code class="language-r">ggmap(bg) +
+  geom_sf(data = summary.df, mapping = aes(fill = Value, 
+                                           alpha = (idval - max(idval, na.rm=TRUE))/(max(idval, na.rm=TRUE)-min(idval, na.rm = TRUE))), inherit.aes = FALSE) +
+  geom_sf(data=id, fill=NA,color=&quot;black&quot;, inherit.aes = FALSE) +
+  scale_fill_viridis(option=&quot;magma&quot;)+
+  coord_sf(crs = st_crs(4326))
+</code></pre>
+<pre><code>## Coordinate system already present. Adding new coordinate system, which will replace the existing one.
+</code></pre>
+<p><img src="/example/07-example_files/figure-html/gg4-1.png" width="672" /></p>
+<p>Here we&rsquo;ve added an additional aesthetic mapping for <code>alpha</code> which sets the transparency and then used <code>scale_fill_viridis_</code> to map the species richness value to the viridis color palette. We&rsquo;ve then &lsquo;softened&rsquo; that color based on the cost of land in that area. You can find additional palettes and options using the <code>?scale_fill_</code> helpfiles.</p>
+<h2 id="building-a-cartogram">Building a cartogram</h2>
+<p>One of the beauties of teaching a class like this is it gives me the chance to do something I don&rsquo;t usually get to do. In this case, that thing is drawing cartograms. Let&rsquo;s look at two versions of Idaho using the <code>cartogram</code> package: population vs. income.</p>
+<pre><code class="language-r">id_pop &lt;- cartogram_cont(id.census, &quot;pop&quot;, itermax = 5)
+</code></pre>
+<pre><code>## Mean size error for iteration 1: 4.81793622368303
+</code></pre>
+<pre><code>## Mean size error for iteration 2: 4.00848667518635
+</code></pre>
+<pre><code>## Mean size error for iteration 3: 3.34903616842005
+</code></pre>
+<pre><code>## Mean size error for iteration 4: 2.79937191745082
+</code></pre>
+<pre><code>## Mean size error for iteration 5: 2.34932232913512
+</code></pre>
+<pre><code class="language-r">id_inc &lt;- cartogram_cont(id.census, &quot;medianincome&quot;, itermax = 5)
+</code></pre>
+<pre><code>## Mean size error for iteration 1: 1.86126345506573
+</code></pre>
+<pre><code>## Mean size error for iteration 2: 1.46673557062935
+</code></pre>
+<pre><code>## Mean size error for iteration 3: 1.26459996079085
+</code></pre>
+<pre><code>## Mean size error for iteration 4: 1.15581249947152
+</code></pre>
+<pre><code>## Mean size error for iteration 5: 1.09513236018306
+</code></pre>
+<pre><code class="language-r">tm_shape(id_pop) + tm_polygons(&quot;pop&quot;, style = &quot;jenks&quot;) +
+  tm_layout(frame = FALSE, legend.position = c(&quot;left&quot;, &quot;bottom&quot;)) 
+</code></pre>
+<p><img src="/example/07-example_files/figure-html/carto-1.png" width="672" /></p>
+<pre><code class="language-r">tm_shape(id_inc) + tm_polygons(&quot;medianincome&quot;, style = &quot;jenks&quot;) +
+  tm_layout(frame = FALSE, legend.position = c(&quot;left&quot;, &quot;bottom&quot;))
+</code></pre>
+<p><img src="/example/07-example_files/figure-html/carto-2.png" width="672" /></p>
+<p>Kind of interesting to see how the &lsquo;center of gravity&rsquo; in Idaho shifts when we think about population and income. There&rsquo;s lots of additional cartogram options that you can explore. Check out the <a href="https://cran.r-project.org/web/packages/cartogram/readme/README.html" target="_blank" rel="noopener">package page</a>.</p>
+
+                    </div>
+
+                    
+
+
+
+                    
+                    <div class="article-widget">
+                        
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/example/06-example/" rel="prev">Combining raster and vector data</a>
+  </div>
+  
+</div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on Oct 21, 2021</p>
+
+                    
+
+
+
+
+
+                    
+
+
+
+                </div>
+
+            </article>
+
+            <footer>
+    <hr>
+
+    <div class="row course-info">
+        <div class="col-md-7">
+            <p>
+                <strong>HES 597: Spatial Data in R (Fall 2021)</strong><br>
+
+                <a href="https://www.boisestate.edu" target="_blank" rel="noopener">Boise State University</a> &emsp;&emsp;
+                <a href="https://www.boisestate.edu/hes/" target="_blank" rel="noopener">Human-Environment Systems</a>
+            </p>
+
+            <p>
+                <a href="https://www.boisestate.edu/hes/people/matt-williamson/" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Dr. Matt Williamson</a> &emsp;&emsp;
+                <a href="mailto:mattwilliamson@boisestate.edu"><i class="fas fa-envelope"></i>
+                    mattwilliamson@boisestate.edu</a>
+            </p>
+
+            <p>
+                <i class="far fa-calendar-alt"></i> T TH &emsp;&emsp;
+                <i class="far fa-clock"></i> 10:30 - 11:45 
+                <br><i class="fas fa-university"></i> Albertson&#39;s Library Rm201C
+            </p>
+        </div>
+
+        <div class="col-md-5 credits">
+            <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+            
+            <p>Content <i class="fab fa-creative-commons"></i> 2021 <a href="https://www.boisestate.edu/hes/people/matt-williamson/" target="_blank" rel="noopener">Matt Williamson</a></p>
+        
+            <p>This site was inspired by Andrew Heiss' <a href="https://datavizs21.classes.andrewheiss.com/" target="_blank" rel="noopener">Data Visualization course</a> created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
+            
+            <p><a href="https://github.com/mattwilliamson13/isdrfall21" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
+        </div>
+    </div>
+</footer>
+
+        </main>
+    </div>
+</div>
+
+        
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/en/js/wowchemy.min.99ddacf76b31e04b589f8ff7e550cbb8.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+    
+    
+
+    
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
