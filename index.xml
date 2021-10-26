@@ -733,6 +733,74 @@ tm_shape(summary.df) +
     </item>
     
     <item>
+      <title>Interactive visualizations with R</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/10-content/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/10-content/</guid>
+      <description>&lt;p&gt;Now that you’ve had a chance to practice building a few maps and learning some of the core ideas behind the Grammar of Graphics, we can extend those ideas into the development of interactive webmaps and more expansive data visualizations that can be served on the internet and accessed by collaborators and members of the public. Like the previous unit on static maps, this could be a course unto itself, but we should be able to introduce you to enough ideas to get started.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://gistbok.ucgis.org/bok-topics/web-mapping&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Web-mapping&lt;/a&gt; section from the University Consortium for Geographic Information Science’s GIS &amp;amp; Technology Body of Knowledge has a nice overview of the topic and it’s origins.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; This post on &lt;a href=&#34;https://xd.adobe.com/ideas/principles/human-computer-interaction/user-centered-design/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;User-Centered Design&lt;/a&gt; from Adobe provides a concise, general introduction to the core elements of User-Centered Design.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://plotly-r.com/maps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Maps&lt;/a&gt; in (Sievert 2020) gives a nice demonstration of using &lt;code&gt;plotly&lt;/code&gt; to build interactive maps.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/10-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/10-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;interactive-data-visualization-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#interactive-data-visualization&#34; role=&#34;tab&#34; aria-controls=&#34;interactive-data-visualization&#34; aria-selected=&#34;true&#34;&gt;Interactive Data Visualization&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;motivations-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#motivations&#34; role=&#34;tab&#34; aria-controls=&#34;motivations&#34; aria-selected=&#34;false&#34;&gt;Motivations&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;designing-for-the-user-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#designing-for-the-user&#34; role=&#34;tab&#34; aria-controls=&#34;designing-for-the-user&#34; aria-selected=&#34;false&#34;&gt;Designing for the user&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;building-interactive-visualizations-in-r-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#building-interactive-visualizations-in-r&#34; role=&#34;tab&#34; aria-controls=&#34;building-interactive-visualizations-in-r&#34; aria-selected=&#34;false&#34;&gt;Building interactive visualizations in R&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;interactive-data-visualization&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;interactive-data-visualization-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/10-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;motivations&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;motivations-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/10-slides.html#motivations&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;designing-for-the-user&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;designing-for-the-user-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/10-slides.html#ucd&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;building-interactive-visualizations-in-r&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;building-interactive-visualizations-in-r-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/10-slides.html#survey&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-sievert2020interactive&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Sievert, C. 2020. Interactive web-based data visualization with r, plotly, and shiny. CRC Press.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Combining raster and vector data</title>
       <link>http://isdrfall21.classes.spaseslab.com/example/06-example/</link>
       <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
@@ -3189,7 +3257,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-514239768&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-786351924&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -3199,7 +3267,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-514239768&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-786351924&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -4112,23 +4180,25 @@ Three
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 26&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 19)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Static maps in R (continued)&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps in with R&lt;/span&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;http://isdrfall21.classes.spaseslab.com/content/10-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/example/10-example/&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;http://isdrfall21.classes.spaseslab.com/assignment/10-exercise/&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr
             class=&#34; schedule-bg-2&#34;&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;October 28&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 20)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Designing interactive webmaps&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Building better maps and beginning webmapping&lt;/span&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;http://isdrfall21.classes.spaseslab.com/content/11-content/&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
@@ -4164,7 +4234,7 @@ Three
             &lt;td align=&#34;right&#34; style=&#34;width:20%;text-align:right&#34;&gt;
                 &lt;strong&gt;November 2&lt;/strong&gt;&lt;br&gt;
                 &lt;small&gt;(Session 21)&lt;/small&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:48%;text-align:left&#34;&gt;&lt;span class=&#34;content-title&#34;&gt;Interactive webmaps with R continued&lt;/span&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
