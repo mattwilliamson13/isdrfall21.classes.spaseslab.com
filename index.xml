@@ -350,7 +350,7 @@ The variance of the distribution is $\sigma^{2}$.
 &lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; This post on &lt;a href=&#34;https://xd.adobe.com/ideas/principles/human-computer-interaction/user-centered-design/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;User-Centered Design&lt;/a&gt; from Adobe provides a concise, general introduction to the core elements of User-Centered Design.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://plotly-r.com/maps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Maps&lt;/a&gt; in (Sievert 2020) gives a nice demonstration of using &lt;code&gt;plotly&lt;/code&gt; to build interactive maps.&lt;/p&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://plotly-r.com/maps.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Maps&lt;/a&gt; chapter in (Sievert 2020) gives a nice demonstration of using &lt;code&gt;plotly&lt;/code&gt; to build interactive maps. More importantly, the book provides a comprehensive resource for building interactive web-based visualization in R.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
@@ -3257,7 +3257,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-635712489&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-459138267&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -3267,7 +3267,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-635712489&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-459138267&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
