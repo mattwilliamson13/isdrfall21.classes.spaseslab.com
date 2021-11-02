@@ -5,12 +5,80 @@
     <link>http://isdrfall21.classes.spaseslab.com/content/</link>
       <atom:link href="http://isdrfall21.classes.spaseslab.com/content/index.xml" rel="self" type="application/rss+xml" />
     <description>Readings and lectures</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 25 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png</url>
       <title>Readings and lectures</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/</link>
     </image>
+    
+    <item>
+      <title>Telling stories with interactive graphics</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/11-content/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/11-content/</guid>
+      <description>&lt;p&gt;This week is a bit of a departure from some of the ‘strictly GIS’ components of the course to explore some more creative approaches to data (spatial or otherwise) visualization. Using the idea of the storymap as motivation, we’ll take a look at some of the growing list of tools that &lt;code&gt;R&lt;/code&gt; provides to integrate high-powered data analysis with interactive web applications into an intuitive, visually appealing webpage. As publicly funded scientists are increasingly called upon to make their research available to the public, these tools provide a valuable framework for moving your research beyond the university walls or outside of paywalled journals.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://plotly-r.com/arranging-views.html#arranging-htmlwidgets&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Arranging Views&lt;/a&gt; chapter in (Sievert 2020) introduces flexdashboards and describes how &lt;code&gt;plotly&lt;/code&gt; and other &lt;code&gt;htmlwidgets&lt;/code&gt; can be integrated for a complete data-plot-story pipeline.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; This &lt;a href=&#34;http://zevross.com/blog/2016/04/19/r-powered-web-applications-with-shiny-a-tutorial-and-cheat-sheet-with-40-example-apps/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;blogpost&lt;/a&gt; by Zev Ross provides a very thorough introduction to &lt;code&gt;shiny&lt;/code&gt;, it’s syntax, and the ideas of reactivity in interactive applications.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; and &lt;a href=&#34;https://pkgs.rstudio.com/flexdashboard/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;flexdashboard&lt;/a&gt; pages at &lt;code&gt;RStudio&lt;/code&gt; have lots of examples of cool applications of both products, tutorials, and cheatsheets. There is a lot more to them than we’ll be able to cover in this class, but there’s plenty of additional material on both webpages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;telling-stories-with-interactive-graphics-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#telling-stories-with-interactive-graphics&#34; role=&#34;tab&#34; aria-controls=&#34;telling-stories-with-interactive-graphics&#34; aria-selected=&#34;true&#34;&gt;Telling stories with interactive graphics&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;structuring-stories-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#structuring-stories&#34; role=&#34;tab&#34; aria-controls=&#34;structuring-stories&#34; aria-selected=&#34;false&#34;&gt;Structuring stories&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;storyboards-in-r-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#storyboards-in-r&#34; role=&#34;tab&#34; aria-controls=&#34;storyboards-in-r&#34; aria-selected=&#34;false&#34;&gt;Storyboards in R&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;introducing-shiny-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#introducing-shiny&#34; role=&#34;tab&#34; aria-controls=&#34;introducing-shiny&#34; aria-selected=&#34;false&#34;&gt;Introducing Shiny&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;telling-stories-with-interactive-graphics&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;telling-stories-with-interactive-graphics-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;structuring-stories&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;structuring-stories-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html#arcs&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;storyboards-in-r&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;storyboards-in-r-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html#flex&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;introducing-shiny&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;introducing-shiny-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html#shiny&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-sievert2020interactive&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Sievert, C. 2020. Interactive web-based data visualization with r, plotly, and shiny. CRC Press.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Interactive visualizations with R</title>
@@ -766,74 +834,6 @@
 &lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
 &lt;div id=&#34;ref-venables2009introduction&#34; class=&#34;csl-entry&#34;&gt;
 &lt;p&gt;Venables, W. N., D. M. Smith, R. D. C. Team, and others. 2009. An introduction to r. Citeseer.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Telling stories with interactive graphics</title>
-      <link>http://isdrfall21.classes.spaseslab.com/content/11-content/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://isdrfall21.classes.spaseslab.com/content/11-content/</guid>
-      <description>&lt;p&gt;This week is a bit of a departure from some of the ‘strictly GIS’ components of the course to explore some more creative approaches to data (spatial or otherwise) visualization. Using the idea of the storymap as motivation, we’ll take a look at some of the growing list of tools that &lt;code&gt;R&lt;/code&gt; provides to integrate high-powered data analysis with interactive web applications into an intuitive, visually appealing webpage. As publicly funded scientists are increasingly called upon to make their research available to the public, these tools provide a valuable framework for moving your research beyond the university walls or outside of paywalled journals.&lt;/p&gt;
-&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://plotly-r.com/arranging-views.html#arranging-htmlwidgets&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Arranging Views&lt;/a&gt; chapter in (Sievert 2020) introduces flexdashboards and describes how &lt;code&gt;plotly&lt;/code&gt; and other &lt;code&gt;htmlwidgets&lt;/code&gt; can be integrated for a complete data-plot-story pipeline.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; This &lt;a href=&#34;http://zevross.com/blog/2016/04/19/r-powered-web-applications-with-shiny-a-tutorial-and-cheat-sheet-with-40-example-apps/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;blogpost&lt;/a&gt; by Zev Ross provides a very thorough introduction to &lt;code&gt;shiny&lt;/code&gt;, it’s syntax, and the ideas of reactivity in interactive applications.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://shiny.rstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shiny&lt;/a&gt; and &lt;a href=&#34;https://pkgs.rstudio.com/flexdashboard/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;flexdashboard&lt;/a&gt; pages at &lt;code&gt;RStudio&lt;/code&gt; have lots of examples of cool applications of both products, tutorials, and cheatsheets. There is a lot more to them than we’ll be able to cover in this class, but there’s plenty of additional material on both webpages.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
-&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link active&#34; id=&#34;telling-stories-with-interactive-graphics-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#telling-stories-with-interactive-graphics&#34; role=&#34;tab&#34; aria-controls=&#34;telling-stories-with-interactive-graphics&#34; aria-selected=&#34;true&#34;&gt;Telling stories with interactive graphics&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;structuring-stories-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#structuring-stories&#34; role=&#34;tab&#34; aria-controls=&#34;structuring-stories&#34; aria-selected=&#34;false&#34;&gt;Structuring stories&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;storyboards-in-r-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#storyboards-in-r&#34; role=&#34;tab&#34; aria-controls=&#34;storyboards-in-r&#34; aria-selected=&#34;false&#34;&gt;Storyboards in R&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;introducing-shiny-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#introducing-shiny&#34; role=&#34;tab&#34; aria-controls=&#34;introducing-shiny&#34; aria-selected=&#34;false&#34;&gt;Introducing Shiny&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
-&lt;div id=&#34;telling-stories-with-interactive-graphics&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;telling-stories-with-interactive-graphics-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html#1&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;structuring-stories&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;structuring-stories-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html#arcs&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;storyboards-in-r&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;storyboards-in-r-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html#flex&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;introducing-shiny&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;introducing-shiny-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/11-slides.html#shiny&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
-&lt;div id=&#34;ref-sievert2020interactive&#34; class=&#34;csl-entry&#34;&gt;
-&lt;p&gt;Sievert, C. 2020. Interactive web-based data visualization with r, plotly, and shiny. CRC Press.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
