@@ -5,12 +5,83 @@
     <link>http://isdrfall21.classes.spaseslab.com/content/</link>
       <atom:link href="http://isdrfall21.classes.spaseslab.com/content/index.xml" rel="self" type="application/rss+xml" />
     <description>Readings and lectures</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 08 Nov 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png</url>
       <title>Readings and lectures</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/</link>
     </image>
+    
+    <item>
+      <title>Quantifying spatial patterns</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/12-content/</link>
+      <pubDate>Mon, 08 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/12-content/</guid>
+      <description>&lt;p&gt;Now that you can load, manipulate, and visualize spatial data in &lt;code&gt;R&lt;/code&gt;, we can begin exploring workflows for incorporating these data into statistical analysis. We’ll begin by looking at methods for identifying and characterizing spatial patterns in your data. By recognizing that spatial patterns are the realizations of underlying social or ecological processes, we can develop a framework for statistical analysis.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://boisestatecanvas.instructure.com/files/4856927/download?download_frd=1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chapter 2: Scale&lt;/a&gt; in (Fletcher and Fortin 2018) provides a thorough introduction to the ecologist’s conceptualization of scale with &lt;code&gt;R&lt;/code&gt; examples.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; This &lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S0016718506001564#:~:text=The%20epistemological%20scale%20continuum%20runs,readily%20accessible%20to%20objective%20observers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;article&lt;/a&gt; by Steven Manson (Manson 2008) provides a more comprehensive view of conceptualizations of scale.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; The &lt;a href=&#34;https://mgimond.github.io/Spatial/hypothesis-testing.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hypothesis Testing and Autocorrelation&lt;/a&gt; chapters of Manuel Gimond’s Introduction to GIS and Spatial Analysis &lt;code&gt;bookdown&lt;/code&gt; project provide concrete examples of attempts to find process from spatial patterns.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/12-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/12-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;quantifying-spatial-patterns-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#quantifying-spatial-patterns&#34; role=&#34;tab&#34; aria-controls=&#34;quantifying-spatial-patterns&#34; aria-selected=&#34;true&#34;&gt;Quantifying spatial patterns&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;patterns-as-process-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#patterns-as-process&#34; role=&#34;tab&#34; aria-controls=&#34;patterns-as-process&#34; aria-selected=&#34;false&#34;&gt;Patterns as process&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;toblers-law-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#toblers-law&#34; role=&#34;tab&#34; aria-controls=&#34;toblers-law&#34; aria-selected=&#34;false&#34;&gt;Tobler’s law&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;the-importance-of-scale-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#the-importance-of-scale&#34; role=&#34;tab&#34; aria-controls=&#34;the-importance-of-scale&#34; aria-selected=&#34;false&#34;&gt;The importance of scale&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;quantifying-spatial-patterns&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;quantifying-spatial-patterns-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/12-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;patterns-as-process&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;patterns-as-process-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/12-slides.html#process&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;toblers-law&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;toblers-law-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/12-slides.html#tobler&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-importance-of-scale&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;the-importance-of-scale-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/12-slides.html#scale&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-fletcher2018spatial&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Fletcher, R., and M. Fortin. 2018. Spatial ecology and conservation modeling. Springer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-manson2008does&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Manson, S. M. 2008. Does scale exist? An epistemological scale continuum for complex human–environment systems. Geoforum 39:776–788.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Telling stories with interactive graphics</title>
