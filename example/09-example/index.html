@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Matt Williamosn" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Developing an intution for the impacts of scale and autocorrelation on our attempts to understand spatial processes can be tricky, especially with the messiness of real-world datasets. To help you build some of that foundation, we are going to leave behind the datasets we&rsquo;ve been using so far and introduce the idea of spatial simulation as a means for exploring the importance of scale and autocorreation." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/09-example/" />
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#0033A0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.6de7d9d991ec63060e206f02cf589456.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/09-example/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@MwilliamsonMatt" />
+    <meta property="twitter:creator" content="@MwilliamsonMatt" />
+  
+  <meta property="og:site_name" content="Spatial Data in R" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/09-example/" />
+  <meta property="og:title" content="Scale and autocorrelation with simulated data | Spatial Data in R" />
+  <meta property="og:description" content="Developing an intution for the impacts of scale and autocorrelation on our attempts to understand spatial processes can be tricky, especially with the messiness of real-world datasets. To help you build some of that foundation, we are going to leave behind the datasets we&rsquo;ve been using so far and introduce the idea of spatial simulation as a means for exploring the importance of scale and autocorreation." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2021-11-10T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2021-11-10T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+  
+
+  <link rel="stylesheet" type="text/css" href="/custom-css/print.css" media="print" />
+
+  <link rel="shortcut icon" href="http://isdrfall21.classes.spaseslab.com/iSDR_logo.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo152x152.png" />
+  <link rel="icon" type="image/png" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo16x16.png" sizes="16x16" />
+  <meta name="application-name" content="HES 597: Spatial Data in R" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
+
+
+  <title>Scale and autocorrelation with simulated data | Spatial Data in R</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Spatial Data in R</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Spatial Data in R</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/syllabus/"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/schedule/"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/content/"><span>Content</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/example/"><span>Examples</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/assignment/"><span>Assignments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://ecostatsbsu.slack.com/archives/CV4DEJ8M7" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://rstudio.boisestate.edu/" target="_blank" rel="noopener"><span><i class="fab fa-r-project"></i></span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+    
+
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+    
+  
+
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/example/">Overview</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/example/">Code examples</a>
+      </li>
+
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/example/01-example/">Examples</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/example/01-example/">1: Introduction to course resources, Rmarkdown, and data in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/02-example/">2: Getting your spatial data into R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/03-example/">3: Points, lines, and polygons in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/04-example/">4: Rasters in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/05-example/">5: Spatial databases in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/06-example/">6: Combining raster and vector data</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/07-example/">7: Static maps in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/08-example/">8: Better maps in R</a>
+      </li>
+
+      
+      <li class="active">
+        <a href="/example/09-example/">9: Scale and autocorrelation</a>
+      </li>
+
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+        </div>
+
+        
+        <div class="d-none d-xl-block col-xl-2 docs-toc">
+            <ul class="nav toc-top">
+                <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+            </ul>
+
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#simulate-some-data">Simulate some data</a></li>
+        <li><a href="#using-quadrat-counts-to-test-whether-the-process-is-csr">Using quadrat counts to test whether the process is CSR</a></li>
+        <li><a href="#the-importance-of-scale-in-detecting-deviations-from-csr">The importance of scale in detecting deviations from CSR</a></li>
+      </ul>
+    </li>
+    <li><a href="#scale-and-regression-models">Scale and regression models</a></li>
+  </ul>
+</nav>
+
+            
+        </div>
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>Scale and autocorrelation with simulated data</h1>
+
+                    
+
+                    
+
+                    
+
+                    <div class="article-style">
+                        <p>Developing an intution for the impacts of scale and autocorrelation on our attempts to understand spatial processes can be tricky, especially with the messiness of real-world datasets. To help you build some of that foundation, we are going to leave behind the datasets we&rsquo;ve been using so far and introduce the idea of spatial simulation as a means for exploring the importance of scale and autocorreation. Simulation allows us to know &ldquo;truth&rdquo; (because we made it up) and then explore how different analytical choices we make might disguise that &ldquo;truth&rdquo;. We&rsquo;ll start by loading a few new packages and a few that should be familiar.</p>
+<pre><code class="language-r">library(sp)
+library(spdep)
+</code></pre>
+<pre><code>## Loading required package: spData
+</code></pre>
+<pre><code>## Loading required package: sf
+</code></pre>
+<pre><code>## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
+</code></pre>
+<pre><code class="language-r">library(spatstat)
+</code></pre>
+<pre><code>## Loading required package: spatstat.data
+</code></pre>
+<pre><code>## Loading required package: spatstat.geom
+</code></pre>
+<pre><code>## spatstat.geom 2.2-0
+</code></pre>
+<pre><code>## Loading required package: spatstat.core
+</code></pre>
+<pre><code>## Loading required package: nlme
+</code></pre>
+<pre><code>## Loading required package: rpart
+</code></pre>
+<pre><code>## spatstat.core 2.2-0
+</code></pre>
+<pre><code>## Loading required package: spatstat.linnet
+</code></pre>
+<pre><code>## spatstat.linnet 2.1-1
+</code></pre>
+<pre><code>## 
+## spatstat 2.1-0       (nickname: 'Comedic violence') 
+## For an introduction to spatstat, type 'beginner'
+</code></pre>
+<pre><code class="language-r">library(raster)
+</code></pre>
+<pre><code>## 
+## Attaching package: 'raster'
+</code></pre>
+<pre><code>## The following object is masked from 'package:nlme':
+## 
+##     getData
+</code></pre>
+<p>The <code>spdep</code> and <code>spatstat</code> packages provide an array of functionality for analyzing complex spatial patterns and fitting spatial models to data. We won&rsquo;t take full advantage of all that these packages offer, but you can use <code>spatstat::vignette('getstart')</code> to learn a little more about what&rsquo;s available. The <code>spdep</code> package is an older package that relies on two new object classes, <code>ppp</code> and <code>owin</code>. These objects can be coerced from <code>sp</code>-style objects, but not <code>sf</code>. We&rsquo;ll explore the package a little more as we go, but for now just know that <code>ppp</code> objects refer to (Poisson) point process objects (i.e., they contain points) and <code>owin</code> refers to the &ldquo;observation window&rdquo; that defines the analysis (for polygons).</p>
+<h3 id="simulate-some-data">Simulate some data</h3>
+<p>We&rsquo;ll add more pieces as we go, but first lets simulate some points Complete Spatial Randomness and some that follow an inhomogeneous point process (a process with <strong>first order</strong> effects).</p>
+<pre><code class="language-r">csr &lt;- rpoispp(lambda = 1, 100)
+ihpp &lt;- rpoispp(lambda =function(x,y) {100 * exp(-3*x)}, 100)
+</code></pre>
+<p>The <code>rpoispp</code> function allows us to generate realizations of a Poisson point process similar to the way that <code>rpois</code> allows us to simulate random draws from the Poisson distribution. When we set <code>lambda</code> to a single number, that process is said to be uniform (the same throughout space). When we set <code>lambda</code> to be a function of the <code>x</code> and <code>y</code> coordinates, we create spatial dependence in the point process and it is said to be inhomogeneous (i.e., changes in space). When the probability of an event occurring is dependent on the location under consideration, we have <strong>first order</strong> effects.</p>
+<h3 id="using-quadrat-counts-to-test-whether-the-process-is-csr">Using quadrat counts to test whether the process is CSR</h3>
+<p>As we discussed in class, quadrat counts provide a means of comparing the point process we have to one that would be generated under the assumption of complete spatial randomness. Let&rsquo;s do that here.</p>
+<pre><code class="language-r">Q.csr &lt;- quadratcount(csr, nx= 5, ny=5)
+Q.ihpp &lt;- quadratcount(ihpp, nx= 5, ny=5)
+plot(Q.csr, main =&quot;Quadrat counts for CSR&quot;)
+</code></pre>
+<p><img src="/example/09-example_files/figure-html/quadct-1.png" width="672" /></p>
+<pre><code class="language-r">plot(Q.ihpp, main=&quot;Quadrat counts for ihpp&quot;)
+</code></pre>
+<p><img src="/example/09-example_files/figure-html/quadct-2.png" width="672" /></p>
+<p>Take a look at the plots. Is it obvious that these to processes are different from one another? Perhaps if you squint, it might be, but I don&rsquo;t really see it. We can perform a more formal test of whether the processes differ from CSR by using a <code>$$\mathbf\chi^2$$</code> test. If you remember from your Biometry class, the <code>$$\mathbf\chi^2$$</code> distribution is one that characterizes the differences between an observed and an expected value. Under CSR, we can estimate the expected values based on a Poisson distribution with a uniform (i.e., not varying in space) rate (i.e. <code>$$\lambda$$</code>). We won&rsquo;t generate the expected values here, rather we&rsquo;ll use the <code>spatstat::quadrat.test</code> function to do that for us.</p>
+<pre><code class="language-r">quadrat.test(Q.csr)
+</code></pre>
+<pre><code>## Warning: Some expected counts are small; chi^2 approximation may be inaccurate
+</code></pre>
+<pre><code>## 
+## 	Chi-squared test of CSR using quadrat counts
+## 
+## data:  
+## X2 = 23, df = 24, p-value = 0.9604
+## alternative hypothesis: two.sided
+## 
+## Quadrats: 5 by 5 grid of tiles
+</code></pre>
+<pre><code class="language-r">quadrat.test(Q.ihpp)
+</code></pre>
+<pre><code>## Warning: Some expected counts are small; chi^2 approximation may be inaccurate
+</code></pre>
+<pre><code>## 
+## 	Chi-squared test of CSR using quadrat counts
+## 
+## data:  
+## X2 = 45.154, df = 24, p-value = 0.01117
+## alternative hypothesis: two.sided
+## 
+## Quadrats: 5 by 5 grid of tiles
+</code></pre>
+<p>The brief output of these functions provides the <code>$$\mathbf\chi^2$$</code> test statistic, the number of degrees of freedom (here the number of cells - 1), and a p-value that describes the probability that the observed values differ from those expected under CSR. In this case, we can see that the test confirms what we expect. The data generated under the CSR assumptions (<code>csr</code>) result in a failure to reject the Null hypothesis (i.e., no difference between the observed and expected values) and the data generated under the Inhomogeneous point process (<code>ihpp</code>) result in a p-value consistent with rejecting the Null hypothesis.</p>
+<h3 id="the-importance-of-scale-in-detecting-deviations-from-csr">The importance of scale in detecting deviations from CSR</h3>
+<p>You&rsquo;ll notice in the above code that we set two parameters in the call to <code>quadrat</code> count: <code>nx</code> and <code>ny</code>. These two values specify the number of quadrats to create on the x and y axes. Larger values result in smaller quadrats (and vice versa). If we follow the lead of ecologists and define scale as the <em>grain</em> (the area covered by the smallest observation) and <em>extent</em> (the total area under consideration), then we can see that changing <code>nx</code> and <code>ny</code> also changes the <em>grain</em> and the scale of the analysis. You&rsquo;ll explore this more in this week&rsquo;s homework. We&rsquo;ll explore other tests for CSR next week when we dive into point process models a bit more. The point to take away from all of this is that at different scales, processes that are not random may appear that way just because of the way we&rsquo;ve structured our analysis. We&rsquo;ll illustrate that point a second (and probably more common to you) way.</p>
+<h2 id="scale-and-regression-models">Scale and regression models</h2>
+<p>We talked a bit about how spatial autocorrelation in the residuals of a regression model can be a problem for interpreting covariate effects. We&rsquo;ll talk more about that in the next few weeks, but there&rsquo;s another challenge with using spatially derived data in regression modeling. Namely the decision about what to include and what not to. That is, if we have a continuously distributed predictor (contained in a raster) and some sample points, how do we decide what value to assign to those points when trying to fit a model that predicts our events? In practice, we do this using some sort of buffer, but the impact of the size of the buffer may not always be apparent!! Let&rsquo;s simulate some data to explore this.</p>
+<pre><code class="language-r">#make a blank raster
+X &lt;- raster(nrow=100, ncol=100, xmn=0, xmx=100) 
+values(X) &lt;- runif(raster::ncell(X),-2,2)
+
+#generate random points with X
+sample.cells &lt;- sampleRandom(X, size=70, sp=TRUE)
+plot(X)
+plot(sample.cells, pch=2 ,add=TRUE)
+</code></pre>
+<p><img src="/example/09-example_files/figure-html/simraster-1.png" width="672" /></p>
+<p>Here we&rsquo;ve generated a fake predictor surface (<code>X</code>) and then a number of sample points within that surface (<code>sample.cells</code>). Now let&rsquo;s simulate an outcome. Let&rsquo;s pretend we&rsquo;re interested in the presence or absence of a particular species whose habitat is entirely defined by <code>X</code>. Let&rsquo;s also assume that species makes their habitat selections based on a neighborhood of 5 map units. We&rsquo;ll simulate that now.</p>
+<pre><code class="language-r">#buffer the points to the species selection range
+sample.buf &lt;- as(sample.cells, &quot;sf&quot;) %&gt;% st_buffer(., 5)
+
+#extract the mean value
+X.buf &lt;- raster::extract(X, as(sample.buf, &quot;Spatial&quot;), fun=mean)
+
+#specify the outcome
+y &lt;- rbinom(length(X.buf), 1, plogis(1.2 * X.buf))
+</code></pre>
+<p>Here I&rsquo;ve just buffered the cells by the true distance (5), extracted the covariate values (<code>X.buf</code>), and generated binomial outcomes (presence/abscence) using <code>rbinom</code> where the probaability of occurence is equal to <code>$$1.2*X.buf$$</code>. The use of <code>plogis</code> is necessary to convert the linear predictor back to the probability scale (which is required by <code>rbinom</code>). We can check to see that this worked with a simple call to <code>glm</code></p>
+<pre><code class="language-r">mod.fit &lt;- glm(y ~ X.buf, family = binomial(link=&quot;logit&quot;))
+summary(mod.fit)
+</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = y ~ X.buf, family = binomial(link = &quot;logit&quot;))
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.0059  -0.9062   0.5211   0.8690   1.6295  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)   0.3755     0.2796   1.343 0.179246    
+## X.buf         0.8139     0.2367   3.438 0.000585 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 96.526  on 69  degrees of freedom
+## Residual deviance: 81.881  on 68  degrees of freedom
+## AIC: 85.881
+## 
+## Number of Fisher Scoring iterations: 4
+</code></pre>
+<p>Not too bad! The model estimates a value (1.3) relatively close to the one we specified, at least it&rsquo;s within less than a standard error. In the homework you&rsquo;ll use this approach to explore how buffer choices and sample size affect the ablity of the model to return the correct result.</p>
+
+                    </div>
+
+                    
+
+
+
+                    
+                    <div class="article-widget">
+                        
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/example/08-example/" rel="prev">Prettier maps in R and a first step towards interactivity</a>
+  </div>
+  
+</div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on Nov 10, 2021</p>
+
+                    
+
+
+
+
+
+                    
+
+
+
+                </div>
+
+            </article>
+
+            <footer>
+    <hr>
+
+    <div class="row course-info">
+        <div class="col-md-7">
+            <p>
+                <strong>HES 597: Spatial Data in R (Fall 2021)</strong><br>
+
+                <a href="https://www.boisestate.edu" target="_blank" rel="noopener">Boise State University</a> &emsp;&emsp;
+                <a href="https://www.boisestate.edu/hes/" target="_blank" rel="noopener">Human-Environment Systems</a>
+            </p>
+
+            <p>
+                <a href="https://www.boisestate.edu/hes/people/matt-williamson/" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Dr. Matt Williamson</a> &emsp;&emsp;
+                <a href="mailto:mattwilliamson@boisestate.edu"><i class="fas fa-envelope"></i>
+                    mattwilliamson@boisestate.edu</a>
+            </p>
+
+            <p>
+                <i class="far fa-calendar-alt"></i> T TH &emsp;&emsp;
+                <i class="far fa-clock"></i> 10:30 - 11:45 
+                <br><i class="fas fa-university"></i> Albertson&#39;s Library Rm201C
+            </p>
+        </div>
+
+        <div class="col-md-5 credits">
+            <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+            
+            <p>Content <i class="fab fa-creative-commons"></i> 2021 <a href="https://www.boisestate.edu/hes/people/matt-williamson/" target="_blank" rel="noopener">Matt Williamson</a></p>
+        
+            <p>This site was inspired by Andrew Heiss' <a href="https://datavizs21.classes.andrewheiss.com/" target="_blank" rel="noopener">Data Visualization course</a> created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
+            
+            <p><a href="https://github.com/mattwilliamson13/isdrfall21" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
+        </div>
+    </div>
+</footer>
+
+        </main>
+    </div>
+</div>
+
+        
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/en/js/wowchemy.min.99ddacf76b31e04b589f8ff7e550cbb8.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+    
+    
+
+    
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
