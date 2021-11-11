@@ -834,6 +834,10 @@ library(spdep)
 </code></pre>
 <pre><code>## Loading required package: spData
 </code></pre>
+<pre><code>## To access larger datasets in this package, install the spDataLarge
+## package with: `install.packages('spDataLarge',
+## repos='https://nowosad.github.io/drat/', type='source')`
+</code></pre>
 <pre><code>## Loading required package: sf
 </code></pre>
 <pre><code>## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
@@ -844,7 +848,7 @@ library(spdep)
 </code></pre>
 <pre><code>## Loading required package: spatstat.geom
 </code></pre>
-<pre><code>## spatstat.geom 2.2-0
+<pre><code>## spatstat.geom 2.3-0
 </code></pre>
 <pre><code>## Loading required package: spatstat.core
 </code></pre>
@@ -852,14 +856,14 @@ library(spdep)
 </code></pre>
 <pre><code>## Loading required package: rpart
 </code></pre>
-<pre><code>## spatstat.core 2.2-0
+<pre><code>## spatstat.core 2.3-1
 </code></pre>
 <pre><code>## Loading required package: spatstat.linnet
 </code></pre>
-<pre><code>## spatstat.linnet 2.1-1
+<pre><code>## spatstat.linnet 2.3-0
 </code></pre>
 <pre><code>## 
-## spatstat 2.1-0       (nickname: 'Comedic violence') 
+## spatstat 2.2-0       (nickname: 'That's not important right now') 
 ## For an introduction to spatstat, type 'beginner'
 </code></pre>
 <pre><code class="language-r">library(raster)
@@ -870,6 +874,10 @@ library(spdep)
 <pre><code>## The following object is masked from 'package:nlme':
 ## 
 ##     getData
+</code></pre>
+<pre><code>## The following objects are masked from 'package:spatstat.geom':
+## 
+##     area, rotate, shift
 </code></pre>
 <p>The <code>spdep</code> and <code>spatstat</code> packages provide an array of functionality for analyzing complex spatial patterns and fitting spatial models to data. We won&rsquo;t take full advantage of all that these packages offer, but you can use <code>spatstat::vignette('getstart')</code> to learn a little more about what&rsquo;s available. The <code>spdep</code> package is an older package that relies on two new object classes, <code>ppp</code> and <code>owin</code>. These objects can be coerced from <code>sp</code>-style objects, but not <code>sf</code>. We&rsquo;ll explore the package a little more as we go, but for now just know that <code>ppp</code> objects refer to (Poisson) point process objects (i.e., they contain points) and <code>owin</code> refers to the &ldquo;observation window&rdquo; that defines the analysis (for polygons).</p>
 <h3 id="simulate-some-data">Simulate some data</h3>
@@ -897,7 +905,7 @@ plot(Q.csr, main =&quot;Quadrat counts for CSR&quot;)
 ## 	Chi-squared test of CSR using quadrat counts
 ## 
 ## data:  
-## X2 = 23, df = 24, p-value = 0.9604
+## X2 = 24, df = 24, p-value = 0.9232
 ## alternative hypothesis: two.sided
 ## 
 ## Quadrats: 5 by 5 grid of tiles
@@ -910,7 +918,7 @@ plot(Q.csr, main =&quot;Quadrat counts for CSR&quot;)
 ## 	Chi-squared test of CSR using quadrat counts
 ## 
 ## data:  
-## X2 = 45.154, df = 24, p-value = 0.01117
+## X2 = 34.368, df = 24, p-value = 0.1567
 ## alternative hypothesis: two.sided
 ## 
 ## Quadrats: 5 by 5 grid of tiles
@@ -950,20 +958,20 @@ summary(mod.fit)
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -2.0059  -0.9062   0.5211   0.8690   1.6295  
+## -1.6813  -0.7936  -0.4875   0.8105   1.9823  
 ## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)   0.3755     0.2796   1.343 0.179246    
-## X.buf         0.8139     0.2367   3.438 0.000585 ***
+## (Intercept)  -0.3309     0.2853  -1.160    0.246    
+## X.buf         1.0341     0.2601   3.976    7e-05 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 96.526  on 69  degrees of freedom
-## Residual deviance: 81.881  on 68  degrees of freedom
-## AIC: 85.881
+##     Null deviance: 94.973  on 69  degrees of freedom
+## Residual deviance: 74.462  on 68  degrees of freedom
+## AIC: 78.462
 ## 
 ## Number of Fisher Scoring iterations: 4
 </code></pre>
