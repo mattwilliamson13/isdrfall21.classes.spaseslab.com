@@ -905,7 +905,7 @@ plot(Q.csr, main =&quot;Quadrat counts for CSR&quot;)
 ## 	Chi-squared test of CSR using quadrat counts
 ## 
 ## data:  
-## X2 = 24, df = 24, p-value = 0.9232
+## X2 = 2880, df = 24, p-value &lt; 2.2e-16
 ## alternative hypothesis: two.sided
 ## 
 ## Quadrats: 5 by 5 grid of tiles
@@ -918,7 +918,7 @@ plot(Q.csr, main =&quot;Quadrat counts for CSR&quot;)
 ## 	Chi-squared test of CSR using quadrat counts
 ## 
 ## data:  
-## X2 = 34.368, df = 24, p-value = 0.1567
+## X2 = 61.667, df = 24, p-value = 7.404e-05
 ## alternative hypothesis: two.sided
 ## 
 ## Quadrats: 5 by 5 grid of tiles
@@ -930,7 +930,7 @@ plot(Q.csr, main =&quot;Quadrat counts for CSR&quot;)
 <p>We talked a bit about how spatial autocorrelation in the residuals of a regression model can be a problem for interpreting covariate effects. We&rsquo;ll talk more about that in the next few weeks, but there&rsquo;s another challenge with using spatially derived data in regression modeling. Namely the decision about what to include and what not to. That is, if we have a continuously distributed predictor (contained in a raster) and some sample points, how do we decide what value to assign to those points when trying to fit a model that predicts our events? In practice, we do this using some sort of buffer, but the impact of the size of the buffer may not always be apparent!! Let&rsquo;s simulate some data to explore this.</p>
 <pre><code class="language-r">#make a blank raster
 X &lt;- raster(nrow=100, ncol=100, xmn=0, xmx=100) 
-values(X) &lt;- runif(raster::ncell(X),-2,2)
+values(X) &lt;- rnorm(raster::ncell(X),0,1.5)
 
 #generate random points with X
 sample.cells &lt;- sampleRandom(X, size=70, sp=TRUE)
@@ -958,22 +958,22 @@ summary(mod.fit)
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -1.6813  -0.7936  -0.4875   0.8105   1.9823  
+## -1.7330  -1.0272  -0.4666   1.0893   1.9207  
 ## 
 ## Coefficients:
-##             Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)  -0.3309     0.2853  -1.160    0.246    
-## X.buf         1.0341     0.2601   3.976    7e-05 ***
+##             Estimate Std. Error z value Pr(&gt;|z|)   
+## (Intercept) -0.01243    0.26108  -0.048  0.96202   
+## X.buf        0.64926    0.21215   3.060  0.00221 **
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 94.973  on 69  degrees of freedom
-## Residual deviance: 74.462  on 68  degrees of freedom
-## AIC: 78.462
+##     Null deviance: 96.983  on 69  degrees of freedom
+## Residual deviance: 84.863  on 68  degrees of freedom
+## AIC: 88.863
 ## 
-## Number of Fisher Scoring iterations: 4
+## Number of Fisher Scoring iterations: 3
 </code></pre>
 <p>Not too bad! The model estimates a value (1.3) relatively close to the one we specified, at least it&rsquo;s within less than a standard error. In the homework you&rsquo;ll use this approach to explore how buffer choices and sample size affect the ablity of the model to return the correct result.</p>
 
