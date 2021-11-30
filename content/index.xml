@@ -5,12 +5,107 @@
     <link>http://isdrfall21.classes.spaseslab.com/content/</link>
       <atom:link href="http://isdrfall21.classes.spaseslab.com/content/index.xml" rel="self" type="application/rss+xml" />
     <description>Readings and lectures</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 15 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 30 Nov 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png</url>
       <title>Readings and lectures</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/</link>
     </image>
+    
+    <item>
+      <title>Modelling the probability of occurrence in space</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/14-content/</link>
+      <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/14-content/</guid>
+      <description>&lt;p&gt;Much of the motivation for this course stems from the need to develop spatially explicit predictions about the likelihood that a species or event occurs in places we haven’t sampled. In ecology, we call these models by several different names: species distribution models, resource selection functions, habitat selection models. More generally we might call these ‘event occurrence models,’ statistical models that describe the relations between a number of predictors and the occurrence of any event of interest (e.g., presence of crimes, species, conservation actions, etc. )&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://onlinelibrary.wiley.com/doi/10.1111/j.1553-2712.2011.01185.x&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Logistic regression: a brief primer&lt;/a&gt; by (Stoltzfus 2011) is a nice introduction to logistic regression.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12352&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Point process models for presence-only analysis&lt;/a&gt; by (Renner et al. 2015) provides a comprehensive overview and comparision of methods for analyzing presence-background datasets.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B2248%3AESORWD%5D2.0.CO%3B2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Estimating site occupancy rates when detection probabilities are less than one&lt;/a&gt; by (MacKenzie et al. 2002) is one of the foundational papers describing the use of occupancy modelling to account for situations where absences are ambiguous.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://onlinelibrary.wiley.com/doi/full/10.1111/geb.12268&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Is my species distribution model fit for purpose? Matching data and models to applications&lt;/a&gt; by (Guillera-Arroita et al. 2015) is an excellent, concise description of the relations between data collection, statistical models, and inference.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://onlinelibrary.wiley.com/doi/full/10.1111/ele.12189&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Predicting species distributions for conservation decisions&lt;/a&gt; by (Guisan et al. 2013) is a foundational paper describing some of the challenges with making conservation decisions based on the outcomes of species distribution models.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/14-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/14-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;modelling-the-probability-of-occurrence-in-space-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#modelling-the-probability-of-occurrence-in-space&#34; role=&#34;tab&#34; aria-controls=&#34;modelling-the-probability-of-occurrence-in-space&#34; aria-selected=&#34;true&#34;&gt;Modelling the probability of occurrence in space&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;motivations-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#motivations&#34; role=&#34;tab&#34; aria-controls=&#34;motivations&#34; aria-selected=&#34;false&#34;&gt;Motivations&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;presence-absence-data-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#presence-absence-data&#34; role=&#34;tab&#34; aria-controls=&#34;presence-absence-data&#34; aria-selected=&#34;false&#34;&gt;Presence absence data&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;presence-background-data-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#presence-background-data&#34; role=&#34;tab&#34; aria-controls=&#34;presence-background-data&#34; aria-selected=&#34;false&#34;&gt;Presence background data&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;imperfect-detection-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#imperfect-detection&#34; role=&#34;tab&#34; aria-controls=&#34;imperfect-detection&#34; aria-selected=&#34;false&#34;&gt;Imperfect detection&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;modelling-the-probability-of-occurrence-in-space&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;modelling-the-probability-of-occurrence-in-space-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/14-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;motivations&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;motivations-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/14-slides.html#motivations&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;presence-absence-data&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;presence-absence-data-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/14-slides.html#logistic&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;presence-background-data&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;presence-background-data-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/14-slides.html#maxent&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;imperfect-detection&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;imperfect-detection-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/14-slides.html#occupancy&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-Guillera-Arroita2015&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Guillera-Arroita, G., J. J. Lahoz-Monfort, J. Elith, A. Gordon, H. Kujala, P. E. Lentini, M. A. McCarthy, R. Tingley, and B. A. Wintle. 2015. Is my species distribution model fit for purpose? Matching data and models to applications. Glob. Ecol. Biogeogr. 24:276–292.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-Guisan2013&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Guisan, A., R. Tingley, J. B. Baumgartner, I. Naujokaitis-Lewis, P. R. Sutcliffe, A. I. T. Tulloch, T. J. Regan, L. Brotons, E. McDonald-Madden, C. Mantyka-Pringle, T. G. Martin, J. R. Rhodes, R. Maggini, S. A. Setterfield, J. Elith, M. W. Schwartz, B. A. Wintle, O. Broennimann, M. Austin, S. Ferrier, M. R. Kearney, H. P. Possingham, and Y. M. Buckley. 2013. Predicting species distributions for conservation decisions. Ecol. Lett. 16:1424–1435.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-MacKenzie2002&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;MacKenzie, D. I., J. D. Nichols, G. B. Lachman, S. Droege, J. Andrew Royle, and C. A. Langtimm. 2002. Estimating site occupancy rates when detection probabilities are less than one. Ecology 83:2248–2255.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-Renner2015&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Renner, I. W., J. Elith, A. Baddeley, W. Fithian, T. Hastie, S. J. Phillips, G. Popovic, and D. I. Warton. 2015. Point process models for presence‐only analysis. Methods Ecol. Evol. 6:366–379.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-Stoltzfus2011&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Stoltzfus, J. C. 2011. Logistic regression: A brief primer. Acad. Emerg. Med. 18:1099–1104.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Introduction to point pattern analysis</title>
@@ -27,7 +122,7 @@
 &lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://link.springer.com/article/10.1007/s10182-017-0301-8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Improving the usability of spatial point process methodology: an interdisciplinary dialogue between statistics and ecology&lt;/a&gt; by Janine Illian (a major contributor to modern point pattern analyses) and David Burslem (a Scottish plant ecologist) (Illian and Burslem 2017) is a fairly modern take on the challenges associated with point process modeling in ecology.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://mgimond.github.io/Spatial/chp11_0.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chapter 11: Point Pattern Analysis&lt;/a&gt; inManuel Gimond’s Introduction to GIS and Spatial Analysis &lt;code&gt;bookdown&lt;/code&gt; project provides a nice (and free) introduction to some of these introductory point process methods.&lt;/p&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://mgimond.github.io/Spatial/chp11_0.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chapter 11: Point Pattern Analysis&lt;/a&gt; in Manuel Gimond’s Introduction to GIS and Spatial Analysis &lt;code&gt;bookdown&lt;/code&gt; project provides a nice (and free) introduction to some of these introductory point process methods.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
