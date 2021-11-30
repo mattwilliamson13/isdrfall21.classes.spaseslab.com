@@ -5,7 +5,7 @@
     <link>http://isdrfall21.classes.spaseslab.com/content/</link>
       <atom:link href="http://isdrfall21.classes.spaseslab.com/content/index.xml" rel="self" type="application/rss+xml" />
     <description>Readings and lectures</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 30 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 29 Nov 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png</url>
       <title>Readings and lectures</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Modelling the probability of occurrence in space</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/14-content/</link>
-      <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 29 Nov 2021 00:00:00 +0000</pubDate>
       <guid>http://isdrfall21.classes.spaseslab.com/content/14-content/</guid>
       <description>&lt;p&gt;Much of the motivation for this course stems from the need to develop spatially explicit predictions about the likelihood that a species or event occurs in places we haven’t sampled. In ecology, we call these models by several different names: species distribution models, resource selection functions, habitat selection models. More generally we might call these ‘event occurrence models,’ statistical models that describe the relations between a number of predictors and the occurrence of any event of interest (e.g., presence of crimes, species, conservation actions, etc. )&lt;/p&gt;
 &lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
