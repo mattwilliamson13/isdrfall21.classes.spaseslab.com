@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Matt Williamosn" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="For many of us, the primary reason for learning to use R as a GIS is the ability to integrate spatial operations into statistical analysis workflows. Event distribution models provide a means of understanding how spatial predictors correlate with the presence of particular phenomena." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/example/11-example/" />
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#0033A0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.6de7d9d991ec63060e206f02cf589456.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/example/11-example/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+    <meta property="twitter:site" content="@MwilliamsonMatt" />
+    <meta property="twitter:creator" content="@MwilliamsonMatt" />
+  
+  <meta property="og:site_name" content="Spatial Data in R" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/example/11-example/" />
+  <meta property="og:title" content="Event Distribution Modeling in R | Spatial Data in R" />
+  <meta property="og:description" content="For many of us, the primary reason for learning to use R as a GIS is the ability to integrate spatial operations into statistical analysis workflows. Event distribution models provide a means of understanding how spatial predictors correlate with the presence of particular phenomena." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+    
+  
+
+  
+
+
+
+  
+
+  
+
+  <link rel="stylesheet" type="text/css" href="/custom-css/print.css" media="print" />
+
+  <link rel="shortcut icon" href="http://isdrfall21.classes.spaseslab.com/iSDR_logo.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo152x152.png" />
+  <link rel="icon" type="image/png" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="http://isdrfall21.classes.spaseslab.com/img/iSDR_logo16x16.png" sizes="16x16" />
+  <meta name="application-name" content="HES 597: Spatial Data in R" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
+
+
+  <title>Event Distribution Modeling in R | Spatial Data in R</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Spatial Data in R</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Spatial Data in R</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/syllabus/"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/schedule/"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/content/"><span>Content</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/example/"><span>Examples</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/assignment/"><span>Assignments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/resource/"><span>Resources</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://ecostatsbsu.slack.com/archives/CV4DEJ8M7" target="_blank" rel="noopener"><span><i class="fab fa-slack"></i></span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+            
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="https://rstudio.boisestate.edu/" target="_blank" rel="noopener"><span><i class="fab fa-r-project"></i></span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+
+      
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+    
+
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+    
+  
+
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/example/">Overview</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/example/">Code examples</a>
+      </li>
+
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/example/01-example/">Examples</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/example/01-example/">1: Introduction to course resources, Rmarkdown, and data in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/02-example/">2: Getting your spatial data into R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/03-example/">3: Points, lines, and polygons in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/04-example/">4: Rasters in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/05-example/">5: Spatial databases in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/06-example/">6: Combining raster and vector data</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/07-example/">7: Static maps in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/08-example/">8: Better maps in R</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/09-example/">9: Scale and autocorrelation</a>
+      </li>
+
+      
+      <li >
+        <a href="/example/10-example/">10: Point patterns</a>
+      </li>
+
+      
+      <li class="active">
+        <a href="/example/11-example/">11: Distribution models</a>
+      </li>
+
+      
+    </ul>
+    
+
+  </div>
+  
+  
+</nav>
+        </div>
+
+        
+        <div class="d-none d-xl-block col-xl-2 docs-toc">
+            <ul class="nav toc-top">
+                <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+            </ul>
+
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#loading-our-packages">Loading our packages</a></li>
+    <li><a href="#loading-the-data">Loading the data</a></li>
+    <li><a href="#build-our-dataframe-for-modeling">Build our dataframe for modeling</a></li>
+    <li><a href="#logistic-regression">Logistic Regression</a></li>
+    <li><a href="#fitting-a-randomforest-model">Fitting a RandomForest model</a></li>
+    <li><a href="#maxent">MaxEnt</a></li>
+    <li><a href="#final-thoughts">Final thoughts</a></li>
+  </ul>
+</nav>
+
+            
+        </div>
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>Event Distribution Modeling in R</h1>
+
+                    
+
+                    
+
+                    
+
+                    <div class="article-style">
+                        <p>For many of us, the primary reason for learning to use <code>R</code> as a GIS is the ability to integrate spatial operations into statistical analysis workflows. Event distribution models provide a means of understanding how spatial predictors correlate with the presence of particular phenomena. These approaches range in complexity from logistic regression to statistical learning methods like support vector machines and random forests. We&rsquo;ll explore how to run a few of these in <code>R</code>.</p>
+<h2 id="loading-our-packages">Loading our packages</h2>
+<p>We can fit simple logistic regressions with the <code>glm</code> function in the <code>stats</code> package that comes bundled with base <code>R</code>, but to fit some of the more complicated models, we&rsquo;ll rely on the <code>dismo</code> package which we&rsquo;ve not used up to this point. The <code>dismo</code> package works with <code>Raster*</code> objects (not <code>SpatRaster</code> objects) so we&rsquo;ll be using the <code>raster</code> package today rather than the <code>terra</code> package. You&rsquo;ll want to make sure that you start with a new session so that the <code>raster</code> and <code>terra</code> functions don&rsquo;t conflict. Let&rsquo;s load them along with several of the other <code>Spatial*</code> packages here.</p>
+<pre><code class="language-r">library(raster)
+</code></pre>
+<pre><code>## Loading required package: sp
+</code></pre>
+<pre><code class="language-r">library(dismo)
+library(sp)
+library(rgdal) 
+</code></pre>
+<pre><code>## rgdal: version: 1.5-23, (SVN revision 1121)
+## Geospatial Data Abstraction Library extensions to R successfully loaded
+## Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
+## Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rgdal/gdal
+## GDAL binary built with GEOS: TRUE 
+## Loaded PROJ runtime: Rel. 7.2.1, January 1st, 2021, [PJ_VERSION: 721]
+## Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rgdal/proj
+## PROJ CDN enabled: FALSE
+## Linking to sp version:1.4-5
+## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.
+## Overwritten PROJ_LIB was /Library/Frameworks/R.framework/Versions/4.1/Resources/library/rgdal/proj
+</code></pre>
+<pre><code class="language-r">library(rgeos)
+</code></pre>
+<pre><code>## rgeos version: 0.5-8, (SVN revision 679)
+##  GEOS runtime version: 3.8.1-CAPI-1.13.3 
+##  Please note that rgeos will be retired by the end of 2023,
+## plan transition to sf functions using GEOS at your earliest convenience.
+##  Linking to sp version: 1.4-5 
+##  Polygon checking: TRUE
+</code></pre>
+<pre><code class="language-r">library(pander)
+library(randomForest)
+</code></pre>
+<pre><code>## randomForest 4.6-14
+</code></pre>
+<pre><code>## Type rfNews() to see new features/changes/bug fixes.
+</code></pre>
+<h2 id="loading-the-data">Loading the data</h2>
+<p>I&rsquo;ve saved a presence/absence dataset that I created along with a number of bioclimatic predictors to our shared folder. I&rsquo;ll load those here using my local path. Remember, you&rsquo;ll need to change this to match the path of our shared folder.</p>
+<pre><code class="language-r">base.path &lt;- &quot;/Users/matthewwilliamson/Downloads/session28/&quot; #sets the path to the root directory
+
+pres.abs &lt;- readOGR(paste0(base.path, &quot;presenceabsence.shp&quot;)) #read the points with presence absence data
+</code></pre>
+<pre><code>## OGR data source with driver: ESRI Shapefile 
+## Source: &quot;/Users/matthewwilliamson/Downloads/session28/presenceabsence.shp&quot;, layer: &quot;presenceabsence&quot;
+## with 100 features
+## It has 1 fields
+</code></pre>
+<pre><code class="language-r">pred.files &lt;- list.files(base.path,pattern='grd$', full.names=TRUE) #get the bioclim data
+
+pred.stack &lt;- stack(pred.files) #read into a RasterStack
+</code></pre>
+<p>I used the <code>base.path</code> object as a means of streamlining all of the path name changes that are necessary because I&rsquo;m toggling between computers. You&rsquo;ll also need to change this to match the shared folder on the server. The other commands should be familiar to you as they are the <code>rgdal</code> and <code>raster</code> versions for reading in shapefiles and rasters, respectively.</p>
+<p>Let&rsquo;s take a look at the data. First, the bioclimatic data (you can learn more about these by looking at the <code>dismo</code> package).
+<img src="/example/11-example_files/figure-html/pstack-1.png" width="672" /></p>
+<p>Now let&rsquo;s look at the points. The <code>y</code> column has the presence (1) or absence (0) information.</p>
+<pre><code class="language-r">plot(pred.stack[[1]])
+pres.pts &lt;- pres.abs[pres.abs@data$y == 1,]
+abs.pts &lt;- pres.abs[pres.abs@data$y == 0,]
+plot(pres.pts, add=TRUE, pch=3, col=&quot;blue&quot;)
+plot(abs.pts, add=TRUE, pch =&quot;-&quot;, col=&quot;red&quot;)
+</code></pre>
+<p><img src="/example/11-example_files/figure-html/ppoints-1.png" width="672" /></p>
+<p>Here I&rsquo;ve used the <code>+</code> and <code>-</code> to indicate where the presences and absences are located with respect to the first bioclimatic predictor.</p>
+<h2 id="build-our-dataframe-for-modeling">Build our dataframe for modeling</h2>
+<p>We&rsquo;ll extract the various pixel values for each point and build a dataframe for analysis. Then we&rsquo;ll scale and center the predictors (meaning we subtract each value by the mean and then divide by the standard deviation) in order to get everything on a similar numeric range and provide a consistent means of interpretation across the different predictors.</p>
+<pre><code class="language-r">pts.df &lt;- extract(pred.stack, pres.abs, df=TRUE)
+#Now let's scale the predictors
+pts.df[,2:7] &lt;- scale(pts.df[,2:7]) #here we use the brackets to make sure that don't scale the ID column
+pts.df &lt;- cbind(pts.df, pres.abs@data$y)
+colnames(pts.df)[8] &lt;- &quot;y&quot; #change the 8th column to be something a little more sensible
+</code></pre>
+<p>We can double check that our scaling worked by making sure that the means of the scaled variables are equal to zero.</p>
+<pre><code class="language-r">summary(pts.df)
+</code></pre>
+<pre><code>##        ID              bio1             bio12             bio16        
+##  Min.   :  1.00   Min.   :-3.3729   Min.   :-1.3377   Min.   :-1.6926  
+##  1st Qu.: 25.75   1st Qu.:-0.4594   1st Qu.:-0.7980   1st Qu.:-0.6895  
+##  Median : 50.50   Median : 0.2282   Median :-0.2373   Median :-0.2224  
+##  Mean   : 50.50   Mean   : 0.0000   Mean   : 0.0000   Mean   : 0.0000  
+##  3rd Qu.: 75.25   3rd Qu.: 0.7118   3rd Qu.: 0.7140   3rd Qu.: 0.6508  
+##  Max.   :100.00   Max.   : 1.4285   Max.   : 2.4843   Max.   : 2.2713  
+##      bio17              bio5              bio6               y       
+##  Min.   :-1.0828   Min.   :-3.9919   Min.   :-2.7924   Min.   :0.00  
+##  1st Qu.:-0.7013   1st Qu.:-0.0598   1st Qu.:-0.5216   1st Qu.:0.00  
+##  Median :-0.3770   Median : 0.3582   Median : 0.2075   Median :0.00  
+##  Mean   : 0.0000   Mean   : 0.0000   Mean   : 0.0000   Mean   :0.32  
+##  3rd Qu.: 0.4290   3rd Qu.: 0.5495   3rd Qu.: 0.6450   3rd Qu.:1.00  
+##  Max.   : 3.1713   Max.   : 1.1092   Max.   : 2.0407   Max.   :1.00
+</code></pre>
+<p>We also might be interest in the correlations between the different predictors. We can inspect that visually with a <code>pairs</code> plot.</p>
+<pre><code class="language-r">pairs(pts.df[,2:7])
+</code></pre>
+<p><img src="/example/11-example_files/figure-html/pairs-1.png" width="672" />
+Based on a quick look it appears that bio12 and bio16 might be highly correlated, let&rsquo;s see if this affects our models</p>
+<h2 id="logistic-regression">Logistic Regression</h2>
+<p>We&rsquo;ve already fit a logistic regression before so I won&rsquo;t spend a ton of time on the syntax here. Two things are worth noting. First, the use of the <code>.</code> in the <code>logistic.global</code> call tells <code>R</code> to use all of the available predictors. Second, the <code>link=&quot;logit</code> statement tells <code>R</code> which link we want to use. This could be changed to <code>probit</code> or <code>cloglog</code>. We&rsquo;ll fit a global model and one that leaves the two correlated variables out.</p>
+<pre><code class="language-r">logistic.global &lt;- glm(y~., family=binomial(link=&quot;logit&quot;), data=pts.df[,2:8])
+logistic.reg1 &lt;- glm(y ~ bio1 + bio17+ bio5 + bio6, family = binomial(link=&quot;logit&quot;), data=pts.df )
+</code></pre>
+<p>If we look at the parameter estimates fro the global model, we&rsquo;ll notice two things. First, some of the values are very large. Remember, that these express the relations between the predictor and the log-odds of findiing a presence. Looking at bio12 we see that a 1-standard deviation change (because these are scaled and centered) corresponds to an odds ratio of 1268.1317077 which is a pretty extreme value. I generally am suspect of any regression coefficients that are larger than <code>\(|5|\)</code>. We&rsquo;ll talk more about model evaluation next week.</p>
+<p>Let&rsquo;s move on to RandomForests and see how that performs with our existing dataset.</p>
+<h2 id="fitting-a-randomforest-model">Fitting a RandomForest model</h2>
+<p>The syntax for <code>randomForest</code> models is a little different in that we need to specify the model structure AND tell randomForest which model to use (<code>rf1</code> is for regression, <code>rf2</code> is for classification). The regression models tend to perform better for presence/absence data even though we are technically interested in a classification problem. Check out the <code>tuneRF</code> function for more details on improving the fitting procedure.</p>
+<pre><code class="language-r">reg.model &lt;- y ~ bio1 + bio5 + bio6 +  bio12 + bio16 + bio17
+rf1 &lt;- randomForest(reg.model, data=pts.df)
+</code></pre>
+<pre><code>## Warning in randomForest.default(m, y, ...): The response has five or fewer
+## unique values. Are you sure you want to do regression?
+</code></pre>
+<pre><code class="language-r">class.model &lt;- factor(y) ~ bio1 + bio5 + bio6 +  bio12 + bio16 + bio17
+rf2 &lt;- randomForest(class.model, data=pts.df)
+</code></pre>
+<p>We can look at the importance of the different variables to see if they align with the conclusions we might draw from the logistic regression. Notice here that we are no longer asking about how the predictor affects the log odds of the outcome. Rather, we are asking how pure the resulting classification is when based on &lsquo;splits&rsquo; in our decision tree that use that variable. This allows us to tolerate a little more correlation in our predictors.</p>
+<pre><code class="language-r">varImpPlot(rf1)
+</code></pre>
+<p><img src="/example/11-example_files/figure-html/varimp-1.png" width="672" /></p>
+<h2 id="maxent">MaxEnt</h2>
+<p>The <code>dismo</code> package automates the generation of background points (for situations without absences) and can integrate them directly into a maxent model. You&rsquo;ll notice a few things about this syntax. First, it takes a <code>RasterStack</code> directly along with the <code>SpatialPointsDataFrame</code> making it realy easy to work with our initial data, but also means that our usual model formula structures don&rsquo;t work here. Second, the <code>nbg</code> argument tells <code>R</code> how many background points to generate with a default value of 10000.</p>
+<pre><code class="language-r">maxent()
+</code></pre>
+<pre><code>## Loading required namespace: rJava
+</code></pre>
+<pre><code>## This is MaxEnt version 3.4.3
+</code></pre>
+<pre><code class="language-r">max.fit &lt;- maxent(pred.stack, pres.pts, nbg=200)
+</code></pre>
+<pre><code>## Warning in .local(x, p, ...): number of background points is very low
+</code></pre>
+<pre><code>## Warning in .local(x, p, ...): only got:200random background point values; Small
+## exent? Or is there a layer with many NA values?
+</code></pre>
+<pre><code>## This is MaxEnt version 3.4.3
+</code></pre>
+<p>We get a few warnings here because I&rsquo;m using a small extent to make this relatively small. You could resample these rasters to a much finer resolution and be able to generate more points within the same extent. Or you could load the uncropped rasters directly from <code>dismo</code> when you&rsquo;re trying to experiment with background points in your assignment.</p>
+<p>Let&rsquo;s take a look at the results. These plots describe how much the variable contributes to the presence of our species (which is again different from the criteria we used in the previous models).</p>
+<pre><code class="language-r">plot(max.fit)
+</code></pre>
+<p><img src="/example/11-example_files/figure-html/pltme-1.png" width="672" /></p>
+<p>We can also look at how each variable affects the prediction of presence (this is similar to a marginal effects plot); however we allow for much more non-linear dynamics in how a predictor affects the outcome.</p>
+<pre><code class="language-r">response(max.fit)
+</code></pre>
+<p><img src="/example/11-example_files/figure-html/pltmeefects-1.png" width="672" /></p>
+<h2 id="final-thoughts">Final thoughts</h2>
+<p>By now, you hopefully have a sense for what it takes to fit these different types of models. We&rsquo;ll spend some time next week talking about how to decide whether these models are any good (hint: they&rsquo;re not).</p>
+
+                    </div>
+
+                    
+
+
+
+                    
+                    <div class="article-widget">
+                        
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/example/01-example/" rel="next">Introduction to course resources, Rmarkdown, and data in R</a>
+  </div>
+  
+  
+</div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on Jan 1, 0001</p>
+
+                    
+
+
+
+
+
+                    
+
+
+
+                </div>
+
+            </article>
+
+            <footer>
+    <hr>
+
+    <div class="row course-info">
+        <div class="col-md-7">
+            <p>
+                <strong>HES 597: Spatial Data in R (Fall 2021)</strong><br>
+
+                <a href="https://www.boisestate.edu" target="_blank" rel="noopener">Boise State University</a> &emsp;&emsp;
+                <a href="https://www.boisestate.edu/hes/" target="_blank" rel="noopener">Human-Environment Systems</a>
+            </p>
+
+            <p>
+                <a href="https://www.boisestate.edu/hes/people/matt-williamson/" target="_blank" rel="noopener"><i class="fas fa-user"></i>
+                    Dr. Matt Williamson</a> &emsp;&emsp;
+                <a href="mailto:mattwilliamson@boisestate.edu"><i class="fas fa-envelope"></i>
+                    mattwilliamson@boisestate.edu</a>
+            </p>
+
+            <p>
+                <i class="far fa-calendar-alt"></i> T TH &emsp;&emsp;
+                <i class="far fa-clock"></i> 10:30 - 11:45 
+                <br><i class="fas fa-university"></i> Albertson&#39;s Library Rm201C
+            </p>
+        </div>
+
+        <div class="col-md-5 credits">
+            <p>All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+            
+            <p>Content <i class="fab fa-creative-commons"></i> 2021 <a href="https://www.boisestate.edu/hes/people/matt-williamson/" target="_blank" rel="noopener">Matt Williamson</a></p>
+        
+            <p>This site was inspired by Andrew Heiss' <a href="https://datavizs21.classes.andrewheiss.com/" target="_blank" rel="noopener">Data Visualization course</a> created with the <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> in <a href="https://bookdown.org/yihui/blogdown/" target="_blank" rel="noopener">blogdown</a> and <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>. </p>
+            
+            <p><a href="https://github.com/mattwilliamson13/isdrfall21" target="_blank" rel="noopener"><i class="fab fa-github"></i> View the source at GitHub.</a></p>
+        </div>
+    </div>
+</footer>
+
+        </main>
+    </div>
+</div>
+
+        
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/en/js/wowchemy.min.99ddacf76b31e04b589f8ff7e550cbb8.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+    
+    
+
+    
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
