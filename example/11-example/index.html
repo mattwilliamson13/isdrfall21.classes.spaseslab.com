@@ -880,6 +880,7 @@ library(randomForest)
 <h2 id="loading-the-data">Loading the data</h2>
 <p>I&rsquo;ve saved a presence/absence dataset that I created along with a number of bioclimatic predictors to our shared folder. I&rsquo;ll load those here using my local path. Remember, you&rsquo;ll need to change this to match the path of our shared folder.</p>
 <pre><code class="language-r">base.path &lt;- &quot;/Users/matthewwilliamson/Downloads/session28/&quot; #sets the path to the root directory
+#base.path &lt;- &quot;/Users/mattwilliamson/Google Drive/My Drive/TEACHING/Intro_Spatial_Data_R/Data/session28/&quot; #sets the path to the root directory
 
 pres.abs &lt;- readOGR(paste0(base.path, &quot;presenceabsence.shp&quot;)) #read the points with presence absence data
 </code></pre>
