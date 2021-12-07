@@ -5,12 +5,86 @@
     <link>http://isdrfall21.classes.spaseslab.com/content/</link>
       <atom:link href="http://isdrfall21.classes.spaseslab.com/content/index.xml" rel="self" type="application/rss+xml" />
     <description>Readings and lectures</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 29 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 06 Dec 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png</url>
       <title>Readings and lectures</title>
       <link>http://isdrfall21.classes.spaseslab.com/content/</link>
     </image>
+    
+    <item>
+      <title>Evaluating Model Performance</title>
+      <link>http://isdrfall21.classes.spaseslab.com/content/15-content/</link>
+      <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/content/15-content/</guid>
+      <description>&lt;p&gt;We have reached the end of this introduction to the use of &lt;code&gt;R&lt;/code&gt; as a Geographic Information System. You have (hopefully) learned a bit about the nature of spatial data, how to manipulate and visualize spatial data, and finally, how to build predictive models based on spatial data. In this final lecture, we’ll look at how to evaluate whether the models we fit are up to the tasks we have for them. This is, necessarily, a brief introduction to a topic that could take an entire course; however, upon completion you should now be able to take a spatial analysis from start to finish without ever having to leave &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://www.cambridge.org/core/journals/environmental-conservation/article/review-of-methods-for-the-assessment-of-prediction-errors-in-conservation-presenceabsence-models/FFA0880CE3C3591A5906B83C04727F46&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;A review of methods for the assessment of prediction errors in conservation presence/absence models&lt;/a&gt; by (Fielding and Bell 1997) has an accessible overview for many of the model evaluation methods implemented in the &lt;code&gt;dismo&lt;/code&gt; package.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-book&#34;&gt;&lt;/i&gt; &lt;a href=&#34;https://hastie.su.domains/ISLR2/ISLRv2_website.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chapters 4 and 5&lt;/a&gt; in the second edition of &lt;em&gt;An Introduction to Statistical Learning&lt;/em&gt; by (James et al. 2021) provide excellent overviews of the general problem of classification and introductions to resampling-based techniques for assessing their fit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;i class=&#34;fas fa-external-link-square-alt&#34;&gt;&lt;/i&gt;&lt;a href=&#34;https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2664.13060&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Model selection using information criteria, but is the “best” model any good?&lt;/a&gt; by (Mac Nally et al. 2018) is an excellent reminder of the differences between a good model and the best of a group of bad models. A must-read for those hoping to use multi-model inference to learn something about their study system.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;slides&#34;&gt;Slides&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/15-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;http://isdrfall21.classes.spaseslab.com/slides/15-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;evaluating-model-performance-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#evaluating-model-performance&#34; role=&#34;tab&#34; aria-controls=&#34;evaluating-model-performance&#34; aria-selected=&#34;true&#34;&gt;Evaluating model performance&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;fit-and-prediction-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#fit-and-prediction&#34; role=&#34;tab&#34; aria-controls=&#34;fit-and-prediction&#34; aria-selected=&#34;false&#34;&gt;Fit and prediction&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;thresholdbased-techniques-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#thresholdbased-techniques&#34; role=&#34;tab&#34; aria-controls=&#34;thresholdbased-techniques&#34; aria-selected=&#34;false&#34;&gt;Threshold-based techniques&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;resamplingbased-techniques-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#resamplingbased-techniques&#34; role=&#34;tab&#34; aria-controls=&#34;resamplingbased-techniques&#34; aria-selected=&#34;false&#34;&gt;Resampling-based techniques&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;evaluating-model-performance&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;evaluating-model-performance-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/15-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fit-and-prediction&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;fit-and-prediction-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/15-slides.html#theory&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;thresholdbased-techniques&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;thresholdbased-techniques-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/15-slides.html#confusion&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resamplingbased-techniques&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;resamplingbased-techniques-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;http://isdrfall21.classes.spaseslab.com/slides/15-slides.html#bootstrap&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references csl-bib-body hanging-indent&#34; line-spacing=&#34;2&#34;&gt;
+&lt;div id=&#34;ref-Fielding1997&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Fielding, A. H., and J. F. Bell. 1997. A review of methods for the assessment of prediction errors in conservation presence/absence models. Environ. Conserv. 24:38–49.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-James2021&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;James, G., D. Witten, T. Hastie, and R. Tibshirani. 2021. Classification. Pages 129–195 An introduction to statistical learning: With applications in r. Springer US, New York, NY.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-Mac_Nally2018&#34; class=&#34;csl-entry&#34;&gt;
+&lt;p&gt;Mac Nally, R., R. P. Duncan, J. R. Thomson, and J. D. L. Yen. 2018. Model selection using information criteria, but is the “best” model any good? J. Appl. Ecol. 55:1441–1444.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Modelling the probability of occurrence in space</title>
