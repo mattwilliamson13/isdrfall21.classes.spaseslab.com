@@ -73,6 +73,39 @@ data &amp;lt;- lapply(csv.list, function (x) read.csv(x))
     </item>
     
     <item>
+      <title>Final Project: Analyze your data</title>
+      <link>http://isdrfall21.classes.spaseslab.com/assignment/03-finalproj/</link>
+      <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>http://isdrfall21.classes.spaseslab.com/assignment/03-finalproj/</guid>
+      <description>&lt;h2 id=&#34;reminder-of-the-class-project&#34;&gt;Reminder of the class project&lt;/h2&gt;
+&lt;p&gt;The mini-projects and final project are intended to give you the chance to practice the workflows and techniques that we cover in class in the context of a complete analysis. Because each of you are in different stages of collecting your own data and because confronting datasets that aren&amp;rsquo;t yours can help clarify important concepts and design elements, I&amp;rsquo;m asking you to develop an analysis of data that &lt;strong&gt;isn&amp;rsquo;t yours&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The goal here is to have you gain some experience finding spatial data, thinking about an interesting question where the geographic location is (at least partially) important in determining how we might think about the process that gives rise to the data, and developing an analysis and suite of visualizations that help you (and others) better understand that process.&lt;/p&gt;
+&lt;h2 id=&#34;final-project&#34;&gt;Final Project&lt;/h2&gt;
+&lt;p&gt;By now you&amp;rsquo;ve built a spatial database with a variety of predictors and visualized that data to start to develop some potential hypotheses about how the data relate to each other. The last step is to evaluate your &amp;lsquo;hypotheses&amp;rsquo; (using that term loosely because this is, hopefully, an area outside of your expertise) with a statistical model like the few we&amp;rsquo;ve looked at in the last portion of the class. For your final project, I want you to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Fit two different kinds of models (e.g. logistic regression and random forest; or, better yet, use the &lt;code&gt;dismo&lt;/code&gt; vignette and use some of the additional classifiers there; or, better still, read some of the Introduction to Statistical Learning book and use classification approaches described there).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For each model-type, fit a global model (i.e., a model that contains all of the predictors you&amp;rsquo;ve developed) and a reduced model (i.e., a model with only the handful of predictors you imagine to be important based on your visualizations). You should have a total of 4 different model objects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generate the confusion matrix and AUC for each model&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use k-fold cross-validation (see the vignettes for dismo and Intro to Statistical Learning) to evaluate the preictive accuracy of each model&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Plot the spatial predictions from the best model.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Submit a knit-able Rmarkdown document that resembles a publishable manuscript. You should have an Introduction that describes the question you are asking, why that interests you, and the hypothses you intend to evaluate (1-2 paragraphs, max). You don&amp;rsquo;t have to have an exhaustive literature search (or any citations at all, really) just set up the analysis you are hoping to do. You should have a methods section that describes your approach to manipulating the data (with code chunks) and justifies assumptions or modifications you made along the way. You should be able to put the plots of your results, AUC and confusion matrices, and Cross-validation results in a Results section. Finally, you should close with an interpretation of your results that includes some reflection on which model was the best for your question and why (2-3 paragraphs, max).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Mini-Project 1: Building a spatial database</title>
       <link>http://isdrfall21.classes.spaseslab.com/assignment/01-miniproj1/</link>
       <pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate>

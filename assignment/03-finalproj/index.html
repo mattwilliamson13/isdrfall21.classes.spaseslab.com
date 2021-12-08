@@ -36,7 +36,7 @@
   <meta name="description" content="Reminder of the class project The mini-projects and final project are intended to give you the chance to practice the workflows and techniques that we cover in class in the context of a complete analysis." />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/assignment/02-miniproj2/" />
+  <link rel="alternate" hreflang="en-us" href="http://isdrfall21.classes.spaseslab.com/assignment/03-finalproj/" />
 
   
 
@@ -291,7 +291,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_32x32_fill_lanczos_center_3.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hucbe598379047767cc1c1c9b182811605_98018_180x180_fill_lanczos_center_3.png" />
 
-  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/assignment/02-miniproj2/" />
+  <link rel="canonical" href="http://isdrfall21.classes.spaseslab.com/assignment/03-finalproj/" />
 
   
   
@@ -311,8 +311,8 @@
     <meta property="twitter:creator" content="@MwilliamsonMatt" />
   
   <meta property="og:site_name" content="Spatial Data in R" />
-  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/assignment/02-miniproj2/" />
-  <meta property="og:title" content="Mini-Project 2: Visualizing your data | Spatial Data in R" />
+  <meta property="og:url" content="http://isdrfall21.classes.spaseslab.com/assignment/03-finalproj/" />
+  <meta property="og:title" content="Final Project: Analyze your data | Spatial Data in R" />
   <meta property="og:description" content="Reminder of the class project The mini-projects and final project are intended to give you the chance to practice the workflows and techniques that we cover in class in the context of a complete analysis." /><meta property="og:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" />
     <meta property="twitter:image" content="http://isdrfall21.classes.spaseslab.com/media/icon_hucbe598379047767cc1c1c9b182811605_98018_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
   
@@ -349,7 +349,7 @@
   <meta name="msapplication-TileImage" content="http://isdrfall21.classes.spaseslab.com/img/mstile-144x144.png" />
 
 
-  <title>Mini-Project 2: Visualizing your data | Spatial Data in R</title>
+  <title>Final Project: Analyze your data | Spatial Data in R</title>
 </head>
 
 
@@ -747,12 +747,12 @@
       </li>
 
       
-      <li class="active">
+      <li >
         <a href="/assignment/02-miniproj2/">Mini-Project 2</a>
       </li>
 
       
-      <li >
+      <li class="active">
         <a href="/assignment/03-finalproj/">Final Project</a>
       </li>
 
@@ -780,7 +780,7 @@
             <nav id="TableOfContents">
   <ul>
     <li><a href="#reminder-of-the-class-project">Reminder of the class project</a></li>
-    <li><a href="#mini-project-2">Mini-project 2</a></li>
+    <li><a href="#final-project">Final Project</a></li>
   </ul>
 </nav>
 
@@ -793,11 +793,11 @@
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>Mini-Project 2: Visualizing your data</h1>
+                    <h1>Final Project: Analyze your data</h1>
 
                     
                     <div class="due-date p-2 mb-3 bg-assignment text-white">
-                        Due by <strong>11:59 PM</strong> on Friday, November 12, 2021
+                        Due by <strong>11:59 PM</strong> on Thursday, December 16, 2021
                     </div>
                     
 
@@ -809,20 +809,26 @@
                         <h2 id="reminder-of-the-class-project">Reminder of the class project</h2>
 <p>The mini-projects and final project are intended to give you the chance to practice the workflows and techniques that we cover in class in the context of a complete analysis. Because each of you are in different stages of collecting your own data and because confronting datasets that aren&rsquo;t yours can help clarify important concepts and design elements, I&rsquo;m asking you to develop an analysis of data that <strong>isn&rsquo;t yours</strong>.</p>
 <p>The goal here is to have you gain some experience finding spatial data, thinking about an interesting question where the geographic location is (at least partially) important in determining how we might think about the process that gives rise to the data, and developing an analysis and suite of visualizations that help you (and others) better understand that process.</p>
-<h2 id="mini-project-2">Mini-project 2</h2>
-<p>Now that you&rsquo;ve built a spatial database, it&rsquo;s time to start making some sense of it. One way to do that is by visualizing the data, either using maps or other types of plots. That&rsquo;s the goal of this assignment. Given your research question and &lsquo;hypotheses&rsquo; (I&rsquo;m using this term loosely because you are [hopefully] using data that you&rsquo;re not terribly familiar with), this project asks you to:</p>
+<h2 id="final-project">Final Project</h2>
+<p>By now you&rsquo;ve built a spatial database with a variety of predictors and visualized that data to start to develop some potential hypotheses about how the data relate to each other. The last step is to evaluate your &lsquo;hypotheses&rsquo; (using that term loosely because this is, hopefully, an area outside of your expertise) with a statistical model like the few we&rsquo;ve looked at in the last portion of the class. For your final project, I want you to:</p>
 <ul>
 <li>
-<p>Develop two static maps that display the relationship between your dependent variables and one or more of your predictor variables</p>
+<p>Fit two different kinds of models (e.g. logistic regression and random forest; or, better yet, use the <code>dismo</code> vignette and use some of the additional classifiers there; or, better still, read some of the Introduction to Statistical Learning book and use classification approaches described there).</p>
 </li>
 <li>
-<p>Develop one interactive map that allows you to explore potential correlations/relations between your <strong>predictor</strong> variables</p>
+<p>For each model-type, fit a global model (i.e., a model that contains all of the predictors you&rsquo;ve developed) and a reduced model (i.e., a model with only the handful of predictors you imagine to be important based on your visualizations). You should have a total of 4 different model objects.</p>
 </li>
 <li>
-<p>Develop two additional non-spatial visualizations that attempt to characterize the same relations without using a map</p>
+<p>Generate the confusion matrix and AUC for each model</p>
 </li>
 <li>
-<p>Submit a knittable Rmarkdown document that describes your research question and what you hope to learn from the visualizations you develop. Your document should also include reflections on the effectiveness of each visualization. How does mapping help or confuse relationships? How do interactive maps facilitate different kinds of explorations compared with static maps? How does what you&rsquo;ve learned about these different visualizations inform how you might approach planning an analysis and presenting the results? As always, your document should also include well-annotated code that allows me to reproduce the figures.</p>
+<p>Use k-fold cross-validation (see the vignettes for dismo and Intro to Statistical Learning) to evaluate the preictive accuracy of each model</p>
+</li>
+<li>
+<p>Plot the spatial predictions from the best model.</p>
+</li>
+<li>
+<p>Submit a knit-able Rmarkdown document that resembles a publishable manuscript. You should have an Introduction that describes the question you are asking, why that interests you, and the hypothses you intend to evaluate (1-2 paragraphs, max). You don&rsquo;t have to have an exhaustive literature search (or any citations at all, really) just set up the analysis you are hoping to do. You should have a methods section that describes your approach to manipulating the data (with code chunks) and justifies assumptions or modifications you made along the way. You should be able to put the plots of your results, AUC and confusion matrices, and Cross-validation results in a Results section. Finally, you should close with an interpretation of your results that includes some reflection on which model was the best for your question and why (2-3 paragraphs, max).</p>
 </li>
 </ul>
 
@@ -841,9 +847,15 @@
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="/assignment/01-miniproj1/" rel="next">Mini-Project 1: Building a spatial database</a>
+    <a href="/assignment/04-exercise/" rel="next">Introduction to class resources and data structures in R</a>
   </div>
   
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/assignment/01-miniproj1/" rel="prev">Mini-Project 1: Building a spatial database</a>
+  </div>
   
 </div>
 
